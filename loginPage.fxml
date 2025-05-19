@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<?import java.net.URL?>
+<StackPane fx:id="rootPane" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.the_knife.loginController">
+    <stylesheets>
+        <URL value="@style.css" />
+    </stylesheets>
+    <padding>
+        <Insets top="70" right="15" bottom="60" left="15"/>
+    </padding>
+    <VBox spacing="5" alignment="CENTER">
+        <HBox alignment="CENTER">
+            <padding>
+                <Insets top="20" right="15" bottom="20" left="15"/>
+            </padding>
+            <Label text="BENTORNATO" styleClass="title" alignment="CENTER"/>
+            <Region HBox.hgrow="ALWAYS"/> <!-- riempie gli spazi vuoti tra un oggetto e l'altro -->
+            <Button text="INDIETRO" onAction="#goToStartPage" alignment="CENTER_RIGHT" styleClass="menu-button"/>
+            <Button text="CHIUDI" onAction="#closeProgram" alignment="CENTER_RIGHT" styleClass="menu-button"/>
+        </HBox>
+        <!-- LOGIN -->
+        <VBox spacing="10" styleClass="form-box">
+            <Label text="Accedi" styleClass="title2"/>
+            <TextField fx:id="usernameField" promptText="Username" styleClass="rounded-textfield" maxWidth="500"/>
+            <PasswordField fx:id="passwordField" promptText="Password" styleClass="rounded-textfield" maxWidth="500"/>
+            <Button text="Accedi" defaultButton="true" onAction="#handleLogin" styleClass="accent-button"/>
+        </VBox>
+        <VBox spacing="10" styleClass="form-box">
+            <!-- REGISTER -->
+            <Label text="Registrati" styleClass="title2"/>
+            <TextField fx:id="userRegister" promptText="Inserisci l'username" styleClass="rounded-textfield" maxWidth="500"/>
+            <PasswordField fx:id="passRegister" promptText="Inserisci la password"  styleClass="rounded-textfield" maxWidth="500"/>
+            <TextField fx:id="nomeField" promptText="Inserisci il tuo nome" styleClass="rounded-textfield" maxWidth="500"/>
+            <TextField fx:id="cognomeField" promptText="Inserisci il tuo cognome" styleClass="rounded-textfield" maxWidth="500"/>
+            <DatePicker fx:id="dataNascita" promptText="dd/mm/aaaa" styleClass="date-picker" maxWidth="500"/>
+            <TextField fx:id="indirizzo" promptText="Inserisci il tuo indirizzo" styleClass="rounded-textfield" maxWidth="500"/>
+            <TextField fx:id="numTel" promptText="+39 0123456789" styleClass="rounded-textfield" maxWidth="500"/>
+
+            <HBox>
+                <fx:define>
+                    <ToggleGroup fx:id="ruoloToggleGroup"/>
+                </fx:define>
+                <RadioButton text="Ristoratore" toggleGroup="$ruoloToggleGroup" fx:id="rist" styleClass="rounded-textfield" selected="true" />
+                <RadioButton text="Cliente" toggleGroup="$ruoloToggleGroup" fx:id="cliente" styleClass="rounded-textfield"/>
+            </HBox>
+
+            <Button text="Registrati" defaultButton="true" onAction="#handleRegister" styleClass="accent-button"/>
+        </VBox>
+    </VBox>
+</StackPane>

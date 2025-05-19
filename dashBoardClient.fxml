@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.Integer?>
+<?import javafx.scene.image.ImageView?>
+<StackPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.the_knife.dashBoardClientController" >
+    <BorderPane xmlns:fx="http://javafx.com/fxml" styleClass="root">
+        <padding>
+            <Insets top="20" right="15" bottom="20" left="15"/>
+        </padding>
+        <top>
+            <HBox alignment="TOP_RIGHT" spacing="10">
+                <Button onAction="#onProfileClick" text="PROFILO" styleClass="menu-button"/>
+                <Button onAction="#handleLogOut" text="ESCI" styleClass="menu-button"/>
+                <Button text="CHIUDI" onAction="#closeProgram" styleClass="menu-button"/>
+            </HBox>
+        </top>
+
+        <center>
+            <VBox alignment="TOP_CENTER" spacing="10" styleClass="form-box">
+
+                <Label text="THE KNIFE" styleClass="welcome-subtitle"/>
+                <Label fx:id="welcomeLabel" styleClass="welcome-title"/>
+                <Label text="Cerca i migliori ristoranti nei tuoi dintorni" styleClass="textSearch" />
+                <HBox spacing="10" alignment="CENTER" styleClass="search-box">
+
+                    <TextField fx:id="locationSearch" alignment="CENTER_LEFT" promptText="Dove?" maxWidth="1000" maxHeight="200" styleClass="search-textField" ></TextField>
+                    <!-- <Region HBox.hgrow="ALWAYS"/> riempie gli spazi vuoti tra un oggetto e l'altro -->
+                    <!-- Filtri -->
+                    <ComboBox fx:id="filtri"  promptText="Persone"  styleClass="search-textField" maxHeight="200" maxWidth="900">
+
+                    </ComboBox>
+                    <!-- Bottone di ricerca -->
+                    <Button text="Cerca" defaultButton="true" onAction="#onSearchClicked" styleClass="accent-button" maxHeight="200" maxWidth="300"/>
+                </HBox>
+            </VBox>
+        </center>
+
+        <stylesheets>
+            <URL value="@style.css"/>
+        </stylesheets>
+    </BorderPane>
+</StackPane>
