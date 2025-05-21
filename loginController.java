@@ -1,29 +1,22 @@
 package com.example.the_knife;
 
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import javafx.fxml.FXML;
+import javafx.scene.control.*;
+
+import java.time.LocalDate;
+import org.mindrot.jbcrypt.BCrypt;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Scene;
-import javafx.scene.control.*;
-import javafx.stage.Stage;
-import org.mindrot.jbcrypt.BCrypt;
-
 import java.io.File;
-import java.io.IOException;
-import java.time.LocalDate;
+import java.util.List;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 
+public class loginController {
 
-public class loginController extends StartPageController {
-    //creo le variabili che mi servono per immagazzinare i dati che l'utente immette in input
     @FXML
     private TextField usernameField;
     @FXML
@@ -49,7 +42,7 @@ public class loginController extends StartPageController {
 
 
     @FXML
-    private void handleLogin(ActionEvent event) throws Exception {
+    private void handleLogin() throws Exception {
         //METODI CHE CHIAMO
 
         //DEFINIZIONE handleLogin
@@ -57,89 +50,118 @@ public class loginController extends StartPageController {
         String pass = passwordField.getText();
 
         Utente utente = new Utente();
-        utente= login(user,pass);//faccio la login con i dati inseriti
+        utente= login(user,pass);
 
-        //CREO LA SESSIONE
-
-        if(utente != null && utente.Ruolo.equals("Cliente")){
-            SessionManager.getInstance().login(user, 1, "cliente");
-            goTo(event,"dashBoardClient.fxml");//vado alla pagina del cliente
-        }else{
-            SessionManager.getInstance().login(user, 1, "ristoratore");
-            goTo(event,"dashBoardRist.fxml");//vado alla pagina del ristoratore
-        }
-
+        // TODO: handle login logic
     }
+
     @FXML
-    public void closeProgram(ActionEvent event) {
-        System.exit(0);
-    }
-    @FXML
-    public void handleRegister() {
+    private void handleRegister () throws TelefonoNonValidoException {
 
         //METODI CHE CHIAMO
-        handleRadio();
-        handleInput();
+        handleSubmit();
 
         //DEFINIZIONE handleRegister
         String newUser = userRegister.getText();
-        newUser = newUser.trim();//tolgo gli spazi esterni alla stinga inserita in input dall'utente
         String newPass = generaHash(passRegister.getText());
-        newPass = newPass.trim();
         String name = nomeField.getText();
-        name = name.trim();
         String cognome = cognomeField.getText();
-        cognome = cognome.trim();
         String numerotel = numTel.getText();
-        numerotel = numerotel.trim();
+        numerotel = numerotel.replaceAll("[\\s-]", "");//rimuove spazi e trattini
         String indirizzo = this.indirizzo.getText();
-        indirizzo = indirizzo.trim();
         LocalDate DataNascita = dataNascita.getValue();
         RadioButton ruolo = (RadioButton) this.ruoloToggleGroup.getSelectedToggle();
         String role = ruolo.getText();
 
+        // Controlla che l indirizzo contenga almeno una lettera e un numero
+        if (!indirizzo.matches(".*\\d.*") || !indirizzo.matches(".*[a-zA-Z].*")) {
+            throw new IllegalArgumentException("L'indirizzo deve contenere almeno una lettera e un numero.");
+        }
+        // Controlla che l indirizzo non contenga caratteri non validi
+        if (!indirizzo.matches("^[\\p{L}0-9.,'\\-\\s]+$")) {
+            throw new IllegalArgumentException("L'indirizzo contiene caratteri non validi.");
+        }
+        // Verifico che il numero inizi con + seguito da 1-4 cifre (prefisso internazionale),
+        // Poi abbia da 6 a 12 cifre, che possono essere separate da spazi o trattini.
+        // Non accetta caratteri diversi da spazi o trattini.
+        if (!numerotel.matches("^\\+\\d{1,4}\\d{6,12}$")) {
+            throw new TelefonoNonValidoException("Numero di telefono non valido. Deve iniziare con + seguito da prefisso e numero, e deve avere minimo 6 e massimo 12 cifre.");
+        }
+
+
         try {
-            Utente nuovo = new Utente(name,cognome,indirizzo,newUser,newPass,DataNascita,numerotel,role);
+            Utente nuovo = new Utente(name,cognome,indirizzo,newUser,newPass,DataNascita,numerotel,role,generaId(role,"fileUtenti.json"));
             aggiungiUtente(nuovo, "fileUtenti.json");
 
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        System.out.println(ruolo.getText());
+
+        // TODO: handle registration logic
         System.out.println("Registration successful");
         System.out.println("Riepilogo:");
         System.out.println("Username: "+newUser +"\nPassword: "+newPass+"\nNome: "+name+"\nCognome:" +cognome+"\nNumero di telefono: "+numerotel+"\nData di nascita: "+DataNascita+"\nIndirizzo: "+indirizzo);
-
-
     }
 
-    private void handleInput() {
-        //if(controllo che tutti gli input siano andati bene allora mando questo messaggio)
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Registrazione");
-        alert.setHeaderText("Ti sei registrato correttamente");
-        alert.setContentText("I tuoi dati sono stati salvati...");
-        alert.showAndWait();
-        //else mando un errore specifico su un tipo di input inserito dall'utente
-    }
     @FXML
-    private void handleRadio() {
+    private void handleSubmit() {
         RadioButton selected = (RadioButton) ruoloToggleGroup.getSelectedToggle(); //casto il ruolo dal toggle group che ho definito nel file fxml
         if (selected != null) {
             System.out.println("Ruolo selezionato: " + selected.getText());
         }
     }
-    @FXML
-    public void goToStartPage(ActionEvent event) throws IOException {
-        goTo(event,"startPage.fxml");
-    }
+
     // Metodo per convertire password in pawword cifrata
     public static String generaHash(String passwordNormal) {
         return BCrypt.hashpw(passwordNormal, BCrypt.gensalt());
     }
 
-    // Metodo per aggiungere un nuovo utente al file degli Utenti
+    public static int generaId(String ruolo, String fileJson) {
+
+        if(ruolo.equalsIgnoreCase("Cliente")){
+            return 0;
+        }
+
+        int count = 0;
+
+        try {
+            ObjectMapper mapper = new ObjectMapper();// Crea un'istanza di ObjectMapper
+            mapper.registerModule(new com.fasterxml.jackson.datatype.jsr310.JavaTimeModule());
+            File file = new File(fileJson);// Crea un oggetto File per rappresentare il file JSON passato come parametro
+
+            if (!file.exists()) {
+                System.out.println("File non trovato: " + file.getAbsolutePath());
+                return 0;
+            }
+
+            JsonNode root = mapper.readTree(file);// Legge l'intero contenuto del file come un albero JSON
+
+            List<Utente> listaModificabile = new ArrayList<>();// Prepara una lista modificabile di Utente (vuota per ora)
+
+            JsonNode utentiNode = root.get("Utenti"); // Recupera il nodo "Utenti" dall'albero JSON
+
+            if (utentiNode != null && utentiNode.isArray()) {
+                Utente[] utentiArray = mapper.treeToValue(utentiNode, Utente[].class); // Converte l'array JSON in un array Java di oggetti Utente
+                listaModificabile = new ArrayList<>(Arrays.asList(utentiArray)); // Converte l'array in una lista modificabile
+            }
+
+            count = 0;
+            for (Utente u : listaModificabile) {
+                if (u.Ruolo.equalsIgnoreCase("Ristoratore")) {
+                    count++;
+                }
+            }
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return count+1;
+
+    }
+
+    // Metodo per aggiungere(registrare) un nuovo utente al file degli Utenti
     public static void aggiungiUtente(Utente nuovo, String fileJson) {
         try {
 
@@ -150,6 +172,14 @@ public class loginController extends StartPageController {
             if (!file.exists()) {
                 System.out.println("File non trovato: " + file.getAbsolutePath());
                 return;
+            }
+
+            ListaUtenti lista = mapper.readValue(new File(fileJson), ListaUtenti.class);
+
+            for(Utente u : lista.Utenti){
+                if(u.Username.equalsIgnoreCase(nuovo.Username)){
+                    throw new UtenteExeption("Utente già registrato");
+                }
             }
 
             JsonNode root = mapper.readTree(file);// Legge l'intero contenuto del file come un albero JSON
@@ -202,4 +232,8 @@ public class loginController extends StartPageController {
         System.out.println("Username non trovato");
         return null;
     }
+
+
+
+
 }
