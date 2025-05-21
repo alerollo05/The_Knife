@@ -1,0 +1,214 @@
+{
+  "Utenti": [
+    {
+      "Nome": "Giacomo",
+      "Cognome": "Rosmini",
+      "Indirizzo": "Via Rospo ,23",
+      "Username": "pippo",
+      "Password": "$2a$10$rjkqH5A2jZWMmTlCLTNjvu6g5yct1592BktC8HXiVn6hVtuGrVd8K",
+      "DataDiNascita": [
+        1994,
+        5,
+        14
+      ],
+      "Telefono": "3345564334",
+      "Ruolo": "Ristoratore",
+      "Id": 1
+    },
+    {
+      "Nome": "aaaa",
+      "Cognome": "aaaa",
+      "Indirizzo": "aaaa",
+      "Username": "aaaa",
+      "Password": "$2a$10$fJXrN.e7Bsv1TFpm7WGlvuSyzWPc0am2U.OYO9mJIqcej1Sa5UyOm",
+      "DataDiNascita": [
+        2025,
+        5,
+        8
+      ],
+      "Telefono": "232323232332",
+      "Ruolo": "Ristoratore",
+      "Id": 2
+    },
+    {
+      "Nome": "Andrea",
+      "Cognome": "Bazzeghini",
+      "Indirizzo": "Via Antonio Rosmini, 44",
+      "Username": "ciucchi",
+      "Password": "$2a$10$lmGgtDDHyv8Frt9T4vTN6.VzaXJFldiofAHhHUiEMGNedrFAxulNi",
+      "DataDiNascita": [
+        2006,
+        5,
+        20
+      ],
+      "Telefono": "444545445454",
+      "Ruolo": "Ristoratore",
+      "Id": 3
+    },
+    {
+      "Nome": "Antonio",
+      "Cognome": "Cannavacciuolo",
+      "Indirizzo": "Via Beppe, 14",
+      "Username": "Canny",
+      "Password": "$2a$10$INUxqbPG4l4pO5ZOVdfLaeChbpHO2v7o4Q75fLZNnLQy7SG1FqyRq",
+      "DataDiNascita": [
+        1990,
+        8,
+        2
+      ],
+      "Telefono": "132322343434",
+      "Ruolo": "Ristoratore",
+      "Id": 4
+    },
+    {
+      "Nome": "aasasas",
+      "Cognome": "aasasasas",
+      "Indirizzo": "via ucuyuy",
+      "Username": "ciao",
+      "Password": "$2a$10$VL1dde1ytIiSkCFhapedkOWrsm5S99gsPDV/h31b5AFKogupgRoK2",
+      "DataDiNascita": [
+        2025,
+        5,
+        2
+      ],
+      "Telefono": "65464564564",
+      "Ruolo": "Cliente",
+      "Id": 0
+    },
+    {
+      "Nome": "asdsadasd",
+      "Cognome": "sadasdasd",
+      "Indirizzo": "sdadada",
+      "Username": "sdasdasdasd",
+      "Password": "$2a$10$Pl9dVDZoVuKS/DM8mJcePu8FpGJX9mrm.qcRXP3vdLQETS3UthNWG",
+      "DataDiNascita": [
+        2025,
+        5,
+        2
+      ],
+      "Telefono": "342432423423424",
+      "Ruolo": "Cliente",
+      "Id": 0
+    },
+    {
+      "Nome": "aaaaa",
+      "Cognome": "aaaaaa",
+      "Indirizzo": "viaaa 222",
+      "Username": "aaaaaa",
+      "Password": "$2a$10$qYW8QTWiH7XOpZaXnb2mYeOBpWyCNou3Yqtl7orwAEuyyFrplHLje",
+      "DataDiNascita": [
+        2025,
+        5,
+        9
+      ],
+      "Telefono": "aaasa",
+      "Ruolo": "Ristoratore",
+      "Id": 5
+    },
+    {
+      "Nome": "Giuseppe",
+      "Cognome": "Antonini",
+      "Indirizzo": "Via Peppe, 16",
+      "Username": "admin",
+      "Password": "$2a$10$M1kv7hOsr.LGztozAWHcReBjc5F/EFesAhf5Iugbw/RItkNwjWswK",
+      "DataDiNascita": [
+        1998,
+        5,
+        14
+      ],
+      "Telefono": "22233344433",
+      "Ruolo": "Ristoratore",
+      "Id": 6
+    },
+    {
+      "Nome": "filippo",
+      "Cognome": "ciucchi",
+      "Indirizzo": "via antonio Rosmini 12",
+      "Username": "ritardo",
+      "Password": "$2a$10$C7CUpCoSdRGmoo82YQeyKOu6UaFtyi6ODOewg7dORbtpYSN5qIlQS",
+      "DataDiNascita": [
+        2025,
+        5,
+        2
+      ],
+      "Telefono": "+3348123198",
+      "Ruolo": "Ristoratore",
+      "Id": 7
+    },
+    {
+      "Nome": "Massimo",
+      "Cognome": "Bottura",
+      "Indirizzo": "Via Stella 22, Modena",
+      "Username": "mbottura",
+      "Password": "hashed_password1",
+      "DataDiNascita": [
+        1962,
+        9,
+        30
+      ],
+      "Telefono": "059223912",
+      "Ruolo": "Ristoratore",
+      "Id": 8
+    },
+    {
+      "Nome": "Carlo",
+      "Cognome": "Cracco",
+      "Indirizzo": "Galleria Vittorio Emanuele II, Milano",
+      "Username": "ccracco",
+      "Password": "hashed_password2",
+      "DataDiNascita": [
+        1965,
+        10,
+        8
+      ],
+      "Telefono": "0287654321",
+      "Ruolo": "Ristoratore",
+      "Id": 9
+    },
+    {
+      "Nome": "Heinz",
+      "Cognome": "Beck",
+      "Indirizzo": "Via Alberto Cadlolo 101, Roma",
+      "Username": "hbeck",
+      "Password": "hashed_password3",
+      "DataDiNascita": [
+        1963,
+        11,
+        3
+      ],
+      "Telefono": "0635092152",
+      "Ruolo": "Ristoratore",
+      "Id": 10
+    },
+    {
+      "Nome": "Laura",
+      "Cognome": "Bianchi",
+      "Indirizzo": "Via Firenze 12, Firenze",
+      "Username": "laurab",
+      "Password": "hashed_client1",
+      "DataDiNascita": [
+        1990,
+        6,
+        15
+      ],
+      "Telefono": "3391122334",
+      "Ruolo": "Cliente",
+      "Id": 0
+    },
+    {
+      "Nome": "Marco",
+      "Cognome": "Neri",
+      "Indirizzo": "Via Napoli 33, Napoli",
+      "Username": "marcon",
+      "Password": "hashed_client2",
+      "DataDiNascita": [
+        1985,
+        12,
+        9
+      ],
+      "Telefono": "3314455667",
+      "Ruolo": "Cliente",
+      "Id": 0
+    }
+  ]
+}
