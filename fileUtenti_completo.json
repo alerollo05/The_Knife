@@ -140,12 +140,8 @@
       "Cognome": "Bottura",
       "Indirizzo": "Via Stella 22, Modena",
       "Username": "mbottura",
-      "Password": "$2b$12$0W80NSvQ2Xw9pfPxW21OueUiuHkomZ4dcf4Pcfdw.wMQmj9pxoEue",
-      "DataDiNascita": [
-        1962,
-        9,
-        30
-      ],
+      "Password": "$2a$10$VUX9Ji1EKuM4IPxKpgkDquJQxZg5C6g10KD50yTI7z8pVdwK1UIaW",
+      "DataDiNascita": [1962, 9, 30],
       "Telefono": "059223912",
       "Ruolo": "Ristoratore",
       "Id": 8
@@ -155,12 +151,8 @@
       "Cognome": "Cracco",
       "Indirizzo": "Galleria Vittorio Emanuele II, Milano",
       "Username": "ccracco",
-      "Password": "$2b$12$0W80NSvQ2Xw9pfPxW21OueUiuHkomZ4dcf4Pcfdw.wMQmj9pxoEue",
-      "DataDiNascita": [
-        1965,
-        10,
-        8
-      ],
+      "Password": "$2a$10$qXsMzefhKtFUM19i.L1BMeOs.tLhhagJHhNHPoiNKypmU/HQnYq6m",
+      "DataDiNascita": [1965, 10, 8],
       "Telefono": "0287654321",
       "Ruolo": "Ristoratore",
       "Id": 9
@@ -170,12 +162,8 @@
       "Cognome": "Beck",
       "Indirizzo": "Via Alberto Cadlolo 101, Roma",
       "Username": "hbeck",
-      "Password": "$2b$12$0W80NSvQ2Xw9pfPxW21OueUiuHkomZ4dcf4Pcfdw.wMQmj9pxoEue",
-      "DataDiNascita": [
-        1963,
-        11,
-        3
-      ],
+      "Password": "$2a$10$k6WDyMRaG9lCI/BnH4m92eIuvFAdxi1MI.zv.ZpmWdAcg7R7FJpJm",
+      "DataDiNascita": [1963, 11, 3],
       "Telefono": "0635092152",
       "Ruolo": "Ristoratore",
       "Id": 10
@@ -185,12 +173,8 @@
       "Cognome": "Bianchi",
       "Indirizzo": "Via Firenze 12, Firenze",
       "Username": "laurab",
-      "Password": "$2b$12$0W80NSvQ2Xw9pfPxW21OueUiuHkomZ4dcf4Pcfdw.wMQmj9pxoEue",
-      "DataDiNascita": [
-        1990,
-        6,
-        15
-      ],
+      "Password": "$2a$10$DKhNkuoRB5aP8vJjAdXkWOeYB5CZwImqAHIw.7GZ6RGnFh7CeFbJy",
+      "DataDiNascita": [1990, 6, 15],
       "Telefono": "3391122334",
       "Ruolo": "Cliente",
       "Id": 0
@@ -200,12 +184,8 @@
       "Cognome": "Neri",
       "Indirizzo": "Via Napoli 33, Napoli",
       "Username": "marcon",
-      "Password": "$2b$12$0W80NSvQ2Xw9pfPxW21OueUiuHkomZ4dcf4Pcfdw.wMQmj9pxoEue",
-      "DataDiNascita": [
-        1985,
-        12,
-        9
-      ],
+      "Password": "$2a$10$lKOdWtOIP9VPjr.IK6zGBOR8vwFI5hNBHPbSzti6HFKe77H8K6GT6",
+      "DataDiNascita": [1985, 12, 9],
       "Telefono": "3314455667",
       "Ruolo": "Cliente",
       "Id": 0
