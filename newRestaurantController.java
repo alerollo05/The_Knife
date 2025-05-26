@@ -94,9 +94,9 @@ public class newRestaurantController extends dashBoardRistController {
         description = description.trim();
         String stars = starsRist.getText();
         stars = stars.trim();
-        String delivery = DeliveryToggleGroup.getSelectedToggle().getUserData().toString();
-        String booking = BookingToggleGroup.getSelectedToggle().getUserData().toString();
-
-
+        RadioButton delivery = (RadioButton) this.DeliveryToggleGroup.getSelectedToggle();
+        String deliveryText = delivery.getText();
+        RadioButton booking = (RadioButton) this.BookingToggleGroup.getSelectedToggle();
+        String bookingText = booking.getText();
     }
 }
