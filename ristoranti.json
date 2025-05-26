@@ -1,0 +1,203 @@
+{
+  "ristoranti": [
+    {
+      "Id": 1,
+      "IdRistoratore": 0,
+      "Name": "PEPO",
+      "Address": "Via Nuova 123, Roma, Italia",
+      "Location": "Rome, Italy",
+      "Price": "€€",
+      "Cuisine": "Italian",
+      "Longitude": 12.4964,
+      "Latitude": 41.9028,
+      "PhoneNumber": "390612345678",
+      "WebsiteUrl": "https://nuovoristorante.it",
+      "GreenStar": 1,
+      "FacilitiesAndServices": "Air conditioning, Terrace",
+      "Description": "Un accogliente ristorante italiano nel cuore di Roma.",
+      "Delivery": true,
+      "BookingOnline": false,
+      "recensioni": [
+        {
+          "author": "pepo32",
+          "rating": 2,
+          "comment": "Ottimo cibo e servizio impeccabile!",
+          "date": "2025-05-12",
+          "risposta": "Grazie mille per la tua recensione positiva!"
+        },
+        {
+          "author": "vivi",
+          "rating": 3,
+          "comment": "Buona atmosfera, ma il cibo non mi ha convinto del tutto.",
+          "date": "2025-05-08",
+          "risposta": "miglioreremo"
+        },
+        {
+          "author": "antony222",
+          "rating": 5,
+          "comment": "tutto perfetto",
+          "date": "2025-01-08",
+          "risposta": null
+        }
+      ],
+      "NumRec": 3,
+      "MediaRec": 3.33,
+      "Email": "pepo@example.com"
+    },
+    {
+      "Id": 2,
+      "IdRistoratore": 0,
+      "Name": "Amatriciana",
+      "Address": "Via Antonio Rosmini 15",
+      "Location": "Rome, Italy",
+      "Price": "€€",
+      "Cuisine": "Italian",
+      "Longitude": 12.4964,
+      "Latitude": 41.9028,
+      "PhoneNumber": "+390612345678",
+      "WebsiteUrl": "https://nuovoristorante.it",
+      "GreenStar": 1,
+      "FacilitiesAndServices": "Air conditioning, Terrace",
+      "Description": "Un accogliente ristorante italiano nel cuore di Roma.",
+      "Delivery": true,
+      "BookingOnline": true,
+      "recensioni": [
+        {
+          "author": "foodie_love",
+          "rating": 4,
+          "comment": "Esperienza indimenticabile, tornerò sicuramente!",
+          "date": "2024-07-30",
+          "risposta": null
+        },
+        {
+          "author": "mangiabene",
+          "rating": 5,
+          "comment": "Il miglior ristorante in cui sia mai stato.",
+          "date": "2025-02-02",
+          "risposta": null
+        }
+      ],
+      "NumRec": 2,
+      "MediaRec": 4.5,
+      "Email": "amatriciana@example.com"
+    },
+    {
+      "Id": 3,
+      "IdRistoratore": 8,
+      "Name": "Osteria Francescana",
+      "Address": "Via Stella, 22, 41121 Modena MO, Italia",
+      "Location": "Modena, Italy",
+      "Price": "€€€€",
+      "Cuisine": "Italian",
+      "Longitude": 10.9254,
+      "Latitude": 44.6471,
+      "PhoneNumber": "+39059223912",
+      "WebsiteUrl": "https://www.osteriafrancescana.it",
+      "GreenStar": 1,
+      "FacilitiesAndServices": "Gourmet, Wine cellar",
+      "Description": "Ristorante di Massimo Bottura, tra i migliori al mondo.",
+      "Delivery": false,
+      "BookingOnline": true,
+      "recensioni": [
+        {
+          "author": "mangiabene",
+          "rating": 5,
+          "comment": "Atmosfera elegante e piatti spettacolari.",
+          "date": "2024-08-03",
+          "risposta": null
+        },
+        {
+          "author": "traveler88",
+          "rating": 4,
+          "comment": "Un po' caro ma ne vale la pena.",
+          "date": "2024-10-29",
+          "risposta": null
+        }
+      ],
+      "NumRec": 2,
+      "MediaRec": 4.5,
+      "Email": "osteriafrancescana@example.com"
+    },
+    {
+      "Id": 4,
+      "IdRistoratore": 11,
+      "Name": "Ristorante Cracco",
+      "Address": "Galleria Vittorio Emanuele II, 20121 Milano MI, Italia",
+      "Location": "Milano, Italy",
+      "Price": "€€€",
+      "Cuisine": "Contemporary Italian",
+      "Longitude": 9.1895,
+      "Latitude": 45.4642,
+      "PhoneNumber": "+390287654321",
+      "WebsiteUrl": "https://www.ristorantecracco.it",
+      "GreenStar": 0,
+      "FacilitiesAndServices": "Elegant decor, Cocktail bar",
+      "Description": "Cucina creativa nel cuore di Milano.",
+      "Delivery": false,
+      "BookingOnline": true,
+      "recensioni": [
+        {
+          "author": "mangiabene",
+          "rating": 3,
+          "comment": "Cibo delizioso e servizio impeccabile.",
+          "date": "2024-09-29",
+          "risposta": null
+        },
+        {
+          "author": "traveler88",
+          "rating": 3,
+          "comment": "Il miglior ristorante in cui sia mai stato.",
+          "date": "2025-05-15",
+          "risposta": null
+        },
+        {
+          "author": "andrea21",
+          "rating": 4,
+          "comment": "Esperienza indimenticabile, tornerò sicuramente!",
+          "date": "2024-11-27",
+          "risposta": null
+        }
+      ],
+      "NumRec": 3,
+      "MediaRec": 3.33,
+      "Email": "ristorantecracco@example.com"
+    },
+    {
+      "Id": 5,
+      "IdRistoratore": 11,
+      "Name": "La Pergola",
+      "Address": "Via Alberto Cadlolo, 101, 00136 Roma RM, Italia",
+      "Location": "Roma, Italy",
+      "Price": "€€€€",
+      "Cuisine": "Mediterranean",
+      "Longitude": 12.4474,
+      "Latitude": 41.9204,
+      "PhoneNumber": "+390635092152",
+      "WebsiteUrl": "https://www.romecavalieri.com/restaurants-bars/la-pergola/",
+      "GreenStar": 1,
+      "FacilitiesAndServices": "Panoramic view, Wine cellar",
+      "Description": "Ristorante di Heinz Beck con vista su Roma.",
+      "Delivery": false,
+      "BookingOnline": true,
+      "recensioni": [
+        {
+          "author": "mangiabene",
+          "rating": 3,
+          "comment": "Cibo delizioso e servizio impeccabile.",
+          "date": "2025-03-19",
+          "risposta": null
+        },
+        {
+          "author": "mangiabene",
+          "rating": 3,
+          "comment": "Esperienza indimenticabile, tornerò sicuramente!",
+          "date": "2025-03-13",
+          "risposta": null
+        }
+      ],
+      "NumRec": 2,
+      "MediaRec": 3.0,
+      "Email": "lapergola@example.com"
+    }
+  ]
+}
