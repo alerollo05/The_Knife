@@ -1,4 +1,4 @@
-package com.example.the_knife;
+package com.example.the_knife.Utente;
 //GESTIONE DELLA SESSIONE DOPO IL LOGIN
 public class SessionManager {
     //CAMPI
@@ -6,7 +6,7 @@ public class SessionManager {
     private String username;
     private int userId;
     private String ruolo;
-
+    public static Integer idRist =null;
     //COSTRUTTORE
     private SessionManager() {
 

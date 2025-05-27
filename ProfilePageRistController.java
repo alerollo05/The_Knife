@@ -1,15 +1,13 @@
-package com.example.the_knife.Cliente;
+package com.example.the_knife.Ristoratore;
 
 import com.example.the_knife.Utente.SessionManager;
-import com.example.the_knife.loginController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
 import java.io.IOException;
 
-public class dashBoardClientController extends loginController {
-
+public class ProfilePageRistController extends dashBoardRistController {
     @FXML
     private Label welcomeLabel;
 
@@ -19,12 +17,7 @@ public class dashBoardClientController extends loginController {
     private String ruolo = session.getRuolo();
 
     public void handleLogOut(ActionEvent event) {
-        SessionManager.getInstance().logout();//cancello i dati dalla sessione
-        try {
-            super.goTo(event, "/com/example/the_knife/loginPage.fxml");
-        }catch(IOException e){
-            e.printStackTrace();
-        }
+        super.handleLogOut(event);
     }
 
     @Override
@@ -34,24 +27,23 @@ public class dashBoardClientController extends loginController {
 
     @FXML
     public void initialize() {
-        welcomeLabel.setText("Benvenuto, " + user + "");
+        welcomeLabel.setText("PROFILO DI " + user + "");
         System.out.println("Utente: "+user+ "Id: "+id+"Ruolo: "+ruolo);
     }
 
+
     @FXML
-    protected void onProfileClick(ActionEvent event) throws IOException {
-        goTo(event,"profilePageClient.fxml");
+    public void onAddRistClick(ActionEvent event) throws IOException {
+        super.onAddRistClick(event);
     }
-    @FXML
-    protected void onRecensioniClick(ActionEvent event) throws IOException {
-        goTo(event,"recensioniClient.fxml");
-    }
+
     @FXML
     protected void onRistorantiClick(ActionEvent event) throws IOException {
-        goTo(event,"ristorantiClient.fxml");
+        super.onRistorantiClick(event);
     }
+
     @FXML
     protected void goBack(ActionEvent event) throws IOException {
-        super.goTo(event, "dashBoardClient.fxml");
+        super.goBack(event);
     }
 }

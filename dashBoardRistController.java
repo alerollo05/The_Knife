@@ -1,5 +1,7 @@
-package com.example.the_knife;
+package com.example.the_knife.Ristoratore;
 
+import com.example.the_knife.Utente.SessionManager;
+import com.example.the_knife.loginController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -19,7 +21,7 @@ public class dashBoardRistController extends loginController {
     public void handleLogOut(ActionEvent event) {
         SessionManager.getInstance().logout();//cancello i dati dalla sessione
         try {
-            goTo(event, "loginPage.fxml");
+            super.goTo(event, "/com/example/the_knife/loginPage.fxml");//metto il path relativo intero per uscire e tornare alla login che si trova in una cartella meno profonda di quella dei ristoratori
         }catch(IOException e){
             e.printStackTrace();
         }
@@ -30,13 +32,25 @@ public class dashBoardRistController extends loginController {
     }
 
     @FXML
-    public void initialize() {
+    public void initialize() throws IOException {
         welcomeLabel.setText("Benvenuto, " + user + "");
         System.out.println("Utente: "+user+ "Id: "+id+"Ruolo: "+ruolo);
     }
 
     @FXML
-    private void onProfileClick(ActionEvent event) throws IOException {
-        goTo(event,"dashBoardProfRist.fxml");
+    protected void onProfileClick(ActionEvent event) throws IOException {
+        super.goTo(event,"profilePageRist.fxml");
+    }
+    @FXML
+    protected void onRistorantiClick(ActionEvent event) throws IOException {
+        super.goTo(event,"ristorantiRist.fxml");
+    }
+    @FXML
+    protected void goBack(ActionEvent event) throws IOException {
+        super.goTo(event, "dashBoardRist.fxml");
+    }
+    @FXML
+    protected void onAddRistClick(ActionEvent event) throws IOException {
+        super.goTo(event,"newRist.fxml");
     }
 }

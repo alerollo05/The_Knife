@@ -23,6 +23,7 @@
     -fx-text-fill: white;
     -fx-font-weight: bold;
 }
+
 .textSearch{
     fx-font-size: 16px;
     -fx-text-fill: white;
@@ -33,6 +34,48 @@
     -fx-padding: 30px;
     -fx-background-radius: 15px;
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0.5, 0, 5);
+}
+.list-rist {
+    -fx-background-color: rgb(64, 61, 61);
+    -fx-padding: 30px;
+    -fx-background-radius: 15px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0.5, 0, 5);
+    -fx-max-width: 1000px;
+}
+.grid-list {
+    -fx-background-color: rgb(135, 133, 133);
+    -fx-padding: 30px;
+    -fx-max-width: 710px;
+}
+/* Sfondo per tutte le celle, anche vuote */
+.list-cell {
+    -fx-background-color: #2E2E2E; /* Grigio scuro coerente con il tuo stile */
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-padding: 10 15;
+    -fx-border-color: #444444;
+    -fx-border-width: 0 0 1px 0;
+}
+
+/* Sfondo delle righe con contenuto */
+.list-cell:filled {
+    -fx-background-color: #3A3A3A; /* Colore base per righe piene */
+}
+
+/* Hover (passaggio del mouse) */
+.list-cell:filled:hover {
+    -fx-background-color: #505050;
+}
+
+/* Celle selezionate */
+.list-cell:selected {
+    -fx-background-color: #00E0C7;
+    -fx-text-fill: black;
+}
+#listaRistLabel {
+    -fx-padding: 10;
+    -fx-background-insets: 0;
+    -fx-background-color: #1E1E1E; /* colore del contenitore, opzionale */
 }
 .search-box {
     -fx-background-color: #262626;
@@ -158,4 +201,39 @@ search-textField:focused {
 .date-picker .calendar-popup {
     -fx-background-color: #1e1e2f;
     -fx-text-fill: grey;
+}
+.scroll-pane {
+    -fx-background: #1e1e1e;
+    -fx-background-color: #1e1e1e;
+    -fx-border-color: #333;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+    -fx-padding: 5px;
+}
+
+.scroll-pane > .viewport {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar:vertical, .scroll-bar:horizontal {
+    -fx-background-color: transparent;
+    -fx-pref-width: 10px;
+    -fx-pref-height: 10px;
+}
+
+.scroll-bar .track {
+    -fx-background-color: #2a2a2a;
+    -fx-background-radius: 10px;
+}
+
+.scroll-bar .thumb {
+    -fx-background-color: #888;
+    -fx-background-insets: 2;
+    -fx-background-radius: 8px;
+}
+
+.scroll-bar .increment-button,
+.scroll-bar .decrement-button {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
 }

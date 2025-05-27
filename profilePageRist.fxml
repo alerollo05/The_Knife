@@ -8,7 +8,7 @@
 <?import javafx.collections.FXCollections?>
 <?import java.lang.Integer?>
 <?import javafx.scene.image.ImageView?>
-<StackPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.the_knife.Ristoratore.dashBoardRistController" >
+<StackPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.the_knife.Ristoratore.ProfilePageRistController" >
     <BorderPane xmlns:fx="http://javafx.com/fxml" styleClass="root">
         <padding>
             <Insets top="20" right="15" bottom="20" left="15"/>
@@ -16,8 +16,8 @@
         <top>
             <HBox alignment="TOP_RIGHT" spacing="10">
                 <Button onAction="#onRistorantiClick" text="MIEI RISTORANTI" styleClass="menu-button"/>
-                <Button onAction="#onProfileClick" text="PROFILO" styleClass="menu-button"/>
-                <Button onAction="#handleLogOut" text="ESCI" styleClass="menu-button"/>
+                <Button text="INDIETRO" onAction="#goBack" styleClass="menu-button"/>
+                <Button text="ESCI" onAction="#handleLogOut" styleClass="menu-button"/>
                 <Button text="CHIUDI" onAction="#closeProgram" styleClass="menu-button"/>
             </HBox>
         </top>
@@ -27,7 +27,7 @@
 
                 <Label text="THE KNIFE" styleClass="welcome-subtitle"/>
                 <Label fx:id="welcomeLabel" styleClass="welcome-title"/>
-                <Label text="Cerca i migliori ristoranti nei tuoi dintorni" styleClass="textSearch" />
+                <Label text= "" styleClass="textSearch" />
                 <HBox spacing="10" alignment="CENTER" styleClass="search-box">
 
                     <TextField fx:id="locationSearch" alignment="CENTER_LEFT" promptText="Dove?" maxWidth="1000" maxHeight="200" styleClass="search-textField" ></TextField>

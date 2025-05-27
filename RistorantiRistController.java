@@ -1,14 +1,19 @@
 package com.example.the_knife.Ristoratore;
 
-import com.example.the_knife.Utente.ListaUtenti;
 import com.example.the_knife.Utente.SessionManager;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.geometry.Insets;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListCell;
+import javafx.scene.control.ListView;
+import javafx.scene.layout.ColumnConstraints;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 
 import java.io.File;
 import java.io.IOException;
@@ -20,38 +25,88 @@ public class RistorantiRistController extends dashBoardRistController {
 
     @FXML
     private Label welcomeLabel;
-   /* @FXML
-    private TableView<Ristorante> tableView;
+
     @FXML
-    private TableColumn<Ristorante, String> colNome;
-    @FXML
-    private TableColumn<Ristorante, String> colIndirizzo;
-    @FXML
-    private TableColumn<Ristorante, Double> colRating;
-    */
+    private ListView<Ristorante> listaRistLabel;
+
     SessionManager session = SessionManager.getInstance();
     private final String user = session.getUsername();
     private final int id = session.getUserId();
     private final String ruolo = session.getRuolo();
 
-
-
     public void initialize() throws IOException {
+        welcomeLabel.setText("I TUOI RISTORANTI " + user);
+        System.out.println("Utente: " + user + " Id: " + id + " Ruolo: " + ruolo);
 
-        welcomeLabel.setText("I TUOI RISTORANTI " + user + "");
-        System.out.println("Utente: "+user+ " Id: "+id+" Ruolo: "+ruolo);
+        List<Ristorante> mieiRistoranti = this.getRistoranti("ristoranti.json", id);
+        listaRistLabel.setItems(FXCollections.observableArrayList(mieiRistoranti));
 
+        listaRistLabel.setCellFactory(param -> new ListCell<>() {
+            @Override
+            protected void updateItem(Ristorante ristorante, boolean empty) {
+                super.updateItem(ristorante, empty);
+                param.getStyleClass().add("list-rist");
+                if (empty || ristorante == null) {
+                    setText(null);
+                    setGraphic(null);
+                } else {
+
+                    GridPane grid = new GridPane();
+                    grid.setHgap(10);
+                    grid.setVgap(5);
+                    grid.setPadding(new Insets(5));
+
+                    Label nomeLabel = new Label(ristorante.getName());
+                    nomeLabel.getStyleClass().add("textNormal");
+
+                    Label indirizzoLabel = new Label(ristorante.getAddress());
+                    indirizzoLabel.getStyleClass().add("textNormal");
+
+                    Label cucinaLabel = new Label(ristorante.getCuisine());
+                    cucinaLabel.getStyleClass().add("textNormal");
+
+                    Button dettaglioButton = new Button("Dettaglio");
+                    dettaglioButton.getStyleClass().add("accent-button");
+                    dettaglioButton.setOnAction(e -> {
+                        try {
+                            Integer idRist = (Integer) ristorante.getId();
+                            session.idRist = idRist;
+                            System.out.println("Id ristorante: " + idRist);
+                            goTo(e,"dettaglioRist.fxml");
+                        } catch (IOException ex) {
+                            throw new RuntimeException(ex);
+                        }
+                    });
+
+                    // Aggiunta dei nodi in celle precise
+                    grid.add(nomeLabel, 0, 0);
+                    grid.add(indirizzoLabel, 1, 0);
+                    grid.add(cucinaLabel, 2, 0);
+                    grid.add(dettaglioButton, 3, 0);
+
+                    // Espansione colonne
+                    ColumnConstraints col1 = new ColumnConstraints();
+                    col1.setPercentWidth(50);
+                    ColumnConstraints col2 = new ColumnConstraints();
+                    col2.setPercentWidth(150);
+                    ColumnConstraints col3 = new ColumnConstraints();
+                    col3.setPercentWidth(50);
+                    ColumnConstraints col4 = new ColumnConstraints();
+                    col4.setPercentWidth(50);
+                    grid.getColumnConstraints().addAll(col1, col2, col3, col4);
+                    grid.getStyleClass().add("grid-list");
+                    setGraphic(grid);
+                }
+            }
+        });
 
     }
 
-    @FXML
-    protected void onRistorantiClick(ActionEvent event) throws IOException {
-        onRistorantiClick(event);
-    }
     @FXML
     public void onAddRistClick(ActionEvent event) throws IOException {
         super.onAddRistClick(event);
     }
+
     @FXML
     public void handleLogOut(ActionEvent event) {
         super.handleLogOut(event);
@@ -66,6 +121,7 @@ public class RistorantiRistController extends dashBoardRistController {
     protected void goBack(ActionEvent event) throws IOException {
         super.goBack(event);
     }
+
     @FXML
     protected void onProfileClick(ActionEvent event) throws IOException {
         super.onProfileClick(event);
@@ -80,22 +136,10 @@ public class RistorantiRistController extends dashBoardRistController {
         List<Ristorante> mieiRisto = new ArrayList<>();
 
         for (Ristorante r : ristoranti) {
-            if(r.IdRistoratore == id){
+            if (r.getIdRistoratore() == id) {
                 mieiRisto.add(r);
             }
         }
         return mieiRisto;
     }
-
-    public String elencoRisto(List<Ristorante> ristomiei) throws IOException {
-        ristomiei = getRistoranti("ristoranti.json", id);
-        String s;
-        StringBuilder sb = new StringBuilder();
-        for (Ristorante r : ristomiei) {
-            sb.append(String.format("Nome: %s | Indirizzo: %s | Tipo Cucina: %s%n", r.Name, r.Address, r.Cuisine));
-        }
-        s = sb.toString();
-        return s;
-    }
-
 }

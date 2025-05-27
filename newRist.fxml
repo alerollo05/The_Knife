@@ -40,7 +40,7 @@
                     <TextField fx:id="addressRist" promptText="Via , NCiv, CAP Città Prov, Stato"  styleClass="rounded-textfield" maxWidth="500"/>
                     <TextField fx:id="locationRist" promptText="Città, Stato" styleClass="rounded-textfield" maxWidth="500"/>
                     <TextField fx:id="priceRist" promptText="Prezzo medio: €/€€/€€€/€€€€" styleClass="rounded-textfield" maxWidth="500"/>
-                    <TextField fx:id="mailRist" promptText="mail ristorante" styleClass="rounded-textfield" maxWidth="500"/>
+                    <TextField fx:id="mailRist" promptText="E-mail del ristorante" styleClass="rounded-textfield" maxWidth="500"/>
                     <TextField fx:id="cousineRist" promptText="Tipo di cucina" styleClass="rounded-textfield" maxWidth="500"/>
                     <TextField fx:id="telRist" promptText="+39 0123456789" styleClass="rounded-textfield" maxWidth="500"/>
                     <TextField fx:id="UrlRist" promptText="URL sito del tuo ristorante" styleClass="rounded-textfield" maxWidth="500"/>

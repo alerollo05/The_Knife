@@ -27,7 +27,7 @@
             <Label text="Accedi" styleClass="title2"/>
             <TextField fx:id="usernameField" promptText="Username" styleClass="rounded-textfield" maxWidth="500"/>
             <PasswordField fx:id="passwordField" promptText="Password" styleClass="rounded-textfield" maxWidth="500"/>
-            <Button text="Accedi" defaultButton="true" onAction="#handleLogin" styleClass="accent-button"/>
+            <Button text="Accedi" onAction="#handleLogin" styleClass="accent-button"/>
         </VBox>
         <VBox spacing="10" styleClass="form-box">
             <!-- REGISTER -->
