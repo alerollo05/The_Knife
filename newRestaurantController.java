@@ -1,5 +1,8 @@
 package com.example.the_knife.Ristoratore;
 
+import com.example.the_knife.Exceptions.InputMancanteExeption;
+import com.example.the_knife.Exceptions.TelefonoNonValidoException;
+import com.example.the_knife.Exceptions.paeseNonValidoExeption;
 import com.example.the_knife.Utente.SessionManager;
 import com.example.the_knife.Utente.Utente;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -103,14 +106,52 @@ public class newRestaurantController extends dashBoardRistController {
         String description = descriptionRist.getText();
         description = description.trim();
         String stars = starsRist.getText();
-        int stelle = Integer.parseInt(stars);
         stars = stars.trim();
-
         RadioButton delivery = (RadioButton) this.DeliveryToggleGroup.getSelectedToggle();
         String deliveryText = delivery.getText();
         boolean d= false;
         if(deliveryText.equalsIgnoreCase("Si")){
             d = true;
+        }
+
+        // Controllo che l'utente ha inserito tutti i campi
+        if(name.isEmpty() || address.isEmpty() || location.isEmpty() || price.isEmpty() || cousine.isEmpty() ||
+                tel.isEmpty() || Url.isEmpty() || service.isEmpty() || description.isEmpty() || stars.isEmpty()) {
+            handleInput("Errore", "Qualche campo non è stato inserito.");
+            throw new InputMancanteExeption("Qualche campo non è stato inserito.");
+        }
+
+        // Controlla che l indirizzo contenga almeno una lettera e un numero
+        if (!address.matches(".*\\d.*") || !address.matches(".*[a-zA-Z].*")) {
+            handleInput("Errore", "L'indirizzo deve contenere almeno una lettera e un numero.");
+            throw new IllegalArgumentException("L'indirizzo deve contenere almeno una lettera e un numero.");
+        }
+        // Controlla che l indirizzo non contenga caratteri non validi
+        if (!address.matches("^[\\p{L}0-9.,'\\-\\s]+$")) {
+            handleInput("Errore", "L'indirizzo contiene caratteri non validi.");
+            throw new IllegalArgumentException("L'indirizzo contiene caratteri non validi.");
+        }
+        // Verifico che il numero inizi con + seguito da 1-4 cifre (prefisso internazionale),
+        // Poi abbia da 6 a 12 cifre, che possono essere separate da spazi o trattini.
+        // Non accetta caratteri diversi da spazi o trattini.
+        if (!tel.matches("^\\+\\d{1,4}\\d{6,12}$")) {
+             handleInput("Errore", "Numero di telefono non valido. Deve iniziare con + seguito da prefisso e numero, e deve avere minimo 6 e massimo 12 cifre.");
+            throw new TelefonoNonValidoException("Numero di telefono non valido. Deve iniziare con + seguito da prefisso e numero, e deve avere minimo 6 e massimo 12 cifre.");
+        }
+        // Controllo che il campo prezzo medio contenga solo caratteri come $/£/€ e che vadano da 1 a 4 caratteri
+         if(!price.matches("([£]{1,4}|[$]{1,4}|[€]{1,4})")){
+             handleInput("Errore", "Formato prezzo non valido, formati ammessi : $/£/€.");
+             throw new TelefonoNonValidoException("Formato prezzo non valido, formati ammessi : $/£/€.");
+        }
+        // Controllo che il campo luogo sia formato da almeno due caratteri separati dalla virgola
+         if(location != null && location.matches("\\s*[^,\\s].*?,\\s*[^,\\s].*")){
+            handleInput("Errore", "Formato del paese inserito non valido o non inserito.");
+            throw new paeseNonValidoExeption("Formato del paese inserito non valido.");
+         }
+        // Controllo che il campo del tipo di cucina contenga solo lettere
+        if(!cousine.matches("[a-zA-Z]+")){
+            handleInput("Errore", "Il campo tipo di cucina può contenere solo lettere.");
+            throw new paeseNonValidoExeption("Il campo tipo di cucina può contenere solo lettere.");
         }
 
         RadioButton booking = (RadioButton) this.BookingToggleGroup.getSelectedToggle();
@@ -120,9 +161,9 @@ public class newRestaurantController extends dashBoardRistController {
             b = true;
         }
         String email ="prova@gmail.com";
-
         double[] coord = new double[2];
         coord = coordinate(address);// latitudine in pos 0 e long in pos 1
+        int stelle = Integer.parseInt(stars); // metto come intero il campo stelle
 
         Ristorante nuovo = new Ristorante(Id, idRistoratore, name, address, location, price, cousine,coord[0], coord[1],
                 tel, Url, stelle, service,description,d, b, email);
