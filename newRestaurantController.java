@@ -2,7 +2,6 @@ package com.example.the_knife.Ristoratore;
 
 import com.example.the_knife.Exceptions.*;
 import com.example.the_knife.Utente.SessionManager;
-import com.example.the_knife.Utente.Utente;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -116,77 +115,8 @@ public class newRestaurantController extends dashBoardRistController {
             d = true;
         }
 
-        // Controllo che l'utente ha inserito tutti i campi
-        if(name.isEmpty() || address.isEmpty() || location.isEmpty() || price.isEmpty() || cousine.isEmpty() ||
-                tel.isEmpty() || Url.isEmpty() || service.isEmpty() || description.isEmpty() || stars.isEmpty()) {
-            handleInput("Errore", "Devi compilare tutti i campi.");
-            throw new InputMancanteExeption("Devi compilare tutti i campi.");
-        }
-        // Il nome può contenere un massimo di 100 caratteri
-        if(name.length()>100){
-            handleInput("Errore", "Limite massimo di caratteri raggiunto, num max di caratteri per il nome è 100.");
-            throw new NumMaxCaratteriException("Limite massimo di caratteri raggiunto, num max di caratteri per il nome è 100.");
-        }
-        // Controlla che l indirizzo contenga almeno una lettera e un numero max caratteri(120)
-        if (!address.matches(".*\\d.*") || !address.matches(".*[a-zA-Z].*")) {
-            handleInput("Errore", "L'indirizzo deve contenere almeno una lettera e un numero.");
-            throw new IllegalArgumentException("L'indirizzo deve contenere almeno una lettera e un numero.");
-        }else if(address.length()>120){
-            handleInput("Errore", "Limite massimo di caratteri raggiunto, num max di caratteri per l'indirizzo è 120.");
-            throw new NumMaxCaratteriException("Limite massimo di caratteri raggiunto, num max di caratteri per il nome è 100.");
-        }
-        // Controlla che l indirizzo non contenga caratteri non validi
-        if (!address.matches("^[\\p{L}0-9.,'\\-\\s]+$")) {
-            handleInput("Errore", "L'indirizzo contiene caratteri non validi.");
-            throw new IllegalArgumentException("L'indirizzo contiene caratteri non validi.");
-        }
-        // Verifico che il numero inizi con + seguito da 1-4 cifre (prefisso internazionale),
-        // Poi abbia da 6 a 12 cifre, che possono essere separate da spazi o trattini.
-        // Non accetta caratteri diversi da spazi o trattini.
-        if (!tel.matches("^\\+\\d{1,4}(\\s?\\d){6,20}$")) {
-            handleInput("Errore", "Numero di telefono non valido. Deve iniziare con + seguito da prefisso e numero, e deve avere minimo 6 e massimo 12 cifre.");
-            throw new TelefonoNonValidoException("Numero di telefono non valido. Deve iniziare con + seguito da prefisso e numero, e deve avere minimo 6 e massimo 12 cifre.");
-        }
-        // Controllo che il campo prezzo medio contenga solo caratteri come $/£/€ e che vadano da 1 a 4 caratteri
-        if(!price.matches("([£]{1,4}|[$]{1,4}|[€]{1,4})")){
-            handleInput("Errore", "Formato prezzo non valido, formati ammessi : $/£/€.");
-            throw new TelefonoNonValidoException("Formato prezzo non valido, formati ammessi : $/£/€.");
-        }
-        // Controllo che il campo luogo sia formato da almeno due caratteri separati dalla virgola,
-        // con un max di 50 caratteri
-        if(!location.matches("\\s*[^,\\s].*?,\\s*[^,\\s].*")){
-            handleInput("Errore", "Formato del paese inserito non valido o non inserito.");
-            throw new paeseNonValidoExeption("Formato del paese inserito non valido.");
-        }if(location.length()>50){
-            handleInput("Errore", "Limite massimo di caratteri raggiunto, num max di caratteri per il luogo è 50.");
-            throw new NumMaxCaratteriException("Limite massimo di caratteri raggiunto, num max di caratteri per il luogo è 50.");
-        }
-        // Controllo che il campo del tipo di cucina contenga solo lettere (ammette spazi)
-        if(!cousine.matches("[a-zA-Z\\s]+")){
-            handleInput("Errore", "Il campo tipo di cucina può contenere solo lettere.");
-            throw new paeseNonValidoExeption("Il campo tipo di cucina può contenere solo lettere.");
-        }
-        // Controllo che la mail abbia un formato corretto (max 254 caratteri)
-        if(!mail.matches("^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$")){
-            handleInput("Errore", "La mail non è in un formato corretto.");
-            throw new MailNonValidaException("La mail non è in un formato corretto.");
-        }else if(mail.length()>254){
-            handleInput("Errore", "Limite massimo di caratteri raggiunto, num max di caratteri per una mail è 254.");
-            throw new NumMaxCaratteriException("Limite massimo di caratteri raggiunto, num max di caratteri per una mail è 254.");
-        }
-        // Controllo che la stringa contenga solo numeroi da 1 a 5
-        if(!stars.matches("^[0-5]+$")){
-            handleInput("Errore", "Accetta solo numeri da 1 a 5.");
-            throw new StelleException("Errore stelle, accetta solo numeri da 1 a 5.");
-        }
-        if(description.length()>500){
-            handleInput("Errore", "Limite massimo di caratteri raggiunto, num max di caratteri per la descrizione è 500.");
-            throw new NumMaxCaratteriException("Limite massimo di caratteri raggiunto, num max di caratteri per la descrizione è 500.");
-        }
-        if(service.length()>400){
-            handleInput("Errore", "Limite massimo di caratteri raggiunto, num max di caratteri per i servizi è 400.");
-            throw new NumMaxCaratteriException("Limite massimo di caratteri raggiunto, num max di caratteri per la descrizione è 400.");
-        }
+        super.eccezioniRistoranti(name,address,location,price,cousine,tel,Url,service,description,stars,mail);
+
         RadioButton booking = (RadioButton) this.BookingToggleGroup.getSelectedToggle();
         String bookingText = booking.getText();
         boolean b= false;
@@ -203,9 +133,18 @@ public class newRestaurantController extends dashBoardRistController {
 
         aggiungiRistorante(nuovo,"ristoranti.json");
 
-
+        handleInput();
     }
 
+    protected void handleInput() {
+        //if(controllo che tutti gli input siano andati bene allora mando questo messaggio)
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Inserimento nuovo ristorante");
+        alert.setHeaderText("Ti sei registrato correttamente");
+        alert.setContentText("I tuoi dati sono stati salvati...");
+        alert.showAndWait();
+        //else mando un errore specifico su un tipo di input inserito dall'utente
+    }
     public static void aggiungiRistorante(Ristorante nuovo, String fileJson) {
         try {
             ObjectMapper mapper = new ObjectMapper();
@@ -311,5 +250,6 @@ public class newRestaurantController extends dashBoardRistController {
 
         return coord;
     }
+
 
 }
