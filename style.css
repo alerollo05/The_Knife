@@ -19,7 +19,12 @@
     -fx-font-weight: bold;
 }
 .textNormal{
-    -fx-font-size: 12px;
+    -fx-font-size: 15px;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+.textPopUp{
+    -fx-font-size: 20px;
     -fx-text-fill: white;
     -fx-font-weight: bold;
 }
@@ -42,10 +47,19 @@
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0.5, 0, 5);
     -fx-max-width: 1000px;
 }
-.grid-list {
-    -fx-background-color: rgb(135, 133, 133);
+.list-rist2 {
+    -fx-background-color: rgb(64, 61, 61);
     -fx-padding: 30px;
-    -fx-max-width: 710px;
+    -fx-background-radius: 15px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0.5, 0, 5);
+    -fx-max-width: 900px;
+}
+.grid-list {
+    -fx-background-color: rgb(64, 61, 61);
+    -fx-padding: 30px;
+    -fx-background-radius: 15px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0.5, 0, 5);
+    -fx-max-width: 800px;
 }
 /* Sfondo per tutte le celle, anche vuote */
 .list-cell {

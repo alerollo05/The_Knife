@@ -2,31 +2,34 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import java.net.URL?>
-
 <?import javafx.geometry.Insets?>
-<?import javafx.collections.FXCollections?>
-<?import java.lang.Integer?>
 <?import javafx.scene.image.ImageView?>
-<StackPane  styleClass="root" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.the_knife.Ristoratore.DettaglioRistController" >
-    <BorderPane xmlns:fx="http://javafx.com/fxml" styleClass="root">
+
+<?import java.net.URL?>
+<StackPane styleClass="root" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.the_knife.Ristoratore.DettaglioRistController">
+    <BorderPane styleClass="root">
         <padding>
             <Insets top="20" right="15" bottom="20" left="15"/>
         </padding>
+        <stylesheets>
+            <URL value="@../style.css"/>
+        </stylesheets>
         <top>
             <HBox alignment="TOP_RIGHT" spacing="10">
+                <padding>
+                    <Insets top="20" right="15" bottom="20" left="15"/>
+                </padding>
                 <Button text="INDIETRO" onAction="#goBack" styleClass="menu-button"/>
                 <Button text="ESCI" onAction="#handleLogOut" styleClass="menu-button"/>
                 <Button text="CHIUDI" onAction="#closeProgram" styleClass="menu-button"/>
             </HBox>
         </top>
-
         <center>
-            <Label fx:id="welcomeLabel" styleClass="welcome-title"/>
+            <VBox spacing="10">
+                <Label fx:id="welcomeLabel" styleClass="welcome-title"/>
+                    <GridPane fx:id="grid" prefHeight="600" prefWidth="300" maxWidth="800" />
+            </VBox>
         </center>
-
-        <stylesheets>
-            <URL value="@../style.css"/>
-        </stylesheets>
     </BorderPane>
 </StackPane>
+

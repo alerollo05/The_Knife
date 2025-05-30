@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.File;
@@ -17,9 +18,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static com.example.the_knife.Utente.SessionManager.idRist;
-
-public class PopUpRistController {
+public class PopUpRistController extends DettaglioRistController {
 
     @FXML
     private Label label1;
@@ -28,19 +27,33 @@ public class PopUpRistController {
     private Button okButton;
 
     @FXML
+    private Button noButton;
+
+    @FXML
     private TextField txt1;
 
-
-
-    public void handleClose(ActionEvent event) {
+    public void handleClose(ActionEvent event) throws IOException {
         // Chiude la finestra corrente
+        SessionManager.idScelta = 0;
+
+        if (mainController != null) {
+            mainController.initialize(); //aggiorna la lista ristoranti nel padre
+        }
+
         Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+        //super.goTo(event, "dettaglioRist.fxml");
+        stage.close();
+        //Al massimo posso aggiornare la pagina rifacendo di nuovo goTo per leggere il dato nuovo
+    }
+    public void handleCloseAnnulla(ActionEvent event) throws IOException {
+        // Chiude la finestra corrente
+        SessionManager.idScelta = 0;
+        Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+        //super.goTo(event, "dettaglioRist.fxml");
         stage.close();
         //Al massimo posso aggiornare la pagina rifacendo di nuovo goTo per leggere il dato nuovo
     }
     public void initialize(){
-        int idRist = (int) SessionManager.idRist;
-
             switch(SessionManager.idScelta){
                 case 1:
                     label1.setText("Cambia nome:");
@@ -61,8 +74,13 @@ public class PopUpRistController {
                     txt1.setPromptText("Inserisci il nuovo indirizzo");
                     okButton.setText("Conferma");
                     okButton.setOnAction(e -> {
-                        String newAddr = txt1.getText();
-                        handleClose(e);//chiudi finestra popUp
+                        try{
+                            String newAdress = txt1.getText();
+                            modificaRist("indirizzo",newAdress,"ristoranti.json");
+                            handleClose(e);//chiudi finestra popUp
+                        }catch (IOException ex){
+                            throw new RuntimeException(ex);
+                        }
                     });
                     break;
                 case 3:
@@ -70,8 +88,13 @@ public class PopUpRistController {
                     txt1.setPromptText("Inserisci la nuova città");
                     okButton.setText("Conferma");
                     okButton.setOnAction(e -> {
-                        String newCit = txt1.getText();
-                        handleClose(e);//chiudi finestra popUp
+                       try{
+                           String newCity = txt1.getText();
+                           modificaRist("citta",newCity,"ristoranti.json");
+                           handleClose(e);//chiudi finestra popUp
+                       }catch (IOException ex){
+                           throw new RuntimeException(ex);
+                       }
                     });
                     break;
                 case 4:
@@ -79,8 +102,13 @@ public class PopUpRistController {
                     txt1.setPromptText("Inserisci il nuovo tipo di cucina");
                     okButton.setText("Conferma");
                     okButton.setOnAction(e -> {
-                        String newCuc = txt1.getText();
-                        handleClose(e);//chiudi finestra popUp
+                        try{
+                            String newCuisine = txt1.getText();
+                            modificaRist("cucina",newCuisine,"ristoranti.json");
+                            handleClose(e);//chiudi finestra popUp
+                        }catch (IOException ex){
+                            throw new RuntimeException(ex);
+                        }
                     });
                     break;
                 case 5:
@@ -88,8 +116,13 @@ public class PopUpRistController {
                     txt1.setPromptText("+39 0123456789");
                     okButton.setText("Conferma");
                     okButton.setOnAction(e -> {
-                        String newTel = txt1.getText();
-                        handleClose(e);//chiudi finestra popUp
+                        try{
+                            String newTel = txt1.getText();
+                            modificaRist("telefono",newTel,"ristoranti.json");
+                            handleClose(e);//chiudi finestra popUp
+                        }catch (IOException ex){
+                            throw new RuntimeException(ex);
+                        }
                     });
                     break;
                 case 6:
@@ -97,8 +130,13 @@ public class PopUpRistController {
                     txt1.setPromptText("Inserisci la nuova mail");
                     okButton.setText("Conferma");
                     okButton.setOnAction(e -> {
-                        String newMail = txt1.getText();
-                        handleClose(e);//chiudi finestra popUp
+                        try{
+                            String newMail = txt1.getText();
+                            modificaRist("email",newMail,"ristoranti.json");
+                            handleClose(e);//chiudi finestra popUp
+                        }catch (IOException ex){
+                            throw new RuntimeException(ex);
+                        }
                     });
                     break;
                 case 7:
@@ -106,8 +144,13 @@ public class PopUpRistController {
                     txt1.setPromptText("Inserisci il nuovo URL");
                     okButton.setText("Conferma");
                     okButton.setOnAction(e -> {
-                        String newUrl = txt1.getText();
-                        handleClose(e);//chiudi finestra popUp
+                        try{
+                            String newUrl = txt1.getText();
+                            modificaRist("url",newUrl,"ristoranti.json");
+                            handleClose(e);//chiudi finestra popUp
+                        }catch (IOException ex){
+                            throw new RuntimeException(ex);
+                        }
                     });
                     break;
                 case 8:
@@ -115,8 +158,13 @@ public class PopUpRistController {
                     txt1.setPromptText("Inserisci la nuova descrizione");
                     okButton.setText("Conferma");
                     okButton.setOnAction(e -> {
-                        String newDesc = txt1.getText();
-                        handleClose(e);//chiudi finestra popUp
+                        try{
+                            String newDesc = txt1.getText();
+                            modificaRist("descrizione",newDesc,"ristoranti.json");
+                            handleClose(e);//chiudi finestra popUp
+                        }catch (IOException ex){
+                            throw new RuntimeException(ex);
+                        }
                     });
                     break;
                 case 9:
@@ -124,8 +172,13 @@ public class PopUpRistController {
                     txt1.setPromptText("Inserisci il nuovo prezzo medio");
                     okButton.setText("Conferma");
                     okButton.setOnAction(e -> {
-                        String newPrice = txt1.getText();
-                        handleClose(e);//chiudi finestra popUp
+                        try{
+                            String newPrice = txt1.getText();
+                            modificaRist("prezzo",newPrice,"ristoranti.json");
+                            handleClose(e);//chiudi finestra popUp
+                        } catch (IOException ex) {
+                            throw new RuntimeException(ex);
+                        }
                     });
                     break;
                 case 10:
@@ -133,9 +186,13 @@ public class PopUpRistController {
                     txt1.setPromptText("Inserisci il numero di stelle");
                     okButton.setText("Conferma");
                     okButton.setOnAction(e -> {
-                        String newStar = txt1.getText();
-
-                        handleClose(e);//chiudi finestra popUp
+                        try{
+                            String newStelle = txt1.getText();
+                            modificaRist("stelle",newStelle,"ristoranti.json");
+                            handleClose(e);//chiudi finestra popUp
+                        }catch (IOException ex){
+                            throw new RuntimeException(ex);
+                        }
                     });
                     break;
                 case 11:
@@ -143,12 +200,24 @@ public class PopUpRistController {
                     txt1.setPromptText("Cambia i tuoi servizi");
                     okButton.setText("Conferma");
                     okButton.setOnAction(e -> {
-                        String newServ = txt1.getText();
-                        handleClose(e);//chiudi finestra popUp
+                        try{
+                            String newServ = txt1.getText();
+                            modificaRist("servizi",newServ,"ristoranti.json");
+                            handleClose(e);//chiudi finestra popUp
+                        }catch (IOException ex){
+                            throw new RuntimeException(ex);
+                        }
                     });
                     break;
 
             }
+    }
+
+    //SERVE PER AGGIORNARE LA PAGINA DI STAMPA DOPO MODIFICA DEL POP UP
+    protected DettaglioRistController mainController;
+
+    public void setMainController(DettaglioRistController controller) {
+        this.mainController = controller;
     }
 
     public void modificaRist(String campo,String newCampo, String fileJson) throws IOException {
