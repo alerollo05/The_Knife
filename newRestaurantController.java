@@ -1,6 +1,8 @@
+
 package com.example.the_knife.Ristoratore;
 
 import com.example.the_knife.Exceptions.*;
+import com.example.the_knife.InputValidator;
 import com.example.the_knife.Utente.SessionManager;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -90,24 +92,35 @@ public class newRestaurantController extends dashBoardRistController {
         int idRistoratore = id;
         String name = nameRist.getText();
         name = name.trim();
+        InputValidator.validaNomeRist(name);
         String address = addressRist.getText();
+        InputValidator.validaIndirizzo(address);
         String location = locationRist.getText();
+        InputValidator.validaLuogo(location);
         String price = priceRist.getText();
         price = price.trim();
+        InputValidator.validaPrezzo(price);
         String cousine = cousineRist.getText();
         cousine = cousine.trim();
+        InputValidator.validaCucina(cousine);
         String tel = telRist.getText();
         tel.trim();
+        InputValidator.validaTelefono(tel);
         String Url = UrlRist.getText();
         Url = Url.trim();
+        InputValidator.validaUrl(Url);
         String service = serviceRist.getText();
         service = service.trim();
+        InputValidator.validaServizio(service);
         String description = descriptionRist.getText();
         description = description.trim();
+        InputValidator.validaDescrizione(description);
         String stars = starsRist.getText();
         stars = stars.trim();
+        InputValidator.validaStelle(stars);
         String mail = mailRist.getText();
         mail = mail.trim();
+        InputValidator.validaEmail(mail);
         RadioButton delivery = (RadioButton) this.DeliveryToggleGroup.getSelectedToggle();
         String deliveryText = delivery.getText();
         boolean d= false;
@@ -115,7 +128,6 @@ public class newRestaurantController extends dashBoardRistController {
             d = true;
         }
 
-        super.eccezioniRistoranti(name,address,location,price,cousine,tel,Url,service,description,stars,mail);
 
         RadioButton booking = (RadioButton) this.BookingToggleGroup.getSelectedToggle();
         String bookingText = booking.getText();

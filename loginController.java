@@ -1,3 +1,4 @@
+
 package com.example.the_knife;
 
 import com.example.the_knife.Exceptions.*;
@@ -84,23 +85,27 @@ public class loginController extends StartPageController {
         //DEFINIZIONE handleRegister
         String newUser = userRegister.getText();
         newUser = newUser.trim();//tolgo gli spazi esterni alla stinga inserita in input dall'utente
+        InputValidator.validaUsername(newUser);
         String newPass = passRegister.getText();
         newPass = newPass.trim();
+        InputValidator.validaPassword(newPass);
         String name = nomeField.getText();
         name = name.trim();
+        InputValidator.validaNomeUte(newUser);
         String cognome = cognomeField.getText();
         cognome = cognome.trim();
+        InputValidator.validaCogno(cognome);
         String numerotel = numTel.getText();
         numerotel = numerotel.trim();
         numerotel = numerotel.replaceAll("[\\s-]","");
+        InputValidator.validaTelefono(numerotel);
         String indirizzo = this.indirizzo.getText();
         indirizzo = indirizzo.trim();
+        InputValidator.validaIndirizzo(indirizzo);
         LocalDate DataNascita = dataNascita.getValue();
         RadioButton ruolo = (RadioButton) this.ruoloToggleGroup.getSelectedToggle();
         String role = ruolo.getText();
 
-        // L username può contenere un massimo di 30 caratteri
-        eccezioniRegister(newUser,newPass,name,cognome,indirizzo,numerotel);
         // Codifica della password
         newPass = generaHash(passRegister.getText());
 
@@ -275,139 +280,5 @@ public class loginController extends StartPageController {
         alert.showAndWait();
         //else mando un errore specifico su un tipo di input inserito dall'utente
     }
-
-
-    public void eccezioniRegister(String username,String nuovaPass, String nome, String cognome, String indirizzo
-            ,String tel) {
-
-        if(username.isEmpty() || nuovaPass.isEmpty() || nome.isEmpty() || cognome.isEmpty() || tel.isEmpty() || indirizzo.isEmpty() ){
-            handleInput("Errore","Devi compilare tutti i campi.");
-            throw new InputMancanteException("Devi compilare tutti i campi.");
-        }
-        // L username può contenere un massimo di 30 caratteri
-        if(username.length()>30){
-            handleInput("Errore", "Limite massimo di caratteri raggiunto,\n num max di caratteri per l'username è 30.");
-            throw new NumMaxCaratteriException("Limite massimo di caratteri raggiunto, num max di caratteri per l'username è 30.");
-        }
-
-        //Controllo che la password contenga almeno 8 caratteri, una lettera minuscola e una maiuscola,
-        // almeno un numero e un carattere speciale
-        if(!nuovaPass.matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$") || nuovaPass.length()>60){
-            handleInput("Errore", "Password non valida deve avere almeno 8 caratteri, una lettera \nmaiuscola una minuscola, un numero e un carattere speciale e\n un max caratteri di 60 ");
-            throw new PasswordNonValidaException("Password non valida deve avere almeno 8 caratteri, una lettera maiuscola una minuscola, un numero e un carattere speciale e un max caratteri di 60 ");
-        }else if(nuovaPass.length()>64){
-            handleInput("Errore", "Limite massimo di caratteri raggiunto,\n num max di caratteri per la password è 64.");
-            throw new NumMaxCaratteriException("Limite massimo di caratteri raggiunto, num max di caratteri per la password è 64.");
-        }
-
-        // Il nome può contenere un massimo di 50 caratteri
-        if(nome.length()>50){
-            handleInput("Errore", "Limite massimo di caratteri raggiunto,\n num max di caratteri per il nome è 50.");
-            throw new NumMaxCaratteriException("Limite massimo di caratteri raggiunto, num max di caratteri per il nome è 50.");
-        }
-        // Il cognome può contenere un massimo di 50 caratteri
-        if(cognome.length()>50){
-            handleInput("Errore", "Limite massimo di caratteri raggiunto,\n num max di caratteri per il cognome è 50.");
-            throw new NumMaxCaratteriException("Limite massimo di caratteri raggiunto, num max di caratteri per il cognome è 50.");
-        }
-        // Controlla che l indirizzo contenga almeno una lettera e un numero (max 120 caratteri)
-        if (!indirizzo.matches(".*\\d.*") || !indirizzo.matches(".*[a-zA-Z].*")) {
-            handleInput("Errore", "L'indirizzo deve contenere almeno una lettera e un numero.");
-            throw new IllegalArgumentException("L'indirizzo deve contenere almeno una lettera e un numero.");
-        }else if(indirizzo.length()>120){
-            handleInput("Errore", "Limite massimo di caratteri raggiunto, num max di caratteri per l'indirizzo è 120.");
-            throw new NumMaxCaratteriException("Limite massimo di caratteri raggiunto, num max di caratteri per il nome è 100.");
-        }
-        // Controlla che l indirizzo non contenga caratteri non validi
-        if (!indirizzo.matches("^[\\p{L}0-9.,'\\-\\s]+$")) {
-            handleInput("Errore", "L'indirizzo contiene caratteri non validi.");
-            throw new IllegalArgumentException("L'indirizzo contiene caratteri non validi.");
-        }
-        // Verifico che il numero inizi con + seguito da 1-4 cifre (prefisso internazionale),
-        // Poi abbia da 6 a 12 cifre, che possono essere separate da spazi o trattini.
-        // Non accetta caratteri diversi da spazi o trattini.
-        if (!tel.matches("^\\+\\d{1,4}(\\s?\\d){6,20}$")) {
-            handleInput("Errore", "Numero di telefono non valido.\n Deve iniziare con + seguito da prefisso e numero\n e deve avere minimo 6 e massimo 12 cifre.");
-            throw new TelefonoNonValidoException("Numero di telefono non valido. Deve iniziare con + seguito da prefisso e numero, e deve avere minimo 6 e massimo 12 cifre.");
-        }
-
-
-    }
-
-    public void eccezioniRistoranti(String nome, String indirizzo, String luogo,String prezzo,String cucina,
-                                    String tel, String url, String servizio, String descri, String stelle, String email ) {
-        // Controllo che l'utente ha inserito tutti i campi
-        if(nome.isEmpty() || indirizzo.isEmpty() || luogo.isEmpty() || prezzo.isEmpty() || cucina.isEmpty() ||
-                tel.isEmpty() || url.isEmpty() || servizio.isEmpty() || descri.isEmpty() || stelle.isEmpty() ||
-                email.isEmpty()) {
-            handleInput("Errore", "Devi compilare tutti i campi.");
-            throw new InputMancanteException("Devi compilare tutti i campi.");
-        }
-        // Il nome può contenere un massimo di 100 caratteri
-        if(nome.length()>100){
-            handleInput("Errore", "Limite massimo di caratteri raggiunto, num max di caratteri per il nome è 100.");
-            throw new NumMaxCaratteriException("Limite massimo di caratteri raggiunto, num max di caratteri per il nome è 100.");
-        }
-        // Controlla che l indirizzo contenga almeno una lettera e un numero max caratteri(120)
-        if (!indirizzo.matches(".*\\d.*") || !indirizzo.matches(".*[a-zA-Z].*")) {
-            handleInput("Errore", "L'indirizzo deve contenere almeno una lettera e un numero.");
-            throw new IllegalArgumentException("L'indirizzo deve contenere almeno una lettera e un numero.");
-        }else if(indirizzo.length()>120){
-            handleInput("Errore", "Limite massimo di caratteri raggiunto, num max di caratteri per l'indirizzo è 120.");
-            throw new NumMaxCaratteriException("Limite massimo di caratteri raggiunto, num max di caratteri per il nome è 100.");
-        }
-        // Controlla che l indirizzo non contenga caratteri non validi
-        if (!indirizzo.matches("^[\\p{L}0-9.,'\\-\\s]+$")) {
-            handleInput("Errore", "L'indirizzo contiene caratteri non validi.");
-            throw new IllegalArgumentException("L'indirizzo contiene caratteri non validi.");
-        }
-        // Verifico che il numero inizi con + seguito da 1-4 cifre (prefisso internazionale),
-        // Poi abbia da 6 a 12 cifre, che possono essere separate da spazi o trattini.
-        // Non accetta caratteri diversi da spazi o trattini.
-        if (!tel.matches("^\\+\\d{1,4}(\\s?\\d){6,20}$")) {
-            handleInput("Errore", "Numero di telefono non valido. Deve iniziare con + seguito da prefisso e numero, e deve avere minimo 6 e massimo 12 cifre.");
-            throw new TelefonoNonValidoException("Numero di telefono non valido. Deve iniziare con + seguito da prefisso e numero, e deve avere minimo 6 e massimo 12 cifre.");
-        }
-        // Controllo che il campo prezzo medio contenga solo caratteri come $/£/€ e che vadano da 1 a 4 caratteri
-        if(!prezzo.matches("([£]{1,4}|[$]{1,4}|[€]{1,4})")){
-            handleInput("Errore", "Formato prezzo non valido, formati ammessi : $/£/€.");
-            throw new TelefonoNonValidoException("Formato prezzo non valido, formati ammessi : $/£/€.");
-        }
-        // Controllo che il campo luogo sia formato da almeno due caratteri separati dalla virgola,
-        // con un max di 50 caratteri
-        if(!luogo.matches("\\s*[^,\\s].*?,\\s*[^,\\s].*")){
-            handleInput("Errore", "Formato del paese inserito non valido o non inserito.");
-            throw new PaeseNonValidoException("Formato del paese inserito non valido.");
-        }if(luogo.length()>50){
-            handleInput("Errore", "Limite massimo di caratteri raggiunto, num max di caratteri per il luogo è 50.");
-            throw new NumMaxCaratteriException("Limite massimo di caratteri raggiunto, num max di caratteri per il luogo è 50.");
-        }
-        // Controllo che il campo del tipo di cucina contenga solo lettere (ammette spazi)
-        if(!cucina.matches("[a-zA-Z\\s]+")){
-            handleInput("Errore", "Il campo tipo di cucina può contenere solo lettere.");
-            throw new PaeseNonValidoException("Il campo tipo di cucina può contenere solo lettere.");
-        }
-        // Controllo che la mail abbia un formato corretto (max 254 caratteri)
-        if(!email.matches("^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$")){
-            handleInput("Errore", "La mail non è in un formato corretto.");
-            throw new MailNonValidaException("La mail non è in un formato corretto.");
-        }else if(email.length()>254){
-            handleInput("Errore", "Limite massimo di caratteri raggiunto, num max di caratteri per una mail è 254.");
-            throw new NumMaxCaratteriException("Limite massimo di caratteri raggiunto, num max di caratteri per una mail è 254.");
-        }
-        // Controllo che la stringa contenga solo numeroi da 1 a 5
-        if(!stelle.matches("^[0-5]+$")){
-            handleInput("Errore", "Accetta solo numeri da 1 a 5.");
-            throw new StelleException("Errore stelle, accetta solo numeri da 1 a 5.");
-        }
-        if(descri.length()>500){
-            handleInput("Errore", "Limite massimo di caratteri raggiunto, num max di caratteri per la descrizione è 500.");
-            throw new NumMaxCaratteriException("Limite massimo di caratteri raggiunto, num max di caratteri per la descrizione è 500.");
-        }
-        if(servizio.length()>400){
-            handleInput("Errore", "Limite massimo di caratteri raggiunto, num max di caratteri per i servizi è 400.");
-            throw new NumMaxCaratteriException("Limite massimo di caratteri raggiunto, num max di caratteri per la descrizione è 400.");
-        }
-
-    }
+    
 }

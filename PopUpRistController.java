@@ -1,5 +1,7 @@
 package com.example.the_knife.Ristoratore;
 
+import com.example.the_knife.InputValidator;
+
 import com.example.the_knife.Utente.SessionManager;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -62,6 +64,7 @@ public class PopUpRistController extends DettaglioRistController {
                     okButton.setOnAction(e -> {
                         try {
                             String newNome = txt1.getText();
+                            InputValidator.validaNomeRist(newNome);
                             modificaRist("nome",newNome,"ristoranti.json");
                             handleClose(e);//chiudi finestra popUp
                         } catch (IOException ex) {
@@ -76,6 +79,7 @@ public class PopUpRistController extends DettaglioRistController {
                     okButton.setOnAction(e -> {
                         try{
                             String newAdress = txt1.getText();
+                            InputValidator.validaIndirizzo(newAdress);
                             modificaRist("indirizzo",newAdress,"ristoranti.json");
                             handleClose(e);//chiudi finestra popUp
                         }catch (IOException ex){
@@ -90,6 +94,7 @@ public class PopUpRistController extends DettaglioRistController {
                     okButton.setOnAction(e -> {
                        try{
                            String newCity = txt1.getText();
+                           InputValidator.validaLuogo("newCity");
                            modificaRist("citta",newCity,"ristoranti.json");
                            handleClose(e);//chiudi finestra popUp
                        }catch (IOException ex){
@@ -104,6 +109,7 @@ public class PopUpRistController extends DettaglioRistController {
                     okButton.setOnAction(e -> {
                         try{
                             String newCuisine = txt1.getText();
+                            InputValidator.validaLuogo("newCuisine");
                             modificaRist("cucina",newCuisine,"ristoranti.json");
                             handleClose(e);//chiudi finestra popUp
                         }catch (IOException ex){
@@ -118,6 +124,7 @@ public class PopUpRistController extends DettaglioRistController {
                     okButton.setOnAction(e -> {
                         try{
                             String newTel = txt1.getText();
+                            InputValidator.validaTelefono(newTel);
                             modificaRist("telefono",newTel,"ristoranti.json");
                             handleClose(e);//chiudi finestra popUp
                         }catch (IOException ex){
@@ -132,6 +139,7 @@ public class PopUpRistController extends DettaglioRistController {
                     okButton.setOnAction(e -> {
                         try{
                             String newMail = txt1.getText();
+                            InputValidator.validaEmail(newMail);
                             modificaRist("email",newMail,"ristoranti.json");
                             handleClose(e);//chiudi finestra popUp
                         }catch (IOException ex){
@@ -146,6 +154,7 @@ public class PopUpRistController extends DettaglioRistController {
                     okButton.setOnAction(e -> {
                         try{
                             String newUrl = txt1.getText();
+                            InputValidator.validaUrl(newUrl);
                             modificaRist("url",newUrl,"ristoranti.json");
                             handleClose(e);//chiudi finestra popUp
                         }catch (IOException ex){
@@ -160,6 +169,7 @@ public class PopUpRistController extends DettaglioRistController {
                     okButton.setOnAction(e -> {
                         try{
                             String newDesc = txt1.getText();
+                            InputValidator.validaDescrizione(newDesc);
                             modificaRist("descrizione",newDesc,"ristoranti.json");
                             handleClose(e);//chiudi finestra popUp
                         }catch (IOException ex){
@@ -174,6 +184,7 @@ public class PopUpRistController extends DettaglioRistController {
                     okButton.setOnAction(e -> {
                         try{
                             String newPrice = txt1.getText();
+                            InputValidator.validaPrezzo(newPrice);
                             modificaRist("prezzo",newPrice,"ristoranti.json");
                             handleClose(e);//chiudi finestra popUp
                         } catch (IOException ex) {
@@ -188,6 +199,7 @@ public class PopUpRistController extends DettaglioRistController {
                     okButton.setOnAction(e -> {
                         try{
                             String newStelle = txt1.getText();
+                            InputValidator.validaStelle(newStelle);
                             modificaRist("stelle",newStelle,"ristoranti.json");
                             handleClose(e);//chiudi finestra popUp
                         }catch (IOException ex){
@@ -202,6 +214,7 @@ public class PopUpRistController extends DettaglioRistController {
                     okButton.setOnAction(e -> {
                         try{
                             String newServ = txt1.getText();
+                            InputValidator.validaServizio(newServ);
                             modificaRist("servizi",newServ,"ristoranti.json");
                             handleClose(e);//chiudi finestra popUp
                         }catch (IOException ex){
@@ -240,7 +253,7 @@ public class PopUpRistController extends DettaglioRistController {
                 } else if (campo.equals("cucina")) {
                     r.Cuisine = newCampo;
                 } else if (campo.equals("telefono")) {
-                    r.Address = newCampo;
+                    r.PhoneNumber = newCampo;
                 } else if(campo.equals("email")){
                     r.Email = newCampo;
                 }else if(campo.equals("url")){
