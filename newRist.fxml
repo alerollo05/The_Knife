@@ -3,80 +3,101 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import java.net.URL?>
-
 <?import javafx.geometry.Insets?>
-<?import javafx.collections.FXCollections?>
-<?import java.lang.Integer?>
-<?import javafx.scene.image.ImageView?>
-<StackPane  styleClass="root" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.the_knife.Ristoratore.newRestaurantController" >
-    <BorderPane xmlns:fx="http://javafx.com/fxml" styleClass="root">
-        <padding>
-            <Insets top="20" right="15" bottom="20" left="15"/>
-        </padding>
+
+<StackPane styleClass="root" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.the_knife.Ristoratore.newRestaurantController">
+    <BorderPane styleClass="root">
+
+        <!-- TOP BAR -->
         <top>
             <HBox alignment="TOP_RIGHT" spacing="10">
+                <padding>
+                    <Insets top="20" right="15" bottom="20" left="15"/>
+                </padding>
                 <Button text="INDIETRO" onAction="#goBack" styleClass="menu-button"/>
                 <Button text="ESCI" onAction="#handleLogOut" styleClass="menu-button"/>
                 <Button text="CHIUDI" onAction="#closeProgram" styleClass="menu-button"/>
             </HBox>
         </top>
 
+        <!-- CENTER CONTENT -->
         <center>
-
             <VBox spacing="2" alignment="CENTER">
-                <padding>
-                    <Insets top="20" right="15" bottom="20" left="15"/>
-                </padding>
-                <ScrollPane  fitToWidth="true" >
-                <VBox spacing="20" styleClass="form-box">
+                <ScrollPane fitToWidth="true">
+                    <VBox spacing="20" styleClass="form-box">
 
-                    <Label text="THE KNIFE" alignment="CENTER" styleClass="welcome-subtitle"/>
-                    <Label fx:id="welcomeLabel" styleClass="welcome-title"/>
-                    <Label text= "" styleClass="textSearch" />
-                    <!-- NEW RESTURANT -->
+                        <Label text="THE KNIFE" alignment="CENTER" styleClass="welcome-subtitle"/>
+                        <Label fx:id="welcomeLabel" styleClass="welcome-title"/>
+                        <Label text="" styleClass="textSearch" />
 
-                    <Label text="Inserisci i dati" styleClass="title2"/>
-                    <TextField fx:id="nameRist" promptText="Nome del ristorante" styleClass="rounded-textfield" maxWidth="500"/>
-                    <TextField fx:id="addressRist" promptText="Via , NCiv, CAP Città Prov, Stato"  styleClass="rounded-textfield" maxWidth="500"/>
-                    <TextField fx:id="locationRist" promptText="Città, Stato" styleClass="rounded-textfield" maxWidth="500"/>
-                    <TextField fx:id="priceRist" promptText="Prezzo medio: €/€€/€€€/€€€€" styleClass="rounded-textfield" maxWidth="500"/>
-                    <TextField fx:id="mailRist" promptText="E-mail del ristorante" styleClass="rounded-textfield" maxWidth="500"/>
-                    <TextField fx:id="cousineRist" promptText="Tipo di cucina" styleClass="rounded-textfield" maxWidth="500"/>
-                    <TextField fx:id="telRist" promptText="+39 0123456789" styleClass="rounded-textfield" maxWidth="500"/>
-                    <TextField fx:id="UrlRist" promptText="URL sito del tuo ristorante" styleClass="rounded-textfield" maxWidth="500"/>
-                    <TextField fx:id="serviceRist" promptText="Elenca i servizi che offre il tuo ristorante" styleClass="rounded-textfield" maxWidth="500"/>
-                    <TextField fx:id="descriptionRist" promptText="Descrivi il tuo ristorante" styleClass="rounded-textfield" maxWidth="500"/>
-                    <TextField fx:id="starsRist" promptText="Numero di stelle: 0/1/3/4/5 Stelle" styleClass="rounded-textfield" maxWidth="500"/>
+                        <Label text="Inserisci i dati" styleClass="title2"/>
 
+                        <!-- FORM CON GRIDPANE -->
+                        <GridPane hgap="30" vgap="10">
 
-                    <!-- FINIRE CORREGGERE LE SPAZIATURE TRA I BOTTONI  -->
-                    <HBox>
-                        <fx:define>
-                            <ToggleGroup fx:id="DeliveryToggleGroup"/>
-                        </fx:define>
-                        <Label text="Servizio di delivery :"/>
-                        <RadioButton text="Si" toggleGroup="$DeliveryToggleGroup"  styleClass="rounded-textfield" />
-                        <RadioButton text="No" toggleGroup="$DeliveryToggleGroup"  styleClass="rounded-textfield" selected="true"/>
-                    </HBox>
-                    <HBox>
-                        <fx:define>
-                            <ToggleGroup fx:id="BookingToggleGroup"/>
-                        </fx:define>
-                        <Label text="Servizio di prenotazione Online :"/>
-                        <RadioButton text="Si" toggleGroup="$BookingToggleGroup" fx:id="yes2" styleClass="rounded-textfield"  />
-                        <RadioButton text="No" toggleGroup="$BookingToggleGroup" fx:id="no2" styleClass="rounded-textfield" selected="true" />
-                    </HBox>
+                            <Label text="Nome ristorante:" styleClass="textNormal" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                            <TextField fx:id="nameRist" promptText="Nome del ristorante" styleClass="rounded-textfield" maxWidth="500" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
 
-                    <Button text="Aggiungi" defaultButton="true" onAction="#handleAddRist" styleClass="accent-button"/>
+                            <Label text="Indirizzo completo:" styleClass="textNormal" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                            <TextField fx:id="addressRist" promptText="Via, NCiv, CAP Città Prov, Stato" styleClass="rounded-textfield" maxWidth="500" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
 
-                </VBox>
-            </ScrollPane>
+                            <Label text="Località:" styleClass="textNormal" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                            <TextField fx:id="locationRist" promptText="Città, Stato" styleClass="rounded-textfield" maxWidth="500" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                            <Label text="Prezzo medio:" styleClass="textNormal" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                            <TextField fx:id="priceRist" promptText="€/€€/€€€/€€€€" styleClass="rounded-textfield" maxWidth="500" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+                            <Label text="Email ristorante:" styleClass="textNormal" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                            <TextField fx:id="mailRist" promptText="E-mail del ristorante" styleClass="rounded-textfield" maxWidth="500" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+                            <Label text="Tipo di cucina:" styleClass="textNormal" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+                            <TextField fx:id="cousineRist" promptText="Tipo di cucina" styleClass="rounded-textfield" maxWidth="500" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+
+                            <Label text="Telefono:" styleClass="textNormal" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
+                            <TextField fx:id="telRist" promptText="+39 0123456789" styleClass="rounded-textfield" maxWidth="500" GridPane.rowIndex="6" GridPane.columnIndex="1"/>
+
+                            <Label text="Sito Web:" styleClass="textNormal" GridPane.rowIndex="7" GridPane.columnIndex="0"/>
+                            <TextField fx:id="UrlRist" promptText="URL sito del tuo ristorante" styleClass="rounded-textfield" maxWidth="500" GridPane.rowIndex="7" GridPane.columnIndex="1"/>
+
+                            <Label text="Servizi offerti:" styleClass="textNormal" GridPane.rowIndex="8" GridPane.columnIndex="0"/>
+                            <TextField fx:id="serviceRist" promptText="Elenca i servizi" styleClass="rounded-textfield" maxWidth="500" GridPane.rowIndex="8" GridPane.columnIndex="1"/>
+
+                            <Label text="Descrizione:" styleClass="textNormal" GridPane.rowIndex="9" GridPane.columnIndex="0"/>
+                            <TextField fx:id="descriptionRist" promptText="Descrivi il tuo ristorante" styleClass="rounded-textfield" maxWidth="500" GridPane.rowIndex="9" GridPane.columnIndex="1"/>
+
+                            <Label text="Stelle:" styleClass="textNormal" GridPane.rowIndex="10" GridPane.columnIndex="0"/>
+                            <TextField fx:id="starsRist" promptText="0/1/2/3/4/5" styleClass="rounded-textfield" maxWidth="500" GridPane.rowIndex="10" GridPane.columnIndex="1"/>
+
+                            <Label text="Delivery disponibile:" styleClass="textNormal" GridPane.rowIndex="11" GridPane.columnIndex="0"/>
+                            <HBox spacing="10" GridPane.rowIndex="11" GridPane.columnIndex="1">
+                                <fx:define>
+                                    <ToggleGroup fx:id="DeliveryToggleGroup"/>
+                                </fx:define>
+                                <RadioButton text="Si" toggleGroup="$DeliveryToggleGroup" styleClass="rounded-textfield"/>
+                                <RadioButton text="No" toggleGroup="$DeliveryToggleGroup" styleClass="rounded-textfield" selected="true"/>
+                            </HBox>
+
+                            <Label text="Prenotazione online:" styleClass="textNormal" GridPane.rowIndex="12" GridPane.columnIndex="0"/>
+                            <HBox spacing="10" GridPane.rowIndex="12" GridPane.columnIndex="1">
+                                <fx:define>
+                                    <ToggleGroup fx:id="BookingToggleGroup"/>
+                                </fx:define>
+                                <RadioButton text="Si" toggleGroup="$BookingToggleGroup" fx:id="yes2" styleClass="rounded-textfield"/>
+                                <RadioButton text="No" toggleGroup="$BookingToggleGroup" fx:id="no2" styleClass="rounded-textfield" selected="true"/>
+                            </HBox>
+
+                        </GridPane>
+
+                        <!-- SUBMIT BUTTON -->
+                        <Button text="Aggiungi" defaultButton="true" onAction="#handleAddRist" styleClass="accent-button"/>
+
+                    </VBox>
+                </ScrollPane>
             </VBox>
-
         </center>
 
         <stylesheets>
             <URL value="@../style.css"/>
         </stylesheets>
     </BorderPane>
-   </StackPane>
+</StackPane>

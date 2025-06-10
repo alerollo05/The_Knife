@@ -14,6 +14,8 @@ public class Main extends Application {
         Scene scene = new Scene(fxmlLoader.load(), 900, 800);
         stage.setTitle("The_Knife");
         stage.setScene(scene);
+        stage.setResizable(false); // Impedisce il resize manuale
+        stage.setMaximized(false); // Impedisce l'avvio in modalità massimizzata
         stage.show();
     }
 

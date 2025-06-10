@@ -7,6 +7,8 @@ public class SessionManager {
     private int userId;
     private String ruolo;
     public static Integer idRist =null;
+    public static int idScelta = 0;
+    public static int idRecensione = 0;
     //COSTRUTTORE
     private SessionManager() {
 

@@ -2,37 +2,34 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import java.net.URL?>
-
 <?import javafx.geometry.Insets?>
-<?import javafx.collections.FXCollections?>
-<?import java.lang.Integer?>
 <?import javafx.scene.image.ImageView?>
-<StackPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.the_knife.Ristoratore.RistorantiRistController" >
-    <BorderPane xmlns:fx="http://javafx.com/fxml" styleClass="root">
+
+<?import java.net.URL?>
+<StackPane styleClass="root" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.the_knife.Ristoratore.RecensioniRistController">
+    <BorderPane styleClass="root">
+        <padding>
+            <Insets top="20" right="15" bottom="20" left="15"/>
+        </padding>
+        <stylesheets>
+            <URL value="@../style.css"/>
+        </stylesheets>
         <top>
             <HBox alignment="TOP_RIGHT" spacing="10">
                 <padding>
                     <Insets top="20" right="15" bottom="20" left="15"/>
                 </padding>
-                <Button onAction="#onAddRistClick" text="AGGIUNGI RISTORANTE" styleClass="menu-button"/>
-                <Button onAction="#onProfileClick" text="PROFILO" styleClass="menu-button"/>
                 <Button text="INDIETRO" onAction="#goBack" styleClass="menu-button"/>
                 <Button text="ESCI" onAction="#handleLogOut" styleClass="menu-button"/>
                 <Button text="CHIUDI" onAction="#closeProgram" styleClass="menu-button"/>
             </HBox>
         </top>
-
         <center>
-            <VBox alignment="TOP_CENTER" spacing="20" styleClass="form-box">
-                <Label text="THE KNIFE" styleClass="welcome-subtitle"/>
+            <VBox spacing="10">
                 <Label fx:id="welcomeLabel" styleClass="welcome-title"/>
-                <ListView fx:id="listaRistLabel" prefHeight="600" prefWidth="300" />
+                <ListView fx:id="listaRecLabel" prefHeight="600" prefWidth="300" />
             </VBox>
         </center>
-
-        <stylesheets>
-            <URL value="@../style.css"/>
-        </stylesheets>
     </BorderPane>
 </StackPane>
+

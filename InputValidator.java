@@ -4,7 +4,6 @@ import com.example.the_knife.Exceptions.*;
 import javafx.scene.control.Alert;
 
 public class InputValidator {
-
     protected void handleInput() {
         //if(controllo che tutti gli input siano andati bene allora mando questo messaggio)
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -76,7 +75,7 @@ public class InputValidator {
         }
         if (!prezzo.matches("([£]{1,4}|[$]{1,4}|[€]{1,4})")) {
             handleInput("Errore", "Formato prezzo non valido, formati ammessi : $/£/€.");
-            throw new PrezzoNonValidoExeption("Formato prezzo non valido. Formati ammessi: $/£/€.");
+            throw new PrezzoNonValidoException("Formato prezzo non valido. Formati ammessi: $/£/€.");
         }
     }
 
@@ -199,6 +198,4 @@ public class InputValidator {
             throw new NumMaxCaratteriException("Limite massimo di caratteri raggiunto, num max di caratteri per il cognome è 50.");
         }
     }
-
-
 }

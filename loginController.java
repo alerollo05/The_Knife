@@ -28,11 +28,7 @@ public class loginController extends StartPageController {
     @FXML
     private TextField usernameField;
     @FXML
-    private PasswordField passwordField;
-    @FXML
     private TextField userRegister;
-    @FXML
-    private PasswordField passRegister;
     @FXML
     private TextField nomeField;
     @FXML
@@ -46,8 +42,37 @@ public class loginController extends StartPageController {
     @FXML
     private TextField indirizzo;
     @FXML
-    private RadioButton ruolo;
+    private TextField emailField;
 
+    @FXML
+    private RadioButton ruolo;
+    @FXML private PasswordField passRegister;
+    @FXML private TextField passRegisterVisible;
+    @FXML private CheckBox showPasswordCheckBox;
+
+    @FXML private PasswordField passwordField;
+    @FXML private TextField passwordFieldVisible;
+    @FXML private CheckBox showLoginPasswordCheckBox;
+
+    public void initialize() throws IOException{
+        // Password registrazione a scomparsa
+        passRegisterVisible.textProperty().bindBidirectional(passRegister.textProperty());
+        showPasswordCheckBox.selectedProperty().addListener((obs, oldVal, selected) -> {
+            passRegister.setVisible(!selected);
+            passRegister.setManaged(!selected);
+            passRegisterVisible.setVisible(selected);
+            passRegisterVisible.setManaged(selected);
+        });
+
+        // Password Login a scomparsa
+        passwordFieldVisible.textProperty().bindBidirectional(passwordField.textProperty());
+        showLoginPasswordCheckBox.selectedProperty().addListener((obs, oldVal, selected) -> {
+            passwordField.setVisible(!selected);
+            passwordField.setManaged(!selected);
+            passwordFieldVisible.setVisible(selected);
+            passwordFieldVisible.setManaged(selected);
+        });
+    }
 
     @FXML
     private void handleLogin(ActionEvent event) throws Exception {
@@ -105,6 +130,8 @@ public class loginController extends StartPageController {
         LocalDate DataNascita = dataNascita.getValue();
         RadioButton ruolo = (RadioButton) this.ruoloToggleGroup.getSelectedToggle();
         String role = ruolo.getText();
+
+
 
         // Codifica della password
         newPass = generaHash(passRegister.getText());
@@ -280,5 +307,5 @@ public class loginController extends StartPageController {
         alert.showAndWait();
         //else mando un errore specifico su un tipo di input inserito dall'utente
     }
-    
+
 }

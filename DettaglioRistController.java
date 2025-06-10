@@ -42,7 +42,7 @@ public class DettaglioRistController extends RistorantiRistController {
 
     private void printDettagliRist() throws IOException {
         try {
-            grid.getChildren().clear(); //evita duplicati
+            grid.getChildren().clear(); //evita duplicati quando aggiorni il file con le modifiche
             grid.getColumnConstraints().clear(); //reset dei vincoli
 
             Ristorante rist = super.getRistoranteById("ristoranti.json", idRist);
@@ -172,7 +172,7 @@ public class DettaglioRistController extends RistorantiRistController {
             deliveryLabel.getStyleClass().add("textNormal");
 
             //BOTTONI DI DELIVERY E BOOKING ONLINE
-            
+
             ToggleGroup group1 = new ToggleGroup();
 
             RadioButton delivery = new RadioButton("Si");

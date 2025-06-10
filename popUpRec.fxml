@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+<VBox styleClass="root" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.the_knife.Ristoratore.PopUpRecController">
+    <VBox styleClass="form-box" spacing="20" alignment="CENTER" prefWidth="400" prefHeight="250">
+        <stylesheets>
+            <URL value="@../style.css"/>
+        </stylesheets>
+
+        <!-- RIGA: Label + TextField -->
+        <HBox spacing="20" alignment="CENTER_LEFT" >
+            <Label fx:id="label1" styleClass="textPopUp"/>
+            <TextField fx:id="txt1" styleClass="rounded-textfield2"/>
+        </HBox>
+
+        <!-- RIGA: Bottoni -->
+        <HBox spacing="40" alignment="CENTER">
+            <Button fx:id="noButton" text="Annulla" styleClass="accent-button" onAction="#handleCloseAnnulla"/>
+            <Button fx:id="okButton" text="Conferma" styleClass="accent-button"/>
+        </HBox>
+    </VBox>
+</VBox>

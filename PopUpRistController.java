@@ -1,7 +1,6 @@
 package com.example.the_knife.Ristoratore;
 
 import com.example.the_knife.InputValidator;
-
 import com.example.the_knife.Utente.SessionManager;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -92,14 +91,14 @@ public class PopUpRistController extends DettaglioRistController {
                     txt1.setPromptText("Inserisci la nuova città");
                     okButton.setText("Conferma");
                     okButton.setOnAction(e -> {
-                       try{
-                           String newCity = txt1.getText();
-                           InputValidator.validaLuogo("newCity");
-                           modificaRist("citta",newCity,"ristoranti.json");
-                           handleClose(e);//chiudi finestra popUp
-                       }catch (IOException ex){
-                           throw new RuntimeException(ex);
-                       }
+                        try{
+                            String newCity = txt1.getText();
+                            InputValidator.validaLuogo(newCity);
+                            modificaRist("citta",newCity,"ristoranti.json");
+                            handleClose(e);//chiudi finestra popUp
+                        }catch (IOException ex){
+                            throw new RuntimeException(ex);
+                        }
                     });
                     break;
                 case 4:
@@ -109,7 +108,7 @@ public class PopUpRistController extends DettaglioRistController {
                     okButton.setOnAction(e -> {
                         try{
                             String newCuisine = txt1.getText();
-                            InputValidator.validaLuogo("newCuisine");
+                            InputValidator.validaLuogo(newCuisine);
                             modificaRist("cucina",newCuisine,"ristoranti.json");
                             handleClose(e);//chiudi finestra popUp
                         }catch (IOException ex){
@@ -223,6 +222,7 @@ public class PopUpRistController extends DettaglioRistController {
                     });
                     break;
 
+                default: break;
             }
     }
 

@@ -53,4 +53,6 @@ public class dashBoardRistController extends loginController {
     protected void onAddRistClick(ActionEvent event) throws IOException {
         super.goTo(event,"newRist.fxml");
     }
+
+
 }

@@ -12,7 +12,7 @@
             <!-- RIGA: Label + TextField -->
             <HBox spacing="20" alignment="CENTER_LEFT" >
                 <Label fx:id="label1" styleClass="textPopUp"/>
-                <TextField fx:id="txt1" styleClass="rounded-textfield"/>
+                <TextField fx:id="txt1" styleClass="rounded-textfield2"/>
             </HBox>
 
             <!-- RIGA: Bottoni -->

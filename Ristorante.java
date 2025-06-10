@@ -1,5 +1,4 @@
 package com.example.the_knife.Ristoratore;
-import java.util.ArrayList;
 import java.util.List;
 
 public class Ristorante {

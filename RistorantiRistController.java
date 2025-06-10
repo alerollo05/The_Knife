@@ -16,7 +16,6 @@ import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -25,6 +24,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import static com.example.the_knife.Utente.SessionManager.idRist;
 
 public class RistorantiRistController extends dashBoardRistController {
 
@@ -81,7 +82,7 @@ public class RistorantiRistController extends dashBoardRistController {
                         dettaglioButton.getStyleClass().add("accent-button");
                         dettaglioButton.setOnAction(e -> {
                             try {
-                                Integer idRist = (Integer) ristorante.getId();
+                                Integer idRist =  ristorante.getId();
                                 SessionManager.idRist = idRist;
                                 System.out.println("Id ristorante: " + idRist);
                                 goTo(e, "dettaglioRist.fxml");
@@ -198,6 +199,39 @@ public class RistorantiRistController extends dashBoardRistController {
         return null; // se non trovato
     }
 
+    public static List<Recensione> visualizzaRecensioniPerNomeRistorante(String fileJson) {
+        try {
+            ObjectMapper mapper = new ObjectMapper();
+            JsonNode root = mapper.readTree(new File(fileJson));
+            JsonNode ristorantiNode = root.get("ristoranti");
+
+            List<Ristorante> ristoranti = Arrays.asList(mapper.treeToValue(ristorantiNode, Ristorante[].class));
+
+            Ristorante ristorante = null;
+            for (Ristorante r : ristoranti) {
+                if (r.Id== idRist) {
+                    ristorante = r;
+                    break;
+                }
+            }
+            if (ristorante == null) {
+                System.out.println("Ristorante '" + ristorante.Name + "' non trovato.");
+                return null;
+            }
+            if (ristorante.recensioni == null || ristorante.recensioni.isEmpty()) {
+                System.out.println("Il ristorante '" + ristorante.Name + "' non ha recensioni.");
+                return null;
+            }
+
+            List<Recensione> recensioni = new ArrayList<>(ristorante.recensioni);
+            return recensioni;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     public void openPopup(String title) { //aggiungere variabile stringa nei parametri passati per percorso file .fxml
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("popUpRist.fxml"));
@@ -219,4 +253,5 @@ public class RistorantiRistController extends dashBoardRistController {
             e.printStackTrace();
         }
     }
+
 }
