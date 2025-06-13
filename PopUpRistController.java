@@ -28,9 +28,6 @@ public class PopUpRistController extends DettaglioRistController {
     private Button okButton;
 
     @FXML
-    private Button noButton;
-
-    @FXML
     private TextField txt1;
 
     public void handleClose(ActionEvent event) throws IOException {
@@ -46,6 +43,7 @@ public class PopUpRistController extends DettaglioRistController {
         stage.close();
         //Al massimo posso aggiornare la pagina rifacendo di nuovo goTo per leggere il dato nuovo
     }
+
     public void handleCloseAnnulla(ActionEvent event) throws IOException {
         // Chiude la finestra corrente
         SessionManager.idScelta = 0;
@@ -243,30 +241,30 @@ public class PopUpRistController extends DettaglioRistController {
         List<Ristorante> listaModificabile = new ArrayList<>(ristoranti);
 
         for(Ristorante r : listaModificabile){
-            if(r.Id== idRist){
+            if(r.id== idRist){
                 if(campo.equals("nome")){
-                    r.Name = newCampo;
+                    r.name = newCampo;
                 } else if(campo.equals("indirizzo")){
-                    r.Address = newCampo;
+                    r.address = newCampo;
                 } else if (campo.equals("citta")) {
-                    r.Location = newCampo;
+                    r.location = newCampo;
                 } else if (campo.equals("cucina")) {
-                    r.Cuisine = newCampo;
+                    r.cuisine = newCampo;
                 } else if (campo.equals("telefono")) {
-                    r.PhoneNumber = newCampo;
+                    r.phoneNumber = newCampo;
                 } else if(campo.equals("email")){
-                    r.Email = newCampo;
+                    r.email = newCampo;
                 }else if(campo.equals("url")){
-                    r.WebsiteUrl = newCampo;
+                    r.websiteUrl = newCampo;
                 }else if(campo.equals("descrizione")){
-                    r.Description = newCampo;
+                    r.description = newCampo;
                 } else if(campo.equals("prezzo")){
-                    r.Price = newCampo;
+                    r.price = newCampo;
                 } else if(campo.equals("stelle")){
                     int newStelle = Integer.parseInt(newCampo);
-                    r.GreenStar = newStelle;
+                    r.greenStar = newStelle;
                 } else if(campo.equals("servizi")){
-                    r.FacilitiesAndServices = newCampo;
+                    r.facilitiesAndServices = newCampo;
                 }
             }
             // Ricrea l'oggetto JSON aggiornato
@@ -275,9 +273,5 @@ public class PopUpRistController extends DettaglioRistController {
             // Sovrascrive il file
             mapper.writerWithDefaultPrettyPrinter().writeValue(new File(fileJson), nuovoRoot);
         }
-
-
-
-
     }
 }

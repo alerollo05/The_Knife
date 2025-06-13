@@ -10,12 +10,15 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -32,13 +35,23 @@ public class PopUpProfController {
     @FXML
     private TextField txt1;
 
-    String username = SessionManager.username;
+    @FXML
+    private TextField txt2;
+
+    @FXML
+    private DatePicker date1;
+
+    public String username = SessionManager.getInstance().getUsername();
 
     public void initialize() {
         switch (SessionManager.idScelta) {
             case 1:
                 label1.setText("Cambia nome:");
                 txt1.setPromptText("Inserisci il nuovo nome");
+                date1.setVisible(false);//nascondo la casella della data
+                date1.setManaged(false);//tolgo lo spazio occupato dalla casella della data
+                txt2.setVisible(false);//nascondo la casella della conferma password
+                txt2.setManaged(false);//tolgo lo spazio occupato dalla casella conferma password
                 okButton.setText("Conferma");
                 okButton.setOnAction(e -> {
                     try {
@@ -54,6 +67,10 @@ public class PopUpProfController {
             case 2:
                 label1.setText("Cambia cognome:");
                 txt1.setPromptText("Inserisci il cognome");
+                date1.setVisible(false);//nascondo la casella della data
+                date1.setManaged(false);//tolgo lo spazio occupato dalla casella della data
+                txt2.setVisible(false);//nascondo la casella della conferma password
+                txt2.setManaged(false);//tolgo lo spazio occupato dalla casella conferma password
                 okButton.setText("Conferma");
                 okButton.setOnAction(e -> {
                     try {
@@ -69,6 +86,10 @@ public class PopUpProfController {
             case 3:
                 label1.setText("Cambia email:");
                 txt1.setPromptText("Inserisci il email");
+                date1.setVisible(false);//nascondo la casella della data
+                date1.setManaged(false);//tolgo lo spazio occupato dalla casella della data
+                txt2.setVisible(false);//nascondo la casella della conferma password
+                txt2.setManaged(false);//tolgo lo spazio occupato dalla casella conferma password
                 okButton.setText("Conferma");
                 okButton.setOnAction(e -> {
                     try {
@@ -84,6 +105,10 @@ public class PopUpProfController {
             case 4:
                 label1.setText("Cambia username:");
                 txt1.setPromptText("Inserisci l'username");
+                date1.setVisible(false);//nascondo la casella della data
+                date1.setManaged(false);//tolgo lo spazio occupato dalla casella della data
+                txt2.setVisible(false);//nascondo la casella della conferma password
+                txt2.setManaged(false);//tolgo lo spazio occupato dalla casella conferma password
                 okButton.setText("Conferma");
                 okButton.setOnAction(e -> {
                     try {
@@ -97,14 +122,21 @@ public class PopUpProfController {
                 });
                 break;
             case 5:
+
                 label1.setText("Cambia password:");
-                txt1.setPromptText("Inserisci la password");
+                txt1.setPromptText("Ins vecchia password");
+                txt2.setPromptText("Ins nuova password");
+                date1.setVisible(false);//nascondo la casella della data
+                date1.setManaged(false);//tolgo lo spazio occupato dalla casella della data
                 okButton.setText("Conferma");
                 okButton.setOnAction(e -> {
                     try {
-                        String newPass = txt1.getText();
+                        String oldPass = txt1.getText();
+                        String newPass = txt2.getText();
                         InputValidator.validaPassword(newPass);
-                        modificaUte("password",newPass,"fileUtenti.json");
+                        //if(oldPass == password nel file){
+                        //modificaUte("password", newPass, "fileUtenti.json");
+                        //}
                         handleClose(e);//chiudi finestra popUp
                     } catch (IOException ex) {
                         throw new RuntimeException(ex);
@@ -114,6 +146,10 @@ public class PopUpProfController {
             case 6:
                 label1.setText("Cambia indirizzo:");
                 txt1.setPromptText("Inserisci l'indirizzo");
+                date1.setVisible(false);//nascondo la casella della data
+                date1.setManaged(false);//tolgo lo spazio occupato dalla casella della data
+                txt2.setVisible(false);//nascondo la casella della conferma password
+                txt2.setManaged(false);//tolgo lo spazio occupato dalla casella conferma password
                 okButton.setText("Conferma");
                 okButton.setOnAction(e -> {
                     try {
@@ -128,12 +164,16 @@ public class PopUpProfController {
                 break;
             case 7:
                 label1.setText("Cambia data di nascita:");
-                txt1.setPromptText("Inserisci il email");
+                date1.setPromptText("dd/mm/aaaa");
+                txt1.setVisible(false);//nascondo la casella di testo
+                txt1.setManaged(false);//tolgo lo spazio occupato dalla casella di testo
+                txt2.setVisible(false);//nascondo la casella della conferma password
+                txt2.setManaged(false);//tolgo lo spazio occupato dalla casella conferma password
                 okButton.setText("Conferma");
                 okButton.setOnAction(e -> {
                     try {
-                        String newDate = txt1.getText();
-                        modificaUte("data",newDate,"fileUtenti.json");
+                        LocalDate newDate = date1.getValue();
+                        modificaUteData("data",newDate,"fileUtenti.json");
                         handleClose(e);//chiudi finestra popUp
                     } catch (IOException ex) {
                         throw new RuntimeException(ex);
@@ -141,8 +181,12 @@ public class PopUpProfController {
                 });
                 break;
             case 8:
-                label1.setText("Cambia numero di telefono:");
+                label1.setText("Cambia telefono:");
                 txt1.setPromptText("Inserisci il numero");
+                date1.setVisible(false);//nascondo la casella della data
+                date1.setManaged(false);//tolgo lo spazio occupato dalla casella della data
+                txt2.setVisible(false);//nascondo la casella della conferma password
+                txt2.setManaged(false);//tolgo lo spazio occupato dalla casella conferma password
                 okButton.setText("Conferma");
                 okButton.setOnAction(e -> {
                     try {
@@ -162,9 +206,9 @@ public class PopUpProfController {
         // Chiude la finestra corrente
         SessionManager.idScelta = 0;
 
-       // if (mainController != null) {
-       //     mainController.initialize(); //aggiorna la lista ristoranti nel padre
-       // }
+         if (mainController != null) {
+            mainController.initialize(); //aggiorna la lista ristoranti nel padre
+        }
 
         Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
         //super.goTo(event, "dettaglioRist.fxml");
@@ -172,12 +216,17 @@ public class PopUpProfController {
         //Al massimo posso aggiornare la pagina rifacendo di nuovo goTo per leggere il dato nuovo
     }
 
+    //SERVE PER AGGIORNARE LA PAGINA DI STAMPA DOPO MODIFICA DEL POP UP
+    private ProfilePageRistController mainController;
+    public void setMainController(ProfilePageRistController controller) {
+        this.mainController = controller;
+    }
+
 
     public void handleCloseAnnulla(ActionEvent event) throws IOException {
         // Chiude la finestra corrente
         SessionManager.idScelta = 0;
         Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
-        //super.goTo(event, "dettaglioRist.fxml");
         stage.close();
         //Al massimo posso aggiornare la pagina rifacendo di nuovo goTo per leggere il dato nuovo
     }
@@ -208,15 +257,37 @@ public class PopUpProfController {
                     u.setPassword(newCampo);
                 } else if (campo.equals("username")){
                     u.setUsername(newCampo);
-                } else if (campo.equals("data")) {
-                    //u.setDataDiNascita(newCampo);
                 }
             }
-            }
-            // Ricrea l'oggetto JSON aggiornato
-            ObjectNode nuovoRoot = mapper.createObjectNode();
-            nuovoRoot.set("Utenti", mapper.valueToTree(listaModificabile));
-            // Sovrascrive il file
-            mapper.writerWithDefaultPrettyPrinter().writeValue(new File(fileJson), nuovoRoot);
         }
+        // Ricrea l'oggetto JSON aggiornato
+        ObjectNode nuovoRoot = mapper.createObjectNode();
+        nuovoRoot.set("Utenti", mapper.valueToTree(listaModificabile));
+        // Sovrascrive il file
+        mapper.writerWithDefaultPrettyPrinter().writeValue(new File(fileJson), nuovoRoot);
+    }
+
+    public void modificaUteData(String campo,LocalDate newCampo, String fileJson) throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.registerModule(new JavaTimeModule());
+        JsonNode root = mapper.readTree(new File(fileJson));
+        JsonNode utenteNode = root.get("Utenti");
+
+        List<Utente> utenti = Arrays.asList(mapper.treeToValue(utenteNode, Utente[].class));
+        // Converte in lista modificabile
+        List<Utente> listaModificabile = new ArrayList<>(utenti);
+
+        for(Utente u : listaModificabile){
+            if(u.getUsername().equals(username)){
+                if (campo.equals("data")) {
+                    u.setDataDiNascita(newCampo);
+                }
+            }
+        }
+        // Ricrea l'oggetto JSON aggiornato
+        ObjectNode nuovoRoot = mapper.createObjectNode();
+        nuovoRoot.set("Utenti", mapper.valueToTree(listaModificabile));
+        // Sovrascrive il file
+        mapper.writerWithDefaultPrettyPrinter().writeValue(new File(fileJson), nuovoRoot);
+    }
 }

@@ -1,214 +1,156 @@
 package com.example.the_knife.Ristoratore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.List;
 
 public class Ristorante {
-    public int Id;
-    public int IdRistoratore;
-    public String Name;
-    public String Address;
-    public String Location;
-    public String Price;
-    public String Cuisine;
-    public double Longitude;
-    public double Latitude;
-    public String PhoneNumber;
-    public String WebsiteUrl;
-    public int GreenStar;
-    public String FacilitiesAndServices;
-    public String Description;
-    public boolean Delivery;
-    public boolean BookingOnline;
-    public List<Recensione> recensioni;
-    public int NumRec;
-    public double MediaRec;
-    public String Email;
+    @JsonProperty("Id")
+    protected int id;
+
+    @JsonProperty("IdRistoratore")
+    protected int idRistoratore;
+
+    @JsonProperty("Name")
+    protected String name;
+
+    @JsonProperty("Address")
+    protected String address;
+
+    @JsonProperty("Location")
+    protected String location;
+
+    @JsonProperty("Price")
+    protected String price;
+
+    @JsonProperty("Cuisine")
+    protected String cuisine;
+
+    @JsonProperty("Longitude")
+    protected double longitude;
+
+    @JsonProperty("Latitude")
+    protected double latitude;
+
+    @JsonProperty("PhoneNumber")
+    protected String phoneNumber;
+
+    @JsonProperty("WebsiteUrl")
+    protected String websiteUrl;
+
+    @JsonProperty("GreenStar")
+    protected int greenStar;
+
+    @JsonProperty("FacilitiesAndServices")
+    protected String facilitiesAndServices;
+
+    @JsonProperty("Description")
+    protected String description;
+
+    @JsonProperty("Delivery")
+    protected boolean delivery;
+
+    @JsonProperty("BookingOnline")
+    protected boolean bookingOnline;
+
+    @JsonProperty("recensioni")
+    protected List<Recensione> recensioni;
+
+    @JsonProperty("NumRec")
+    protected int numRec;
+
+    @JsonProperty("MediaRec")
+    protected double mediaRec;
+
+    @JsonProperty("Email")
+    protected String email;
 
 
-    public Ristorante(int id, int idRistoratore, String nome, String address, String location, String price, String cousine, double lati, double longi, String tel, String url, int stars, String service, String description, boolean delivery, boolean booking, String email ) {
-        Id = id;
-        IdRistoratore = idRistoratore;
-        Name = nome ;
-        Address = address;
-        Location = location;
-        Price = price;
-        Cuisine = cousine;
-        Longitude = longi;
-        Latitude = lati;
-        PhoneNumber = tel;
-        WebsiteUrl = url;
-        GreenStar = stars;
-        FacilitiesAndServices = service;
-        Description = description;
-        Delivery = delivery;
-        BookingOnline = booking;
-        Email = email;
+    public Ristorante(int Id, int IdRistoratore, String Nome, String Address, String Location, String Price,
+                      String Cousine, double lati, double longi, String tel, String url, int stars, String service,
+                      String Description, boolean Delivery, boolean Booking, String Email ) {
+        id = Id;
+        idRistoratore = IdRistoratore;
+        name = Nome ;
+        address = Address;
+        location = Location;
+        price = Price;
+        cuisine = Cousine;
+        longitude = longi;
+        latitude = lati;
+        phoneNumber = tel;
+        websiteUrl = url;
+        greenStar = stars;
+        facilitiesAndServices = service;
+        description = Description;
+        delivery = Delivery;
+        bookingOnline = Booking;
+        email = Email;
         recensioni = null;
-        NumRec = 0;
-        MediaRec = 0;
+        numRec = 0;
+        mediaRec = 0;
     }
 
-    public Ristorante(){
-
-    }
+    public Ristorante(){}
 
     //getter e setter
-    public int getId() {
-        return Id;
-    }
+    public int getId() { return id; }
+    public void setId(int id) { this.id = id; }
 
-    public void setId(int id) {
-        Id = id;
-    }
+    public int getIdRistoratore() { return idRistoratore; }
+    public void setIdRistoratore(int idRistoratore) { this.idRistoratore = idRistoratore; }
 
-    public int getIdRistoratore() {
-        return IdRistoratore;
-    }
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
 
-    public void setIdRistoratore(int idRistoratore) {
-        IdRistoratore = idRistoratore;
-    }
+    public String getAddress() { return address; }
+    public void setAddress(String address) { this.address = address; }
 
-    public String getName() {
-        return Name;
-    }
+    public String getLocation() { return location; }
+    public void setLocation(String location) { this.location = location; }
 
-    public void setName(String name) {
-        Name = name;
-    }
+    public String getPrice() { return price; }
+    public void setPrice(String price) { this.price = price; }
 
-    public String getAddress() {
-        return Address;
-    }
+    public String getCuisine() { return cuisine; }
+    public void setCuisine(String cuisine) { this.cuisine = cuisine; }
 
-    public void setAddress(String address) {
-        Address = address;
-    }
+    public double getLongitude() { return longitude; }
+    public void setLongitude(double longitude) { this.longitude = longitude; }
 
-    public String getLocation() {
-        return Location;
-    }
+    public double getLatitude() { return latitude; }
+    public void setLatitude(double latitude) { this.latitude = latitude; }
 
-    public void setLocation(String location) {
-        Location = location;
-    }
+    public String getPhoneNumber() { return phoneNumber; }
+    public void setPhoneNumber(String phoneNumber) { this.phoneNumber = phoneNumber; }
 
-    public String getPrice() {
-        return Price;
-    }
+    public String getWebsiteUrl() { return websiteUrl; }
+    public void setWebsiteUrl(String websiteUrl) { this.websiteUrl = websiteUrl; }
 
-    public void setPrice(String price) {
-        Price = price;
-    }
-    public String getEmail() {
-        return Email;
-    }
-    public void setEmail(String email) {
-        Email = email;
-    }
+    public int getGreenStar() { return greenStar; }
+    public void setGreenStar(int greenStar) { this.greenStar = greenStar; }
 
-    public String getCuisine() {
-        return Cuisine;
-    }
+    public String getFacilitiesAndServices() { return facilitiesAndServices; }
+    public void setFacilitiesAndServices(String facilitiesAndServices) { this.facilitiesAndServices = facilitiesAndServices; }
 
-    public void setCuisine(String cuisine) {
-        Cuisine = cuisine;
-    }
+    public String getDescription() { return description; }
+    public void setDescription(String description) { this.description = description; }
 
-    public double getLongitude() {
-        return Longitude;
-    }
+    public boolean isDelivery() { return delivery; }
+    public void setDelivery(boolean delivery) { this.delivery = delivery; }
 
-    public void setLongitude(double longitude) {
-        Longitude = longitude;
-    }
+    public boolean isBookingOnline() { return bookingOnline; }
+    public void setBookingOnline(boolean bookingOnline) { this.bookingOnline = bookingOnline; }
 
-    public double getLatitude() {
-        return Latitude;
-    }
+    public List<Recensione> getRecensioni() { return recensioni; }
+    public void setRecensioni(List<Recensione> recensioni) { this.recensioni = recensioni; }
 
-    public void setLatitude(double latitude) {
-        Latitude = latitude;
-    }
+    public int getNumRec() { return numRec; }
+    public void setNumRec(int numRec) { this.numRec = numRec; }
 
-    public String getPhoneNumber() {
-        return PhoneNumber;
-    }
+    public double getMediaRec() { return mediaRec; }
+    public void setMediaRec(double mediaRec) { this.mediaRec = mediaRec; }
 
-    public void setPhoneNumber(String phoneNumber) {
-        PhoneNumber = phoneNumber;
-    }
-
-
-    public String getWebsiteUrl() {
-        return WebsiteUrl;
-    }
-
-    public void setWebsiteUrl(String websiteUrl) {
-        WebsiteUrl = websiteUrl;
-    }
-
-    public int getGreenStar() {
-        return GreenStar;
-    }
-
-    public void setGreenStar(int greenStar) {
-        GreenStar = greenStar;
-    }
-
-    public String getFacilitiesAndServices() {
-        return FacilitiesAndServices;
-    }
-
-    public void setFacilitiesAndServices(String facilitiesAndServices) {
-        FacilitiesAndServices = facilitiesAndServices;
-    }
-
-    public String getDescription() {
-        return Description;
-    }
-
-    public void setDescription(String description) {
-        Description = description;
-    }
-
-    public boolean isDelivery() {
-        return Delivery;
-    }
-
-    public void setDelivery(boolean delivery) {
-        Delivery = delivery;
-    }
-
-    public boolean isBookingOnline() {
-        return BookingOnline;
-    }
-
-    public void setBookingOnline(boolean bookingOnline) {
-        BookingOnline = bookingOnline;
-    }
-
-    public List<Recensione> getRecensioni() {
-        return recensioni;
-    }
-
-    public void setRecensioni(List<Recensione> recensioni) {
-        this.recensioni = recensioni;
-    }
-
-    public int getNumRec() {
-        return NumRec;
-    }
-
-    public void setNumRec(int numRec) {
-        NumRec = numRec;
-    }
-
-    public double getMediaRec() {
-        return MediaRec;
-    }
-
-    public void setMediaRec(double mediaRec) {
-        MediaRec = mediaRec;
-    }
+    public String getEmail() { return email; }
+    public void setEmail(String email) { this.email = email; }
 
 }

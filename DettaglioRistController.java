@@ -257,7 +257,7 @@ public class DettaglioRistController extends RistorantiRistController {
             grid.setPadding(new Insets(15));
             grid.getStyleClass().add("list-rist");
 
-            // 🔧 esempio di forzatura dei label a crescere orizzontalmente
+            //forzatura dei label a crescere orizzontalmente
             GridPane.setFillWidth(nome, true);
             GridPane.setFillWidth(indirizzo, true);
             GridPane.setFillWidth(citta, true);
@@ -302,22 +302,22 @@ public class DettaglioRistController extends RistorantiRistController {
         List<Ristorante> listaModificabile = new ArrayList<>(ristoranti);
 
         for(Ristorante r : listaModificabile){
-            if(r.Id == idRist) {
-                System.out.println("Controllo Ristorante ID: " + r.Id);
+            if(r.id == idRist) {
+                System.out.println("Controllo Ristorante ID: " + r.id);
                 if (campo.equalsIgnoreCase("delivery")) {
                     System.out.println("Trovato Ristorante");
-                    if (scelta.equalsIgnoreCase("si") && r.Delivery == false) {
-                        r.Delivery = true;
+                    if (scelta.equalsIgnoreCase("si") && r.delivery == false) {
+                        r.delivery = true;
                         System.out.println("Modificato Ristorante");
-                    } else if (scelta.equalsIgnoreCase("no") && r.Delivery == true) {
-                        r.Delivery = false;
+                    } else if (scelta.equalsIgnoreCase("no") && r.delivery == true) {
+                        r.delivery = false;
                     }
                 }
                 if (campo.equalsIgnoreCase("booking")) {
-                    if (scelta.equalsIgnoreCase("si") && r.BookingOnline == false) {
-                        r.BookingOnline = true;
-                    } else if (scelta.equalsIgnoreCase("no") && r.BookingOnline == true) {
-                        r.BookingOnline = false;
+                    if (scelta.equalsIgnoreCase("si") && r.bookingOnline == false) {
+                        r.bookingOnline = true;
+                    } else if (scelta.equalsIgnoreCase("no") && r.bookingOnline == true) {
+                        r.bookingOnline = false;
                     }
                 }
             }

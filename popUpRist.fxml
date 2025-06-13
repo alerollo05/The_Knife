@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import java.net.URL?>
 <VBox styleClass="root" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.the_knife.Ristoratore.PopUpRistController">
-    <VBox styleClass="form-box" spacing="20" alignment="CENTER" prefWidth="400" prefHeight="250">
+    <VBox styleClass="form-boxPop" spacing="20" alignment="CENTER" prefWidth="400" prefHeight="250">
         <stylesheets>
             <URL value="@../style.css"/>
         </stylesheets>

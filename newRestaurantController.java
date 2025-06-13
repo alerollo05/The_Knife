@@ -5,9 +5,11 @@ import com.example.the_knife.Exceptions.*;
 import com.example.the_knife.InputValidator;
 import com.example.the_knife.Utente.SessionManager;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -160,30 +162,42 @@ public class newRestaurantController extends dashBoardRistController {
     public static void aggiungiRistorante(Ristorante nuovo, String fileJson) {
         try {
             ObjectMapper mapper = new ObjectMapper();
+            mapper.enable(SerializationFeature.INDENT_OUTPUT);
 
-            // Legge l'albero JSON
-            JsonNode root = mapper.readTree(new File(fileJson));
-            JsonNode ristorantiNode = root.get("ristoranti");
+            File file = new File(fileJson);
+            JsonNode root;
 
-            // Deserializza in List<Ristorante>
-            List<Ristorante> ristoranti = Arrays.asList(mapper.treeToValue(ristorantiNode, Ristorante[].class));
+            // Se il file esiste e non è vuoto, lo leggiamo
+            if (file.exists() && file.length() > 0) {
+                root = mapper.readTree(file);
+            } else {
+                root = mapper.createObjectNode();  // nuovo root se il file è vuoto
+            }
 
-            // Converte in lista modificabile
-            List<Ristorante> listaModificabile = new ArrayList<>(ristoranti);
+            List<Ristorante> listaRistoranti = new ArrayList<>();
 
-            // Aggiunge il nuovo ristorante
-            listaModificabile.add(nuovo);
+            if (root.has("ristoranti") && root.get("ristoranti").isArray()) {
+                JsonNode ristorantiNode = root.get("ristoranti");
 
-            System.out.println("Ristorante '" + nuovo.Name + "' aggiunto con successo.");
+                listaRistoranti = mapper.readValue(
+                        ristorantiNode.traverse(),
+                        new TypeReference<List<Ristorante>>() {}
+                );
+            }
 
-            // Ricrea l'oggetto JSON aggiornato
+            // Aggiunta del nuovo ristorante
+            listaRistoranti.add(nuovo);
+            System.out.println("Ristorante '" + nuovo.getName() + "' aggiunto con successo.");
+
+            // Nuovo root JSON con lista aggiornata
             ObjectNode nuovoRoot = mapper.createObjectNode();
-            nuovoRoot.set("ristoranti", mapper.valueToTree(listaModificabile));
+            nuovoRoot.set("ristoranti", mapper.valueToTree(listaRistoranti));
 
-            // Sovrascrive il file
-            mapper.writerWithDefaultPrettyPrinter().writeValue(new File(fileJson), nuovoRoot);
+            // Scrittura nel file
+            mapper.writeValue(file, nuovoRoot);
 
         } catch (Exception e) {
+            System.err.println("Errore durante l'aggiunta del ristorante:");
             e.printStackTrace();
         }
     }
@@ -201,7 +215,7 @@ public class newRestaurantController extends dashBoardRistController {
             List<Ristorante> listaModificabile = new ArrayList<>(ristoranti);// Converte in lista modificabile
 
             for (Ristorante r : listaModificabile) {
-                if (r.Id!=0) {
+                if (r.id!=0) {
                     count++;
                 }
             }

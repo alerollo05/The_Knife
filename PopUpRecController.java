@@ -1,6 +1,6 @@
 package com.example.the_knife.Ristoratore;
 
-import com.example.the_knife.InputValidator;
+
 import com.example.the_knife.Utente.SessionManager;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -18,6 +18,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static com.example.the_knife.Utente.SessionManager.idRist;
+
 public class PopUpRecController extends RecensioniRistController{
 
     @FXML
@@ -32,6 +34,7 @@ public class PopUpRecController extends RecensioniRistController{
     @FXML
     private TextField txt1;
 
+
     public void initialize(){
 
             label1.setText("Risposta:");
@@ -39,7 +42,7 @@ public class PopUpRecController extends RecensioniRistController{
         okButton.setOnAction(e -> {
             try{
                 String risposta = txt1.getText();
-                //rispondiAllaRecensione();
+                rispondiAllaRecensione(risposta,SessionManager.idRecensione,"ristoranti.json");
                 handleClose(e);//chiudi finestra popUp
             }catch (IOException ex){
                 throw new RuntimeException(ex);
@@ -56,10 +59,16 @@ public class PopUpRecController extends RecensioniRistController{
             mainController.initialize(); //aggiorna la lista ristoranti nel padre
         }
         Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
-        //super.goTo(event, "dettaglioRist.fxml");
         stage.close();
         //Al massimo posso aggiornare la pagina rifacendo di nuovo goTo per leggere il dato nuovo
     }
+
+    //SERVE PER AGGIORNARE LA PAGINA DI STAMPA DOPO MODIFICA DEL POP UP
+    private RecensioniRistController mainController;
+    public void setMainController(RecensioniRistController controller) {
+        this.mainController = controller;
+    }
+
     public void handleCloseAnnulla(ActionEvent event) throws IOException {
         // Chiude la finestra corrente
         SessionManager.idScelta = 0;
@@ -69,14 +78,10 @@ public class PopUpRecController extends RecensioniRistController{
         //Al massimo posso aggiornare la pagina rifacendo di nuovo goTo per leggere il dato nuovo
     }
 
-    //SERVE PER AGGIORNARE LA PAGINA DI STAMPA DOPO MODIFICA DEL POP UP
-    protected DettaglioRistController mainController;
 
-    public void setMainController(DettaglioRistController controller) {
-        this.mainController = controller;
-    }
 
-    public static void rispondiAllaRecensione(String nomeRistorante, String autoreRecensione, String risposta, String fileJson) {
+
+    public static void rispondiAllaRecensione(String risposta, int IdRec, String fileJson) {
         try {
             ObjectMapper mapper = new ObjectMapper();
             JsonNode root = mapper.readTree(new File(fileJson));
@@ -89,14 +94,13 @@ public class PopUpRecController extends RecensioniRistController{
             boolean trovatoRecensione = false;
 
             for (Ristorante r : listaModificabile) {
-                if (r.Name.equalsIgnoreCase(nomeRistorante)) {
+                if (r.id == idRist) {
                     trovatoRistorante = true;
                     if (r.recensioni != null) {
                         for (Recensione rec : r.recensioni) {
-                            if (rec.author.equalsIgnoreCase(autoreRecensione)) {
+                            if (rec.idRec == IdRec ) {
                                 rec.risposta = risposta;
                                 trovatoRecensione = true;
-                                System.out.println("Risposta aggiornata per la recensione di '" + autoreRecensione + "'.");
                                 break;
                             }
                         }
@@ -106,9 +110,9 @@ public class PopUpRecController extends RecensioniRistController{
             }
 
             if (!trovatoRistorante) {
-                System.out.println("Ristorante '" + nomeRistorante + "' non trovato.");
+                System.out.println("Ristorante  non trovato.");
             } else if (!trovatoRecensione) {
-                System.out.println("Recensione di '" + autoreRecensione + "' non trovata.");
+                System.out.println("Recensione di  non trovata.");
             }
 
             // Ricrea l'oggetto JSON aggiornato
@@ -122,4 +126,5 @@ public class PopUpRecController extends RecensioniRistController{
             e.printStackTrace();
         }
     }
+
 }

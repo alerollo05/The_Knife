@@ -24,25 +24,11 @@
         </top>
 
         <center>
-            <VBox alignment="TOP_CENTER" spacing="10" styleClass="form-box">
-
-                <Label text="THE KNIFE" styleClass="welcome-subtitle"/>
+            <VBox spacing="10">
                 <Label fx:id="welcomeLabel" styleClass="welcome-title"/>
-                <Label text= "" styleClass="textSearch" />
-                <HBox spacing="10" alignment="CENTER" styleClass="search-box">
-
-                    <TextField fx:id="locationSearch" alignment="CENTER_LEFT" promptText="Dove?" maxWidth="1000" maxHeight="200" styleClass="search-textField" ></TextField>
-                    <!-- <Region HBox.hgrow="ALWAYS"/> riempie gli spazi vuoti tra un oggetto e l'altro -->
-                    <!-- Filtri -->
-                    <ComboBox fx:id="filtri"  promptText="Persone"  styleClass="search-textField" maxHeight="200" maxWidth="900">
-
-                    </ComboBox>
-                    <!-- Bottone di ricerca -->
-                    <Button text="Cerca" defaultButton="true" onAction="#onSearchClicked" styleClass="accent-button" maxHeight="200" maxWidth="300"/>
-                </HBox>
+                <GridPane fx:id="grid" prefHeight="600" prefWidth="300" maxWidth="800" />
             </VBox>
         </center>
-
         <stylesheets>
             <URL value="@../style.css"/>
         </stylesheets>

@@ -209,17 +209,17 @@ public class RistorantiRistController extends dashBoardRistController {
 
             Ristorante ristorante = null;
             for (Ristorante r : ristoranti) {
-                if (r.Id== idRist) {
+                if (r.id== idRist) {
                     ristorante = r;
                     break;
                 }
             }
             if (ristorante == null) {
-                System.out.println("Ristorante '" + ristorante.Name + "' non trovato.");
+                System.out.println("Ristorante '" + ristorante.name + "' non trovato.");
                 return null;
             }
             if (ristorante.recensioni == null || ristorante.recensioni.isEmpty()) {
-                System.out.println("Il ristorante '" + ristorante.Name + "' non ha recensioni.");
+                System.out.println("Il ristorante '" + ristorante.name + "' non ha recensioni.");
                 return null;
             }
 

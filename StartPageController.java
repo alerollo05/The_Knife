@@ -1,6 +1,4 @@
 package com.example.the_knife;
-
-
 import com.example.the_knife.Ristoratore.Ristorante;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -28,24 +26,24 @@ public class StartPageController {
     @FXML
     private void goToLogin(ActionEvent event) throws IOException {
         try{
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("loginPage.fxml"));
-        Scene loginScene = new Scene(loader.load(),900,800);
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(loginScene);
-        stage.setTitle("The_Knife");
-        stage.setResizable(false); // Impedisce il resize manuale
-        stage.setMaximized(false); // Impedisce l'avvio in modalità massimizzata
-        stage.show();
-    } catch (IOException e) {
-        System.err.println("Errore nel caricamento del file FXML:");
-        e.printStackTrace();
-    } catch (NullPointerException e) {
-        System.err.println("Il path al file FXML è nullo o errato:");
-        e.printStackTrace();
-    } catch (Exception e) {
-        System.err.println("Errore imprevisto:");
-        e.printStackTrace();
-    }
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("loginPage.fxml"));
+            Scene loginScene = new Scene(loader.load(),900,800);
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(loginScene);
+            stage.setTitle("The_Knife");
+            stage.setResizable(false); // Impedisce il resize manuale
+            stage.setMaximized(false); // Impedisce l'avvio in modalità massimizzata
+            stage.show();
+        } catch (IOException e) {
+            System.err.println("Errore nel caricamento del file FXML:");
+            e.printStackTrace();
+        } catch (NullPointerException e) {
+            System.err.println("Il path al file FXML è nullo o errato:");
+            e.printStackTrace();
+        } catch (Exception e) {
+            System.err.println("Errore imprevisto:");
+            e.printStackTrace();
+        }
     }
     @FXML
     public void goTo(ActionEvent event, String location) throws IOException{

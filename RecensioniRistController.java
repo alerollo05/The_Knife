@@ -27,6 +27,8 @@ public class RecensioniRistController extends RistorantiRistController {
     @FXML
     private ListView<Recensione> listaRecLabel;
 
+    private RecensioniRistController mainController;
+
     SessionManager session = SessionManager.getInstance();
     private final String user = session.getUsername();
     private final int id = session.getUserId();
@@ -113,7 +115,7 @@ public class RecensioniRistController extends RistorantiRistController {
                     grid.add(modRec, 2, 3);
                     grid.add(campoRating, 0, 4);
                     grid.add(rating, 1, 4);
-
+                    grid.getStyleClass().add("grid-list");
                     setGraphic(grid);
                 }
             }
@@ -142,8 +144,9 @@ public class RecensioniRistController extends RistorantiRistController {
             Parent root = loader.load();
             Stage popupStage = new Stage();
 
-            //PopUpRecController controller = loader.getController();
-            //controller.setMainController((RecensioniRistController) this);
+            //SERVE A AGGIORNARE I DATI QUANDO CHIUDO LA FINESTRA DI POPUP
+            PopUpRecController controller = loader.getController();
+            controller.setMainController((RecensioniRistController) this);
 
             popupStage.setTitle(title);
             popupStage.initModality(Modality.APPLICATION_MODAL); // Blocca la finestra principale
@@ -156,5 +159,8 @@ public class RecensioniRistController extends RistorantiRistController {
         catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    public void setMainController(RecensioniRistController controller) {
+        this.mainController = controller;
     }
 }

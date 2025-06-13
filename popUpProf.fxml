@@ -3,16 +3,18 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import java.net.URL?>
-<VBox styleClass="root" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.the_knife.Ristoratore.PopUpRecController">
+<VBox styleClass="root" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.the_knife.Ristoratore.PopUpProfController">
     <VBox styleClass="form-boxPop" spacing="20" alignment="CENTER" prefWidth="400" prefHeight="250">
         <stylesheets>
             <URL value="@../style.css"/>
         </stylesheets>
 
         <!-- RIGA: Label + TextField -->
-        <HBox spacing="20" alignment="CENTER_LEFT" >
+        <HBox spacing="20" alignment="CENTER" >
             <Label fx:id="label1" styleClass="textPopUp"/>
             <TextField fx:id="txt1" styleClass="rounded-textfield2"/>
+            <TextField fx:id="txt2" styleClass="rounded-textfield2"/>
+            <DatePicker fx:id="date1" promptText="dd/mm/aaaa" styleClass="date-pickerPop"/>
         </HBox>
 
         <!-- RIGA: Bottoni -->
