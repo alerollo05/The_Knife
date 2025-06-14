@@ -3,39 +3,59 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import java.net.URL?>
-
 <?import javafx.geometry.Insets?>
-<?import javafx.collections.FXCollections?>
-<?import java.lang.Integer?>
-<?import javafx.scene.image.ImageView?>
-<StackPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.the_knife.StartPageController" >
+
+<StackPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.the_knife.StartPageController">
     <BorderPane xmlns:fx="http://javafx.com/fxml" styleClass="root">
-        <padding>
-            <Insets top="20" right="15" bottom="20" left="15"/>
-        </padding>
+
+        <!-- MENU IN ALTO A DESTRA -->
         <top>
-            <HBox alignment="TOP_RIGHT" spacing="10">
+            <HBox spacing="10" alignment="CENTER_RIGHT">
+                <Region HBox.hgrow="ALWAYS" />
                 <Button text="ENTRA NELLA COMMUNITY" onAction="#goToLogin" styleClass="menu-button"/>
                 <Button text="CHIUDI" onAction="#closeProgram" styleClass="menu-button"/>
+                <padding>
+                    <Insets top="15" right="15" bottom="10" left="15"/>
+                </padding>
             </HBox>
         </top>
 
+        <!-- CENTRO: TITOLO + BOX RICERCA -->
         <center>
-            <VBox alignment="TOP_CENTER" spacing="10" styleClass="form-box">
+            <VBox alignment="TOP_CENTER" spacing="20" styleClass="form-box">
 
                 <Label text="Benvenuto in" styleClass="welcome-subtitle"/>
                 <Label text="The Knife" styleClass="welcome-title"/>
-                <Label text="Cerca i migliori ristoranti nei tuoi dintorni" styleClass="textSearch" />
-                <HBox spacing="10" alignment="CENTER" styleClass="search-box">
+                <Label text="Cerca i migliori ristoranti nei tuoi dintorni" styleClass="title"/>
 
-                    <TextField fx:id="locationSearch" alignment="CENTER_LEFT" promptText="Dove?" maxWidth="1000" maxHeight="200" styleClass="search-textField" ></TextField>
-                     <!-- <Region HBox.hgrow="ALWAYS"/> riempie gli spazi vuoti tra un oggetto e l'altro -->
-                    <!-- Filtri -->
-                    <ComboBox fx:id="filtri"  promptText="Persone"  styleClass="search-textField" maxHeight="200" maxWidth="900">
+                <!-- BARRA DI RICERCA -->
+                <HBox spacing="10" alignment="CENTER" styleClass="search-box" prefWidth="800" maxWidth="800">
+                    <TextField fx:id="cityField"
+                               promptText="Città"
+                               styleClass="rounded-textfield3"/>
 
-                    </ComboBox>
-                    <!-- Bottone di ricerca -->
-                    <Button text="Cerca" defaultButton="true" onAction="#onSearchClicked" styleClass="accent-button" maxHeight="200" maxWidth="300"/>
+                    <ComboBox fx:id="cuisineBox"
+                              promptText="Cucina"
+                              styleClass="rounded-textfield3"/>
+
+                    <ComboBox fx:id="priceBox"
+                              promptText="Prezzo"
+                              styleClass="rounded-textfield3"/>
+
+                    <ComboBox fx:id="deliveryBox"
+                              promptText="Delivery"
+                              styleClass="rounded-textfield3"/>
+
+                    <ComboBox fx:id="bookingBox"
+                              promptText="Booking online"
+
+                              styleClass="rounded-textfield3"/>
+
+                    <Button fx:id="searchButton"
+                            text="Cerca"
+                            onAction="#cercaRist"
+                            prefWidth="70"
+                            styleClass="accent-button"/>
                 </HBox>
             </VBox>
         </center>

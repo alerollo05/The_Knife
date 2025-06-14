@@ -4,16 +4,16 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.Node;
+import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
-
 import java.io.*;
 import java.net.*;
 import java.util.ArrayList;
@@ -21,8 +21,40 @@ import java.util.Arrays;
 import java.util.List;
 
 public class StartPageController {
+
     @FXML
     private TextField locationSearch;
+
+    @FXML private TextField cityField;
+    @FXML private ComboBox<String> cuisineBox;
+    @FXML private ComboBox<String> priceBox;
+    @FXML private ComboBox<String> deliveryBox;
+    @FXML private ComboBox<String> bookingBox;
+    @FXML private Button searchButton;
+
+    @FXML
+    private void initialize() {
+
+        cuisineBox.setItems(FXCollections.observableArrayList(
+                "Mediterranea", "Italiana", "Giapponese",
+                "Francese", "Cinese", "Messicana", "Indiana"));
+        cuisineBox.setMaxWidth(50);
+        priceBox.setItems(FXCollections.observableArrayList(
+                "€", "€€", "€€€", "€€€€"));
+        priceBox.setMaxWidth(50);
+
+        deliveryBox.setItems(FXCollections.observableArrayList(
+                "Con delivery", "Senza delivery"));
+        deliveryBox.setMaxWidth(50);
+        bookingBox.setItems(FXCollections.observableArrayList(
+                "Booking online", "No booking online"));
+        bookingBox.setMaxWidth(50);
+
+        //selezione di default tutti i servizi
+        deliveryBox.getSelectionModel().selectFirst();
+        bookingBox.getSelectionModel().selectFirst();
+    }
+
     @FXML
     private void goToLogin(ActionEvent event) throws IOException {
         try{
@@ -72,11 +104,34 @@ public class StartPageController {
     public void closeProgram(ActionEvent event) {
         System.exit(0);
     }
+
     @FXML
     private void onSearchClicked(){
         String location = locationSearch.getText();
         System.out.println(location);
         System.out.println("Searched");
+    }
+
+    @FXML
+    public void cercaRist() throws IOException {
+        boolean dev = true;
+        boolean bok = true;
+        String city     = cityField.getText().trim();
+        String cuisine  = cuisineBox.getValue();
+        String price    = priceBox.getValue();
+        String delivery = deliveryBox.getValue();
+        String booking  = bookingBox.getValue();
+        if(!delivery.equals("Senza delivery")){
+            dev = false;
+        }
+        if(!booking.equals("No booking online")){
+            bok = false;
+        }
+        System.out.println("Cerca rist"+city+" "+cuisine+" "+price+" "+delivery+" "+booking);
+        List<Ristorante> listaRist = cercaRistoranti("ristoranti.json",city,cuisine,price,dev,bok);
+        for(Ristorante r : listaRist ){
+            System.out.println(r.getName());
+        }
     }
 
     public List<Ristorante> cercaRistoranti(String fileJson,String luogo, String tipoCucina, String fasciaPrezzo,
