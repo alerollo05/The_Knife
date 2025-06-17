@@ -1,8 +1,11 @@
 package com.example.the_knife.Ristoratore;
 
+import com.example.the_knife.Exceptions.VecchiaPasswordException;
 import com.example.the_knife.InputValidator;
+import com.example.the_knife.Utente.ListaUtenti;
 import com.example.the_knife.Utente.SessionManager;
 import com.example.the_knife.Utente.Utente;
+import com.example.the_knife.loginController;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
@@ -15,6 +18,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import org.mindrot.jbcrypt.BCrypt;
 
 import java.io.File;
 import java.io.IOException;
@@ -22,6 +26,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import static com.example.the_knife.InputValidator.handleInput;
 
 public class PopUpProfController {
 
@@ -57,7 +63,7 @@ public class PopUpProfController {
                     try {
                         String newNome = txt1.getText();
                         InputValidator.validaNomeUte(newNome);
-                        modificaUte("nome",newNome,"fileUtenti.json");
+                        modificaUte("nome", newNome, "fileUtenti.json");
                         handleClose(e);//chiudi finestra popUp
                     } catch (IOException ex) {
                         throw new RuntimeException(ex);
@@ -76,7 +82,7 @@ public class PopUpProfController {
                     try {
                         String newCognome = txt1.getText();
                         InputValidator.validaCogno(newCognome);
-                        modificaUte("cognome",newCognome,"fileUtenti.json");
+                        modificaUte("cognome", newCognome, "fileUtenti.json");
                         handleClose(e);//chiudi finestra popUp
                     } catch (IOException ex) {
                         throw new RuntimeException(ex);
@@ -95,7 +101,7 @@ public class PopUpProfController {
                     try {
                         String newEmail = txt1.getText();
                         InputValidator.validaEmail(newEmail);
-                        modificaUte("email",newEmail,"fileUtenti.json");
+                        modificaUte("email", newEmail, "fileUtenti.json");
                         handleClose(e);//chiudi finestra popUp
                     } catch (IOException ex) {
                         throw new RuntimeException(ex);
@@ -114,7 +120,7 @@ public class PopUpProfController {
                     try {
                         String newUser = txt1.getText();
                         InputValidator.validaUsername(newUser);
-                        modificaUte("username",newUser,"fileUtenti.json");
+                        modificaUte("username", newUser, "fileUtenti.json");
                         handleClose(e);//chiudi finestra popUp
                     } catch (IOException ex) {
                         throw new RuntimeException(ex);
@@ -132,11 +138,14 @@ public class PopUpProfController {
                 okButton.setOnAction(e -> {
                     try {
                         String oldPass = txt1.getText();
+                        boolean ris = verificaPassword(oldPass);
+                        if (ris == false) {
+                            handleInput("Errore","Vecchia password errata");
+                            throw new VecchiaPasswordException("Vecchia password errata");
+                        }
                         String newPass = txt2.getText();
                         InputValidator.validaPassword(newPass);
-                        //if(oldPass == password nel file){
-                        //modificaUte("password", newPass, "fileUtenti.json");
-                        //}
+                        modificaUte("password", newPass, "fileUtenti.json");
                         handleClose(e);//chiudi finestra popUp
                     } catch (IOException ex) {
                         throw new RuntimeException(ex);
@@ -155,7 +164,7 @@ public class PopUpProfController {
                     try {
                         String newAdd = txt1.getText();
                         InputValidator.validaIndirizzo(newAdd);
-                        modificaUte("indirizzo",newAdd,"fileUtenti.json");
+                        modificaUte("indirizzo", newAdd, "fileUtenti.json");
                         handleClose(e);//chiudi finestra popUp
                     } catch (IOException ex) {
                         throw new RuntimeException(ex);
@@ -173,7 +182,7 @@ public class PopUpProfController {
                 okButton.setOnAction(e -> {
                     try {
                         LocalDate newDate = date1.getValue();
-                        modificaUteData("data",newDate,"fileUtenti.json");
+                        modificaUteData("data", newDate, "fileUtenti.json");
                         handleClose(e);//chiudi finestra popUp
                     } catch (IOException ex) {
                         throw new RuntimeException(ex);
@@ -192,7 +201,7 @@ public class PopUpProfController {
                     try {
                         String newTel = txt1.getText();
                         InputValidator.validaTelefono(newTel);
-                        modificaUte("telefono",newTel,"fileUtenti.json");
+                        modificaUte("telefono", newTel, "fileUtenti.json");
                         handleClose(e);//chiudi finestra popUp
                     } catch (IOException ex) {
                         throw new RuntimeException(ex);
@@ -206,7 +215,7 @@ public class PopUpProfController {
         // Chiude la finestra corrente
         SessionManager.idScelta = 0;
 
-         if (mainController != null) {
+        if (mainController != null) {
             mainController.initialize(); //aggiorna la lista ristoranti nel padre
         }
 
@@ -218,6 +227,7 @@ public class PopUpProfController {
 
     //SERVE PER AGGIORNARE LA PAGINA DI STAMPA DOPO MODIFICA DEL POP UP
     private ProfilePageRistController mainController;
+
     public void setMainController(ProfilePageRistController controller) {
         this.mainController = controller;
     }
@@ -231,7 +241,7 @@ public class PopUpProfController {
         //Al massimo posso aggiornare la pagina rifacendo di nuovo goTo per leggere il dato nuovo
     }
 
-    public void modificaUte(String campo,String newCampo, String fileJson) throws IOException {
+    public void modificaUte(String campo, String newCampo, String fileJson) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         mapper.registerModule(new JavaTimeModule());
         JsonNode root = mapper.readTree(new File(fileJson));
@@ -241,21 +251,22 @@ public class PopUpProfController {
         // Converte in lista modificabile
         List<Utente> listaModificabile = new ArrayList<>(utenti);
 
-        for(Utente u : listaModificabile){
-            if(u.getUsername().equals(username)){
-                if(campo.equals("nome")){
+        for (Utente u : listaModificabile) {
+            if (u.getUsername().equals(username)) {
+                if (campo.equals("nome")) {
                     u.setNome(newCampo);
-                } else if(campo.equals("indirizzo")){
+                } else if (campo.equals("indirizzo")) {
                     u.setIndirizzo(newCampo);
                 } else if (campo.equals("cognome")) {
                     u.setCognome(newCampo);
                 } else if (campo.equals("telefono")) {
                     u.setTelefono(newCampo);
-                } else if(campo.equals("email")){
+                } else if (campo.equals("email")) {
                     u.setEmail(newCampo);
-                } else if(campo.equals("password")){
+                } else if (campo.equals("password")) {
+                    newCampo = loginController.generaHash(newCampo);
                     u.setPassword(newCampo);
-                } else if (campo.equals("username")){
+                } else if (campo.equals("username")) {
                     u.setUsername(newCampo);
                 }
             }
@@ -267,7 +278,7 @@ public class PopUpProfController {
         mapper.writerWithDefaultPrettyPrinter().writeValue(new File(fileJson), nuovoRoot);
     }
 
-    public void modificaUteData(String campo,LocalDate newCampo, String fileJson) throws IOException {
+    public void modificaUteData(String campo, LocalDate newCampo, String fileJson) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         mapper.registerModule(new JavaTimeModule());
         JsonNode root = mapper.readTree(new File(fileJson));
@@ -277,8 +288,8 @@ public class PopUpProfController {
         // Converte in lista modificabile
         List<Utente> listaModificabile = new ArrayList<>(utenti);
 
-        for(Utente u : listaModificabile){
-            if(u.getUsername().equals(username)){
+        for (Utente u : listaModificabile) {
+            if (u.getUsername().equals(username)) {
                 if (campo.equals("data")) {
                     u.setDataDiNascita(newCampo);
                 }
@@ -289,5 +300,24 @@ public class PopUpProfController {
         nuovoRoot.set("Utenti", mapper.valueToTree(listaModificabile));
         // Sovrascrive il file
         mapper.writerWithDefaultPrettyPrinter().writeValue(new File(fileJson), nuovoRoot);
+    }
+
+    public boolean verificaPassword(String password) throws IOException {
+        ObjectMapper mapper = new ObjectMapper(); // Crea un oggetto ObjectMapper di Jackson per la deserializzazione JSON
+        mapper.registerModule(new JavaTimeModule()); // Registra un modulo per la gestione corretta di LocalDate e altri tipi Java Time
+        ListaUtenti lista = mapper.readValue(new File("fileUtenti.json"), ListaUtenti.class); // Deserializza il file JSON in un oggetto ListaUtenti
+
+        for (Utente u : lista.Utenti) {
+            // Se l'username corrisponde
+            if (u.getUsername().equals(username)) {
+                // Verifica sicura della password usando BCrypt
+                // (confronta la password inserita con l'hash salvato nel file)
+                if (BCrypt.checkpw(password, u.getPassword())) {
+                    System.out.println("Password vecchia corretta ");
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 }
