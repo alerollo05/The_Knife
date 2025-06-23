@@ -18,6 +18,7 @@ import java.io.*;
 import java.net.*;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class StartPageController {
@@ -53,6 +54,7 @@ public class StartPageController {
         //selezione di default tutti i servizi
         deliveryBox.getSelectionModel().selectFirst();
         bookingBox.getSelectionModel().selectFirst();
+
     }
 
     @FXML
@@ -129,8 +131,9 @@ public class StartPageController {
         }
         System.out.println("Cerca rist"+city+" "+cuisine+" "+price+" "+delivery+" "+booking);
         List<Ristorante> listaRist = cercaRistoranti("ristoranti.json",city,cuisine,price,dev,bok);
+        ordinaRist(listaRist);
         for(Ristorante r : listaRist ){
-            System.out.println(r.getName());
+            System.out.println(r.getName() +" "+ r.getMediaRec() );
         }
     }
 
@@ -144,6 +147,8 @@ public class StartPageController {
 
         double[] coordinateLuogo = coordinate(luogo); // Es. [latitudine, longitudine]
 
+        //System.out.println(coordinateLuogo[0]+" "+coordinateLuogo[1]);
+        
         for (Ristorante r : ristoranti) {
             if (tipoCucina != null && !r.getCuisine().equalsIgnoreCase(tipoCucina)) continue;
             if (fasciaPrezzo != null && !r.getPrice().equalsIgnoreCase(fasciaPrezzo)) continue;
@@ -151,12 +156,39 @@ public class StartPageController {
             if (servizioOnline && !r.isBookingOnline()) continue;
 
             double distanzaKm = calcolaDistanzaKm(coordinateLuogo[0], coordinateLuogo[1], r.getLatitude(), r.getLongitude());
-            if (distanzaKm <= 30) {
+            if (distanzaKm <= 100) {
                 risultati.add(r);
             }
         }
         return risultati;
     }
+
+    public void ordinaRist(List<Ristorante> risultati) {
+        quickSort(risultati, 0, risultati.size() - 1);
+    }
+
+    private void quickSort(List<Ristorante> lista, int low, int high) {
+        if (low < high) {
+            int pivotIndex = partition(lista, low, high);
+            quickSort(lista, low, pivotIndex - 1);
+            quickSort(lista, pivotIndex + 1, high);
+        }
+    }
+
+    private int partition(List<Ristorante> lista, int low, int high) {
+        double pivot = lista.get(high).getMediaRec(); // Pivot: ultimo elemento
+        int i = low - 1;
+        for (int j = low; j < high; j++) {
+            // Ordinamento decrescente: > invece di <
+            if (lista.get(j).getMediaRec() > pivot) {
+                i++;
+                Collections.swap(lista, i, j);
+            }
+        }
+        Collections.swap(lista, i + 1, high);
+        return i + 1;
+    }
+
 
     public double calcolaDistanzaKm(double lat1, double lon1, double lat2, double lon2) {
         final int R = 6371; // Raggio della terra in km
@@ -172,11 +204,11 @@ public class StartPageController {
         double[] coord = new double[2];
         try {
             String encodedAddress = URLEncoder.encode(indirizzo, "UTF-8");
-            String urlStr = "https://nominatim.openstreetmap.org/search?q=" + encodedAddress + "&format=json";
+            String urlStr = "https://nominatim.openstreetmap.org/search?q=" + encodedAddress + "&format=json&addressdetails=1";
 
             URL url = new URL(urlStr);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-            conn.setRequestProperty("User-Agent", "JavaGeocoder/1.0"); // Nominatim richiede user-agent
+            conn.setRequestProperty("User-Agent", "JavaGeocoder/1.0");
             conn.setRequestMethod("GET");
 
             BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
@@ -191,32 +223,33 @@ public class StartPageController {
             JsonNode results = objectMapper.readTree(response.toString());
 
             if (results.isArray() && results.size() > 0) {
-                JsonNode firstResult = results.get(0);
-                double lat = firstResult.get("lat").asDouble();
-                double lon = firstResult.get("lon").asDouble();
+                JsonNode bestResult = null;
+                for (JsonNode result : results) {
+                    String type = result.has("type") ? result.get("type").asText() : "";
+                    if (type.equals("city") || type.equals("town") || type.equals("village")) {
+                        bestResult = result;
+                        break;
+                    }
+                }
+
+                if (bestResult == null) {
+                    bestResult = results.get(0); // fallback
+                }
+
+                double lat = bestResult.get("lat").asDouble();
+                double lon = bestResult.get("lon").asDouble();
                 coord[0] = lat;
                 coord[1] = lon;
             } else {
                 System.out.println("Nessun risultato trovato.");
             }
 
-        } catch (UnsupportedEncodingException ex) {
-            throw new RuntimeException(ex);
-        } catch (ProtocolException ex) {
-            throw new RuntimeException(ex);
-        } catch (MalformedURLException ex) {
-            throw new RuntimeException(ex);
-        } catch (JsonMappingException ex) {
-            throw new RuntimeException(ex);
-        } catch (JsonProcessingException ex) {
-            throw new RuntimeException(ex);
-        } catch (IOException ex) {
-            throw new RuntimeException(ex);
         } catch (Exception e) {
             e.printStackTrace();
         }
 
         return coord;
     }
+
 
 }
