@@ -1,73 +1,669 @@
 {
-  "Utenti" : [ {
-    "Nome" : "Giacomo",
-    "Cognome" : "Rosmini",
-    "Indirizzo" : "Via Rospo ,23",
-    "Username" : "pippo",
-    "Password" : "$2a$10$rjkqH5A2jZWMmTlCLTNjvu6g5yct1592BktC8HXiVn6hVtuGrVd8K",
-    "DataDiNascita" : [ 1994, 5, 14 ],
-    "Telefono" : "3345564334",
-    "Ruolo" : "Ristoratore",
-    "Id" : 1
-  }, {
-    "Nome" : "aaaa",
-    "Cognome" : "aaaa",
-    "Indirizzo" : "aaaa",
-    "Username" : "aaaa",
-    "Password" : "$2a$10$fJXrN.e7Bsv1TFpm7WGlvuSyzWPc0am2U.OYO9mJIqcej1Sa5UyOm",
-    "DataDiNascita" : [ 2025, 5, 8 ],
-    "Telefono" : "232323232332",
-    "Ruolo" : "Ristoratore",
-    "Id" : 2
-  }, {
-    "Nome" : "Andrea",
-    "Cognome" : "Bazzeghini",
-    "Indirizzo" : "Via Antonio Rosmini, 44",
-    "Username" : "ciucchi",
-    "Password" : "$2a$10$lmGgtDDHyv8Frt9T4vTN6.VzaXJFldiofAHhHUiEMGNedrFAxulNi",
-    "DataDiNascita" : [ 2006, 5, 20 ],
-    "Telefono" : "444545445454",
-    "Ruolo" : "Ristoratore",
-    "Id" : 3
-  }, {
-    "Nome" : "Antonio",
-    "Cognome" : "Cannavacciuolo",
-    "Indirizzo" : "Via Beppe, 14",
-    "Username" : "Canny",
-    "Password" : "$2a$10$INUxqbPG4l4pO5ZOVdfLaeChbpHO2v7o4Q75fLZNnLQy7SG1FqyRq",
-    "DataDiNascita" : [ 1990, 8, 2 ],
-    "Telefono" : "132322343434",
-    "Ruolo" : "Ristoratore",
-    "Id" : 4
-  }, {
-    "Nome" : "aasasas",
-    "Cognome" : "aasasasas",
-    "Indirizzo" : "via ucuyuy",
-    "Username" : "ciao",
-    "Password" : "$2a$10$VL1dde1ytIiSkCFhapedkOWrsm5S99gsPDV/h31b5AFKogupgRoK2",
-    "DataDiNascita" : [ 2025, 5, 2 ],
-    "Telefono" : "65464564564",
-    "Ruolo" : "Cliente",
-    "Id" : 0
-  }, {
-    "Nome" : "asdsadasd",
-    "Cognome" : "sadasdasd",
-    "Indirizzo" : "sdadada",
-    "Username" : "sdasdasdasd",
-    "Password" : "$2a$10$Pl9dVDZoVuKS/DM8mJcePu8FpGJX9mrm.qcRXP3vdLQETS3UthNWG",
-    "DataDiNascita" : [ 2025, 5, 2 ],
-    "Telefono" : "342432423423424",
-    "Ruolo" : "Cliente",
-    "Id" : 0
-  }, {
-    "Nome" : "aaaaa",
-    "Cognome" : "aaaaaa",
-    "Indirizzo" : "viaaa 222",
-    "Username" : "aaaaaa",
-    "Password" : "$2a$10$qYW8QTWiH7XOpZaXnb2mYeOBpWyCNou3Yqtl7orwAEuyyFrplHLje",
-    "DataDiNascita" : [ 2025, 5, 9 ],
-    "Telefono" : "aaasa",
-    "Ruolo" : "Ristoratore",
-    "Id" : 5
-  } ]
+  "Utenti": [
+    {
+      "Nome": "Giacomo",
+      "Cognome": "Rosmini",
+      "Email": "giacomo.rosmini@esempio.com",
+      "Indirizzo": "Via Rospo ,23",
+      "Username": "pippo",
+      "Password": "$2a$10$rjkqH5A2jZWMmTlCLTNjvu6g5yct1592BktC8HXiVn6hVtuGrVd8K",
+      "DataDiNascita": [
+        1994,
+        5,
+        14
+      ],
+      "Telefono": "3345564334",
+      "Ruolo": "Ristoratore",
+      "Id": 1,
+      "Preferiti": [
+        1
+      ]
+    },
+    {
+      "Nome": "aaaa",
+      "Cognome": "aaaa",
+      "Email": "aaaa.aaaa@esempio.com",
+      "Indirizzo": "aaaa",
+      "Username": "aaaa",
+      "Password": "$2a$10$fJXrN.e7Bsv1TFpm7WGlvuSyzWPc0am2U.OYO9mJIqcej1Sa5UyOm",
+      "DataDiNascita": [
+        2025,
+        5,
+        8
+      ],
+      "Telefono": "232323232332",
+      "Ruolo": "Ristoratore",
+      "Id": 2,
+      "Preferiti": null
+    },
+    {
+      "Nome": "Andrea",
+      "Cognome": "Bazzeghini",
+      "Email": "andrea.bazzeghini@esempio.com",
+      "Indirizzo": "Via Antonio Rosmini, 44",
+      "Username": "ciucchi",
+      "Password": "$2a$10$lmGgtDDHyv8Frt9T4vTN6.VzaXJFldiofAHhHUiEMGNedrFAxulNi",
+      "DataDiNascita": [
+        2006,
+        5,
+        20
+      ],
+      "Telefono": "444545445454",
+      "Ruolo": "Ristoratore",
+      "Id": 3,
+      "Preferiti": null
+    },
+    {
+      "Nome": "Antonio",
+      "Cognome": "Cannavacciuolo",
+      "Email": "antonio.cannavacciuolo@esempio.com",
+      "Indirizzo": "Via Beppe, 14",
+      "Username": "Canny",
+      "Password": "$2a$10$INUxqbPG4l4pO5ZOVdfLaeChbpHO2v7o4Q75fLZNnLQy7SG1FqyRq",
+      "DataDiNascita": [
+        1990,
+        8,
+        2
+      ],
+      "Telefono": "132322343434",
+      "Ruolo": "Ristoratore",
+      "Id": 4,
+      "Preferiti": null
+    },
+    {
+      "Nome": "aasasas",
+      "Cognome": "aasasasas",
+      "Email": "aasasas.aasasasas@esempio.com",
+      "Indirizzo": "via ucuyuy",
+      "Username": "ciao",
+      "Password": "$2b$12$0W80NSvQ2Xw9pfPxW21OueUiuHkomZ4dcf4Pcfdw.wMQmj9pxoEue",
+      "DataDiNascita": [
+        2025,
+        5,
+        2
+      ],
+      "Telefono": "65464564564",
+      "Ruolo": "Cliente",
+      "Id": 0,
+      "Preferiti": null
+    },
+    {
+      "Nome": "asdsadasd",
+      "Cognome": "sadasdasd",
+      "Email": "asdsadasd.sadasdasd@esempio.com",
+      "Indirizzo": "sdadada",
+      "Username": "sdasdasdasd",
+      "Password": "$2b$12$0W80NSvQ2Xw9pfPxW21OueUiuHkomZ4dcf4Pcfdw.wMQmj9pxoEue",
+      "DataDiNascita": [
+        2025,
+        5,
+        2
+      ],
+      "Telefono": "342432423423424",
+      "Ruolo": "Cliente",
+      "Id": 0,
+      "Preferiti": null
+    },
+    {
+      "Nome": "aaaaa",
+      "Cognome": "aaaaaa",
+      "Email": "aaaaa.aaaaaa@esempio.com",
+      "Indirizzo": "viaaa 222",
+      "Username": "aaaaaa",
+      "Password": "$2a$10$qYW8QTWiH7XOpZaXnb2mYeOBpWyCNou3Yqtl7orwAEuyyFrplHLje",
+      "DataDiNascita": [
+        2025,
+        5,
+        9
+      ],
+      "Telefono": "aaasa",
+      "Ruolo": "Ristoratore",
+      "Id": 5,
+      "Preferiti": null
+    },
+    {
+      "Nome": "Giuseppe",
+      "Cognome": "Antonini",
+      "Email": "giuseppe.antonini@esempio.com",
+      "Indirizzo": "Via Peppe, 16",
+      "Username": "admin",
+      "Password": "$2a$10$M1kv7hOsr.LGztozAWHcReBjc5F/EFesAhf5Iugbw/RItkNwjWswK",
+      "DataDiNascita": [
+        1998,
+        5,
+        14
+      ],
+      "Telefono": "22233344433",
+      "Ruolo": "Ristoratore",
+      "Id": 6,
+      "Preferiti": null
+    },
+    {
+      "Nome": "filippo",
+      "Cognome": "ciucchi",
+      "Email": "filippo.ciucchi@esempio.com",
+      "Indirizzo": "via antonio Rosmini 12",
+      "Username": "ritardo",
+      "Password": "$2a$10$C7CUpCoSdRGmoo82YQeyKOu6UaFtyi6ODOewg7dORbtpYSN5qIlQS",
+      "DataDiNascita": [
+        2025,
+        5,
+        2
+      ],
+      "Telefono": "+3348123198",
+      "Ruolo": "Ristoratore",
+      "Id": 7,
+      "Preferiti": null
+    },
+    {
+      "Nome": "Massimo",
+      "Cognome": "Bottura",
+      "Email": "massimo.bottura@esempio.com",
+      "Indirizzo": "Via Stella 22, Modena",
+      "Username": "mbottura",
+      "Password": "$2a$10$VUX9Ji1EKuM4IPxKpgkDquJQxZg5C6g10KD50yTI7z8pVdwK1UIaW",
+      "DataDiNascita": [
+        1962,
+        9,
+        30
+      ],
+      "Telefono": "059223912",
+      "Ruolo": "Ristoratore",
+      "Id": 8,
+      "Preferiti": null
+    },
+    {
+      "Nome": "Carlo",
+      "Cognome": "Cracco",
+      "Email": "carlo.cracco@esempio.com",
+      "Indirizzo": "Galleria Vittorio Emanuele II, Milano",
+      "Username": "ccracco",
+      "Password": "$2a$10$qXsMzefhKtFUM19i.L1BMeOs.tLhhagJHhNHPoiNKypmU/HQnYq6m",
+      "DataDiNascita": [
+        1965,
+        10,
+        8
+      ],
+      "Telefono": "0287654321",
+      "Ruolo": "Ristoratore",
+      "Id": 9,
+      "Preferiti": null
+    },
+    {
+      "Nome": "Heinz",
+      "Cognome": "Beck",
+      "Email": "heinz.beck@esempio.com",
+      "Indirizzo": "Via Alberto Cadlolo 101, Roma",
+      "Username": "hbeck",
+      "Password": "$2a$10$k6WDyMRaG9lCI/BnH4m92eIuvFAdxi1MI.zv.ZpmWdAcg7R7FJpJm",
+      "DataDiNascita": [
+        1963,
+        11,
+        3
+      ],
+      "Telefono": "0635092152",
+      "Ruolo": "Ristoratore",
+      "Id": 10,
+      "Preferiti": null
+    },
+    {
+      "Nome": "Laura",
+      "Cognome": "Bianchi",
+      "Email": "laura.bianchi@esempio.com",
+      "Indirizzo": "Via Firenze 12, Firenze",
+      "Username": "laurab",
+      "Password": "$2a$10$DKhNkuoRB5aP8vJjAdXkWOeYB5CZwImqAHIw.7GZ6RGnFh7CeFbJy",
+      "DataDiNascita": [
+        1990,
+        6,
+        15
+      ],
+      "Telefono": "3391122334",
+      "Ruolo": "Cliente",
+      "Id": 0,
+      "Preferiti": null
+    },
+    {
+      "Nome": "Marco",
+      "Cognome": "Neri",
+      "Email": "marco.neri@esempio.com",
+      "Indirizzo": "Via Napoli 33, Napoli",
+      "Username": "marcon",
+      "Password": "$2a$10$lKOdWtOIP9VPjr.IK6zGBOR8vwFI5hNBHPbSzti6HFKe77H8K6GT6",
+      "DataDiNascita": [
+        1985,
+        12,
+        9
+      ],
+      "Telefono": "3314455667",
+      "Ruolo": "Cliente",
+      "Id": 0,
+      "Preferiti": null
+    },
+    {
+      "Nome": "ara",
+      "Cognome": "a",
+      "Email": "aa.a@esempio.com",
+      "Indirizzo": "aaqws2",
+      "Username": "ar",
+      "Password": "$2a$10$qmIRLE83T2B3kDFb6TOyIuJhkEedqPQPIBIvL2.2NvMry4Fc4ZL5i",
+      "DataDiNascita": [
+        2025,
+        6,
+        18
+      ],
+      "Telefono": "+390123456789",
+      "Ruolo": "Ristoratore",
+      "Id": 11,
+      "Preferiti": null
+    },
+    {
+      "Nome": "aa",
+      "Cognome": "a",
+      "Email": "aa.a@esempio.com",
+      "Indirizzo": "aaqws2",
+      "Username": "ac",
+      "Password": "$2a$10$/8y8ZAGJU108jLDGyopNsOAyTr32i0iCWKNkoeoe8e.7gn228M.4m",
+      "DataDiNascita": [
+        2025,
+        5,
+        6
+      ],
+      "Telefono": "+390123456789",
+      "Ruolo": "Cliente",
+      "Id": 0,
+      "Preferiti": null
+    },
+    {
+      "Nome": "avcsdfa",
+      "Cognome": "fwe",
+      "Email": "avcsdfa.fwe@esempio.com",
+      "Indirizzo": "fewff3",
+      "Username": "fawoj",
+      "Password": "$2a$10$VT7CCnRBrLCMZB9aiLp9ceFoDdkyOtuYp4vBB1zNq8lHw17S82LLG",
+      "DataDiNascita": [
+        2025,
+        5,
+        20
+      ],
+      "Telefono": "+390123456789",
+      "Ruolo": "Ristoratore",
+      "Id": 12,
+      "Preferiti": null
+    },
+    {
+      "Nome": "luca",
+      "Cognome": "pulce2008@",
+      "Email": "luca.pulce2008@esempio.com",
+      "Indirizzo": "via innocenzo IX 14",
+      "Username": "luca",
+      "Password": "$2a$10$.GHriEHqwxLk3UfxoTzDwuWrx//q8PGzdKn5wdHlLm3zEIpdPR3ny",
+      "DataDiNascita": [
+        2008,
+        1,
+        12
+      ],
+      "Telefono": "+393884067241",
+      "Ruolo": "Ristoratore",
+      "Id": 13,
+      "Preferiti": null
+    },
+    {
+      "Nome": "fwefw",
+      "Cognome": "fewfw",
+      "Email": "ffgsgsgs@gfsgsf.com",
+      "Indirizzo": "fewfw,fewf 3",
+      "Username": "vewrvew",
+      "Password": "$2a$10$4Q3jm7v0mjcY6M2Mkai3iOzDM1CNPcvavuUml.3VqmjL5EvGrHpkC",
+      "DataDiNascita": [
+        2025,
+        6,
+        16
+      ],
+      "Telefono": "+39464363643",
+      "Ruolo": "Ristoratore",
+      "Id": 14,
+      "Preferiti": null
+    },
+    {
+      "Nome": "Gilberto",
+      "Cognome": "Fallaci",
+      "Email": "gilberto.fallaci@esempio.com",
+      "Indirizzo": "Canale Schiaparelli 870, Stefani nell'emilia, 52033 Bolzano (KR)",
+      "Username": "gilberto363",
+      "Password": "$2b$12$Vu.hpR.TK5r9/6xiq4ojQOtbqwNVcH/MUhmsFgI38GsbxDlVsAaNG",
+      "DataDiNascita": [
+        1983,
+        11,
+        28
+      ],
+      "Telefono": "+39 577 4253710",
+      "Ruolo": "Ristoratore",
+      "Id": 15,
+      "Preferiti": null
+    },
+    {
+      "Nome": "Amadeo",
+      "Cognome": "Pisani",
+      "Email": "amadeo.pisani@esempio.com",
+      "Indirizzo": "Borgo Orlando 585 Piano 4, Squarcione terme, 05630 Rimini (BT)",
+      "Username": "amadeo161",
+      "Password": "$2b$12$LDgA1AFxVobIpmUhtu2RZu/zn8.3QBt9680MST7UKNQrskJPhVPuy",
+      "DataDiNascita": [
+        1916,
+        8,
+        27
+      ],
+      "Telefono": "+39 9762 08801501",
+      "Ruolo": "Ristoratore",
+      "Id": 16,
+      "Preferiti": null
+    },
+    {
+      "Nome": "Ansaldo",
+      "Cognome": "Pascarella",
+      "Email": "ansaldo.pascarella@esempio.com",
+      "Indirizzo": "Incrocio Mirco 4, Damiano nell'emilia, 87496 Pescara (CE)",
+      "Username": "ansaldo234",
+      "Password": "$2b$12$kCECmJkAhZGEMP6On824ouIKGoMNMO3xt1hkBBfcp2VkP7U4g/eGS",
+      "DataDiNascita": [
+        2020,
+        8,
+        8
+      ],
+      "Telefono": "+39 5453 3653449",
+      "Ruolo": "Ristoratore",
+      "Id": 17,
+      "Preferiti": null
+    },
+    {
+      "Nome": "Gianna",
+      "Cognome": "Tartaglia",
+      "Email": "gianna.tartaglia@esempio.com",
+      "Indirizzo": "Piazza Calgari 651 Piano 6, Luciano ligure, 83185 Verbano-Cusio-Ossola (IM)",
+      "Username": "gianna771",
+      "Password": "$2b$12$5TiExJbwGmmVthe8/5lyNOGdSQR41L9BfFJjY//junk9Vcfo5rlhS",
+      "DataDiNascita": [
+        1989,
+        1,
+        16
+      ],
+      "Telefono": "+39 44 51330442",
+      "Ruolo": "Ristoratore",
+      "Id": 18,
+      "Preferiti": null
+    },
+    {
+      "Nome": "Donatella",
+      "Cognome": "Badoglio",
+      "Email": "donatella.badoglio@esempio.com",
+      "Indirizzo": "Contrada Cociarelli 541 Appartamento 77, Settimo Pina ligure, 25588 Pistoia (RE)",
+      "Username": "donatella927",
+      "Password": "$2b$12$a8J7jiVxwncy76SLeweJ4uNwWN2WPyhrYr5ZEXtVhZ8BLAe7YzdwK",
+      "DataDiNascita": [
+        1928,
+        12,
+        17
+      ],
+      "Telefono": "+39 362 04229181",
+      "Ruolo": "Ristoratore",
+      "Id": 19,
+      "Preferiti": null
+    },
+    {
+      "Nome": "Aldo",
+      "Cognome": "Santi",
+      "Email": "aldo.santi@esempio.com",
+      "Indirizzo": "Rotonda Diana 187 Appartamento 43, Borgo Gelsomina, 89122 Savona (VA)",
+      "Username": "aldo925",
+      "Password": "$2b$12$7lHoln8DF8ntXCyuQS9YzO2P5lCSp.YF7mVroXc3g7XkIBQc4sI9q",
+      "DataDiNascita": [
+        1939,
+        4,
+        26
+      ],
+      "Telefono": "+39 69 3378097",
+      "Ruolo": "Ristoratore",
+      "Id": 20,
+      "Preferiti": null
+    },
+    {
+      "Nome": "Federigo",
+      "Cognome": "Olivetti",
+      "Email": "federigo.olivetti@esempio.com",
+      "Indirizzo": "Contrada Rienzo 5, Loretta nell'emilia, 35329 Brescia (BR)",
+      "Username": "federigo146",
+      "Password": "$2b$12$AaFlhnOQXLu7LCM9xzIoT.DP3iia2GHiIJnKx7SzPnZymRz7lpjPa",
+      "DataDiNascita": [
+        1954,
+        6,
+        24
+      ],
+      "Telefono": "+39 8142 80538497",
+      "Ruolo": "Ristoratore",
+      "Id": 21,
+      "Preferiti": null
+    },
+    {
+      "Nome": "Serafina",
+      "Cognome": "Borromeo",
+      "Email": "serafina.borromeo@esempio.com",
+      "Indirizzo": "Rotonda Amalia 59, Venier ligure, 22790 Gorizia (IM)",
+      "Username": "serafina907",
+      "Password": "$2b$12$xUM00y1oTIpZvy2Qg4ri0OjPQBmJFUOVpxTG/0I7YxIQmAamn1V8a",
+      "DataDiNascita": [
+        1935,
+        8,
+        3
+      ],
+      "Telefono": "+39 44 4197548",
+      "Ruolo": "Ristoratore",
+      "Id": 22,
+      "Preferiti": null
+    },
+    {
+      "Nome": "Piermaria",
+      "Cognome": "Sordi",
+      "Email": "piermaria.sordi@esempio.com",
+      "Indirizzo": "Strada Alderano 816, San Gianluigi veneto, 43482 Brindisi (LE)",
+      "Username": "piermaria534",
+      "Password": "$2b$12$ociXSHWXPhe9AP/7zAYxS.ertWVSoFxS85Vv7GuWbxn.mk03kI7.K",
+      "DataDiNascita": [
+        1953,
+        8,
+        2
+      ],
+      "Telefono": "+39 44 82175996",
+      "Ruolo": "Ristoratore",
+      "Id": 23,
+      "Preferiti": null
+    },
+    {
+      "Nome": "Tonino",
+      "Cognome": "Pirelli",
+      "Email": "tonino.pirelli@esempio.com",
+      "Indirizzo": "Via Romeo 15 Appartamento 42, Quarto Mario calabro, 26314 Lodi (OG)",
+      "Username": "tonino754",
+      "Password": "$2b$12$plfLC2sYK/Wrreg.ZFHG/.A994h0fIQBeHs4yJTbbcmvwJsloiQ6a",
+      "DataDiNascita": [
+        1999,
+        8,
+        17
+      ],
+      "Telefono": "+39 16 5364419",
+      "Ruolo": "Ristoratore",
+      "Id": 24,
+      "Preferiti": null
+    },
+    {
+      "Nome": "Marcantonio",
+      "Cognome": "Giolitti",
+      "Email": "marcantonio.giolitti@esempio.com",
+      "Indirizzo": "Vicolo Mazzanti 2, Quarto Ottone nell'emilia, 19638 Grosseto (AL)",
+      "Username": "marcantonio116",
+      "Password": "$2b$12$/mhdJnNwiNTVIwkyOVGGj.RQqAWKECGhEGGSOyBKRZmvfu1beoUeS",
+      "DataDiNascita": [
+        1970,
+        9,
+        10
+      ],
+      "Telefono": "+39 173 51 68 7040",
+      "Ruolo": "Cliente",
+      "Id": 25,
+      "Preferiti": null
+    },
+    {
+      "Nome": "Elisa",
+      "Cognome": "Sbarbaro",
+      "Email": "elisa.sbarbaro@esempio.com",
+      "Indirizzo": "Rotonda Carmelo 499 Piano 6, San Milena, 76558 Treviso (BG)",
+      "Username": "elisa563",
+      "Password": "$2b$12$wl6ePrKIKNxp3Pu.9/EJX.XflfS3cClfQmBavtP8Pvcl/I5FacsPO",
+      "DataDiNascita": [
+        2001,
+        7,
+        25
+      ],
+      "Telefono": "+39 791 52 21 6310",
+      "Ruolo": "Cliente",
+      "Id": 26,
+      "Preferiti": null
+    },
+    {
+      "Nome": "Amedeo",
+      "Cognome": "Tebaldi",
+      "Email": "amedeo.tebaldi@esempio.com",
+      "Indirizzo": "Via Scotti 12 Appartamento 42, Settimo Amadeo a mare, 59732 Pescara (CH)",
+      "Username": "amedeo140",
+      "Password": "$2b$12$UQb9AjmaEtEISXYZXS/1Zefc1koOXTTwD6FU39pu2Zxr75rf4kcr2",
+      "DataDiNascita": [
+        1963,
+        4,
+        1
+      ],
+      "Telefono": "+39 035 09569902",
+      "Ruolo": "Cliente",
+      "Id": 27,
+      "Preferiti": null
+    },
+    {
+      "Nome": "Mattia",
+      "Cognome": "Stefanelli",
+      "Email": "mattia.stefanelli@esempio.com",
+      "Indirizzo": "Viale Avogadro 1 Piano 4, Borromeo nell'emilia, 99719 Caltanissetta (FI)",
+      "Username": "mattia176",
+      "Password": "$2b$12$U7fjQ8BVMOlCJv/5N4omZuERiqV.nPfKEjiIjtbpM6fRZVA3q4gj6",
+      "DataDiNascita": [
+        1970,
+        4,
+        29
+      ],
+      "Telefono": "+39 942 38 21 1694",
+      "Ruolo": "Cliente",
+      "Id": 28,
+      "Preferiti": null
+    },
+    {
+      "Nome": "Giada",
+      "Cognome": "Malpighi",
+      "Email": "giada.malpighi@esempio.com",
+      "Indirizzo": "Strada Giannini 42, Pincherle laziale, 54368 Forlì-Cesena (AL)",
+      "Username": "giada531",
+      "Password": "$2b$12$2DeBFPa69B.4svw3RLEmCOKcBR0ezoZSywEc8dIwAMtL.5WqTAh7m",
+      "DataDiNascita": [
+        2008,
+        6,
+        10
+      ],
+      "Telefono": "+39 9698 8416743",
+      "Ruolo": "Cliente",
+      "Id": 29,
+      "Preferiti": null
+    },
+    {
+      "Nome": "Beppe",
+      "Cognome": "Gaiatto",
+      "Email": "beppe.gaiatto@esempio.com",
+      "Indirizzo": "Via Riccardi 0 Appartamento 25, Sesto Niccolò, 87775 Cremona (RI)",
+      "Username": "beppe907",
+      "Password": "$2b$12$YJRF7vpf2gMDNUaMIGn1he.1e8kiITTj5RuXer6wQUNNbq.Ob5Ta.",
+      "DataDiNascita": [
+        2019,
+        2,
+        13
+      ],
+      "Telefono": "+39 884 17237185",
+      "Ruolo": "Cliente",
+      "Id": 30,
+      "Preferiti": null
+    },
+    {
+      "Nome": "Arnulfo",
+      "Cognome": "Corradi",
+      "Email": "arnulfo.corradi@esempio.com",
+      "Indirizzo": "Contrada Gritti 8, Borgo Alberto del friuli, 67138 Aosta (GO)",
+      "Username": "arnulfo180",
+      "Password": "$2b$12$8ycOYH2eg4XTVh7FtZIrvO5dNN6W7upAXwLjiQxmeRz0juGdIz5.W",
+      "DataDiNascita": [
+        1928,
+        3,
+        24
+      ],
+      "Telefono": "+39 840 89514458",
+      "Ruolo": "Cliente",
+      "Id": 31,
+      "Preferiti": null
+    },
+    {
+      "Nome": "Gianpietro",
+      "Cognome": "Bova",
+      "Email": "gianpietro.bova@esempio.com",
+      "Indirizzo": "Canale Camillo 129 Piano 1, Borgo Giorgio, 72374 Pisa (AN)",
+      "Username": "gianpietro508",
+      "Password": "$2b$12$F8bJ3O8H8wLMQWR4LEThh..2pVGL3Y/Jrm/jN30tbxZ2i9xpQfzrq",
+      "DataDiNascita": [
+        1930,
+        9,
+        15
+      ],
+      "Telefono": "+39 31 53880156",
+      "Ruolo": "Cliente",
+      "Id": 32,
+      "Preferiti": null
+    },
+    {
+      "Nome": "Eraldo",
+      "Cognome": "Trobbiani",
+      "Email": "eraldo.trobbiani@esempio.com",
+      "Indirizzo": "Piazza Galeati 8 Appartamento 13, Quarto Loretta umbro, 37542 Aosta (CB)",
+      "Username": "eraldo623",
+      "Password": "$2b$12$1fq5YZvuUZ4cRLDrfRDMfudxqJrbmcdjJE4g8ag37Dd5/Gvi8d996",
+      "DataDiNascita": [
+        1965,
+        10,
+        15
+      ],
+      "Telefono": "+39 77 9017252",
+      "Ruolo": "Cliente",
+      "Id": 33,
+      "Preferiti": null
+    },
+    {
+      "Nome": "Claudia",
+      "Cognome": "Zamengo",
+      "Email": "claudia.zamengo@esempio.com",
+      "Indirizzo": "Contrada Gian 9 Piano 6, Matteotti salentino, 28578 Sondrio (PA)",
+      "Username": "claudia936",
+      "Password": "$2b$12$2cHuq5hF/U3Zuly/lrnQRuOZGT5uG/.4hKyfnz4ZTwQ8ZJQ.ckmiG",
+      "DataDiNascita": [
+        1974,
+        5,
+        30
+      ],
+      "Telefono": "+39 207 49 41 5838",
+      "Ruolo": "Cliente",
+      "Id": 34,
+      "Preferiti": null
+    }
+  ]
 }
