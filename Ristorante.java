@@ -5,64 +5,64 @@ import java.util.List;
 
 public class Ristorante {
     @JsonProperty("Id")
-    protected int id;
+    public int id;
 
     @JsonProperty("IdRistoratore")
-    protected int idRistoratore;
+    public int idRistoratore;
 
     @JsonProperty("Name")
-    protected String name;
+    public String name;
 
     @JsonProperty("Address")
-    protected String address;
+    public String address;
 
     @JsonProperty("Location")
-    protected String location;
+    public String location;
 
     @JsonProperty("Price")
-    protected String price;
+    public String price;
 
     @JsonProperty("Cuisine")
-    protected String cuisine;
+    public String cuisine;
 
     @JsonProperty("Longitude")
-    protected double longitude;
+    public double longitude;
 
     @JsonProperty("Latitude")
-    protected double latitude;
+    public double latitude;
 
     @JsonProperty("PhoneNumber")
-    protected String phoneNumber;
+    public String phoneNumber;
 
     @JsonProperty("WebsiteUrl")
-    protected String websiteUrl;
+    public String websiteUrl;
 
     @JsonProperty("GreenStar")
-    protected int greenStar;
+    public int greenStar;
 
     @JsonProperty("FacilitiesAndServices")
-    protected String facilitiesAndServices;
+    public String facilitiesAndServices;
 
     @JsonProperty("Description")
-    protected String description;
+    public String description;
 
     @JsonProperty("Delivery")
-    protected boolean delivery;
+    public boolean delivery;
 
     @JsonProperty("BookingOnline")
-    protected boolean bookingOnline;
+    public boolean bookingOnline;
 
     @JsonProperty("recensioni")
-    protected List<Recensione> recensioni;
+    public List<Recensione> recensioni;
 
     @JsonProperty("NumRec")
-    protected int numRec;
+    public int numRec;
 
     @JsonProperty("MediaRec")
-    protected double mediaRec;
+    public double mediaRec;
 
     @JsonProperty("Email")
-    protected String email;
+    public String email;
 
 
     public Ristorante(int Id, int IdRistoratore, String Nome, String Address, String Location, String Price,

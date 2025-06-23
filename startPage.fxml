@@ -29,37 +29,52 @@
                 <Label text="Cerca i migliori ristoranti nei tuoi dintorni" styleClass="title"/>
 
                 <!-- BARRA DI RICERCA -->
-                <HBox spacing="10" alignment="CENTER" styleClass="search-box" prefWidth="800" maxWidth="800">
+                <HBox spacing="10" alignment="CENTER" styleClass="search-box" prefWidth="900" maxWidth="1000">
                     <TextField fx:id="cityField"
                                promptText="Città"
+                               style="-fx-background-color: #3c3c3c"
+                               prefHeight="60"
+                               prefWidth="120"
                                styleClass="rounded-textfield3"/>
 
                     <ComboBox fx:id="cuisineBox"
                               promptText="Cucina"
+                              style="-fx-font-size: 5px"
+                              prefHeight="40"
+                              prefWidth="130"
                               styleClass="rounded-textfield3"/>
 
                     <ComboBox fx:id="priceBox"
                               promptText="Prezzo"
+                              style="-fx-font-size: 5px"
+                              prefHeight="40"
+                              prefWidth="100"
                               styleClass="rounded-textfield3"/>
 
                     <ComboBox fx:id="deliveryBox"
                               promptText="Delivery"
+                              style="-fx-font-size: 1px"
+                              prefHeight="40"
+                              prefWidth="120"
                               styleClass="rounded-textfield3"/>
 
                     <ComboBox fx:id="bookingBox"
-                              promptText="Booking online"
-
+                              promptText="Online"
+                              style="-fx-font-size: 1px"
+                              prefHeight="40"
+                              prefWidth="140"
                               styleClass="rounded-textfield3"/>
 
                     <Button fx:id="searchButton"
                             text="Cerca"
-                            onAction="#cercaRist"
-                            prefWidth="70"
+                            onAction="#onSearchClicked"
+                            prefHeight="60"
+                            prefWidth="80"
                             styleClass="accent-button"/>
                 </HBox>
+                <ListView fx:id="listaRistLabel"  prefHeight="400" prefWidth="300" VBox.vgrow="ALWAYS"/>
             </VBox>
         </center>
-
         <stylesheets>
             <URL value="@style.css"/>
         </stylesheets>

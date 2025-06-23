@@ -23,6 +23,11 @@
     -fx-text-fill: white;
     -fx-font-weight: bold;
 }
+.textNormal2{
+    -fx-font-size: 11px;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
 .textPopUp{
     -fx-font-size: 20px;
     -fx-text-fill: white;
@@ -40,6 +45,11 @@
     -fx-background-radius: 15px;
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0.5, 0, 5);
 }
+.form-boxPop {
+    -fx-background-color: #1e1e1e;
+    -fx-padding: 30px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0.5, 0, 5);
+}
 .list-rist {
     -fx-background-color: rgb(64, 61, 61);
     -fx-padding: 30px;
@@ -53,6 +63,14 @@
     -fx-background-radius: 15px;
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0.5, 0, 5);
     -fx-max-width: 900px;
+}
+.list-rist3 {
+    -fx-background-color: rgb(64, 61, 61);
+    -fx-padding: 30px;
+    -fx-background-radius: 15px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0.5, 0, 5);
+    -fx-max-width: 900px;
+    -fx-max-height: 500px;
 }
 .grid-list {
     -fx-background-color: rgb(64, 61, 61);
@@ -81,11 +99,7 @@
     -fx-background-color: #505050;
 }
 
-/* Celle selezionate */
-.list-cell:selected {
-    -fx-background-color: #00E0C7;
-    -fx-text-fill: black;
-}
+
 #listaRistLabel {
     -fx-padding: 10;
     -fx-background-insets: 0;
@@ -98,8 +112,6 @@
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0.5, 0, 5);
 }
 .search-textField{
-    -fx-border-color: #3c3c3c;
-    -fx-focus-color: #3c3c3c;
     -fx-faint-focus-color: transparent;
     -fx-background-color: #262626;
     -fx-text-fill: grey;
@@ -118,11 +130,44 @@ search-textField:focused {
 .rounded-textfield {
     -fx-background-color: #2c2c2c;
     -fx-text-fill: grey;
-    -fx-prompt-text-fill: gray;
+    -fx-prompt-text-fill: grey;
     -fx-background-radius: 30;
     -fx-padding: 10 15;
     -fx-border-color: transparent;
     -fx-border-radius: 30;
+    -fx-min-width:600;
+}
+
+.rounded-textfield2 {
+    -fx-background-color: #2c2c2c;
+    -fx-text-fill: grey;
+    -fx-prompt-text-fill: grey;
+    -fx-background-radius: 30;
+    -fx-padding: 10 15;
+    -fx-border-color: transparent;
+    -fx-border-radius: 30;
+    -fx-min-width: 200;
+}
+
+.rounded-textfield3 {
+    -fx-background-color: #3c3c3c;
+    -fx-text-fill: white;
+    -fx-prompt-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-background-radius: 10;
+    -fx-padding: 8 15;
+    -fx-border-color: transparent;
+    -fx-border-radius: 10;
+    -fx-min-width: 120;
+}
+
+.combo-box {
+    -fx-background-color: #3c3c3c;
+    -fx-border-color: #3c3c3c;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-text-fill: #f0f0f0;
+    -fx-padding: 8 15;
 }
 
 .rounded-textfield:focused {
@@ -153,7 +198,14 @@ search-textField:focused {
     -fx-padding: 10 0;
 }
 .radio-button {
-    -fx-text-fill: white;
+    -fx-background-color: #2c2c2c;
+    -fx-text-fill: grey;
+    -fx-prompt-text-fill: grey;
+    -fx-background-radius: 30;
+    -fx-padding: 10 15;
+    -fx-border-color: transparent;
+    -fx-border-radius: 30;
+    -fx-min-width: 50;
 }
 
 .radio-button:selected .radio {
@@ -189,11 +241,24 @@ search-textField:focused {
 .date-picker {
     -fx-background-color: #2b2b2b;
     -fx-text-fill: grey;
+    -fx-prompt-text-fill: grey;
     -fx-font-size: 12px;
-    -fx-border-color: #444;
+    -fx-border-color: transparent;
     -fx-border-radius: 30px;
     -fx-background-radius: 30px;
     -fx-padding: 5 10;
+    -fx-min-width: 600;
+}
+.date-pickerPop {
+    -fx-background-color: #2b2b2b;
+    -fx-text-fill: grey;
+    -fx-prompt-text-fill: grey;
+    -fx-font-size: 12px;
+    -fx-border-color: transparent;
+    -fx-border-radius: 30px;
+    -fx-background-radius: 30px;
+    -fx-padding: 5 10;
+    -fx-min-width: 50;
 }
 
 .date-picker .text-field {
@@ -224,6 +289,17 @@ search-textField:focused {
     -fx-background-radius: 10px;
     -fx-padding: 5px;
 }
+
+.scroll-pane2 {
+    -fx-background: #1e1e1e;
+    -fx-border-color: #333;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+    -fx-padding: 5px;
+    -fx-background-color: #121212;
+    -fx-font-family: "Segoe UI", sans-serif;
+}
+
 
 .scroll-pane > .viewport {
     -fx-background-color: transparent;

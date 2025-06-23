@@ -13,7 +13,7 @@ public class InputValidator {
         alert.showAndWait();
         //else mando un errore specifico su un tipo di input inserito dall'utente
     }
-    protected static void handleInput(String message1, String message2) {
+    public static void handleInput(String message1, String message2) {
         //if(controllo che tutti gli input siano andati bene allora mando questo messaggio)
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Registrazione");
