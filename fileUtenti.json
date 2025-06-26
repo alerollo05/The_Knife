@@ -1,10 +1,3450 @@
 {
   "Utenti": [
     {
+      "Nome": "Camilla",
+      "Cognome": "Peruzzi",
+      "Email": "mondainigiuliana@silvestri.org",
+      "Indirizzo": "Strada Botta 56, Madrid, Spain",
+      "Username": "fiorino92",
+      "Password": "$2a$10$zUP6k0e6iBqb9ytvDqX6LI",
+      "DataDiNascita": [
+        1984,
+        3,
+        4
+      ],
+      "Telefono": "+39 242 22 33 0540",
+      "Ruolo": "Ristoratore",
+      "Id": 251
+    },
+    {
+      "Nome": "Riccardo",
+      "Cognome": "Rapisardi",
+      "Email": "drensi@hotmail.com",
+      "Indirizzo": "Rotonda Franco 2, Madrid, Spain",
+      "Username": "paolettisole",
+      "Password": "$2a$10$tv3DCt1WrGGXUPa18EVG3G",
+      "DataDiNascita": [
+        1952,
+        8,
+        25
+      ],
+      "Telefono": "+39 90 12350232",
+      "Ruolo": "Ristoratore",
+      "Id": 250
+    },
+    {
+      "Nome": "Bernardo",
+      "Cognome": "Garzoni",
+      "Email": "ermes29@fallaci.it",
+      "Indirizzo": "Vicolo Nicola 08, Madrid, Spain",
+      "Username": "annunziata12",
+      "Password": "$2a$10$ao3GFKsQMVNNMmiPZX5bth",
+      "DataDiNascita": [
+        1991,
+        1,
+        20
+      ],
+      "Telefono": "+39 5498 68193465",
+      "Ruolo": "Ristoratore",
+      "Id": 249
+    },
+    {
+      "Nome": "Micheletto",
+      "Cognome": "Bruscantini",
+      "Email": "pcasaleggio@live.com",
+      "Indirizzo": "Borgo Nordio 93, Madrid, Spain",
+      "Username": "vmalacarne",
+      "Password": "$2a$10$P5YppFFqcgYlJsRCMZHizw",
+      "DataDiNascita": [
+        1992,
+        12,
+        2
+      ],
+      "Telefono": "+39 628 59 47 2729",
+      "Ruolo": "Ristoratore",
+      "Id": 248
+    },
+    {
+      "Nome": "Beppe",
+      "Cognome": "Omma",
+      "Email": "hvecellio@hotmail.it",
+      "Indirizzo": "Contrada Corcos 23, Madrid, Spain",
+      "Username": "elvira90",
+      "Password": "$2a$10$aLX66ve9dET68OuqHarTUu",
+      "DataDiNascita": [
+        1951,
+        1,
+        20
+      ],
+      "Telefono": "+39 52 3722136",
+      "Ruolo": "Ristoratore",
+      "Id": 247
+    },
+    {
+      "Nome": "Ottavio",
+      "Cognome": "Gadda",
+      "Email": "gionatarubbia@trentini.it",
+      "Indirizzo": "Rotonda Sbarbaro 8, Madrid, Spain",
+      "Username": "fzanazzo",
+      "Password": "$2a$10$YF5yYMIBBb8t8pluAtPL0O",
+      "DataDiNascita": [
+        1964,
+        3,
+        10
+      ],
+      "Telefono": "+39 709 89307094",
+      "Ruolo": "Ristoratore",
+      "Id": 246
+    },
+    {
+      "Nome": "Giancarlo",
+      "Cognome": "Rosselli",
+      "Email": "coriolanotonisto@veltroni.org",
+      "Indirizzo": "Canale Caterina 962, Madrid, Spain",
+      "Username": "alberto06",
+      "Password": "$2a$10$3VIG18zA2OO3cKUSqsLvxO",
+      "DataDiNascita": [
+        2004,
+        7,
+        5
+      ],
+      "Telefono": "+39 7053 15470618",
+      "Ruolo": "Ristoratore",
+      "Id": 245
+    },
+    {
+      "Nome": "Domenico",
+      "Cognome": "Ceci",
+      "Email": "grecacocci@borroni-tresoldi.it",
+      "Indirizzo": "Strada Lercari 666, Madrid, Spain",
+      "Username": "brichesestefano",
+      "Password": "$2a$10$ZVoKXgXmyWTS3Yto7WkyGd",
+      "DataDiNascita": [
+        1994,
+        8,
+        27
+      ],
+      "Telefono": "+39 08 16898360",
+      "Ruolo": "Ristoratore",
+      "Id": 244
+    },
+    {
+      "Nome": "Ottone",
+      "Cognome": "Branciforte",
+      "Email": "giuseppe49@live.com",
+      "Indirizzo": "Vicolo Longhena 224, Madrid, Spain",
+      "Username": "salvatoreiadanza",
+      "Password": "$2a$10$Mw7f7zuO5AQjStSdrRrUhR",
+      "DataDiNascita": [
+        1984,
+        5,
+        5
+      ],
+      "Telefono": "+39 7358 0112407",
+      "Ruolo": "Ristoratore",
+      "Id": 243
+    },
+    {
+      "Nome": "Paolo",
+      "Cognome": "Terragni",
+      "Email": "michelotto04@alice.it",
+      "Indirizzo": "Via Concetta 71, Madrid, Spain",
+      "Username": "fulviodelle",
+      "Password": "$2a$10$i08ZqHnraxWjcVhs4FjJf8",
+      "DataDiNascita": [
+        1966,
+        3,
+        28
+      ],
+      "Telefono": "+39 1628 8532829",
+      "Ruolo": "Ristoratore",
+      "Id": 242
+    },
+    {
+      "Nome": "Gianni",
+      "Cognome": "Golino",
+      "Email": "ermenegildointeriano@poerio-casadei.com",
+      "Indirizzo": "Viale Sandra 1, Madrid, Spain",
+      "Username": "giacintomondaini",
+      "Password": "$2a$10$m8uNst5YdxtKCKsfj0v777",
+      "DataDiNascita": [
+        1959,
+        12,
+        24
+      ],
+      "Telefono": "+39 8562 48445163",
+      "Ruolo": "Ristoratore",
+      "Id": 241
+    },
+    {
+      "Nome": "Melissa",
+      "Cognome": "Peano",
+      "Email": "osvaldoceravolo@trebbi.it",
+      "Indirizzo": "Incrocio Chechi 67, Madrid, Spain",
+      "Username": "tgiovine",
+      "Password": "$2a$10$88PQwaKqaPDAWzXfsW96Yy",
+      "DataDiNascita": [
+        1956,
+        6,
+        30
+      ],
+      "Telefono": "+39 13 70934320",
+      "Ruolo": "Ristoratore",
+      "Id": 240
+    },
+    {
+      "Nome": "Geronimo",
+      "Cognome": "Odescalchi",
+      "Email": "elisamazzi@amaldi.it",
+      "Indirizzo": "Strada Telemaco 27, Madrid, Spain",
+      "Username": "ivan80",
+      "Password": "$2a$10$OolvggTeQ5BipaomOzTspm",
+      "DataDiNascita": [
+        1985,
+        1,
+        27
+      ],
+      "Telefono": "+39 301 80 95 0868",
+      "Ruolo": "Ristoratore",
+      "Id": 239
+    },
+    {
+      "Nome": "Tonia",
+      "Cognome": "Letta",
+      "Email": "marianabianchini@alice.it",
+      "Indirizzo": "Canale Vespucci 225, Madrid, Spain",
+      "Username": "agostinozito",
+      "Password": "$2a$10$jzjBNx9TY2PB9MDx4q41fF",
+      "DataDiNascita": [
+        1955,
+        12,
+        10
+      ],
+      "Telefono": "+39 228 24239538",
+      "Ruolo": "Ristoratore",
+      "Id": 238
+    },
+    {
+      "Nome": "Mariano",
+      "Cognome": "Mazzocchi",
+      "Email": "raffaelloammaniti@calbo.it",
+      "Indirizzo": "Strada Gioachino 959, Madrid, Spain",
+      "Username": "annalisa15",
+      "Password": "$2a$10$vpJdU4kKuCSS1eIitbwNOU",
+      "DataDiNascita": [
+        1960,
+        2,
+        24
+      ],
+      "Telefono": "+39 785 40763096",
+      "Ruolo": "Admin",
+      "Id": 237
+    },
+    {
+      "Nome": "Lodovico",
+      "Cognome": "Gonzaga",
+      "Email": "pignattiantonella@hotmail.com",
+      "Indirizzo": "Viale Ottavio 30, Madrid, Spain",
+      "Username": "santoromariana",
+      "Password": "$2a$10$fF5fulkuhAKjiXI8TtThlC",
+      "DataDiNascita": [
+        1983,
+        10,
+        4
+      ],
+      "Telefono": "+39 08 1122392",
+      "Ruolo": "Ristoratore",
+      "Id": 236
+    },
+    {
+      "Nome": "Coluccio",
+      "Cognome": "Gelli",
+      "Email": "bongiornovincenzo@almagia.eu",
+      "Indirizzo": "Strada Pagnotto 13, Madrid, Spain",
+      "Username": "fbrunello",
+      "Password": "$2a$10$VOQEjHEMVh6VPAIvp1UHHh",
+      "DataDiNascita": [
+        1963,
+        11,
+        24
+      ],
+      "Telefono": "+39 776 20056270",
+      "Ruolo": "Ristoratore",
+      "Id": 235
+    },
+    {
+      "Nome": "Mario",
+      "Cognome": "Iannuzzi",
+      "Email": "lettatullio@trussardi.com",
+      "Indirizzo": "Rotonda Umberto 5, Madrid, Spain",
+      "Username": "tizianobasso",
+      "Password": "$2a$10$19PUPyyuDkiNXOgEMBPntB",
+      "DataDiNascita": [
+        1958,
+        7,
+        6
+      ],
+      "Telefono": "+39 9850 56826634",
+      "Ruolo": "Ristoratore",
+      "Id": 234
+    },
+    {
+      "Nome": "Emma",
+      "Cognome": "Infantino",
+      "Email": "jbotta@camicione-garozzo.it",
+      "Indirizzo": "Contrada Caracciolo 46, Madrid, Spain",
+      "Username": "hferragni",
+      "Password": "$2a$10$ZXS8w0q98R1CBMcyptKiTd",
+      "DataDiNascita": [
+        1962,
+        9,
+        26
+      ],
+      "Telefono": "+39 064 89342147",
+      "Ruolo": "Admin",
+      "Id": 233
+    },
+    {
+      "Nome": "Agnolo",
+      "Cognome": "Pagnotto",
+      "Email": "germana79@hotmail.it",
+      "Indirizzo": "Piazza Paloma 1, Madrid, Spain",
+      "Username": "vmagrassi",
+      "Password": "$2a$10$YpZSL4Bd51Q0uAuxiHB2KU",
+      "DataDiNascita": [
+        1988,
+        7,
+        7
+      ],
+      "Telefono": "+39 087 10 72 0512",
+      "Ruolo": "Ristoratore",
+      "Id": 232
+    },
+    {
+      "Nome": "Rosario",
+      "Cognome": "Scotto",
+      "Email": "farinellifausto@balbi-bertolucci.org",
+      "Indirizzo": "Via Santorio 8, Madrid, Spain",
+      "Username": "dante51",
+      "Password": "$2a$10$SZ0kaRYQQ6YtPJtRdetRpI",
+      "DataDiNascita": [
+        1992,
+        9,
+        22
+      ],
+      "Telefono": "+39 485 10673194",
+      "Ruolo": "Ristoratore",
+      "Id": 231
+    },
+    {
+      "Nome": "Iolanda",
+      "Cognome": "Biagi",
+      "Email": "fcabrini@virgilio.it",
+      "Indirizzo": "Strada Galasso 80, Madrid, Spain",
+      "Username": "victoriagolino",
+      "Password": "$2a$10$F14izCDa9ORd2ryCpRt7G8",
+      "DataDiNascita": [
+        1985,
+        6,
+        16
+      ],
+      "Telefono": "+39 012 70 91 1123",
+      "Ruolo": "Ristoratore",
+      "Id": 230
+    },
+    {
+      "Nome": "Arsenio",
+      "Cognome": "Troisi",
+      "Email": "annalisapaolini@hotmail.it",
+      "Indirizzo": "Via Branciforte 680, Madrid, Spain",
+      "Username": "lombrosoarnaldo",
+      "Password": "$2a$10$atjLxqr9stLEu6CT5N6DgS",
+      "DataDiNascita": [
+        1986,
+        12,
+        29
+      ],
+      "Telefono": "+39 48 8857587",
+      "Ruolo": "Ristoratore",
+      "Id": 229
+    },
+    {
+      "Nome": "Vincenza",
+      "Cognome": "Valmarana",
+      "Email": "coppolagraziano@tomasini.org",
+      "Indirizzo": "Canale Emilio 714, Madrid, Spain",
+      "Username": "qmogherini",
+      "Password": "$2a$10$wneQHUuJdqVfIRYp4GkaxK",
+      "DataDiNascita": [
+        2003,
+        12,
+        27
+      ],
+      "Telefono": "+39 753 9647342",
+      "Ruolo": "Ristoratore",
+      "Id": 228
+    },
+    {
+      "Nome": "Achille",
+      "Cognome": "Valmarana",
+      "Email": "rodolfomaggioli@pizzamano.it",
+      "Indirizzo": "Canale Giacometti 416, Madrid, Spain",
+      "Username": "rosario01",
+      "Password": "$2a$10$5hSQURunbInMKzlSH5w9HY",
+      "DataDiNascita": [
+        1952,
+        6,
+        14
+      ],
+      "Telefono": "+39 540 9548211",
+      "Ruolo": "Ristoratore",
+      "Id": 227
+    },
+    {
+      "Nome": "Greco",
+      "Cognome": "Parini",
+      "Email": "nicoletta24@tin.it",
+      "Indirizzo": "Vicolo Greggio 725, Madrid, Spain",
+      "Username": "vfioravanti",
+      "Password": "$2a$10$j6Jt1zhLWysjhyGMi8Rx7O",
+      "DataDiNascita": [
+        1974,
+        10,
+        10
+      ],
+      "Telefono": "+39 51 28615027",
+      "Ruolo": "Ristoratore",
+      "Id": 226
+    },
+    {
+      "Nome": "Leopoldo",
+      "Cognome": "Iannuzzi",
+      "Email": "geracimercedes@libero.it",
+      "Indirizzo": "Stretto Giradello 512, Madrid, Spain",
+      "Username": "borromeogiustino",
+      "Password": "$2a$10$NulJRM7tBQDojwx6Dc9aLw",
+      "DataDiNascita": [
+        1975,
+        10,
+        10
+      ],
+      "Telefono": "+39 34 5330237",
+      "Ruolo": "Ristoratore",
+      "Id": 225
+    },
+    {
+      "Nome": "Raffaella",
+      "Cognome": "Bottigliero",
+      "Email": "capecchirenzo@civaschi.it",
+      "Indirizzo": "Borgo Nina 690, Madrid, Spain",
+      "Username": "patrizia46",
+      "Password": "$2a$10$mlQXtuYgd6Mg1jST0jnTEq",
+      "DataDiNascita": [
+        1982,
+        10,
+        19
+      ],
+      "Telefono": "+39 308 96902574",
+      "Ruolo": "Ristoratore",
+      "Id": 224
+    },
+    {
+      "Nome": "Ivo",
+      "Cognome": "Bellò",
+      "Email": "bonio@natta.com",
+      "Indirizzo": "Strada Ivan 27, Madrid, Spain",
+      "Username": "laurettafilippelli",
+      "Password": "$2a$10$4kKNJQRwUl19vECjfT2Xdo",
+      "DataDiNascita": [
+        1960,
+        3,
+        24
+      ],
+      "Telefono": "+39 384 92423043",
+      "Ruolo": "Admin",
+      "Id": 223
+    },
+    {
+      "Nome": "Benito",
+      "Cognome": "Rensi",
+      "Email": "michelotto33@libero.it",
+      "Indirizzo": "Canale Sraffa 6, Madrid, Spain",
+      "Username": "amaffei",
+      "Password": "$2a$10$4byZgulMNV4nbAW16SyFmk",
+      "DataDiNascita": [
+        1986,
+        9,
+        14
+      ],
+      "Telefono": "+39 197 49 21 5474",
+      "Ruolo": "Admin",
+      "Id": 222
+    },
+    {
+      "Nome": "Damiano",
+      "Cognome": "Balotelli",
+      "Email": "meuccidante@tim.it",
+      "Indirizzo": "Canale Desio 93, Madrid, Spain",
+      "Username": "bernardo99",
+      "Password": "$2a$10$20aVJePcAiguIEJOT3Fcli",
+      "DataDiNascita": [
+        1984,
+        10,
+        21
+      ],
+      "Telefono": "+39 061 9437137",
+      "Ruolo": "Ristoratore",
+      "Id": 221
+    },
+    {
+      "Nome": "Fabrizia",
+      "Cognome": "Giunti",
+      "Email": "vito59@pininfarina-pisano.it",
+      "Indirizzo": "Contrada Luciano 280, Madrid, Spain",
+      "Username": "torquatovergassola",
+      "Password": "$2a$10$ZYTSIbHN6Q2YRloywZqHVH",
+      "DataDiNascita": [
+        1963,
+        12,
+        25
+      ],
+      "Telefono": "+39 1844 1624734",
+      "Ruolo": "Admin",
+      "Id": 220
+    },
+    {
+      "Nome": "Umberto",
+      "Cognome": "Finetti",
+      "Email": "germanamarino@live.com",
+      "Indirizzo": "Viale Bertolucci 077, Madrid, Spain",
+      "Username": "maurilioburcardo",
+      "Password": "$2a$10$0YL9OeAGkcjd4OZnFlNix8",
+      "DataDiNascita": [
+        1960,
+        9,
+        26
+      ],
+      "Telefono": "+39 174 50 24 7850",
+      "Ruolo": "Ristoratore",
+      "Id": 219
+    },
+    {
+      "Nome": "Toni",
+      "Cognome": "Binaghi",
+      "Email": "filogamomirko@gmail.com",
+      "Indirizzo": "Canale Barcaccia 4, Madrid, Spain",
+      "Username": "sylvia45",
+      "Password": "$2a$10$FzGIYLy3BttcZFxml1sAbe",
+      "DataDiNascita": [
+        1970,
+        8,
+        13
+      ],
+      "Telefono": "+39 42 4922661",
+      "Ruolo": "Ristoratore",
+      "Id": 218
+    },
+    {
+      "Nome": "Paulina",
+      "Cognome": "Tonisto",
+      "Email": "lolitafischetti@burcardo.it",
+      "Indirizzo": "Strada Rocco 6, Madrid, Spain",
+      "Username": "fmarenzio",
+      "Password": "$2a$10$skR0nDiyAfOcSQ8r3qMOIU",
+      "DataDiNascita": [
+        1965,
+        5,
+        13
+      ],
+      "Telefono": "+39 259 5240169",
+      "Ruolo": "Ristoratore",
+      "Id": 217
+    },
+    {
+      "Nome": "Silvestro",
+      "Cognome": "Bottigliero",
+      "Email": "albericolercari@brugnaro.it",
+      "Indirizzo": "Canale Griselda 14, Madrid, Spain",
+      "Username": "cagnincalogero",
+      "Password": "$2a$10$Rxk6Fuais48OhvijWAzYPe",
+      "DataDiNascita": [
+        1978,
+        9,
+        24
+      ],
+      "Telefono": "+39 482 3877966",
+      "Ruolo": "Admin",
+      "Id": 216
+    },
+    {
+      "Nome": "Teresa",
+      "Cognome": "Corradi",
+      "Email": "edoardotafuri@gmail.com",
+      "Indirizzo": "Piazza Abba 7, Madrid, Spain",
+      "Username": "donna62",
+      "Password": "$2a$10$2L2OAcybojowvLkOhp17Ln",
+      "DataDiNascita": [
+        1955,
+        12,
+        28
+      ],
+      "Telefono": "+39 89 39190253",
+      "Ruolo": "Ristoratore",
+      "Id": 215
+    },
+    {
+      "Nome": "Gianpaolo",
+      "Cognome": "Oscuro",
+      "Email": "severino25@campise.com",
+      "Indirizzo": "Rotonda Govoni 65, Madrid, Spain",
+      "Username": "giuliettaquasimodo",
+      "Password": "$2a$10$w99yTnUy8XkoaENPc990Mk",
+      "DataDiNascita": [
+        1970,
+        9,
+        6
+      ],
+      "Telefono": "+39 4165 6108359",
+      "Ruolo": "Ristoratore",
+      "Id": 214
+    },
+    {
+      "Nome": "Alfredo",
+      "Cognome": "Gabba",
+      "Email": "edoardobernardi@panatta-norbiato.eu",
+      "Indirizzo": "Borgo Casaleggio 52, Madrid, Spain",
+      "Username": "qcapone",
+      "Password": "$2a$10$sIy32zzs1KZQEzP0xpBDXD",
+      "DataDiNascita": [
+        1988,
+        10,
+        25
+      ],
+      "Telefono": "+39 00 1406175",
+      "Ruolo": "Ristoratore",
+      "Id": 213
+    },
+    {
+      "Nome": "Luigina",
+      "Cognome": "Storladi",
+      "Email": "grusso@murri.com",
+      "Indirizzo": "Canale Giulia 79, Madrid, Spain",
+      "Username": "paolomorrocco",
+      "Password": "$2a$10$LV4XqlJchqcZz0hdgX2ARR",
+      "DataDiNascita": [
+        1995,
+        8,
+        30
+      ],
+      "Telefono": "+39 3738 30567275",
+      "Ruolo": "Ristoratore",
+      "Id": 212
+    },
+    {
+      "Nome": "Martino",
+      "Cognome": "Ceri",
+      "Email": "ciro19@yahoo.com",
+      "Indirizzo": "Viale Francesco 5, Madrid, Spain",
+      "Username": "michelejacuzzi",
+      "Password": "$2a$10$h7z1ezLd7xYNNYAkggcjxB",
+      "DataDiNascita": [
+        1956,
+        7,
+        6
+      ],
+      "Telefono": "+39 8485 7656903",
+      "Ruolo": "Admin",
+      "Id": 211
+    },
+    {
+      "Nome": "Bernardo",
+      "Cognome": "Perini",
+      "Email": "kmontesano@guariento.eu",
+      "Indirizzo": "Viale Folliero 6, Madrid, Spain",
+      "Username": "hcerquiglini",
+      "Password": "$2a$10$e2FC97cnn4iGQssiTdZL6j",
+      "DataDiNascita": [
+        2007,
+        3,
+        5
+      ],
+      "Telefono": "+39 27 46634055",
+      "Ruolo": "Admin",
+      "Id": 210
+    },
+    {
+      "Nome": "Achille",
+      "Cognome": "Matteotti",
+      "Email": "ugarozzo@hotmail.it",
+      "Indirizzo": "Canale Chiaramonte 7, Madrid, Spain",
+      "Username": "xchiesa",
+      "Password": "$2a$10$N9Y3KOF825VMVsApR0koIq",
+      "DataDiNascita": [
+        1979,
+        4,
+        5
+      ],
+      "Telefono": "+39 6082 65164658",
+      "Ruolo": "Ristoratore",
+      "Id": 209
+    },
+    {
+      "Nome": "Fulvio",
+      "Cognome": "Calbo",
+      "Email": "gianluigi98@live.com",
+      "Indirizzo": "Incrocio Aldo 8, Madrid, Spain",
+      "Username": "gossola",
+      "Password": "$2a$10$tOAvnudQQGznPLhr7yuYI4",
+      "DataDiNascita": [
+        1973,
+        5,
+        18
+      ],
+      "Telefono": "+39 35 3760245",
+      "Ruolo": "Ristoratore",
+      "Id": 208
+    },
+    {
+      "Nome": "Rosario",
+      "Cognome": "Cundari",
+      "Email": "sabatino36@montanelli.com",
+      "Indirizzo": "Vicolo Elisa 1, Madrid, Spain",
+      "Username": "ngibilisco",
+      "Password": "$2a$10$4VYjlzQq9dGqfh2tz9UdvW",
+      "DataDiNascita": [
+        1975,
+        8,
+        24
+      ],
+      "Telefono": "+39 4848 1502433",
+      "Ruolo": "Ristoratore",
+      "Id": 207
+    },
+    {
+      "Nome": "Gianni",
+      "Cognome": "Vecoli",
+      "Email": "babaticarlo@tin.it",
+      "Indirizzo": "Contrada Annunziata 284, Madrid, Spain",
+      "Username": "giampaolo28",
+      "Password": "$2a$10$2JbNls6ViM757lFtMSIIuq",
+      "DataDiNascita": [
+        2004,
+        9,
+        4
+      ],
+      "Telefono": "+39 815 2833484",
+      "Ruolo": "Ristoratore",
+      "Id": 206
+    },
+    {
+      "Nome": "Lucrezia",
+      "Cognome": "Marzorati",
+      "Email": "qsokolov@callegari.eu",
+      "Indirizzo": "Stretto Impastato 3, Madrid, Spain",
+      "Username": "curatolinicola",
+      "Password": "$2a$10$GwIgaTHaT57ExEQ8w7WIty",
+      "DataDiNascita": [
+        1955,
+        4,
+        23
+      ],
+      "Telefono": "+39 97 7973234",
+      "Ruolo": "Ristoratore",
+      "Id": 205
+    },
+    {
+      "Nome": "Ugo",
+      "Cognome": "Druso",
+      "Email": "donatello83@live.com",
+      "Indirizzo": "Rotonda Torlonia 119, Madrid, Spain",
+      "Username": "tolentinomarco",
+      "Password": "$2a$10$3QW0XoIJ1U92ulnm6vtFat",
+      "DataDiNascita": [
+        1971,
+        12,
+        6
+      ],
+      "Telefono": "+39 0644 4657727",
+      "Ruolo": "Ristoratore",
+      "Id": 204
+    },
+    {
+      "Nome": "Guido",
+      "Cognome": "Ludovisi",
+      "Email": "cmorricone@poste.it",
+      "Indirizzo": "Stretto Nicolò 94, Madrid, Spain",
+      "Username": "irma25",
+      "Password": "$2a$10$nFUyJ1sS7G9b3kqRmAvEl6",
+      "DataDiNascita": [
+        1989,
+        12,
+        13
+      ],
+      "Telefono": "+39 348 04925523",
+      "Ruolo": "Ristoratore",
+      "Id": 203
+    },
+    {
+      "Nome": "Tonia",
+      "Cognome": "Procacci",
+      "Email": "silvestrocontarini@castioni.it",
+      "Indirizzo": "Canale Lina 6, Madrid, Spain",
+      "Username": "dbergoglio",
+      "Password": "$2a$10$I7uz56q9rk0XJhxVRBgUsV",
+      "DataDiNascita": [
+        1995,
+        10,
+        13
+      ],
+      "Telefono": "+39 142 12 60 6101",
+      "Ruolo": "Admin",
+      "Id": 202
+    },
+    {
+      "Nome": "Renzo",
+      "Cognome": "Balbi",
+      "Email": "lisatroisi@scandone.org",
+      "Indirizzo": "Borgo Sophia 20, Madrid, Spain",
+      "Username": "orlando52",
+      "Password": "$2a$10$SgdMi6TM1NUKBBsmRxxcKO",
+      "DataDiNascita": [
+        2000,
+        4,
+        18
+      ],
+      "Telefono": "+39 459 56 92 4577",
+      "Ruolo": "Admin",
+      "Id": 201
+    },
+    {
+      "Nome": "Elvira",
+      "Cognome": "Lanfranchi",
+      "Email": "cscarponi@iannotti.it",
+      "Indirizzo": "Strada Rosina 30, Madrid, Spain",
+      "Username": "cesaronisandro",
+      "Password": "$2a$10$3GAlJr2mwse2fdKTjC0U5O",
+      "DataDiNascita": [
+        2005,
+        6,
+        11
+      ],
+      "Telefono": "+39 261 76237771",
+      "Ruolo": "Ristoratore",
+      "Id": 200
+    },
+    {
+      "Nome": "Emilio",
+      "Cognome": "Vercelloni",
+      "Email": "iolandafogazzaro@poste.it",
+      "Indirizzo": "Vicolo Costantino 302, Madrid, Spain",
+      "Username": "pompeomonduzzi",
+      "Password": "$2a$10$RLwAiIwwn2fin6ZFbVUi4W",
+      "DataDiNascita": [
+        2002,
+        12,
+        8
+      ],
+      "Telefono": "+39 644 27954509",
+      "Ruolo": "Ristoratore",
+      "Id": 199
+    },
+    {
+      "Nome": "Paride",
+      "Cognome": "Ciampi",
+      "Email": "stefaniacutuli@gmail.com",
+      "Indirizzo": "Incrocio Sokolov 640, Madrid, Spain",
+      "Username": "costanzocibin",
+      "Password": "$2a$10$EPoB6SMnmTV5CwTk8wrk0x",
+      "DataDiNascita": [
+        1987,
+        9,
+        1
+      ],
+      "Telefono": "+39 1540 6907965",
+      "Ruolo": "Ristoratore",
+      "Id": 198
+    },
+    {
+      "Nome": "Marcantonio",
+      "Cognome": "Tomasetti",
+      "Email": "darioinnocenti@poste.it",
+      "Indirizzo": "Rotonda Ludovica 503, Madrid, Spain",
+      "Username": "vmarsili",
+      "Password": "$2a$10$GKH53L5dgw7OaXmGPfuwc9",
+      "DataDiNascita": [
+        2001,
+        12,
+        24
+      ],
+      "Telefono": "+39 332 23214247",
+      "Ruolo": "Ristoratore",
+      "Id": 197
+    },
+    {
+      "Nome": "Michele",
+      "Cognome": "Ughi",
+      "Email": "kpizzamano@bertoni-dellucci.it",
+      "Indirizzo": "Via Randazzo 811, Madrid, Spain",
+      "Username": "piergiuseppetrezzini",
+      "Password": "$2a$10$V3NmZwgWwLIIZhGqDryiyq",
+      "DataDiNascita": [
+        1998,
+        6,
+        19
+      ],
+      "Telefono": "+39 782 3826347",
+      "Ruolo": "Ristoratore",
+      "Id": 196
+    },
+    {
+      "Nome": "Amedeo",
+      "Cognome": "Carnera",
+      "Email": "nbuonauro@yahoo.com",
+      "Indirizzo": "Strada Nicola 58, Madrid, Spain",
+      "Username": "cviola",
+      "Password": "$2a$10$epFJabws5xiiRvK9B0l1bB",
+      "DataDiNascita": [
+        1971,
+        10,
+        25
+      ],
+      "Telefono": "+39 497 4344366",
+      "Ruolo": "Ristoratore",
+      "Id": 195
+    },
+    {
+      "Nome": "Riccardo",
+      "Cognome": "Golino",
+      "Email": "letizia10@scalera.it",
+      "Indirizzo": "Contrada Polani 19, Madrid, Spain",
+      "Username": "alessandroantelami",
+      "Password": "$2a$10$Rm4njdCW8HZ6tK0eK3iwME",
+      "DataDiNascita": [
+        1967,
+        10,
+        1
+      ],
+      "Telefono": "+39 7562 6709016",
+      "Ruolo": "Ristoratore",
+      "Id": 194
+    },
+    {
+      "Nome": "Salvatore",
+      "Cognome": "Casaleggio",
+      "Email": "bossieraldo@gmail.com",
+      "Indirizzo": "Borgo Rizzoli 110, Madrid, Spain",
+      "Username": "bettina49",
+      "Password": "$2a$10$FBSq5dt0YcRha2DkNCdKO7",
+      "DataDiNascita": [
+        1967,
+        5,
+        5
+      ],
+      "Telefono": "+39 22 5957034",
+      "Ruolo": "Ristoratore",
+      "Id": 193
+    },
+    {
+      "Nome": "Valeria",
+      "Cognome": "Correr",
+      "Email": "boccaottavio@lovato.net",
+      "Indirizzo": "Piazza Bruno 0, Madrid, Spain",
+      "Username": "donatorismondo",
+      "Password": "$2a$10$UuvcjHE5QbcygOdFFyka91",
+      "DataDiNascita": [
+        1992,
+        5,
+        23
+      ],
+      "Telefono": "+39 773 40 59 6167",
+      "Ruolo": "Ristoratore",
+      "Id": 192
+    },
+    {
+      "Nome": "Torquato",
+      "Cognome": "Mercalli",
+      "Email": "cabibboclelia@bignami.net",
+      "Indirizzo": "Canale Bernini 1, Madrid, Spain",
+      "Username": "ruggero30",
+      "Password": "$2a$10$9Kk0RQcPHpWicu0jIpfJre",
+      "DataDiNascita": [
+        1964,
+        8,
+        29
+      ],
+      "Telefono": "+39 3125 27497561",
+      "Ruolo": "Ristoratore",
+      "Id": 191
+    },
+    {
+      "Nome": "Rosario",
+      "Cognome": "Segni",
+      "Email": "ligoriogaetano@fastwebnet.it",
+      "Indirizzo": "Stretto Filippa 00, Madrid, Spain",
+      "Username": "gbignardi",
+      "Password": "$2a$10$KkBEVrzWd8Idl8LdsRS75R",
+      "DataDiNascita": [
+        1953,
+        4,
+        29
+      ],
+      "Telefono": "+39 5347 19326722",
+      "Ruolo": "Ristoratore",
+      "Id": 190
+    },
+    {
+      "Nome": "Silvestro",
+      "Cognome": "Antonacci",
+      "Email": "ruggero19@libero.it",
+      "Indirizzo": "Contrada Cagnin 117, Madrid, Spain",
+      "Username": "dossettimassimiliano",
+      "Password": "$2a$10$C3JdkN86RJYM8LLmOUFnWV",
+      "DataDiNascita": [
+        1972,
+        2,
+        26
+      ],
+      "Telefono": "+39 170 37 41 5156",
+      "Ruolo": "Admin",
+      "Id": 189
+    },
+    {
+      "Nome": "Valeria",
+      "Cognome": "Staglieno",
+      "Email": "giancarlospinelli@verga.net",
+      "Indirizzo": "Viale Grasso 9, Madrid, Spain",
+      "Username": "marcantonio29",
+      "Password": "$2a$10$vWo3t68t9uNP4lMCqAtleN",
+      "DataDiNascita": [
+        2005,
+        4,
+        27
+      ],
+      "Telefono": "+39 866 8818341",
+      "Ruolo": "Ristoratore",
+      "Id": 188
+    },
+    {
+      "Nome": "Giulia",
+      "Cognome": "Bertoli",
+      "Email": "bacciocainero@libero.it",
+      "Indirizzo": "Piazza Rita 6, Madrid, Spain",
+      "Username": "donagraziella",
+      "Password": "$2a$10$4RGZmqPN2StIKQrudeX1XW",
+      "DataDiNascita": [
+        1987,
+        12,
+        2
+      ],
+      "Telefono": "+39 877 4719875",
+      "Ruolo": "Ristoratore",
+      "Id": 187
+    },
+    {
+      "Nome": "Nanni",
+      "Cognome": "Padovano",
+      "Email": "francesca69@tim.it",
+      "Indirizzo": "Strada Tedesco 1, Madrid, Spain",
+      "Username": "bergogliotemistocle",
+      "Password": "$2a$10$hhj6tLrhkEqBEsxELUFA7x",
+      "DataDiNascita": [
+        1981,
+        7,
+        23
+      ],
+      "Telefono": "+39 067 18205516",
+      "Ruolo": "Ristoratore",
+      "Id": 186
+    },
+    {
+      "Nome": "Gustavo",
+      "Cognome": "Montalti",
+      "Email": "dciani@alice.it",
+      "Indirizzo": "Incrocio Trentini 817, Madrid, Spain",
+      "Username": "laurazacchia",
+      "Password": "$2a$10$AFGx773n8kT70ZxuqHniaU",
+      "DataDiNascita": [
+        2003,
+        11,
+        25
+      ],
+      "Telefono": "+39 09 9505706",
+      "Ruolo": "Ristoratore",
+      "Id": 185
+    },
+    {
+      "Nome": "Alfredo",
+      "Cognome": "Gagliardi",
+      "Email": "palmisanoberenice@borgia.it",
+      "Indirizzo": "Via Lattuada 84, Madrid, Spain",
+      "Username": "gianfrancoleoncavallo",
+      "Password": "$2a$10$l5Iw3Hsbl2Rq3abhIHtmKF",
+      "DataDiNascita": [
+        2002,
+        3,
+        13
+      ],
+      "Telefono": "+39 51 9595141",
+      "Ruolo": "Ristoratore",
+      "Id": 184
+    },
+    {
+      "Nome": "Piermaria",
+      "Cognome": "Campise",
+      "Email": "tartagliafiorenzo@basso-bevilacqua.it",
+      "Indirizzo": "Stretto Ippazio 3, Madrid, Spain",
+      "Username": "ermesgeraci",
+      "Password": "$2a$10$AIkElwtZ0oXnRz4qVq7AOI",
+      "DataDiNascita": [
+        1990,
+        8,
+        16
+      ],
+      "Telefono": "+39 917 48 23 2503",
+      "Ruolo": "Ristoratore",
+      "Id": 183
+    },
+    {
+      "Nome": "Guglielmo",
+      "Cognome": "Tamburi",
+      "Email": "carmeloorlando@goldstein.it",
+      "Indirizzo": "Strada Fagiani 358, Madrid, Spain",
+      "Username": "antelamigiustino",
+      "Password": "$2a$10$T5pBOtBLzv2ZhadG0ztVIg",
+      "DataDiNascita": [
+        1962,
+        9,
+        7
+      ],
+      "Telefono": "+39 226 0059582",
+      "Ruolo": "Ristoratore",
+      "Id": 182
+    },
+    {
+      "Nome": "Giustino",
+      "Cognome": "Tarantini",
+      "Email": "innocentieva@poste.it",
+      "Indirizzo": "Vicolo Massimiliano 58, Madrid, Spain",
+      "Username": "ppergolesi",
+      "Password": "$2a$10$R6EGkc7r9gixC0MxpCtBlh",
+      "DataDiNascita": [
+        1963,
+        1,
+        20
+      ],
+      "Telefono": "+39 0198 30675215",
+      "Ruolo": "Ristoratore",
+      "Id": 181
+    },
+    {
+      "Nome": "Rosario",
+      "Cognome": "Amato",
+      "Email": "oscuronicoletta@poste.it",
+      "Indirizzo": "Viale Gianfrancesco 209, Madrid, Spain",
+      "Username": "michelettocherubini",
+      "Password": "$2a$10$09CI7mfu3VhYvGz3BMB1d9",
+      "DataDiNascita": [
+        1977,
+        12,
+        15
+      ],
+      "Telefono": "+39 0909 63298167",
+      "Ruolo": "Ristoratore",
+      "Id": 180
+    },
+    {
+      "Nome": "Raffaella",
+      "Cognome": "Casaleggio",
+      "Email": "ccarducci@outlook.com",
+      "Indirizzo": "Viale Cortese 31, Madrid, Spain",
+      "Username": "giorgiataliani",
+      "Password": "$2a$10$HeYpGD4s1fMvClpXaTTyKU",
+      "DataDiNascita": [
+        1999,
+        12,
+        27
+      ],
+      "Telefono": "+39 83 0831381",
+      "Ruolo": "Ristoratore",
+      "Id": 179
+    },
+    {
+      "Nome": "Enrico",
+      "Cognome": "Anastasi",
+      "Email": "tatianaceri@calvo.it",
+      "Indirizzo": "Rotonda Sorrentino 874, Madrid, Spain",
+      "Username": "matildamercantini",
+      "Password": "$2a$10$26M6dz5ynp02KM5VqGESfn",
+      "DataDiNascita": [
+        1988,
+        6,
+        10
+      ],
+      "Telefono": "+39 1458 2404193",
+      "Ruolo": "Ristoratore",
+      "Id": 178
+    },
+    {
+      "Nome": "Marisa",
+      "Cognome": "Matteotti",
+      "Email": "pellegrinopaolini@agostinelli.it",
+      "Indirizzo": "Vicolo Ivan 7, Madrid, Spain",
+      "Username": "severinogalilei",
+      "Password": "$2a$10$Oe0tjFugbHEofPqORJnGeP",
+      "DataDiNascita": [
+        1989,
+        6,
+        12
+      ],
+      "Telefono": "+39 384 2305720",
+      "Ruolo": "Ristoratore",
+      "Id": 177
+    },
+    {
+      "Nome": "Raimondo",
+      "Cognome": "Piccinni",
+      "Email": "tebaldimargherita@cherubini-gigli.net",
+      "Indirizzo": "Contrada Morena 2, Madrid, Spain",
+      "Username": "violavanessa",
+      "Password": "$2a$10$a7L0kbXtUyncXklJ4Otrqp",
+      "DataDiNascita": [
+        1972,
+        10,
+        14
+      ],
+      "Telefono": "+39 1101 1987561",
+      "Ruolo": "Ristoratore",
+      "Id": 176
+    },
+    {
+      "Nome": "Gabriella",
+      "Cognome": "Gritti",
+      "Email": "vbeccaria@lippomano.it",
+      "Indirizzo": "Strada Maurilio 5, Madrid, Spain",
+      "Username": "marazzifabrizio",
+      "Password": "$2a$10$hzarqPTa2ZCxzMBesKklLc",
+      "DataDiNascita": [
+        2001,
+        4,
+        9
+      ],
+      "Telefono": "+39 12 5066122",
+      "Ruolo": "Ristoratore",
+      "Id": 175
+    },
+    {
+      "Nome": "Alessandro",
+      "Cognome": "Ruggeri",
+      "Email": "draghiconcetta@alice.it",
+      "Indirizzo": "Strada Pozzecco 8, Madrid, Spain",
+      "Username": "luciano19",
+      "Password": "$2a$10$XvvWNLwS0EUKeI0fJ00hWf",
+      "DataDiNascita": [
+        1962,
+        8,
+        4
+      ],
+      "Telefono": "+39 238 36782674",
+      "Ruolo": "Ristoratore",
+      "Id": 174
+    },
+    {
+      "Nome": "Federica",
+      "Cognome": "Depero",
+      "Email": "alessandrosalata@iacobucci-pacillo.org",
+      "Indirizzo": "Strada Sebastiano 579, Madrid, Spain",
+      "Username": "fiamma98",
+      "Password": "$2a$10$nJogW6k3sfzWV7ZD3oCMpV",
+      "DataDiNascita": [
+        1990,
+        11,
+        2
+      ],
+      "Telefono": "+39 67 47934112",
+      "Ruolo": "Admin",
+      "Id": 173
+    },
+    {
+      "Nome": "Gianfrancesco",
+      "Cognome": "Filzi",
+      "Email": "gmalenchini@outlook.com",
+      "Indirizzo": "Strada Piovani 250, Madrid, Spain",
+      "Username": "fabriziopiacentini",
+      "Password": "$2a$10$N8aezRsa0bqVTp4Yo5Ii0F",
+      "DataDiNascita": [
+        1968,
+        5,
+        18
+      ],
+      "Telefono": "+39 4360 96307903",
+      "Ruolo": "Ristoratore",
+      "Id": 172
+    },
+    {
+      "Nome": "Susanna",
+      "Cognome": "Telesio",
+      "Email": "antonia57@libero.it",
+      "Indirizzo": "Stretto Marconi 6, Madrid, Spain",
+      "Username": "girolamomarsili",
+      "Password": "$2a$10$Voj0YKkexo3osDgQfdCh5k",
+      "DataDiNascita": [
+        1956,
+        8,
+        25
+      ],
+      "Telefono": "+39 4803 19794875",
+      "Ruolo": "Ristoratore",
+      "Id": 171
+    },
+    {
+      "Nome": "Mariano",
+      "Cognome": "Battisti",
+      "Email": "dionigi72@tiscali.it",
+      "Indirizzo": "Vicolo Maurizio 79, Madrid, Spain",
+      "Username": "annamaria71",
+      "Password": "$2a$10$k8px2laUnxQ7Yed4O72dPy",
+      "DataDiNascita": [
+        1970,
+        9,
+        28
+      ],
+      "Telefono": "+39 76 40560585",
+      "Ruolo": "Ristoratore",
+      "Id": 170
+    },
+    {
+      "Nome": "Federigo",
+      "Cognome": "Vespucci",
+      "Email": "saverio16@bocelli.net",
+      "Indirizzo": "Canale Pugliese 7, Madrid, Spain",
+      "Username": "ilettiere",
+      "Password": "$2a$10$i2YkdTUJut7Y7vh9pDxZC2",
+      "DataDiNascita": [
+        1973,
+        1,
+        4
+      ],
+      "Telefono": "+39 43 0382385",
+      "Ruolo": "Ristoratore",
+      "Id": 169
+    },
+    {
+      "Nome": "Francesco",
+      "Cognome": "Marazzi",
+      "Email": "ruggeromoccia@libero.it",
+      "Indirizzo": "Canale Trillini 774, Madrid, Spain",
+      "Username": "piero96",
+      "Password": "$2a$10$UPfkR5SJu30xIvkj09HavX",
+      "DataDiNascita": [
+        1990,
+        11,
+        23
+      ],
+      "Telefono": "+39 07 78591312",
+      "Ruolo": "Ristoratore",
+      "Id": 168
+    },
+    {
+      "Nome": "Caterina",
+      "Cognome": "Priuli",
+      "Email": "frescobaldiromolo@fastwebnet.it",
+      "Indirizzo": "Strada Lazzaro 3, Madrid, Spain",
+      "Username": "fortunatapavanello",
+      "Password": "$2a$10$DJBg75j3XPoauj359agTgh",
+      "DataDiNascita": [
+        1996,
+        10,
+        16
+      ],
+      "Telefono": "+39 583 92 20 6372",
+      "Ruolo": "Ristoratore",
+      "Id": 167
+    },
+    {
+      "Nome": "Benvenuto",
+      "Cognome": "Schiaparelli",
+      "Email": "papafavagiovanna@lerner.it",
+      "Indirizzo": "Via Aria 188, Madrid, Spain",
+      "Username": "pomponiocuzzocrea",
+      "Password": "$2a$10$7EcBFukbTKAaZgiik6utdY",
+      "DataDiNascita": [
+        1974,
+        12,
+        9
+      ],
+      "Telefono": "+39 0852 92540119",
+      "Ruolo": "Ristoratore",
+      "Id": 166
+    },
+    {
+      "Nome": "Alberto",
+      "Cognome": "Belletini",
+      "Email": "giuliana47@maglio-cerquiglini.org",
+      "Indirizzo": "Strada Piersanti 1, Madrid, Spain",
+      "Username": "cprocacci",
+      "Password": "$2a$10$HPfNid6htCJn7vVS5Zt5kB",
+      "DataDiNascita": [
+        1960,
+        12,
+        14
+      ],
+      "Telefono": "+39 802 69640265",
+      "Ruolo": "Ristoratore",
+      "Id": 165
+    },
+    {
+      "Nome": "Angelica",
+      "Cognome": "Boaga",
+      "Email": "luciano18@tiscali.it",
+      "Indirizzo": "Viale Branciforte 25, Madrid, Spain",
+      "Username": "adrianocurci",
+      "Password": "$2a$10$5aVMLlMyNHeBMLBkLzfVnl",
+      "DataDiNascita": [
+        1962,
+        3,
+        8
+      ],
+      "Telefono": "+39 37 7685848",
+      "Ruolo": "Ristoratore",
+      "Id": 164
+    },
+    {
+      "Nome": "Pellegrino",
+      "Cognome": "Chiaramonte",
+      "Email": "ubaldo64@gmail.com",
+      "Indirizzo": "Piazza Mercedes 838, Roma, Italy",
+      "Username": "ugiacconi",
+      "Password": "$2a$10$4e73IgMwR86UWku64jSblj",
+      "DataDiNascita": [
+        1995,
+        4,
+        16
+      ],
+      "Telefono": "+39 189 3353432",
+      "Ruolo": "Ristoratore",
+      "Id": 163
+    },
+    {
+      "Nome": "Giosuè",
+      "Cognome": "Balla",
+      "Email": "laramedici@tele2.it",
+      "Indirizzo": "Rotonda Enrico 2, Roma, Italy",
+      "Username": "petrallilando",
+      "Password": "$2a$10$6x7K3PPLG05MMXwKIC4VF9",
+      "DataDiNascita": [
+        1994,
+        12,
+        4
+      ],
+      "Telefono": "+39 3436 16810773",
+      "Ruolo": "Admin",
+      "Id": 162
+    },
+    {
+      "Nome": "Rosaria",
+      "Cognome": "Ferrata",
+      "Email": "dariosgalambro@hotmail.it",
+      "Indirizzo": "Stretto Orazio 525, Roma, Italy",
+      "Username": "danilo46",
+      "Password": "$2a$10$jZhLZ0xfJz5IwY2Y535jC1",
+      "DataDiNascita": [
+        1960,
+        6,
+        21
+      ],
+      "Telefono": "+39 423 86352127",
+      "Ruolo": "Ristoratore",
+      "Id": 161
+    },
+    {
+      "Nome": "Achille",
+      "Cognome": "Pigafetta",
+      "Email": "rembrandtangiolello@tiscali.it",
+      "Indirizzo": "Piazza Beatrice 25, Roma, Italy",
+      "Username": "pomponio19",
+      "Password": "$2a$10$OAdE8tqa9tDBQpzS7VVzZy",
+      "DataDiNascita": [
+        2000,
+        5,
+        14
+      ],
+      "Telefono": "+39 086 1223284",
+      "Ruolo": "Ristoratore",
+      "Id": 160
+    },
+    {
+      "Nome": "Ottone",
+      "Cognome": "Tassoni",
+      "Email": "mpavarotti@ariasso.net",
+      "Indirizzo": "Incrocio Alessia 6, Roma, Italy",
+      "Username": "benitodisdero",
+      "Password": "$2a$10$PRQJOfZ310U2IPamaYOXTj",
+      "DataDiNascita": [
+        1995,
+        12,
+        11
+      ],
+      "Telefono": "+39 0880 43048000",
+      "Ruolo": "Ristoratore",
+      "Id": 159
+    },
+    {
+      "Nome": "Flavia",
+      "Cognome": "Trotta",
+      "Email": "pmalatesta@tin.it",
+      "Indirizzo": "Stretto Annalisa 41, Roma, Italy",
+      "Username": "gspallanzani",
+      "Password": "$2a$10$20BBZKhuaVtZPnFAiSjmpI",
+      "DataDiNascita": [
+        1989,
+        1,
+        28
+      ],
+      "Telefono": "+39 314 27 52 6013",
+      "Ruolo": "Ristoratore",
+      "Id": 158
+    },
+    {
+      "Nome": "Gianfranco",
+      "Cognome": "Caffarelli",
+      "Email": "mariaammaniti@libero.it",
+      "Indirizzo": "Piazza Margherita 3, Roma, Italy",
+      "Username": "piermariacasagrande",
+      "Password": "$2a$10$1ZE4v7N18IN6pmBKqirq5d",
+      "DataDiNascita": [
+        1958,
+        5,
+        19
+      ],
+      "Telefono": "+39 3338 20851075",
+      "Ruolo": "Ristoratore",
+      "Id": 157
+    },
+    {
+      "Nome": "Sole",
+      "Cognome": "Morellato",
+      "Email": "scaramucciarnulfo@live.com",
+      "Indirizzo": "Viale Notarbartolo 547, Roma, Italy",
+      "Username": "tgovoni",
+      "Password": "$2a$10$TVaQbeiOeUIXLHHwoT1htP",
+      "DataDiNascita": [
+        1975,
+        12,
+        3
+      ],
+      "Telefono": "+39 3963 83626896",
+      "Ruolo": "Ristoratore",
+      "Id": 156
+    },
+    {
+      "Nome": "Franco",
+      "Cognome": "Corcos",
+      "Email": "emiliopelli@parpinel.com",
+      "Indirizzo": "Via Sagnelli 269, Roma, Italy",
+      "Username": "leonardo38",
+      "Password": "$2a$10$Ca2NXYiWqUFq5UsNbzUHQN",
+      "DataDiNascita": [
+        1973,
+        7,
+        19
+      ],
+      "Telefono": "+39 358 76147557",
+      "Ruolo": "Ristoratore",
+      "Id": 155
+    },
+    {
+      "Nome": "Ottavio",
+      "Cognome": "Renault",
+      "Email": "piergiorgiobosio@luzi.it",
+      "Indirizzo": "Vicolo Borghese 8, Roma, Italy",
+      "Username": "dinotamburini",
+      "Password": "$2a$10$4YuxlXf7ilmVfu4TCx1IT9",
+      "DataDiNascita": [
+        1993,
+        6,
+        14
+      ],
+      "Telefono": "+39 12 9801152",
+      "Ruolo": "Ristoratore",
+      "Id": 154
+    },
+    {
+      "Nome": "Liana",
+      "Cognome": "Boaga",
+      "Email": "raffaellino32@tin.it",
+      "Indirizzo": "Stretto Lamborghini 9, Roma, Italy",
+      "Username": "delfino58",
+      "Password": "$2a$10$ChSjs8bFviNITMUpSr7t3i",
+      "DataDiNascita": [
+        1979,
+        1,
+        18
+      ],
+      "Telefono": "+39 4934 37076384",
+      "Ruolo": "Ristoratore",
+      "Id": 153
+    },
+    {
+      "Nome": "Maura",
+      "Cognome": "Iannotti",
+      "Email": "orazio66@chittolini.org",
+      "Indirizzo": "Rotonda Greco 1, Roma, Italy",
+      "Username": "giulia48",
+      "Password": "$2a$10$wKfGFcXo7cYpEtydazsGzL",
+      "DataDiNascita": [
+        1955,
+        7,
+        10
+      ],
+      "Telefono": "+39 13 72044865",
+      "Ruolo": "Ristoratore",
+      "Id": 152
+    },
+    {
+      "Nome": "Edoardo",
+      "Cognome": "Cundari",
+      "Email": "geronimo69@vodafone.it",
+      "Indirizzo": "Borgo Goldoni 67, Roma, Italy",
+      "Username": "pascarellanino",
+      "Password": "$2a$10$0CRnqay22CcVEqbWjJwVol",
+      "DataDiNascita": [
+        1966,
+        2,
+        16
+      ],
+      "Telefono": "+39 375 38 41 7347",
+      "Ruolo": "Ristoratore",
+      "Id": 151
+    },
+    {
+      "Nome": "Olga",
+      "Cognome": "Scialpi",
+      "Email": "evapetrocelli@giradello-lamborghini.net",
+      "Indirizzo": "Via Basso 2, Roma, Italy",
+      "Username": "meuccihugo",
+      "Password": "$2a$10$n29DoMflFhJKvewn7q7XDd",
+      "DataDiNascita": [
+        1950,
+        4,
+        21
+      ],
+      "Telefono": "+39 00 7047405",
+      "Ruolo": "Ristoratore",
+      "Id": 150
+    },
+    {
+      "Nome": "Donatella",
+      "Cognome": "Pigafetta",
+      "Email": "yalboni@trussardi.com",
+      "Indirizzo": "Stretto Boezio 734, Roma, Italy",
+      "Username": "qantelami",
+      "Password": "$2a$10$yg2kzUyHFPTMo8aRUGEBtY",
+      "DataDiNascita": [
+        1982,
+        1,
+        10
+      ],
+      "Telefono": "+39 39 0453382",
+      "Ruolo": "Ristoratore",
+      "Id": 149
+    },
+    {
+      "Nome": "Atenulf",
+      "Cognome": "Bajamonti",
+      "Email": "dbinaghi@ceci.com",
+      "Indirizzo": "Piazza Trebbi 13, Roma, Italy",
+      "Username": "lodovicogabrieli",
+      "Password": "$2a$10$d1DnFMeDXl2EFG6khVIY3J",
+      "DataDiNascita": [
+        1992,
+        1,
+        6
+      ],
+      "Telefono": "+39 932 6606824",
+      "Ruolo": "Ristoratore",
+      "Id": 148
+    },
+    {
+      "Nome": "Allegra",
+      "Cognome": "Bandello",
+      "Email": "dino99@outlook.com",
+      "Indirizzo": "Via Cibin 127, Roma, Italy",
+      "Username": "collettihugo",
+      "Password": "$2a$10$8OuDCjK3CQPnOuBobOzoSq",
+      "DataDiNascita": [
+        2007,
+        4,
+        6
+      ],
+      "Telefono": "+39 70 1913827",
+      "Ruolo": "Ristoratore",
+      "Id": 147
+    },
+    {
+      "Nome": "Gioele",
+      "Cognome": "Passalacqua",
+      "Email": "saverio29@guglielmi.it",
+      "Indirizzo": "Rotonda Loredan 31, Roma, Italy",
+      "Username": "saveriocollodi",
+      "Password": "$2a$10$0NUZxBy6k3zbZKLmRlTmYk",
+      "DataDiNascita": [
+        1970,
+        3,
+        18
+      ],
+      "Telefono": "+39 224 4036998",
+      "Ruolo": "Ristoratore",
+      "Id": 146
+    },
+    {
+      "Nome": "Baldassare",
+      "Cognome": "Galtarossa",
+      "Email": "alfiomartinelli@alice.it",
+      "Indirizzo": "Strada Francesco 20, Roma, Italy",
+      "Username": "cesaronicesare",
+      "Password": "$2a$10$b84PaZCfWOL1CWZm42cUDb",
+      "DataDiNascita": [
+        1989,
+        7,
+        12
+      ],
+      "Telefono": "+39 09 04058763",
+      "Ruolo": "Ristoratore",
+      "Id": 145
+    },
+    {
+      "Nome": "Fabrizio",
+      "Cognome": "Zola",
+      "Email": "pacillofrancesca@battaglia-musatti.net",
+      "Indirizzo": "Borgo Bernardo 33, Roma, Italy",
+      "Username": "alfonsimarco",
+      "Password": "$2a$10$ajQajSqp57fWkDNIFNROFw",
+      "DataDiNascita": [
+        1972,
+        6,
+        21
+      ],
+      "Telefono": "+39 728 36137000",
+      "Ruolo": "Admin",
+      "Id": 144
+    },
+    {
+      "Nome": "Francesca",
+      "Cognome": "Mascagni",
+      "Email": "stefanipaganini@tele2.it",
+      "Indirizzo": "Incrocio Leblanc 5, Roma, Italy",
+      "Username": "telemacogelli",
+      "Password": "$2a$10$hxnLNSyoy4Lq2Kg71W27wr",
+      "DataDiNascita": [
+        1988,
+        3,
+        20
+      ],
+      "Telefono": "+39 4052 8393210",
+      "Ruolo": "Ristoratore",
+      "Id": 143
+    },
+    {
+      "Nome": "Daria",
+      "Cognome": "Storladi",
+      "Email": "gastoneudinese@cafarchia.org",
+      "Indirizzo": "Vicolo Bianca 9, Roma, Italy",
+      "Username": "nico01",
+      "Password": "$2a$10$ZeuPO4ji2N5UUlmIyZ0OGr",
+      "DataDiNascita": [
+        1991,
+        8,
+        16
+      ],
+      "Telefono": "+39 31 63606824",
+      "Ruolo": "Ristoratore",
+      "Id": 142
+    },
+    {
+      "Nome": "Puccio",
+      "Cognome": "Bova",
+      "Email": "dinamorucci@tiscali.it",
+      "Indirizzo": "Stretto Zanichelli 48, Roma, Italy",
+      "Username": "donatellaburcardo",
+      "Password": "$2a$10$6CnKq4gGFbPAq57BBGmSvj",
+      "DataDiNascita": [
+        2000,
+        12,
+        16
+      ],
+      "Telefono": "+39 4567 9577381",
+      "Ruolo": "Ristoratore",
+      "Id": 141
+    },
+    {
+      "Nome": "Camilla",
+      "Cognome": "Vattimo",
+      "Email": "ludovisieliana@bonatti.it",
+      "Indirizzo": "Vicolo Ivo 517, Roma, Italy",
+      "Username": "alessia30",
+      "Password": "$2a$10$248b9lFaI2RK1NAHtkFeXK",
+      "DataDiNascita": [
+        2003,
+        10,
+        29
+      ],
+      "Telefono": "+39 70 95271166",
+      "Ruolo": "Ristoratore",
+      "Id": 140
+    },
+    {
+      "Nome": "Luisa",
+      "Cognome": "Volta",
+      "Email": "righielisa@gozzano.it",
+      "Indirizzo": "Via Calarco 020, Roma, Italy",
+      "Username": "rvolta",
+      "Password": "$2a$10$V7RRvxdEnrbjDdwrF1HLCs",
+      "DataDiNascita": [
+        1986,
+        6,
+        17
+      ],
+      "Telefono": "+39 19 2722333",
+      "Ruolo": "Admin",
+      "Id": 139
+    },
+    {
+      "Nome": "Valerio",
+      "Cognome": "Trombetta",
+      "Email": "barberinistefano@virgilio.it",
+      "Indirizzo": "Viale Bianca 18, Roma, Italy",
+      "Username": "nittofausto",
+      "Password": "$2a$10$5sKWhwZXUMtLp0za6j2nrm",
+      "DataDiNascita": [
+        1965,
+        4,
+        6
+      ],
+      "Telefono": "+39 35 8718248",
+      "Ruolo": "Ristoratore",
+      "Id": 138
+    },
+    {
+      "Nome": "Luchino",
+      "Cognome": "Rastelli",
+      "Email": "montanarietta@nicoletti.org",
+      "Indirizzo": "Rotonda Ignazio 115, Roma, Italy",
+      "Username": "salvatoresauli",
+      "Password": "$2a$10$aeQrOm8TW5MmjU917SQ5oz",
+      "DataDiNascita": [
+        1994,
+        10,
+        8
+      ],
+      "Telefono": "+39 9865 8288298",
+      "Ruolo": "Ristoratore",
+      "Id": 137
+    },
+    {
+      "Nome": "Gianfrancesco",
+      "Cognome": "Lettiere",
+      "Email": "gsinisi@yahoo.com",
+      "Indirizzo": "Via Monteverdi 3, Roma, Italy",
+      "Username": "vgualtieri",
+      "Password": "$2a$10$h8d0HhTIGY6GRoJWjObHa1",
+      "DataDiNascita": [
+        1996,
+        7,
+        22
+      ],
+      "Telefono": "+39 614 6842104",
+      "Ruolo": "Ristoratore",
+      "Id": 136
+    },
+    {
+      "Nome": "Marcella",
+      "Cognome": "Leonardi",
+      "Email": "aviviani@alice.it",
+      "Indirizzo": "Vicolo Guglielmo 08, Roma, Italy",
+      "Username": "sismondipiergiuseppe",
+      "Password": "$2a$10$qDRTqmq7q1JnifsdDXuzmo",
+      "DataDiNascita": [
+        1965,
+        2,
+        1
+      ],
+      "Telefono": "+39 733 0953036",
+      "Ruolo": "Ristoratore",
+      "Id": 135
+    },
+    {
+      "Nome": "Raimondo",
+      "Cognome": "Vianello",
+      "Email": "majewskigalasso@vodafone.it",
+      "Indirizzo": "Stretto Brambilla 331, Roma, Italy",
+      "Username": "renzogranatelli",
+      "Password": "$2a$10$wvZcHDgpvD6Axr7mBH2LFM",
+      "DataDiNascita": [
+        1983,
+        5,
+        19
+      ],
+      "Telefono": "+39 33 36273602",
+      "Ruolo": "Admin",
+      "Id": 134
+    },
+    {
+      "Nome": "Monica",
+      "Cognome": "Scandone",
+      "Email": "amaliaschicchi@gonzaga.it",
+      "Indirizzo": "Contrada Giacconi 036, Roma, Italy",
+      "Username": "romolo65",
+      "Password": "$2a$10$0hf3zWNIKGAtqXfAk4d18W",
+      "DataDiNascita": [
+        1970,
+        1,
+        14
+      ],
+      "Telefono": "+39 098 64 62 0668",
+      "Ruolo": "Admin",
+      "Id": 133
+    },
+    {
+      "Nome": "Danilo",
+      "Cognome": "Borroni",
+      "Email": "oniomichelotto@gmail.com",
+      "Indirizzo": "Strada Griselda 70, Roma, Italy",
+      "Username": "pininfarinacoriolano",
+      "Password": "$2a$10$SPjEfFNBXqOiN0b8naYueq",
+      "DataDiNascita": [
+        1958,
+        5,
+        19
+      ],
+      "Telefono": "+39 18 8704101",
+      "Ruolo": "Ristoratore",
+      "Id": 132
+    },
+    {
+      "Nome": "Bruno",
+      "Cognome": "Capecchi",
+      "Email": "ubroschi@tin.it",
+      "Indirizzo": "Viale Giovine 068, Roma, Italy",
+      "Username": "ntosi",
+      "Password": "$2a$10$KlEXnNGh1RxNRNwnn3lATB",
+      "DataDiNascita": [
+        1969,
+        8,
+        30
+      ],
+      "Telefono": "+39 244 93 64 3109",
+      "Ruolo": "Ristoratore",
+      "Id": 131
+    },
+    {
+      "Nome": "Rosaria",
+      "Cognome": "Ciampi",
+      "Email": "ornellazanazzo@live.com",
+      "Indirizzo": "Rotonda Raffaele 1, Roma, Italy",
+      "Username": "concetta81",
+      "Password": "$2a$10$mO1d5gCsptxbqVlNd5TOIt",
+      "DataDiNascita": [
+        1996,
+        6,
+        20
+      ],
+      "Telefono": "+39 347 09403430",
+      "Ruolo": "Ristoratore",
+      "Id": 130
+    },
+    {
+      "Nome": "Salvi",
+      "Cognome": "Borromeo",
+      "Email": "rduse@letta.eu",
+      "Indirizzo": "Vicolo Orazio 53, Roma, Italy",
+      "Username": "gmoschino",
+      "Password": "$2a$10$0jlJN5On2q63Okah7nw2fa",
+      "DataDiNascita": [
+        1995,
+        5,
+        9
+      ],
+      "Telefono": "+39 089 0417224",
+      "Ruolo": "Ristoratore",
+      "Id": 129
+    },
+    {
+      "Nome": "Silvia",
+      "Cognome": "Cerquiglini",
+      "Email": "ftutino@libero.it",
+      "Indirizzo": "Rotonda Raffaele 7, Roma, Italy",
+      "Username": "tagliafierroclaudia",
+      "Password": "$2a$10$3djbwqQTESUVD34hb8Jcfy",
+      "DataDiNascita": [
+        1957,
+        11,
+        23
+      ],
+      "Telefono": "+39 146 22667815",
+      "Ruolo": "Admin",
+      "Id": 128
+    },
+    {
+      "Nome": "Angelina",
+      "Cognome": "Gentili",
+      "Email": "dante44@gmail.com",
+      "Indirizzo": "Via Telemaco 57, Roma, Italy",
+      "Username": "lillaungaretti",
+      "Password": "$2a$10$rJKL2RLIhmhWBdtJ54FMHr",
+      "DataDiNascita": [
+        1978,
+        2,
+        1
+      ],
+      "Telefono": "+39 5124 03691028",
+      "Ruolo": "Ristoratore",
+      "Id": 127
+    },
+    {
+      "Nome": "Azeglio",
+      "Cognome": "Novaro",
+      "Email": "elladiomengolo@tin.it",
+      "Indirizzo": "Viale Dolores 667, Roma, Italy",
+      "Username": "marcacciletizia",
+      "Password": "$2a$10$a31zEYWmwKlV8uY1z7yPtR",
+      "DataDiNascita": [
+        1976,
+        5,
+        3
+      ],
+      "Telefono": "+39 84 64538433",
+      "Ruolo": "Ristoratore",
+      "Id": 126
+    },
+    {
+      "Nome": "Mercedes",
+      "Cognome": "Riccardi",
+      "Email": "falconenanni@gmail.com",
+      "Indirizzo": "Contrada Francesco 15, Roma, Italy",
+      "Username": "everga",
+      "Password": "$2a$10$dy4W7UI55zUVYGCUlMQwzk",
+      "DataDiNascita": [
+        1996,
+        1,
+        29
+      ],
+      "Telefono": "+39 371 66369681",
+      "Ruolo": "Ristoratore",
+      "Id": 125
+    },
+    {
+      "Nome": "Melissa",
+      "Cognome": "Necci",
+      "Email": "bondumiergiampaolo@battisti.com",
+      "Indirizzo": "Stretto Marco 62, Roma, Italy",
+      "Username": "ztozzi",
+      "Password": "$2a$10$qY1OiMcF1mggCGJdrm3Mks",
+      "DataDiNascita": [
+        1971,
+        7,
+        19
+      ],
+      "Telefono": "+39 046 25777637",
+      "Ruolo": "Ristoratore",
+      "Id": 124
+    },
+    {
+      "Nome": "Bianca",
+      "Cognome": "Montessori",
+      "Email": "inapolitano@basso-leopardi.com",
+      "Indirizzo": "Borgo Scarlatti 334, Roma, Italy",
+      "Username": "ivo50",
+      "Password": "$2a$10$6PY2UfokppR4Gm4B5fqqBd",
+      "DataDiNascita": [
+        1953,
+        7,
+        2
+      ],
+      "Telefono": "+39 49 1634030",
+      "Ruolo": "Ristoratore",
+      "Id": 123
+    },
+    {
+      "Nome": "Leopoldo",
+      "Cognome": "Falier",
+      "Email": "gottifranco@outlook.com",
+      "Indirizzo": "Via Ludovisi 4, Roma, Italy",
+      "Username": "gvolta",
+      "Password": "$2a$10$YJ7JNFbfb5G8GsLw2OJvQr",
+      "DataDiNascita": [
+        2004,
+        1,
+        25
+      ],
+      "Telefono": "+39 25 83951036",
+      "Ruolo": "Admin",
+      "Id": 122
+    },
+    {
+      "Nome": "Edoardo",
+      "Cognome": "Lamborghini",
+      "Email": "barraccotatiana@grassi.com",
+      "Indirizzo": "Incrocio Adriano 754, Roma, Italy",
+      "Username": "pstrangio",
+      "Password": "$2a$10$8XWK5vl8CEfX6fkkDF0c0j",
+      "DataDiNascita": [
+        1980,
+        12,
+        27
+      ],
+      "Telefono": "+39 5631 97902355",
+      "Ruolo": "Ristoratore",
+      "Id": 121
+    },
+    {
+      "Nome": "Elmo",
+      "Cognome": "Chiaramonte",
+      "Email": "rcamanni@bernini.it",
+      "Indirizzo": "Stretto Sagese 2, Roma, Italy",
+      "Username": "gterragni",
+      "Password": "$2a$10$wZ0UObUAegBNmdwbO781eo",
+      "DataDiNascita": [
+        1998,
+        8,
+        19
+      ],
+      "Telefono": "+39 830 6949264",
+      "Ruolo": "Ristoratore",
+      "Id": 120
+    },
+    {
+      "Nome": "Lara",
+      "Cognome": "Dulbecco",
+      "Email": "gfrescobaldi@cadorna-tonisto.com",
+      "Indirizzo": "Stretto Solimena 5, Roma, Italy",
+      "Username": "lanfranchimaria",
+      "Password": "$2a$10$EXIq26pwqHK6R6sPE0hTSX",
+      "DataDiNascita": [
+        2005,
+        10,
+        19
+      ],
+      "Telefono": "+39 77 8333567",
+      "Ruolo": "Admin",
+      "Id": 119
+    },
+    {
+      "Nome": "Graziano",
+      "Cognome": "Dovara",
+      "Email": "pradafederigo@virgilio.it",
+      "Indirizzo": "Stretto Notarbartolo 49, Roma, Italy",
+      "Username": "dianacombi",
+      "Password": "$2a$10$cComQWP8q5f0YsB5Gk65m9",
+      "DataDiNascita": [
+        1994,
+        4,
+        4
+      ],
+      "Telefono": "+39 33 06981839",
+      "Ruolo": "Ristoratore",
+      "Id": 118
+    },
+    {
+      "Nome": "Lilla",
+      "Cognome": "Blasi",
+      "Email": "cirogaito@porcellato-redi.com",
+      "Indirizzo": "Stretto Aurora 53, Roma, Italy",
+      "Username": "gabbanapaola",
+      "Password": "$2a$10$7RYU4ELFTAF2LcSa0XaBBP",
+      "DataDiNascita": [
+        1985,
+        8,
+        14
+      ],
+      "Telefono": "+39 327 18407314",
+      "Ruolo": "Ristoratore",
+      "Id": 117
+    },
+    {
+      "Nome": "Antonia",
+      "Cognome": "Gualandi",
+      "Email": "pierangelozetticci@serlupi-pedrazzini.it",
+      "Indirizzo": "Viale Piccinni 8, Roma, Italy",
+      "Username": "goffredojovinelli",
+      "Password": "$2a$10$nRqGDnjMgy3DGhG7rEaBzw",
+      "DataDiNascita": [
+        1998,
+        5,
+        25
+      ],
+      "Telefono": "+39 29 50524478",
+      "Ruolo": "Ristoratore",
+      "Id": 116
+    },
+    {
+      "Nome": "Tonino",
+      "Cognome": "Trapani",
+      "Email": "ermenegildomarconi@visintini.com",
+      "Indirizzo": "Strada Galvani 782, Roma, Italy",
+      "Username": "marissa14",
+      "Password": "$2a$10$CtLbyqoLqmmHPDjpQ7Zpr6",
+      "DataDiNascita": [
+        1966,
+        10,
+        8
+      ],
+      "Telefono": "+39 753 2291833",
+      "Ruolo": "Admin",
+      "Id": 115
+    },
+    {
+      "Nome": "Renata",
+      "Cognome": "Ossola",
+      "Email": "massimo60@vodafone.it",
+      "Indirizzo": "Canale Gianluca 1, Roma, Italy",
+      "Username": "carlocanali",
+      "Password": "$2a$10$wHJq4zbR0Ddow4newwfNQe",
+      "DataDiNascita": [
+        1951,
+        6,
+        5
+      ],
+      "Telefono": "+39 61 36092613",
+      "Ruolo": "Ristoratore",
+      "Id": 114
+    },
+    {
+      "Nome": "Simonetta",
+      "Cognome": "Iadanza",
+      "Email": "delfinobarese@pisaroni-asmundo.eu",
+      "Indirizzo": "Incrocio Beccaria 8, Roma, Italy",
+      "Username": "gcamilleri",
+      "Password": "$2a$10$3IfRcia307m0pBbY4XoVu1",
+      "DataDiNascita": [
+        2004,
+        6,
+        11
+      ],
+      "Telefono": "+39 608 27 29 6035",
+      "Ruolo": "Admin",
+      "Id": 113
+    },
+    {
+      "Nome": "Salvi",
+      "Cognome": "Mercantini",
+      "Email": "schiavolivia@outlook.com",
+      "Indirizzo": "Via Comolli 540, Roma, Italy",
+      "Username": "isa67",
+      "Password": "$2a$10$tg7ZBE6avsjr92DaL030MQ",
+      "DataDiNascita": [
+        1977,
+        9,
+        6
+      ],
+      "Telefono": "+39 033 4706277",
+      "Ruolo": "Ristoratore",
+      "Id": 112
+    },
+    {
+      "Nome": "Nicola",
+      "Cognome": "Stein",
+      "Email": "luisa91@schiavo-treccani.it",
+      "Indirizzo": "Viale Veronica 02, Roma, Italy",
+      "Username": "barillarostefani",
+      "Password": "$2a$10$mLSidMJFa24CQgEe87StES",
+      "DataDiNascita": [
+        1953,
+        8,
+        25
+      ],
+      "Telefono": "+39 089 2190045",
+      "Ruolo": "Ristoratore",
+      "Id": 111
+    },
+    {
+      "Nome": "Loretta",
+      "Cognome": "Soderini",
+      "Email": "lilianadraghi@fastwebnet.it",
+      "Indirizzo": "Viale Scarfoglio 881, Roma, Italy",
+      "Username": "pisanopasquale",
+      "Password": "$2a$10$65HOkeqEs8EBdZuQ3bni2X",
+      "DataDiNascita": [
+        1977,
+        10,
+        23
+      ],
+      "Telefono": "+39 260 2100944",
+      "Ruolo": "Ristoratore",
+      "Id": 110
+    },
+    {
+      "Nome": "Ezio",
+      "Cognome": "Cerquiglini",
+      "Email": "gaetanofuseli@aporti.it",
+      "Indirizzo": "Contrada Vigorelli 4, Roma, Italy",
+      "Username": "rluria",
+      "Password": "$2a$10$8wSaByre9i9pjYfJORLrho",
+      "DataDiNascita": [
+        1981,
+        7,
+        8
+      ],
+      "Telefono": "+39 657 7609075",
+      "Ruolo": "Admin",
+      "Id": 109
+    },
+    {
+      "Nome": "Biagio",
+      "Cognome": "Buscetta",
+      "Email": "oreste69@libero.it",
+      "Indirizzo": "Strada Segrè 63, Roma, Italy",
+      "Username": "giuseppe28",
+      "Password": "$2a$10$5Q4fyQ56M7QUsZlOYlfb8f",
+      "DataDiNascita": [
+        1976,
+        7,
+        7
+      ],
+      "Telefono": "+39 54 0554398",
+      "Ruolo": "Ristoratore",
+      "Id": 108
+    },
+    {
+      "Nome": "Tonino",
+      "Cognome": "Panatta",
+      "Email": "livio68@tele2.it",
+      "Indirizzo": "Viale Tatiana 291, Roma, Italy",
+      "Username": "puglisiclaudia",
+      "Password": "$2a$10$WQ3Kbgdg68hzcexVyskpeG",
+      "DataDiNascita": [
+        1987,
+        2,
+        17
+      ],
+      "Telefono": "+39 877 6863819",
+      "Ruolo": "Admin",
+      "Id": 107
+    },
+    {
+      "Nome": "Marcello",
+      "Cognome": "Zabarella",
+      "Email": "coriolano15@pavone.com",
+      "Indirizzo": "Canale Tutino 3, Roma, Italy",
+      "Username": "paganinidurante",
+      "Password": "$2a$10$3zkMoUPl3a98TaLJe82VEU",
+      "DataDiNascita": [
+        1994,
+        8,
+        12
+      ],
+      "Telefono": "+39 12 4058287",
+      "Ruolo": "Ristoratore",
+      "Id": 106
+    },
+    {
+      "Nome": "Vittorio",
+      "Cognome": "Detti",
+      "Email": "mirko25@marini.org",
+      "Indirizzo": "Vicolo Gozzi 8, Roma, Italy",
+      "Username": "bazzialphons",
+      "Password": "$2a$10$4A8Hk8HKUHUekv4l5OBIUx",
+      "DataDiNascita": [
+        2005,
+        10,
+        31
+      ],
+      "Telefono": "+39 94 7088393",
+      "Ruolo": "Ristoratore",
+      "Id": 105
+    },
+    {
+      "Nome": "Bettina",
+      "Cognome": "Luzi",
+      "Email": "scarpajacopo@barozzi.it",
+      "Indirizzo": "Via Monaco 446, Roma, Italy",
+      "Username": "nasmundo",
+      "Password": "$2a$10$Z3cR0JmlW6XLzJHnr18ojW",
+      "DataDiNascita": [
+        1975,
+        7,
+        1
+      ],
+      "Telefono": "+39 4387 9748981",
+      "Ruolo": "Ristoratore",
+      "Id": 104
+    },
+    {
+      "Nome": "Simonetta",
+      "Cognome": "Salata",
+      "Email": "morenagonzaga@fastwebnet.it",
+      "Indirizzo": "Borgo Annamaria 8, Roma, Italy",
+      "Username": "esauro",
+      "Password": "$2a$10$4Hk2Nty1NWnzHLTmKGp1LW",
+      "DataDiNascita": [
+        1990,
+        8,
+        16
+      ],
+      "Telefono": "+39 654 0672376",
+      "Ruolo": "Ristoratore",
+      "Id": 103
+    },
+    {
+      "Nome": "Nicolò",
+      "Cognome": "Seddio",
+      "Email": "luigi43@poste.it",
+      "Indirizzo": "Canale Canova 0, Roma, Italy",
+      "Username": "saveriogemito",
+      "Password": "$2a$10$w9ujB0LlYkE2HDlsKKAarR",
+      "DataDiNascita": [
+        1975,
+        12,
+        26
+      ],
+      "Telefono": "+39 7784 1366007",
+      "Ruolo": "Admin",
+      "Id": 102
+    },
+    {
+      "Nome": "Raimondo",
+      "Cognome": "Cantimori",
+      "Email": "promano@vodafone.it",
+      "Indirizzo": "Borgo Bignardi 893, Roma, Italy",
+      "Username": "magliofilippa",
+      "Password": "$2a$10$XSe5MYPe0pMcozRZhW802x",
+      "DataDiNascita": [
+        1977,
+        9,
+        14
+      ],
+      "Telefono": "+39 04 50379207",
+      "Ruolo": "Ristoratore",
+      "Id": 101
+    },
+    {
+      "Nome": "Michelotto",
+      "Cognome": "Ioppi",
+      "Email": "cpucci@missoni-ioppi.it",
+      "Indirizzo": "Canale Alberto 598, Roma, Italy",
+      "Username": "pmercadante",
+      "Password": "$2a$10$VR7YCVEchm9rt3w2m3myhS",
+      "DataDiNascita": [
+        2002,
+        2,
+        27
+      ],
+      "Telefono": "+39 682 53939546",
+      "Ruolo": "Ristoratore",
+      "Id": 100
+    },
+    {
+      "Nome": "Ermenegildo",
+      "Cognome": "Redi",
+      "Email": "salvinivittoria@benigni.net",
+      "Indirizzo": "Incrocio Lucciano 4, Roma, Italy",
+      "Username": "pininfarinaadelmo",
+      "Password": "$2a$10$593GVnnfdjTT9uvcDOI1TN",
+      "DataDiNascita": [
+        1974,
+        10,
+        30
+      ],
+      "Telefono": "+39 5899 9272712",
+      "Ruolo": "Ristoratore",
+      "Id": 99
+    },
+    {
+      "Nome": "Fiorenzo",
+      "Cognome": "Fibonacci",
+      "Email": "concetta87@brichese.com",
+      "Indirizzo": "Stretto Luciana 1, Roma, Italy",
+      "Username": "carlacendron",
+      "Password": "$2a$10$3dky47qsgQkQEQwobdEXqS",
+      "DataDiNascita": [
+        1993,
+        7,
+        17
+      ],
+      "Telefono": "+39 2162 32995350",
+      "Ruolo": "Ristoratore",
+      "Id": 98
+    },
+    {
+      "Nome": "Teresa",
+      "Cognome": "Baracca",
+      "Email": "benedettobottaro@virgilio.it",
+      "Indirizzo": "Viale Ciani 40, Roma, Italy",
+      "Username": "dbernardini",
+      "Password": "$2a$10$tUMgKfWD1qKfX4UNU61RU7",
+      "DataDiNascita": [
+        1986,
+        6,
+        9
+      ],
+      "Telefono": "+39 9428 4465113",
+      "Ruolo": "Ristoratore",
+      "Id": 97
+    },
+    {
+      "Nome": "Pompeo",
+      "Cognome": "Guarana",
+      "Email": "abbaalberto@vodafone.it",
+      "Indirizzo": "Incrocio Martino 2, Roma, Italy",
+      "Username": "xmarrone",
+      "Password": "$2a$10$rl5ncnCoj4dgbX6kifHOu4",
+      "DataDiNascita": [
+        2004,
+        12,
+        8
+      ],
+      "Telefono": "+39 149 4490948",
+      "Ruolo": "Ristoratore",
+      "Id": 96
+    },
+    {
+      "Nome": "Renata",
+      "Cognome": "Valier",
+      "Email": "vecolitonia@scarfoglio.com",
+      "Indirizzo": "Rotonda Leopardi 7, Roma, Italy",
+      "Username": "beatrice99",
+      "Password": "$2a$10$4BSOMSqoTxI7fwrgTr09ST",
+      "DataDiNascita": [
+        1975,
+        9,
+        13
+      ],
+      "Telefono": "+39 6794 93477061",
+      "Ruolo": "Ristoratore",
+      "Id": 95
+    },
+    {
+      "Nome": "Ilaria",
+      "Cognome": "Respighi",
+      "Email": "sandroballa@tozzo.com",
+      "Indirizzo": "Rotonda Bertoli 9, Roma, Italy",
+      "Username": "tmantegna",
+      "Password": "$2a$10$HIhURKK1XvAavD253rMsPy",
+      "DataDiNascita": [
+        1967,
+        3,
+        16
+      ],
+      "Telefono": "+39 6020 7910293",
+      "Ruolo": "Admin",
+      "Id": 94
+    },
+    {
+      "Nome": "Annunziata",
+      "Cognome": "Rossellini",
+      "Email": "hbondumier@broschi.com",
+      "Indirizzo": "Incrocio Camillo 09, Roma, Italy",
+      "Username": "finottodamiano",
+      "Password": "$2a$10$4JXS8mVb0bNcYgjc3nWtKF",
+      "DataDiNascita": [
+        1965,
+        12,
+        3
+      ],
+      "Telefono": "+39 37 42734318",
+      "Ruolo": "Admin",
+      "Id": 93
+    },
+    {
+      "Nome": "Daria",
+      "Cognome": "Traversa",
+      "Email": "otrobbiani@vodafone.it",
+      "Indirizzo": "Rotonda Leopardi 77, Roma, Italy",
+      "Username": "iacovelliciro",
+      "Password": "$2a$10$41Tp6nGWTGiawGCYbNMC16",
+      "DataDiNascita": [
+        1986,
+        11,
+        4
+      ],
+      "Telefono": "+39 44 67976499",
+      "Ruolo": "Ristoratore",
+      "Id": 92
+    },
+    {
+      "Nome": "Vito",
+      "Cognome": "Vianello",
+      "Email": "natalia00@tim.it",
+      "Indirizzo": "Via Puccio 1, Roma, Italy",
+      "Username": "gloria04",
+      "Password": "$2a$10$AvJMifjYHuyGrhgc16Yj7z",
+      "DataDiNascita": [
+        1959,
+        7,
+        12
+      ],
+      "Telefono": "+39 24 98902603",
+      "Ruolo": "Ristoratore",
+      "Id": 91
+    },
+    {
+      "Nome": "Saverio",
+      "Cognome": "Casadei",
+      "Email": "lilianafattori@bongiorno-boccaccio.org",
+      "Indirizzo": "Incrocio Massimiliano 3, Roma, Italy",
+      "Username": "moschinomariano",
+      "Password": "$2a$10$ACCo9wmdE4WsJcTsjAmBPT",
+      "DataDiNascita": [
+        1993,
+        7,
+        1
+      ],
+      "Telefono": "+39 622 10782055",
+      "Ruolo": "Ristoratore",
+      "Id": 90
+    },
+    {
+      "Nome": "Amleto",
+      "Cognome": "Scandone",
+      "Email": "ncaironi@canova.it",
+      "Indirizzo": "Via Boldù 4, Roma, Italy",
+      "Username": "dturrini",
+      "Password": "$2a$10$FY6ZJMYdJT4kfWo5PYN3U3",
+      "DataDiNascita": [
+        1982,
+        4,
+        19
+      ],
+      "Telefono": "+39 565 58068481",
+      "Ruolo": "Ristoratore",
+      "Id": 89
+    },
+    {
+      "Nome": "Lodovico",
+      "Cognome": "Brunelleschi",
+      "Email": "gustavo01@gmail.com",
+      "Indirizzo": "Vicolo Antonella 96, Roma, Italy",
+      "Username": "caironimartino",
+      "Password": "$2a$10$lXgG9W7OF4AbMPPkdBEXWl",
+      "DataDiNascita": [
+        1965,
+        12,
+        15
+      ],
+      "Telefono": "+39 961 0037251",
+      "Ruolo": "Ristoratore",
+      "Id": 88
+    },
+    {
+      "Nome": "Patrizio",
+      "Cognome": "Alfieri",
+      "Email": "paulinaiannotti@libero.it",
+      "Indirizzo": "Rotonda Matteo 8, Roma, Italy",
+      "Username": "pavarottiettore",
+      "Password": "$2a$10$8GEPDTsTwM7FQKpJxTB8So",
+      "DataDiNascita": [
+        1997,
+        12,
+        28
+      ],
+      "Telefono": "+39 318 0838802",
+      "Ruolo": "Ristoratore",
+      "Id": 87
+    },
+    {
+      "Nome": "Gaetano",
+      "Cognome": "Costanzi",
+      "Email": "ilariablasi@vodafone.it",
+      "Indirizzo": "Stretto Martino 74, Roma, Italy",
+      "Username": "jolandamorgagni",
+      "Password": "$2a$10$vQ3TaP5gu6QJeTbhr3Antb",
+      "DataDiNascita": [
+        1992,
+        2,
+        22
+      ],
+      "Telefono": "+39 073 73 36 5157",
+      "Ruolo": "Ristoratore",
+      "Id": 86
+    },
+    {
+      "Nome": "Pierangelo",
+      "Cognome": "Bellocchio",
+      "Email": "fiorucciromina@libero.it",
+      "Indirizzo": "Rotonda Dante 8, Roma, Italy",
+      "Username": "gasparebrenna",
+      "Password": "$2a$10$2SUKYSje6KUfF5vcWxNizK",
+      "DataDiNascita": [
+        1954,
+        2,
+        3
+      ],
+      "Telefono": "+39 710 5163736",
+      "Ruolo": "Ristoratore",
+      "Id": 85
+    },
+    {
+      "Nome": "Salvi",
+      "Cognome": "Travaglia",
+      "Email": "flippomano@tin.it",
+      "Indirizzo": "Via Natalia 6, Roma, Italy",
+      "Username": "beatricerenault",
+      "Password": "$2a$10$K0P0d02nscJYWRHjUp9Zo7",
+      "DataDiNascita": [
+        1978,
+        8,
+        24
+      ],
+      "Telefono": "+39 9807 9715240",
+      "Ruolo": "Ristoratore",
+      "Id": 84
+    },
+    {
+      "Nome": "Ilaria",
+      "Cognome": "Falloppio",
+      "Email": "cianiuberto@villarosa.com",
+      "Indirizzo": "Via Bassi 97, Roma, Italy",
+      "Username": "zcrisafulli",
+      "Password": "$2a$10$HhBqUNpvgv8A8yYu55HDY7",
+      "DataDiNascita": [
+        1967,
+        5,
+        11
+      ],
+      "Telefono": "+39 4636 37286557",
+      "Ruolo": "Ristoratore",
+      "Id": 83
+    },
+    {
+      "Nome": "Melina",
+      "Cognome": "Frescobaldi",
+      "Email": "halighieri@outlook.com",
+      "Indirizzo": "Borgo Nedda 9, Roma, Italy",
+      "Username": "ranierisalieri",
+      "Password": "$2a$10$2Ah5tnKBUya9SHpBsYLymX",
+      "DataDiNascita": [
+        1981,
+        3,
+        16
+      ],
+      "Telefono": "+39 4133 74886695",
+      "Ruolo": "Admin",
+      "Id": 82
+    },
+    {
+      "Nome": "Ludovico",
+      "Cognome": "Pellico",
+      "Email": "lucreziasolari@barcaccia.it",
+      "Indirizzo": "Piazza Mercedes 93, Roma, Italy",
+      "Username": "biagiogiovine",
+      "Password": "$2a$10$96x30jjxtz0fExSInXldtC",
+      "DataDiNascita": [
+        1987,
+        3,
+        14
+      ],
+      "Telefono": "+39 65 68291205",
+      "Ruolo": "Admin",
+      "Id": 81
+    },
+    {
+      "Nome": "Gianpietro",
+      "Cognome": "Grifeo",
+      "Email": "saveriononis@tin.it",
+      "Indirizzo": "Contrada Silvestro 5, Roma, Italy",
+      "Username": "rominamarcacci",
+      "Password": "$2a$10$fcGqiU1D5jBrQ06ZJfRe8w",
+      "DataDiNascita": [
+        1981,
+        12,
+        25
+      ],
+      "Telefono": "+39 5444 2067120",
+      "Ruolo": "Ristoratore",
+      "Id": 80
+    },
+    {
+      "Nome": "Chiara",
+      "Cognome": "Pausini",
+      "Email": "mimunpiero@zabarella-malenchini.net",
+      "Indirizzo": "Incrocio Matilda 0, Roma, Italy",
+      "Username": "isa41",
+      "Password": "$2a$10$83mtR1kM3IlDwY9YsLizGC",
+      "DataDiNascita": [
+        1956,
+        2,
+        22
+      ],
+      "Telefono": "+39 82 3693899",
+      "Ruolo": "Ristoratore",
+      "Id": 79
+    },
+    {
+      "Nome": "Adriano",
+      "Cognome": "Emanuelli",
+      "Email": "greca76@granatelli.com",
+      "Indirizzo": "Piazza Casellati 409, Roma, Italy",
+      "Username": "malboni",
+      "Password": "$2a$10$Tv7nPWZyjuwZQcT3SR1di0",
+      "DataDiNascita": [
+        1992,
+        10,
+        22
+      ],
+      "Telefono": "+39 0148 49008816",
+      "Ruolo": "Admin",
+      "Id": 78
+    },
+    {
+      "Nome": "Fausto",
+      "Cognome": "Maggioli",
+      "Email": "niccolo23@donarelli.org",
+      "Indirizzo": "Via Nadia 82, Roma, Italy",
+      "Username": "cerilaura",
+      "Password": "$2a$10$y3BBUY4soefcox2rQah3tX",
+      "DataDiNascita": [
+        1972,
+        2,
+        11
+      ],
+      "Telefono": "+39 29 38309250",
+      "Ruolo": "Ristoratore",
+      "Id": 77
+    },
+    {
+      "Nome": "Fiorino",
+      "Cognome": "Brunelleschi",
+      "Email": "tatianamissoni@gmail.com",
+      "Indirizzo": "Canale Regge 31, Roma, Italy",
+      "Username": "wdeledda",
+      "Password": "$2a$10$9BAGjKIo9iB8VTVM4a49rh",
+      "DataDiNascita": [
+        1963,
+        8,
+        23
+      ],
+      "Telefono": "+39 355 78716448",
+      "Ruolo": "Ristoratore",
+      "Id": 76
+    },
+    {
+      "Nome": "Ranieri",
+      "Cognome": "Alighieri",
+      "Email": "calbomaria@gualtieri.eu",
+      "Indirizzo": "Via Dino 7, Roma, Italy",
+      "Username": "carlagiulietti",
+      "Password": "$2a$10$bTLtQGqNLvvM8JVqdpE13y",
+      "DataDiNascita": [
+        1973,
+        5,
+        9
+      ],
+      "Telefono": "+39 921 7127464",
+      "Ruolo": "Ristoratore",
+      "Id": 75
+    },
+    {
+      "Nome": "Gastone",
+      "Cognome": "Bajardi",
+      "Email": "ofo@yahoo.com",
+      "Indirizzo": "Via Fibonacci 0, Roma, Italy",
+      "Username": "alessio98",
+      "Password": "$2a$10$2QL3fw2dOjP975ZYzyzHNV",
+      "DataDiNascita": [
+        1995,
+        8,
+        7
+      ],
+      "Telefono": "+39 4287 94246154",
+      "Ruolo": "Ristoratore",
+      "Id": 74
+    },
+    {
+      "Nome": "Romeo",
+      "Cognome": "Schicchi",
+      "Email": "zcollodi@bajamonti-gilardoni.com",
+      "Indirizzo": "Viale Alfonsi 16, Roma, Italy",
+      "Username": "pisanomelania",
+      "Password": "$2a$10$1prheYcdCys4664mqYbsr2",
+      "DataDiNascita": [
+        2004,
+        9,
+        10
+      ],
+      "Telefono": "+39 68 3052910",
+      "Ruolo": "Admin",
+      "Id": 73
+    },
+    {
+      "Nome": "Osvaldo",
+      "Cognome": "Spinola",
+      "Email": "veltronibartolomeo@zaccagnini-tomaselli.com",
+      "Indirizzo": "Stretto Gemito 311, Roma, Italy",
+      "Username": "gilardonistefano",
+      "Password": "$2a$10$mI0BixHjs4F9WwW5VZT1id",
+      "DataDiNascita": [
+        2000,
+        3,
+        9
+      ],
+      "Telefono": "+39 378 4714146",
+      "Ruolo": "Ristoratore",
+      "Id": 72
+    },
+    {
+      "Nome": "Massimiliano",
+      "Cognome": "Cheda",
+      "Email": "gioacchinomanolesso@tim.it",
+      "Indirizzo": "Via Antonioni 80, Roma, Italy",
+      "Username": "barbara93",
+      "Password": "$2a$10$b4k7RRiIUfIGBj0sJdkRji",
+      "DataDiNascita": [
+        1949,
+        12,
+        28
+      ],
+      "Telefono": "+39 817 9426804",
+      "Ruolo": "Ristoratore",
+      "Id": 71
+    },
+    {
+      "Nome": "Bettina",
+      "Cognome": "Tuzzolino",
+      "Email": "turchivittorio@gmail.com",
+      "Indirizzo": "Stretto Galilei 45, Roma, Italy",
+      "Username": "adrianodallara",
+      "Password": "$2a$10$g5bF5ZYmz0gTbokqDnTi1a",
+      "DataDiNascita": [
+        1988,
+        5,
+        31
+      ],
+      "Telefono": "+39 2198 9680726",
+      "Ruolo": "Ristoratore",
+      "Id": 70
+    },
+    {
+      "Nome": "Adamo",
+      "Cognome": "Ricciardi",
+      "Email": "rosariocristoforetti@libero.it",
+      "Indirizzo": "Via Mirko 84, Roma, Italy",
+      "Username": "morpurgobaldassare",
+      "Password": "$2a$10$7s0h2tQrTvVTHRhMTypNDv",
+      "DataDiNascita": [
+        2002,
+        4,
+        19
+      ],
+      "Telefono": "+39 47 27570571",
+      "Ruolo": "Ristoratore",
+      "Id": 69
+    },
+    {
+      "Nome": "Antonino",
+      "Cognome": "Soranzo",
+      "Email": "ngucci@colletti.com",
+      "Indirizzo": "Vicolo Eugenia 15, Roma, Italy",
+      "Username": "nfoconi",
+      "Password": "$2a$10$JugezOoa9n9vhskHwGHUUb",
+      "DataDiNascita": [
+        2005,
+        7,
+        31
+      ],
+      "Telefono": "+39 780 11 81 5788",
+      "Ruolo": "Ristoratore",
+      "Id": 68
+    },
+    {
+      "Nome": "Hugo",
+      "Cognome": "Cendron",
+      "Email": "tiziana49@ariosto-aloisio.eu",
+      "Indirizzo": "Vicolo Travaglio 919, Roma, Italy",
+      "Username": "hjilani",
+      "Password": "$2a$10$s4PQzE8XWpl9v8tG3MhHuh",
+      "DataDiNascita": [
+        1961,
+        6,
+        27
+      ],
+      "Telefono": "+39 226 57 02 1621",
+      "Ruolo": "Admin",
+      "Id": 67
+    },
+    {
+      "Nome": "Michela",
+      "Cognome": "Baroffio",
+      "Email": "pasquale08@gioberti-nordio.org",
+      "Indirizzo": "Canale Leoncavallo 7, Roma, Italy",
+      "Username": "gnapolitano",
+      "Password": "$2a$10$I8XWr1AYFaFkfzISHZ3FCm",
+      "DataDiNascita": [
+        1952,
+        8,
+        31
+      ],
+      "Telefono": "+39 795 91565467",
+      "Ruolo": "Ristoratore",
+      "Id": 66
+    },
+    {
+      "Nome": "Michela",
+      "Cognome": "Onisto",
+      "Email": "eva57@libero.it",
+      "Indirizzo": "Stretto Leone 201, Roma, Italy",
+      "Username": "nico94",
+      "Password": "$2a$10$eoG8Is2RBMp2GNbf1bSqTI",
+      "DataDiNascita": [
+        1994,
+        10,
+        15
+      ],
+      "Telefono": "+39 8906 90758088",
+      "Ruolo": "Admin",
+      "Id": 65
+    },
+    {
+      "Nome": "Fiorenzo",
+      "Cognome": "Pisano",
+      "Email": "etogliatti@libero.it",
+      "Indirizzo": "Incrocio Benito 8, Roma, Italy",
+      "Username": "barbaramoccia",
+      "Password": "$2a$10$YICALpGur4cU8BnF6ouOgk",
+      "DataDiNascita": [
+        1966,
+        11,
+        29
+      ],
+      "Telefono": "+39 047 20 04 9687",
+      "Ruolo": "Admin",
+      "Id": 64
+    },
+    {
+      "Nome": "Maria",
+      "Cognome": "Ferretti",
+      "Email": "ferrazzioreste@orlando.eu",
+      "Indirizzo": "Stretto Renault 293, Roma, Italy",
+      "Username": "giampierotraversa",
+      "Password": "$2a$10$TS5gakxaq0CDq4JnoYaFgp",
+      "DataDiNascita": [
+        1996,
+        9,
+        28
+      ],
+      "Telefono": "+39 74 79234849",
+      "Ruolo": "Ristoratore",
+      "Id": 63
+    },
+    {
+      "Nome": "Tullio",
+      "Cognome": "Morlacchi",
+      "Email": "andreottigaspare@libero.it",
+      "Indirizzo": "Strada Samele 9, Roma, Italy",
+      "Username": "mascagnielmo",
+      "Password": "$2a$10$N98enWZyoKQHt4habL3oCS",
+      "DataDiNascita": [
+        1983,
+        11,
+        13
+      ],
+      "Telefono": "+39 7619 6442441",
+      "Ruolo": "Ristoratore",
+      "Id": 62
+    },
+    {
+      "Nome": "Sylvia",
+      "Cognome": "Ludovisi",
+      "Email": "lercarichiara@virgilio.it",
+      "Indirizzo": "Contrada Armellini 824, Roma, Italy",
+      "Username": "mmaderno",
+      "Password": "$2a$10$00yivxtIotdVKPFR89TOY8",
+      "DataDiNascita": [
+        1951,
+        10,
+        25
+      ],
+      "Telefono": "+39 53 13522425",
+      "Ruolo": "Ristoratore",
+      "Id": 61
+    },
+    {
+      "Nome": "Luchino",
+      "Cognome": "Toso",
+      "Email": "venancio19@falloppio.com",
+      "Indirizzo": "Strada Borrani 539, Roma, Italy",
+      "Username": "michelotto12",
+      "Password": "$2a$10$qiYzGlbuwuY3d77dLYA9VO",
+      "DataDiNascita": [
+        1998,
+        10,
+        14
+      ],
+      "Telefono": "+39 5231 86972960",
+      "Ruolo": "Ristoratore",
+      "Id": 60
+    },
+    {
+      "Nome": "Enzo",
+      "Cognome": "Avogadro",
+      "Email": "camillociani@giannone.it",
+      "Indirizzo": "Viale Elisa 799, Roma, Italy",
+      "Username": "sgoldstein",
+      "Password": "$2a$10$AjbKJZNWYtz5d8L2hyKi9k",
+      "DataDiNascita": [
+        1962,
+        4,
+        26
+      ],
+      "Telefono": "+39 088 23224474",
+      "Ruolo": "Ristoratore",
+      "Id": 59
+    },
+    {
+      "Nome": "Costantino",
+      "Cognome": "Zarlino",
+      "Email": "toninocallegaro@gmail.com",
+      "Indirizzo": "Via Aporti 5, Roma, Italy",
+      "Username": "evapaolini",
+      "Password": "$2a$10$CoCASPw9e6Cd5ohfxOcQe0",
+      "DataDiNascita": [
+        1998,
+        11,
+        7
+      ],
+      "Telefono": "+39 41 9791641",
+      "Ruolo": "Ristoratore",
+      "Id": 58
+    },
+    {
+      "Nome": "Telemaco",
+      "Cognome": "Salvemini",
+      "Email": "costantinomerisi@battelli-galuppi.it",
+      "Indirizzo": "Rotonda Ansaldo 99, Roma, Italy",
+      "Username": "allegraagnesi",
+      "Password": "$2a$10$75Q7XJJ9JQ6BikDjdzPvjn",
+      "DataDiNascita": [
+        1987,
+        10,
+        21
+      ],
+      "Telefono": "+39 826 98 66 4830",
+      "Ruolo": "Ristoratore",
+      "Id": 57
+    },
+    {
+      "Nome": "Maria",
+      "Cognome": "Camicione",
+      "Email": "bonannotelemaco@tim.it",
+      "Indirizzo": "Strada Gualtieri 0, Roma, Italy",
+      "Username": "emma06",
+      "Password": "$2a$10$yV5AjX3jxLq8JkTkm99NXw",
+      "DataDiNascita": [
+        1974,
+        7,
+        28
+      ],
+      "Telefono": "+39 8822 9290674",
+      "Ruolo": "Admin",
+      "Id": 56
+    },
+    {
+      "Nome": "Ippazio",
+      "Cognome": "Lombroso",
+      "Email": "guglielmioreste@bocca-navone.net",
+      "Indirizzo": "Canale Pisano 97, Roma, Italy",
+      "Username": "lombrosolazzaro",
+      "Password": "$2a$10$4y5sQb1rS6dVPOAkqSGksk",
+      "DataDiNascita": [
+        2006,
+        7,
+        17
+      ],
+      "Telefono": "+39 7307 92222591",
+      "Ruolo": "Ristoratore",
+      "Id": 55
+    },
+    {
+      "Nome": "Beppe",
+      "Cognome": "Giannini",
+      "Email": "etta54@fabbri.it",
+      "Indirizzo": "Strada Giampiero 5, Roma, Italy",
+      "Username": "coluccio13",
+      "Password": "$2a$10$K8Py0VmZdWwZZrHDf7g62z",
+      "DataDiNascita": [
+        1970,
+        6,
+        26
+      ],
+      "Telefono": "+39 44 1644173",
+      "Ruolo": "Admin",
+      "Id": 54
+    },
+    {
+      "Nome": "Alessandra",
+      "Cognome": "Pometta",
+      "Email": "renataguarana@giorgetti.it",
+      "Indirizzo": "Contrada Dina 1, Roma, Italy",
+      "Username": "baroffiodamiano",
+      "Password": "$2a$10$bKc5TOxx5Zujoe6xUOcIR5",
+      "DataDiNascita": [
+        1975,
+        6,
+        20
+      ],
+      "Telefono": "+39 0029 56516265",
+      "Ruolo": "Ristoratore",
+      "Id": 53
+    },
+    {
+      "Nome": "Barbara",
+      "Cognome": "Oscuro",
+      "Email": "kpizzo@libero.it",
+      "Indirizzo": "Borgo Morricone 37, Roma, Italy",
+      "Username": "lambertoberlusconi",
+      "Password": "$2a$10$GkvG43aWr1ntNyRnBwR4a9",
+      "DataDiNascita": [
+        1962,
+        11,
+        14
+      ],
+      "Telefono": "+39 7502 26665443",
+      "Ruolo": "Ristoratore",
+      "Id": 52
+    },
+    {
+      "Nome": "Giada",
+      "Cognome": "Leonardi",
+      "Email": "gvittadello@lupo.eu",
+      "Indirizzo": "Borgo Ciampi 45, Roma, Italy",
+      "Username": "patriziavillarosa",
+      "Password": "$2a$10$EZOYpoqtqi3x7ooxKkngKx",
+      "DataDiNascita": [
+        2001,
+        12,
+        16
+      ],
+      "Telefono": "+39 9865 72688054",
+      "Ruolo": "Ristoratore",
+      "Id": 51
+    },
+    {
+      "Nome": "Severino",
+      "Cognome": "Pacomio",
+      "Email": "renzo59@ravaglioli.it",
+      "Indirizzo": "Incrocio Giulietta 749, Roma, Italy",
+      "Username": "vgianinazzi",
+      "Password": "$2a$10$t6HQMFwAreDKTrPkejs0Ut",
+      "DataDiNascita": [
+        1998,
+        6,
+        6
+      ],
+      "Telefono": "+39 514 61 10 1270",
+      "Ruolo": "Ristoratore",
+      "Id": 50
+    },
+    {
+      "Nome": "Fernanda",
+      "Cognome": "Cremonesi",
+      "Email": "flaviocristoforetti@vasari-gibilisco.eu",
+      "Indirizzo": "Viale Pierina 52, Roma, Italy",
+      "Username": "piergiorgio07",
+      "Password": "$2a$10$VVDAhaiaWeoRS97v2x8XX5",
+      "DataDiNascita": [
+        1952,
+        6,
+        29
+      ],
+      "Telefono": "+39 133 9044189",
+      "Ruolo": "Ristoratore",
+      "Id": 49
+    },
+    {
+      "Nome": "Arnulfo",
+      "Cognome": "Zabarella",
+      "Email": "alessandra30@piccinni-gozzi.com",
+      "Indirizzo": "Strada Isabella 645, Roma, Italy",
+      "Username": "bragaglialivio",
+      "Password": "$2a$10$P9KDnXF7f7CplbAaTvs0KF",
+      "DataDiNascita": [
+        2001,
+        12,
+        13
+      ],
+      "Telefono": "+39 16 2332836",
+      "Ruolo": "Ristoratore",
+      "Id": 48
+    },
+    {
+      "Nome": "Dolores",
+      "Cognome": "Nordio",
+      "Email": "veronicatravaglio@tin.it",
+      "Indirizzo": "Strada Gritti 864, Roma, Italy",
+      "Username": "cassandraguarato",
+      "Password": "$2a$10$fuQhxw2bsrstC7tH8efiqU",
+      "DataDiNascita": [
+        1969,
+        4,
+        20
+      ],
+      "Telefono": "+39 9715 78404830",
+      "Ruolo": "Admin",
+      "Id": 47
+    },
+    {
+      "Nome": "Leonardo",
+      "Cognome": "Vento",
+      "Email": "virgiliofattori@stucchi.eu",
+      "Indirizzo": "Canale Renata 0, Roma, Italy",
+      "Username": "antoniettasinisi",
+      "Password": "$2a$10$F1qWsHkFx7LdA690MstYXj",
+      "DataDiNascita": [
+        1950,
+        7,
+        28
+      ],
+      "Telefono": "+39 78 59028341",
+      "Ruolo": "Ristoratore",
+      "Id": 46
+    },
+    {
+      "Nome": "Angelica",
+      "Cognome": "Marazzi",
+      "Email": "novaroluisa@gramsci.it",
+      "Indirizzo": "Canale Paola 199, Roma, Italy",
+      "Username": "coardigiuseppe",
+      "Password": "$2a$10$uqZrTTxYQjzMNjjNl3i06u",
+      "DataDiNascita": [
+        1975,
+        6,
+        11
+      ],
+      "Telefono": "+39 3220 34194632",
+      "Ruolo": "Ristoratore",
+      "Id": 45
+    },
+    {
+      "Nome": "Nedda",
+      "Cognome": "Moretti",
+      "Email": "ecammarata@poste.it",
+      "Indirizzo": "Canale Odescalchi 591, Roma, Italy",
+      "Username": "rossiaria",
+      "Password": "$2a$10$x8tRroVqYN49gMhEcA5XFy",
+      "DataDiNascita": [
+        1974,
+        8,
+        31
+      ],
+      "Telefono": "+39 7205 4282236",
+      "Ruolo": "Ristoratore",
+      "Id": 44
+    },
+    {
+      "Nome": "Annetta",
+      "Cognome": "Acerbi",
+      "Email": "lidia68@tiscali.it",
+      "Indirizzo": "Contrada Guicciardini 7, Roma, Italy",
+      "Username": "hmorlacchi",
+      "Password": "$2a$10$tQousXymTBtuFQal8nmUoI",
+      "DataDiNascita": [
+        1975,
+        2,
+        1
+      ],
+      "Telefono": "+39 571 64 80 1407",
+      "Ruolo": "Admin",
+      "Id": 43
+    },
+    {
+      "Nome": "Piermaria",
+      "Cognome": "Morabito",
+      "Email": "vleonetti@lanfranchi.it",
+      "Indirizzo": "Incrocio Govoni 23, Roma, Italy",
+      "Username": "domenicopiacentini",
+      "Password": "$2a$10$Bvp2WPJDFLwUSEl9Rm5aEt",
+      "DataDiNascita": [
+        2004,
+        7,
+        12
+      ],
+      "Telefono": "+39 240 40 86 2633",
+      "Ruolo": "Ristoratore",
+      "Id": 42
+    },
+    {
+      "Nome": "Giuseppe",
+      "Cognome": "Barillaro",
+      "Email": "giovannanotarbartolo@yahoo.com",
+      "Indirizzo": "Vicolo Ossola 5, Roma, Italy",
+      "Username": "giustino05",
+      "Password": "$2a$10$VCbkuIjJuW4BXtnu2PH5NH",
+      "DataDiNascita": [
+        1981,
+        4,
+        17
+      ],
+      "Telefono": "+39 32 7666149",
+      "Ruolo": "Ristoratore",
+      "Id": 41
+    },
+    {
+      "Nome": "Claudia",
+      "Cognome": "Ricciardi",
+      "Email": "ascalera@proietti.org",
+      "Indirizzo": "Contrada Caccioppoli 447, Roma, Italy",
+      "Username": "ventoparide",
+      "Password": "$2a$10$q2ISjdLPST4hCrkI5DOuIW",
+      "DataDiNascita": [
+        1986,
+        3,
+        28
+      ],
+      "Telefono": "+39 891 5570005",
+      "Ruolo": "Ristoratore",
+      "Id": 40
+    },
+    {
+      "Nome": "Annunziata",
+      "Cognome": "Peruzzi",
+      "Email": "tlanfranchi@libero.it",
+      "Indirizzo": "Canale Ippazio 8, Roma, Italy",
+      "Username": "hgarzoni",
+      "Password": "$2a$10$MFoAuuhHJO2Ozm3f8aAR3b",
+      "DataDiNascita": [
+        2000,
+        10,
+        9
+      ],
+      "Telefono": "+39 79 17351520",
+      "Ruolo": "Ristoratore",
+      "Id": 39
+    },
+    {
+      "Nome": "Piermaria",
+      "Cognome": "Borrani",
+      "Email": "nugnesfilippo@poste.it",
+      "Indirizzo": "Stretto Rossana 2, Tragliatella, Italy",
+      "Username": "giacomocallegaro",
+      "Password": "$2a$10$12yHglmFmE1kE5P5aKVk8j",
+      "DataDiNascita": [
+        1975,
+        12,
+        8
+      ],
+      "Telefono": "+39 26 02333653",
+      "Ruolo": "Ristoratore",
+      "Id": 38
+    },
+    {
+      "Nome": "Dionigi",
+      "Cognome": "Sokolov",
+      "Email": "kboaga@hotmail.com",
+      "Indirizzo": "Borgo Ermenegildo 4, Ostia Lido, Italy",
+      "Username": "errigoenzio",
+      "Password": "$2a$10$KDUbTgdHhRpP3vnn7GRgCB",
+      "DataDiNascita": [
+        1998,
+        5,
+        18
+      ],
+      "Telefono": "+39 30 00741925",
+      "Ruolo": "Ristoratore",
+      "Id": 37
+    },
+    {
       "Nome": "Giacomo",
       "Cognome": "Rosmini",
       "Email": "giacomo.rosmini@esempio.com",
-      "Indirizzo": "Via Rospo ,23",
+      "Indirizzo": "Borgo Griselda 8, Roma, Italy",
       "Username": "pippo",
       "Password": "$2a$10$rjkqH5A2jZWMmTlCLTNjvu6g5yct1592BktC8HXiVn6hVtuGrVd8K",
       "DataDiNascita": [
@@ -14,16 +3454,13 @@
       ],
       "Telefono": "3345564334",
       "Ruolo": "Ristoratore",
-      "Id": 1,
-      "Preferiti": [
-        1
-      ]
+      "Id": 1
     },
     {
       "Nome": "aaaa",
       "Cognome": "aaaa",
       "Email": "aaaa.aaaa@esempio.com",
-      "Indirizzo": "aaaa",
+      "Indirizzo": "Piazza Luchino 57, Roma, Italy",
       "Username": "aaaa",
       "Password": "$2a$10$fJXrN.e7Bsv1TFpm7WGlvuSyzWPc0am2U.OYO9mJIqcej1Sa5UyOm",
       "DataDiNascita": [
@@ -33,14 +3470,13 @@
       ],
       "Telefono": "232323232332",
       "Ruolo": "Ristoratore",
-      "Id": 2,
-      "Preferiti": null
+      "Id": 2
     },
     {
       "Nome": "Andrea",
       "Cognome": "Bazzeghini",
       "Email": "andrea.bazzeghini@esempio.com",
-      "Indirizzo": "Via Antonio Rosmini, 44",
+      "Indirizzo": "Via Trentin 48, Madrid, Spain",
       "Username": "ciucchi",
       "Password": "$2a$10$lmGgtDDHyv8Frt9T4vTN6.VzaXJFldiofAHhHUiEMGNedrFAxulNi",
       "DataDiNascita": [
@@ -50,14 +3486,13 @@
       ],
       "Telefono": "444545445454",
       "Ruolo": "Ristoratore",
-      "Id": 3,
-      "Preferiti": null
+      "Id": 3
     },
     {
       "Nome": "Antonio",
       "Cognome": "Cannavacciuolo",
       "Email": "antonio.cannavacciuolo@esempio.com",
-      "Indirizzo": "Via Beppe, 14",
+      "Indirizzo": "Stretto Leonardi 1, Madrid, Spain",
       "Username": "Canny",
       "Password": "$2a$10$INUxqbPG4l4pO5ZOVdfLaeChbpHO2v7o4Q75fLZNnLQy7SG1FqyRq",
       "DataDiNascita": [
@@ -67,48 +3502,13 @@
       ],
       "Telefono": "132322343434",
       "Ruolo": "Ristoratore",
-      "Id": 4,
-      "Preferiti": null
-    },
-    {
-      "Nome": "aasasas",
-      "Cognome": "aasasasas",
-      "Email": "aasasas.aasasasas@esempio.com",
-      "Indirizzo": "via ucuyuy",
-      "Username": "ciao",
-      "Password": "$2b$12$0W80NSvQ2Xw9pfPxW21OueUiuHkomZ4dcf4Pcfdw.wMQmj9pxoEue",
-      "DataDiNascita": [
-        2025,
-        5,
-        2
-      ],
-      "Telefono": "65464564564",
-      "Ruolo": "Cliente",
-      "Id": 0,
-      "Preferiti": null
-    },
-    {
-      "Nome": "asdsadasd",
-      "Cognome": "sadasdasd",
-      "Email": "asdsadasd.sadasdasd@esempio.com",
-      "Indirizzo": "sdadada",
-      "Username": "sdasdasdasd",
-      "Password": "$2b$12$0W80NSvQ2Xw9pfPxW21OueUiuHkomZ4dcf4Pcfdw.wMQmj9pxoEue",
-      "DataDiNascita": [
-        2025,
-        5,
-        2
-      ],
-      "Telefono": "342432423423424",
-      "Ruolo": "Cliente",
-      "Id": 0,
-      "Preferiti": null
+      "Id": 4
     },
     {
       "Nome": "aaaaa",
       "Cognome": "aaaaaa",
       "Email": "aaaaa.aaaaaa@esempio.com",
-      "Indirizzo": "viaaa 222",
+      "Indirizzo": "Contrada Virgilio 5, Roma, Italy",
       "Username": "aaaaaa",
       "Password": "$2a$10$qYW8QTWiH7XOpZaXnb2mYeOBpWyCNou3Yqtl7orwAEuyyFrplHLje",
       "DataDiNascita": [
@@ -118,14 +3518,13 @@
       ],
       "Telefono": "aaasa",
       "Ruolo": "Ristoratore",
-      "Id": 5,
-      "Preferiti": null
+      "Id": 5
     },
     {
       "Nome": "Giuseppe",
       "Cognome": "Antonini",
       "Email": "giuseppe.antonini@esempio.com",
-      "Indirizzo": "Via Peppe, 16",
+      "Indirizzo": "Via Ligorio 254, Madrid, Spain",
       "Username": "admin",
       "Password": "$2a$10$M1kv7hOsr.LGztozAWHcReBjc5F/EFesAhf5Iugbw/RItkNwjWswK",
       "DataDiNascita": [
@@ -135,14 +3534,13 @@
       ],
       "Telefono": "22233344433",
       "Ruolo": "Ristoratore",
-      "Id": 6,
-      "Preferiti": null
+      "Id": 6
     },
     {
       "Nome": "filippo",
       "Cognome": "ciucchi",
       "Email": "filippo.ciucchi@esempio.com",
-      "Indirizzo": "via antonio Rosmini 12",
+      "Indirizzo": "Viale Serlupi 521, Roma, Italy",
       "Username": "ritardo",
       "Password": "$2a$10$C7CUpCoSdRGmoo82YQeyKOu6UaFtyi6ODOewg7dORbtpYSN5qIlQS",
       "DataDiNascita": [
@@ -152,14 +3550,13 @@
       ],
       "Telefono": "+3348123198",
       "Ruolo": "Ristoratore",
-      "Id": 7,
-      "Preferiti": null
+      "Id": 7
     },
     {
       "Nome": "Massimo",
       "Cognome": "Bottura",
       "Email": "massimo.bottura@esempio.com",
-      "Indirizzo": "Via Stella 22, Modena",
+      "Indirizzo": "Piazza Caruso 3, Roma, Italy",
       "Username": "mbottura",
       "Password": "$2a$10$VUX9Ji1EKuM4IPxKpgkDquJQxZg5C6g10KD50yTI7z8pVdwK1UIaW",
       "DataDiNascita": [
@@ -169,14 +3566,13 @@
       ],
       "Telefono": "059223912",
       "Ruolo": "Ristoratore",
-      "Id": 8,
-      "Preferiti": null
+      "Id": 8
     },
     {
       "Nome": "Carlo",
       "Cognome": "Cracco",
       "Email": "carlo.cracco@esempio.com",
-      "Indirizzo": "Galleria Vittorio Emanuele II, Milano",
+      "Indirizzo": "Via Alfonsi 1, Roma, Italy",
       "Username": "ccracco",
       "Password": "$2a$10$qXsMzefhKtFUM19i.L1BMeOs.tLhhagJHhNHPoiNKypmU/HQnYq6m",
       "DataDiNascita": [
@@ -186,14 +3582,13 @@
       ],
       "Telefono": "0287654321",
       "Ruolo": "Ristoratore",
-      "Id": 9,
-      "Preferiti": null
+      "Id": 9
     },
     {
       "Nome": "Heinz",
       "Cognome": "Beck",
       "Email": "heinz.beck@esempio.com",
-      "Indirizzo": "Via Alberto Cadlolo 101, Roma",
+      "Indirizzo": "Piazza Dionigi 9, Roma, Italy",
       "Username": "hbeck",
       "Password": "$2a$10$k6WDyMRaG9lCI/BnH4m92eIuvFAdxi1MI.zv.ZpmWdAcg7R7FJpJm",
       "DataDiNascita": [
@@ -203,82 +3598,29 @@
       ],
       "Telefono": "0635092152",
       "Ruolo": "Ristoratore",
-      "Id": 10,
-      "Preferiti": null
-    },
-    {
-      "Nome": "Laura",
-      "Cognome": "Bianchi",
-      "Email": "laura.bianchi@esempio.com",
-      "Indirizzo": "Via Firenze 12, Firenze",
-      "Username": "laurab",
-      "Password": "$2a$10$DKhNkuoRB5aP8vJjAdXkWOeYB5CZwImqAHIw.7GZ6RGnFh7CeFbJy",
-      "DataDiNascita": [
-        1990,
-        6,
-        15
-      ],
-      "Telefono": "3391122334",
-      "Ruolo": "Cliente",
-      "Id": 0,
-      "Preferiti": null
-    },
-    {
-      "Nome": "Marco",
-      "Cognome": "Neri",
-      "Email": "marco.neri@esempio.com",
-      "Indirizzo": "Via Napoli 33, Napoli",
-      "Username": "marcon",
-      "Password": "$2a$10$lKOdWtOIP9VPjr.IK6zGBOR8vwFI5hNBHPbSzti6HFKe77H8K6GT6",
-      "DataDiNascita": [
-        1985,
-        12,
-        9
-      ],
-      "Telefono": "3314455667",
-      "Ruolo": "Cliente",
-      "Id": 0,
-      "Preferiti": null
+      "Id": 10
     },
     {
       "Nome": "ara",
       "Cognome": "a",
       "Email": "aa.a@esempio.com",
-      "Indirizzo": "aaqws2",
+      "Indirizzo": "Contrada Tonisto 86, Roma, Italy",
       "Username": "ar",
-      "Password": "$2a$10$qmIRLE83T2B3kDFb6TOyIuJhkEedqPQPIBIvL2.2NvMry4Fc4ZL5i",
-      "DataDiNascita": [
-        2025,
-        6,
-        18
-      ],
-      "Telefono": "+390123456789",
-      "Ruolo": "Ristoratore",
-      "Id": 11,
-      "Preferiti": null
-    },
-    {
-      "Nome": "aa",
-      "Cognome": "a",
-      "Email": "aa.a@esempio.com",
-      "Indirizzo": "aaqws2",
-      "Username": "ac",
       "Password": "$2a$10$/8y8ZAGJU108jLDGyopNsOAyTr32i0iCWKNkoeoe8e.7gn228M.4m",
       "DataDiNascita": [
         2025,
-        5,
-        6
+        6,
+        10
       ],
       "Telefono": "+390123456789",
-      "Ruolo": "Cliente",
-      "Id": 0,
-      "Preferiti": null
+      "Ruolo": "Ristoratore",
+      "Id": 11
     },
     {
       "Nome": "avcsdfa",
       "Cognome": "fwe",
       "Email": "avcsdfa.fwe@esempio.com",
-      "Indirizzo": "fewff3",
+      "Indirizzo": "Stretto Eva 19, Madrid, Spain",
       "Username": "fawoj",
       "Password": "$2a$10$VT7CCnRBrLCMZB9aiLp9ceFoDdkyOtuYp4vBB1zNq8lHw17S82LLG",
       "DataDiNascita": [
@@ -288,14 +3630,13 @@
       ],
       "Telefono": "+390123456789",
       "Ruolo": "Ristoratore",
-      "Id": 12,
-      "Preferiti": null
+      "Id": 12
     },
     {
       "Nome": "luca",
       "Cognome": "pulce2008@",
       "Email": "luca.pulce2008@esempio.com",
-      "Indirizzo": "via innocenzo IX 14",
+      "Indirizzo": "Contrada Morricone 88, Madrid, Spain",
       "Username": "luca",
       "Password": "$2a$10$.GHriEHqwxLk3UfxoTzDwuWrx//q8PGzdKn5wdHlLm3zEIpdPR3ny",
       "DataDiNascita": [
@@ -305,14 +3646,13 @@
       ],
       "Telefono": "+393884067241",
       "Ruolo": "Ristoratore",
-      "Id": 13,
-      "Preferiti": null
+      "Id": 13
     },
     {
       "Nome": "fwefw",
       "Cognome": "fewfw",
       "Email": "ffgsgsgs@gfsgsf.com",
-      "Indirizzo": "fewfw,fewf 3",
+      "Indirizzo": "Strada Pignatti 3, Madrid, Spain",
       "Username": "vewrvew",
       "Password": "$2a$10$4Q3jm7v0mjcY6M2Mkai3iOzDM1CNPcvavuUml.3VqmjL5EvGrHpkC",
       "DataDiNascita": [
@@ -322,348 +3662,359 @@
       ],
       "Telefono": "+39464363643",
       "Ruolo": "Ristoratore",
-      "Id": 14,
-      "Preferiti": null
+      "Id": 14
     },
     {
-      "Nome": "Gilberto",
-      "Cognome": "Fallaci",
-      "Email": "gilberto.fallaci@esempio.com",
-      "Indirizzo": "Canale Schiaparelli 870, Stefani nell'emilia, 52033 Bolzano (KR)",
-      "Username": "gilberto363",
-      "Password": "$2b$12$Vu.hpR.TK5r9/6xiq4ojQOtbqwNVcH/MUhmsFgI38GsbxDlVsAaNG",
+      "Nome": "susanna",
+      "Cognome": "gervasoni",
+      "Email": "susannagervasoni@gmail.com",
+      "Indirizzo": "Vicolo Balla 6, Roma, Italy",
+      "Username": "susanna",
+      "Password": "$2a$10$pUnYOW818mQN7Sjc3yj6JO.pexCGV99QPvU4t4hs/XrDHnHPglKoy",
       "DataDiNascita": [
-        1983,
-        11,
-        28
+        2005,
+        10,
+        14
       ],
-      "Telefono": "+39 577 4253710",
+      "Telefono": "+395764670465",
       "Ruolo": "Ristoratore",
-      "Id": 15,
-      "Preferiti": null
+      "Id": 15
     },
     {
-      "Nome": "Amadeo",
-      "Cognome": "Pisani",
-      "Email": "amadeo.pisani@esempio.com",
-      "Indirizzo": "Borgo Orlando 585 Piano 4, Squarcione terme, 05630 Rimini (BT)",
-      "Username": "amadeo161",
-      "Password": "$2b$12$LDgA1AFxVobIpmUhtu2RZu/zn8.3QBt9680MST7UKNQrskJPhVPuy",
+      "Nome": "Pomponio",
+      "Cognome": "Lettiere",
+      "Email": "zsegni@live.com",
+      "Indirizzo": "Via Paolini 58, Roma, Italy",
+      "Username": "panfilo53",
+      "Password": "$2a$10$3PJxvlkvd28yBy6YJevcow",
       "DataDiNascita": [
-        1916,
-        8,
-        27
-      ],
-      "Telefono": "+39 9762 08801501",
-      "Ruolo": "Ristoratore",
-      "Id": 16,
-      "Preferiti": null
-    },
-    {
-      "Nome": "Ansaldo",
-      "Cognome": "Pascarella",
-      "Email": "ansaldo.pascarella@esempio.com",
-      "Indirizzo": "Incrocio Mirco 4, Damiano nell'emilia, 87496 Pescara (CE)",
-      "Username": "ansaldo234",
-      "Password": "$2b$12$kCECmJkAhZGEMP6On824ouIKGoMNMO3xt1hkBBfcp2VkP7U4g/eGS",
-      "DataDiNascita": [
-        2020,
-        8,
-        8
-      ],
-      "Telefono": "+39 5453 3653449",
-      "Ruolo": "Ristoratore",
-      "Id": 17,
-      "Preferiti": null
-    },
-    {
-      "Nome": "Gianna",
-      "Cognome": "Tartaglia",
-      "Email": "gianna.tartaglia@esempio.com",
-      "Indirizzo": "Piazza Calgari 651 Piano 6, Luciano ligure, 83185 Verbano-Cusio-Ossola (IM)",
-      "Username": "gianna771",
-      "Password": "$2b$12$5TiExJbwGmmVthe8/5lyNOGdSQR41L9BfFJjY//junk9Vcfo5rlhS",
-      "DataDiNascita": [
-        1989,
-        1,
-        16
-      ],
-      "Telefono": "+39 44 51330442",
-      "Ruolo": "Ristoratore",
-      "Id": 18,
-      "Preferiti": null
-    },
-    {
-      "Nome": "Donatella",
-      "Cognome": "Badoglio",
-      "Email": "donatella.badoglio@esempio.com",
-      "Indirizzo": "Contrada Cociarelli 541 Appartamento 77, Settimo Pina ligure, 25588 Pistoia (RE)",
-      "Username": "donatella927",
-      "Password": "$2b$12$a8J7jiVxwncy76SLeweJ4uNwWN2WPyhrYr5ZEXtVhZ8BLAe7YzdwK",
-      "DataDiNascita": [
-        1928,
-        12,
-        17
-      ],
-      "Telefono": "+39 362 04229181",
-      "Ruolo": "Ristoratore",
-      "Id": 19,
-      "Preferiti": null
-    },
-    {
-      "Nome": "Aldo",
-      "Cognome": "Santi",
-      "Email": "aldo.santi@esempio.com",
-      "Indirizzo": "Rotonda Diana 187 Appartamento 43, Borgo Gelsomina, 89122 Savona (VA)",
-      "Username": "aldo925",
-      "Password": "$2b$12$7lHoln8DF8ntXCyuQS9YzO2P5lCSp.YF7mVroXc3g7XkIBQc4sI9q",
-      "DataDiNascita": [
-        1939,
-        4,
-        26
-      ],
-      "Telefono": "+39 69 3378097",
-      "Ruolo": "Ristoratore",
-      "Id": 20,
-      "Preferiti": null
-    },
-    {
-      "Nome": "Federigo",
-      "Cognome": "Olivetti",
-      "Email": "federigo.olivetti@esempio.com",
-      "Indirizzo": "Contrada Rienzo 5, Loretta nell'emilia, 35329 Brescia (BR)",
-      "Username": "federigo146",
-      "Password": "$2b$12$AaFlhnOQXLu7LCM9xzIoT.DP3iia2GHiIJnKx7SzPnZymRz7lpjPa",
-      "DataDiNascita": [
-        1954,
-        6,
-        24
-      ],
-      "Telefono": "+39 8142 80538497",
-      "Ruolo": "Ristoratore",
-      "Id": 21,
-      "Preferiti": null
-    },
-    {
-      "Nome": "Serafina",
-      "Cognome": "Borromeo",
-      "Email": "serafina.borromeo@esempio.com",
-      "Indirizzo": "Rotonda Amalia 59, Venier ligure, 22790 Gorizia (IM)",
-      "Username": "serafina907",
-      "Password": "$2b$12$xUM00y1oTIpZvy2Qg4ri0OjPQBmJFUOVpxTG/0I7YxIQmAamn1V8a",
-      "DataDiNascita": [
-        1935,
-        8,
-        3
-      ],
-      "Telefono": "+39 44 4197548",
-      "Ruolo": "Ristoratore",
-      "Id": 22,
-      "Preferiti": null
-    },
-    {
-      "Nome": "Piermaria",
-      "Cognome": "Sordi",
-      "Email": "piermaria.sordi@esempio.com",
-      "Indirizzo": "Strada Alderano 816, San Gianluigi veneto, 43482 Brindisi (LE)",
-      "Username": "piermaria534",
-      "Password": "$2b$12$ociXSHWXPhe9AP/7zAYxS.ertWVSoFxS85Vv7GuWbxn.mk03kI7.K",
-      "DataDiNascita": [
-        1953,
+        1971,
         8,
         2
       ],
-      "Telefono": "+39 44 82175996",
+      "Telefono": "+39 55 47903709",
       "Ruolo": "Ristoratore",
-      "Id": 23,
-      "Preferiti": null
+      "Id": 16
+    },
+    {
+      "Nome": "Telemaco",
+      "Cognome": "Piane",
+      "Email": "tassonieliana@armani.it",
+      "Indirizzo": "Incrocio Pausini 2, Roma, Italy",
+      "Username": "castiglionebeppe",
+      "Password": "$2a$10$TPMZtuHmVSQ0FctgQeA8CH",
+      "DataDiNascita": [
+        1959,
+        12,
+        26
+      ],
+      "Telefono": "+39 073 8917773",
+      "Ruolo": "Ristoratore",
+      "Id": 17
+    },
+    {
+      "Nome": "Augusto",
+      "Cognome": "Zoppetto",
+      "Email": "evangelista31@alice.it",
+      "Indirizzo": "Viale Monduzzi 1, Roma, Italy",
+      "Username": "pina20",
+      "Password": "$2a$10$RLnstty23QqzUViwDysuys",
+      "DataDiNascita": [
+        2006,
+        5,
+        12
+      ],
+      "Telefono": "+39 5854 15516465",
+      "Ruolo": "Ristoratore",
+      "Id": 18
+    },
+    {
+      "Nome": "Danilo",
+      "Cognome": "Quasimodo",
+      "Email": "masperovanessa@fastwebnet.it",
+      "Indirizzo": "Piazza Lolita 5, Roma, Italy",
+      "Username": "ajellosantino",
+      "Password": "$2a$10$76p7h4iaDl5d1clWpIq79B",
+      "DataDiNascita": [
+        1969,
+        1,
+        28
+      ],
+      "Telefono": "+39 64 2482781",
+      "Ruolo": "Ristoratore",
+      "Id": 19
+    },
+    {
+      "Nome": "Ermes",
+      "Cognome": "Morgagni",
+      "Email": "pellicoleopoldo@poste.it",
+      "Indirizzo": "Strada Tassoni 0, Roma, Italy",
+      "Username": "ernestogaito",
+      "Password": "$2a$10$SLI60TB55joI1bVq1M3iCM",
+      "DataDiNascita": [
+        1958,
+        12,
+        25
+      ],
+      "Telefono": "+39 129 19509616",
+      "Ruolo": "Ristoratore",
+      "Id": 20
     },
     {
       "Nome": "Tonino",
-      "Cognome": "Pirelli",
-      "Email": "tonino.pirelli@esempio.com",
-      "Indirizzo": "Via Romeo 15 Appartamento 42, Quarto Mario calabro, 26314 Lodi (OG)",
-      "Username": "tonino754",
-      "Password": "$2b$12$plfLC2sYK/Wrreg.ZFHG/.A994h0fIQBeHs4yJTbbcmvwJsloiQ6a",
+      "Cognome": "Bevilacqua",
+      "Email": "lzanzi@columbo.it",
+      "Indirizzo": "Incrocio Franscini 7, Roma, Italy",
+      "Username": "nicola78",
+      "Password": "$2a$10$S7fhOFoF1suJ2eHdtPcube",
       "DataDiNascita": [
-        1999,
-        8,
-        17
+        1977,
+        1,
+        6
       ],
-      "Telefono": "+39 16 5364419",
+      "Telefono": "+39 102 11985743",
       "Ruolo": "Ristoratore",
-      "Id": 24,
-      "Preferiti": null
+      "Id": 21
+    },
+    {
+      "Nome": "Liana",
+      "Cognome": "Petrocelli",
+      "Email": "gionatachittolini@bergoglio.net",
+      "Indirizzo": "Strada Traversa 3, Roma, Italy",
+      "Username": "zcivaschi",
+      "Password": "$2a$10$yzNyAzRU9ARooIGqAh8HTK",
+      "DataDiNascita": [
+        1957,
+        11,
+        15
+      ],
+      "Telefono": "+39 50 60814281",
+      "Ruolo": "Admin",
+      "Id": 22
+    },
+    {
+      "Nome": "Ippazio",
+      "Cognome": "Segrè",
+      "Email": "eluzi@dossi.com",
+      "Indirizzo": "Viale Pasquale 95, Roma, Italy",
+      "Username": "fernanda74",
+      "Password": "$2a$10$X0MCAbnglWs4v3nF8s7VLV",
+      "DataDiNascita": [
+        1951,
+        12,
+        1
+      ],
+      "Telefono": "+39 650 44639027",
+      "Ruolo": "Ristoratore",
+      "Id": 23
+    },
+    {
+      "Nome": "Ubaldo",
+      "Cognome": "Bixio",
+      "Email": "chedaazeglio@alice.it",
+      "Indirizzo": "Viale Giampiero 796, Roma, Italy",
+      "Username": "uantonini",
+      "Password": "$2a$10$CyF84nKxKnCVy6517SlEio",
+      "DataDiNascita": [
+        1993,
+        8,
+        5
+      ],
+      "Telefono": "+39 56 9390386",
+      "Ruolo": "Admin",
+      "Id": 24
+    },
+    {
+      "Nome": "Pierangelo",
+      "Cognome": "Soranzo",
+      "Email": "collettinicolo@hotmail.com",
+      "Indirizzo": "Piazza Flora 6, Roma, Italy",
+      "Username": "mariamaffei",
+      "Password": "$2a$10$Lg6fW6jz0ZCCnpT9qWDB1k",
+      "DataDiNascita": [
+        1955,
+        4,
+        5
+      ],
+      "Telefono": "+39 974 7987345",
+      "Ruolo": "Ristoratore",
+      "Id": 25
+    },
+    {
+      "Nome": "Ivo",
+      "Cognome": "Mercati",
+      "Email": "ernesto70@libero.it",
+      "Indirizzo": "Contrada Romolo 02, Roma, Italy",
+      "Username": "gaetano78",
+      "Password": "$2a$10$vhbavGz8m6pAb2BfJWcsyz",
+      "DataDiNascita": [
+        1971,
+        5,
+        31
+      ],
+      "Telefono": "+39 797 86588251",
+      "Ruolo": "Ristoratore",
+      "Id": 26
+    },
+    {
+      "Nome": "Germana",
+      "Cognome": "Gradenigo",
+      "Email": "fabriziacasaleggio@alice.it",
+      "Indirizzo": "Stretto Sandro 823, Roma, Italy",
+      "Username": "mazzantiannetta",
+      "Password": "$2a$10$3wnSHvkIkGMVRp1QGcxtSm",
+      "DataDiNascita": [
+        1962,
+        1,
+        14
+      ],
+      "Telefono": "+39 180 86780514",
+      "Ruolo": "Admin",
+      "Id": 27
+    },
+    {
+      "Nome": "Rosa",
+      "Cognome": "Dulbecco",
+      "Email": "rosaria63@nicolini-angiolello.com",
+      "Indirizzo": "Viale Gentilini 65, Roma, Italy",
+      "Username": "morenavanvitelli",
+      "Password": "$2a$10$hCKhBUEN2wkyrJhsTgXSpI",
+      "DataDiNascita": [
+        2004,
+        2,
+        20
+      ],
+      "Telefono": "+39 061 99 57 5583",
+      "Ruolo": "Ristoratore",
+      "Id": 28
+    },
+    {
+      "Nome": "Gaetano",
+      "Cognome": "Pisani",
+      "Email": "baccio46@balla.it",
+      "Indirizzo": "Contrada Solimena 613, Madrid, Spain",
+      "Username": "calgariallegra",
+      "Password": "$2a$10$KpYb3sgi5Z3RrwxnT50fIA",
+      "DataDiNascita": [
+        1953,
+        12,
+        22
+      ],
+      "Telefono": "+39 310 4424226",
+      "Ruolo": "Ristoratore",
+      "Id": 29
+    },
+    {
+      "Nome": "Flavio",
+      "Cognome": "Magrassi",
+      "Email": "xlancisi@tim.it",
+      "Indirizzo": "Viale Combi 4, Roma, Italy",
+      "Username": "nstoppani",
+      "Password": "$2a$10$wIv0r7MvuWAUG8Xkk7hvds",
+      "DataDiNascita": [
+        1993,
+        3,
+        27
+      ],
+      "Telefono": "+39 321 0675400",
+      "Ruolo": "Ristoratore",
+      "Id": 30
+    },
+    {
+      "Nome": "Vanessa",
+      "Cognome": "Cerquiglini",
+      "Email": "pucciosalgari@contrafatto.com",
+      "Indirizzo": "Canale Travaglio 99, Madrid, Spain",
+      "Username": "kguidotti",
+      "Password": "$2a$10$5iGYAy3hT3SAHM4DRdjGf1",
+      "DataDiNascita": [
+        1965,
+        8,
+        29
+      ],
+      "Telefono": "+39 6111 1146736",
+      "Ruolo": "Ristoratore",
+      "Id": 31
+    },
+    {
+      "Nome": "Vittoria",
+      "Cognome": "Cerutti",
+      "Email": "kbarese@vodafone.it",
+      "Indirizzo": "Via Laureano 98, Roma, Italy",
+      "Username": "ferragniveronica",
+      "Password": "$2a$10$WvoMHuRhM4OjDMWcvWH1aD",
+      "DataDiNascita": [
+        1967,
+        8,
+        8
+      ],
+      "Telefono": "+39 86 49380069",
+      "Ruolo": "Admin",
+      "Id": 32
     },
     {
       "Nome": "Marcantonio",
-      "Cognome": "Giolitti",
-      "Email": "marcantonio.giolitti@esempio.com",
-      "Indirizzo": "Vicolo Mazzanti 2, Quarto Ottone nell'emilia, 19638 Grosseto (AL)",
-      "Username": "marcantonio116",
-      "Password": "$2b$12$/mhdJnNwiNTVIwkyOVGGj.RQqAWKECGhEGGSOyBKRZmvfu1beoUeS",
+      "Cognome": "Iannelli",
+      "Email": "afinzi@alfieri-schicchi.it",
+      "Indirizzo": "Canale Parpinel 286, Madrid, Spain",
+      "Username": "donna80",
+      "Password": "$2a$10$04SVavCnryAF6CiKKcAr4Q",
       "DataDiNascita": [
-        1970,
-        9,
+        1976,
+        11,
         10
       ],
-      "Telefono": "+39 173 51 68 7040",
-      "Ruolo": "Cliente",
-      "Id": 25,
-      "Preferiti": null
+      "Telefono": "+39 63 3164550",
+      "Ruolo": "Admin",
+      "Id": 33
     },
     {
-      "Nome": "Elisa",
-      "Cognome": "Sbarbaro",
-      "Email": "elisa.sbarbaro@esempio.com",
-      "Indirizzo": "Rotonda Carmelo 499 Piano 6, San Milena, 76558 Treviso (BG)",
-      "Username": "elisa563",
-      "Password": "$2b$12$wl6ePrKIKNxp3Pu.9/EJX.XflfS3cClfQmBavtP8Pvcl/I5FacsPO",
-      "DataDiNascita": [
-        2001,
-        7,
-        25
-      ],
-      "Telefono": "+39 791 52 21 6310",
-      "Ruolo": "Cliente",
-      "Id": 26,
-      "Preferiti": null
-    },
-    {
-      "Nome": "Amedeo",
-      "Cognome": "Tebaldi",
-      "Email": "amedeo.tebaldi@esempio.com",
-      "Indirizzo": "Via Scotti 12 Appartamento 42, Settimo Amadeo a mare, 59732 Pescara (CH)",
-      "Username": "amedeo140",
-      "Password": "$2b$12$UQb9AjmaEtEISXYZXS/1Zefc1koOXTTwD6FU39pu2Zxr75rf4kcr2",
-      "DataDiNascita": [
-        1963,
-        4,
-        1
-      ],
-      "Telefono": "+39 035 09569902",
-      "Ruolo": "Cliente",
-      "Id": 27,
-      "Preferiti": null
-    },
-    {
-      "Nome": "Mattia",
-      "Cognome": "Stefanelli",
-      "Email": "mattia.stefanelli@esempio.com",
-      "Indirizzo": "Viale Avogadro 1 Piano 4, Borromeo nell'emilia, 99719 Caltanissetta (FI)",
-      "Username": "mattia176",
-      "Password": "$2b$12$U7fjQ8BVMOlCJv/5N4omZuERiqV.nPfKEjiIjtbpM6fRZVA3q4gj6",
-      "DataDiNascita": [
-        1970,
-        4,
-        29
-      ],
-      "Telefono": "+39 942 38 21 1694",
-      "Ruolo": "Cliente",
-      "Id": 28,
-      "Preferiti": null
-    },
-    {
-      "Nome": "Giada",
-      "Cognome": "Malpighi",
-      "Email": "giada.malpighi@esempio.com",
-      "Indirizzo": "Strada Giannini 42, Pincherle laziale, 54368 Forlì-Cesena (AL)",
-      "Username": "giada531",
-      "Password": "$2b$12$2DeBFPa69B.4svw3RLEmCOKcBR0ezoZSywEc8dIwAMtL.5WqTAh7m",
-      "DataDiNascita": [
-        2008,
-        6,
-        10
-      ],
-      "Telefono": "+39 9698 8416743",
-      "Ruolo": "Cliente",
-      "Id": 29,
-      "Preferiti": null
-    },
-    {
-      "Nome": "Beppe",
-      "Cognome": "Gaiatto",
-      "Email": "beppe.gaiatto@esempio.com",
-      "Indirizzo": "Via Riccardi 0 Appartamento 25, Sesto Niccolò, 87775 Cremona (RI)",
-      "Username": "beppe907",
-      "Password": "$2b$12$YJRF7vpf2gMDNUaMIGn1he.1e8kiITTj5RuXer6wQUNNbq.Ob5Ta.",
-      "DataDiNascita": [
-        2019,
-        2,
-        13
-      ],
-      "Telefono": "+39 884 17237185",
-      "Ruolo": "Cliente",
-      "Id": 30,
-      "Preferiti": null
-    },
-    {
-      "Nome": "Arnulfo",
-      "Cognome": "Corradi",
-      "Email": "arnulfo.corradi@esempio.com",
-      "Indirizzo": "Contrada Gritti 8, Borgo Alberto del friuli, 67138 Aosta (GO)",
-      "Username": "arnulfo180",
-      "Password": "$2b$12$8ycOYH2eg4XTVh7FtZIrvO5dNN6W7upAXwLjiQxmeRz0juGdIz5.W",
-      "DataDiNascita": [
-        1928,
-        3,
-        24
-      ],
-      "Telefono": "+39 840 89514458",
-      "Ruolo": "Cliente",
-      "Id": 31,
-      "Preferiti": null
-    },
-    {
-      "Nome": "Gianpietro",
-      "Cognome": "Bova",
-      "Email": "gianpietro.bova@esempio.com",
-      "Indirizzo": "Canale Camillo 129 Piano 1, Borgo Giorgio, 72374 Pisa (AN)",
-      "Username": "gianpietro508",
-      "Password": "$2b$12$F8bJ3O8H8wLMQWR4LEThh..2pVGL3Y/Jrm/jN30tbxZ2i9xpQfzrq",
-      "DataDiNascita": [
-        1930,
-        9,
-        15
-      ],
-      "Telefono": "+39 31 53880156",
-      "Ruolo": "Cliente",
-      "Id": 32,
-      "Preferiti": null
-    },
-    {
-      "Nome": "Eraldo",
-      "Cognome": "Trobbiani",
-      "Email": "eraldo.trobbiani@esempio.com",
-      "Indirizzo": "Piazza Galeati 8 Appartamento 13, Quarto Loretta umbro, 37542 Aosta (CB)",
-      "Username": "eraldo623",
-      "Password": "$2b$12$1fq5YZvuUZ4cRLDrfRDMfudxqJrbmcdjJE4g8ag37Dd5/Gvi8d996",
-      "DataDiNascita": [
-        1965,
-        10,
-        15
-      ],
-      "Telefono": "+39 77 9017252",
-      "Ruolo": "Cliente",
-      "Id": 33,
-      "Preferiti": null
-    },
-    {
-      "Nome": "Claudia",
-      "Cognome": "Zamengo",
-      "Email": "claudia.zamengo@esempio.com",
-      "Indirizzo": "Contrada Gian 9 Piano 6, Matteotti salentino, 28578 Sondrio (PA)",
-      "Username": "claudia936",
-      "Password": "$2b$12$2cHuq5hF/U3Zuly/lrnQRuOZGT5uG/.4hKyfnz4ZTwQ8ZJQ.ckmiG",
+      "Nome": "Cassandra",
+      "Cognome": "Ceravolo",
+      "Email": "germanabova@alfonsi.com",
+      "Indirizzo": "Vicolo Florio 653, Madrid, Spain",
+      "Username": "evangelistatagliafierro",
+      "Password": "$2a$10$ygFKIwmMkhNF78PdrfsO3s",
       "DataDiNascita": [
         1974,
-        5,
-        30
+        4,
+        5
       ],
-      "Telefono": "+39 207 49 41 5838",
-      "Ruolo": "Cliente",
-      "Id": 34,
-      "Preferiti": null
+      "Telefono": "+39 7401 06502400",
+      "Ruolo": "Ristoratore",
+      "Id": 34
+    },
+    {
+      "Nome": "Adelasia",
+      "Cognome": "Branciforte",
+      "Email": "ernestosauro@borromini.eu",
+      "Indirizzo": "Strada Corrado 859, Roma, Italy",
+      "Username": "foarembrandt",
+      "Password": "$2a$10$J9eiDhLCU6CYzzp0pvw26D",
+      "DataDiNascita": [
+        1960,
+        10,
+        2
+      ],
+      "Telefono": "+39 15 2903119",
+      "Ruolo": "Ristoratore",
+      "Id": 35
+    },
+    {
+      "Nome": "Donatella",
+      "Cognome": "Curiel",
+      "Email": "pmazzacurati@vodafone.it",
+      "Indirizzo": "Viale Victoria 694, Roma, Italy",
+      "Username": "brambillaconcetta",
+      "Password": "$2a$10$9pPTDw9bBO7cqwi17SxP7c",
+      "DataDiNascita": [
+        1994,
+        6,
+        16
+      ],
+      "Telefono": "+39 0017 04102003",
+      "Ruolo": "Ristoratore",
+      "Id": 36
     }
   ]
 }
