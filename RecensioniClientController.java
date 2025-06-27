@@ -67,17 +67,41 @@ public class RecensioniClientController extends dashBoardClientController{
         List<Ristorante> ristoranti = Arrays.asList(mapper.treeToValue(ristorantiNode, Ristorante[].class));
         List<Ristorante> listaModificabile = new ArrayList<>(ristoranti);
 
+        double somma = 0;
+
         for (Ristorante r : listaModificabile) {
             if (r.getId() == idRist){
                 r.recensioni.add(newRec);
+                r.setNumRec(r.getNumRec()+1);
+            }
+            // aggiorna la media delle recensioni dopo aver aggiunto la recensione
+            for (Recensione rec : r.recensioni) {
+                somma += rec.rating;
+                double media = somma / r.getNumRec();
+                media = Math.round(media * 100.0) / 100.0; // arrotonda a due cifre decimali
+                r.setMediaRec(media);
             }
         }
+
         ObjectNode nuovoRoot = mapper.createObjectNode();
         nuovoRoot.set("ristoranti", mapper.valueToTree(listaModificabile));
 
         // Sovrascrive il file
         mapper.writerWithDefaultPrettyPrinter().writeValue(new File(fileJson), nuovoRoot);
 
+    }
+
+    public static String inserisciACapoOgni63Caratteri(String input) {
+        String risultato = "";
+        int lunghezza = input.length();
+        for (int i = 0; i < lunghezza; i += 63) {       // Cicla ogni 63 caratteri
+            int fine = Math.min(i + 63, lunghezza);     // Calcola la fine del blocco (senza superare la fine della stringa)
+            risultato += input.substring(i, fine);      // Aggiunge il blocco da 'i' a 'fine' alla stringa finale
+            if (fine < lunghezza) {                     // Se non siamo all'ultimo blocco...
+                risultato += "\n";                      // ...aggiungiamo un a capo (\n)
+            }
+        }
+        return risultato;                               
     }
 
 }
