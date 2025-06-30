@@ -9,6 +9,17 @@ public class SessionManager {
     public static Integer idRist =null;
     public static int idScelta = 0;
     public static int idRecensione = 0;
+
+    //CAMPI RISTORANTE BARRA RICERCA
+    public static int counter;
+    public static int counter1;
+    public static int counter2;
+    public static int pagina;
+    public static String luogoNomeStatico = "";
+    public static String tipoCucinaStatico = "";
+    public static String prezzoStatico = "";
+    public static boolean deliveryStatico;
+    public static boolean bookingStatico;
     //COSTRUTTORE
     private SessionManager() {
 

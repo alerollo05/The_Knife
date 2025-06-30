@@ -28,6 +28,11 @@
     -fx-text-fill: white;
     -fx-font-weight: bold;
 }
+.textNormal3{
+    -fx-font-size: 13px;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
 .textPopUp{
     -fx-font-size: 20px;
     -fx-text-fill: white;
@@ -158,7 +163,7 @@ search-textField:focused {
     -fx-padding: 8 15;
     -fx-border-color: transparent;
     -fx-border-radius: 10;
-    -fx-min-width: 120;
+    -fx-min-width: 119;
 }
 
 .combo-box {

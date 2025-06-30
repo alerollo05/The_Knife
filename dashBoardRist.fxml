@@ -24,22 +24,58 @@
         </top>
 
         <center>
-            <VBox alignment="TOP_CENTER" spacing="10" styleClass="form-box">
+            <VBox alignment="TOP_CENTER" spacing="20" styleClass="form-box">
 
-                <Label text="THE KNIFE" styleClass="welcome-subtitle"/>
-                <Label fx:id="welcomeLabel" styleClass="welcome-title"/>
-                <Label text="Cerca i migliori ristoranti nei tuoi dintorni" styleClass="textSearch" />
-                <HBox spacing="10" alignment="CENTER" styleClass="search-box">
+                <Label text="Benvenuto in" styleClass="welcome-subtitle"/>
+                <Label text="The Knife" styleClass="welcome-title"/>
+                <Label text="Cerca i migliori ristoranti nei tuoi dintorni" styleClass="title"/>
 
-                    <TextField fx:id="locationSearch" alignment="CENTER_LEFT" promptText="Dove?" maxWidth="1000" maxHeight="200" styleClass="search-textField" ></TextField>
-                    <!-- <Region HBox.hgrow="ALWAYS"/> riempie gli spazi vuoti tra un oggetto e l'altro -->
-                    <!-- Filtri -->
-                    <ComboBox fx:id="filtri"  promptText="Persone"  styleClass="search-textField" maxHeight="200" maxWidth="900">
+                <!-- BARRA DI RICERCA -->
+                <HBox spacing="10" alignment="CENTER" styleClass="search-box" prefWidth="900" maxWidth="1000">
+                    <TextField fx:id="cityField"
+                               promptText="Città/Nome del ristorante"
+                               style="-fx-background-color: #3c3c3c"
+                               prefHeight="60"
+                               prefWidth="210"
+                               styleClass="rounded-textfield3"/>
 
-                    </ComboBox>
-                    <!-- Bottone di ricerca -->
-                    <Button text="Cerca" defaultButton="true" onAction="#onSearchClicked" styleClass="accent-button" maxHeight="200" maxWidth="300"/>
+                    <ComboBox fx:id="cuisineBox"
+                              promptText="Cucina"
+                              style="-fx-font-size: 5px"
+                              prefHeight="40"
+                              prefWidth="130"
+                              styleClass="rounded-textfield3"/>
+
+                    <ComboBox fx:id="priceBox"
+                              promptText="Prezzo"
+                              style="-fx-font-size: 5px"
+                              prefHeight="40"
+                              prefWidth="100"
+                              styleClass="rounded-textfield3"/>
+
+                    <ComboBox fx:id="deliveryBox"
+                              promptText="Delivery"
+                              style="-fx-font-size: 1px"
+                              prefHeight="40"
+                              prefWidth="120"
+                              styleClass="rounded-textfield3"/>
+
+                    <ComboBox fx:id="bookingBox"
+                              promptText="Online"
+                              style="-fx-font-size: 1px"
+                              prefHeight="40"
+                              prefWidth="140"
+                              styleClass="rounded-textfield3"/>
+
+                    <Button fx:id="searchButton"
+                            defaultButton="true"
+                            text="Cerca"
+                            onAction="#onSearchClicked"
+                            prefHeight="60"
+                            prefWidth="80"
+                            styleClass="accent-button"/>
                 </HBox>
+                <ListView fx:id="listaRistLabel"  prefHeight="400" prefWidth="300" VBox.vgrow="ALWAYS"/>
             </VBox>
         </center>
 

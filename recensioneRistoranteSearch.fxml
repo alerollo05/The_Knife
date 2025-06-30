@@ -1,12 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.image.ImageView?>
 
 <?import java.net.URL?>
-<StackPane styleClass="root" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.the_knife.DettaglioRistoranteSearchController">
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<StackPane styleClass="root" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.the_knife.RecensioneRistoranteSearchController">
     <BorderPane styleClass="root">
         <padding>
             <Insets top="20" right="15" bottom="20" left="15"/>
@@ -26,8 +28,9 @@
         <center>
             <VBox spacing="10">
                 <Label fx:id="welcomeLabel" styleClass="welcome-title"/>
-                <GridPane fx:id="grid" prefHeight="600" prefWidth="300" maxWidth="800" />
+                <ListView fx:id="listaRecLabel" prefHeight="600" prefWidth="300" />
             </VBox>
         </center>
     </BorderPane>
 </StackPane>
+
