@@ -1,0 +1,506 @@
+{
+  "ristoranti": [
+    {
+      "Id": 21,
+      "IdRistoratore": 22,
+      "Name": "Osteria dell'Enoteca",
+      "Address": "Via Romana, 70r, 50125 Firenze FI",
+      "Location": "Firenze, Italia",
+      "Price": "€€€",
+      "Cuisine": "Italiana",
+      "Longitude": 11.2458613,
+      "Latitude": 43.7640246,
+      "PhoneNumber": "+39 06 212 189",
+      "WebsiteUrl": "https://www.osteriadell'enoteca.net",
+      "GreenStar": 1,
+      "FacilitiesAndServices": "Terrazza panoramica, Accesso disabili, WiFi gratuito",
+      "Description": "Esperienza gourmet in un ambiente moderno.",
+      "Delivery": true,
+      "BookingOnline": false,
+      "recensioni": [
+        {
+          "idRec": 0,
+          "author": "ciao",
+          "rating": 4.6,
+          "comment": "Cibo deludente e servizio lento.",
+          "date": "2025-06-07",
+          "risposta": null
+        },
+        {
+          "idRec": 1,
+          "author": "marcantonio116",
+          "rating": 3.7,
+          "comment": "Personale gentile e cibo eccellente.",
+          "date": "2025-02-22",
+          "risposta": null
+        },
+        {
+          "idRec": 2,
+          "author": "ac",
+          "rating": 2.1,
+          "comment": "Ottima esperienza, tornerò sicuramente!",
+          "date": "2025-05-27",
+          "risposta": null
+        },
+        {
+          "idRec": 3,
+          "author": "beppe907",
+          "rating": 4.4,
+          "comment": "Prezzi troppo alti per la qualità offerta.",
+          "date": "2025-03-18",
+          "risposta": null
+        }
+      ],
+      "NumRec": 4,
+      "MediaRec": 3.7,
+      "Email": "osteria_de@example.com"
+    },
+    {
+      "Id": 1,
+      "IdRistoratore": 11,
+      "Name": "La Pergola",
+      "Address": "Via Alberto Cadlolo, 101, 00136 Roma RM",
+      "Location": "Roma, Italia",
+      "Price": "€€",
+      "Cuisine": "Italiana",
+      "Longitude": 12.446681,
+      "Latitude": 41.9188764,
+      "PhoneNumber": "+39 081 967 722",
+      "WebsiteUrl": "https://www.lapergola.net",
+      "GreenStar": 3,
+      "FacilitiesAndServices": "WiFi gratuito, Aria condizionata, Animali ammessi",
+      "Description": "Esperienza gourmet in un ambiente moderno.",
+      "Delivery": true,
+      "BookingOnline": true,
+      "recensioni": [
+        {
+          "idRec": 0,
+          "author": "arnulfo180",
+          "rating": 3.7,
+          "comment": "Personale gentile e cibo eccellenteaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "date": "2024-07-13",
+          "risposta": null
+        }
+      ],
+      "NumRec": 1,
+      "MediaRec": 3.7,
+      "Email": "la_pergola@example.com"
+    },
+    {
+      "Id": 13,
+      "IdRistoratore": 15,
+      "Name": "Antiche Carampane",
+      "Address": "Calle Carampane, 3461, 30125 Venezia VE",
+      "Location": "Venezia, Italia",
+      "Price": "€",
+      "Cuisine": "Italiana",
+      "Longitude": 12.3318492,
+      "Latitude": 45.438656,
+      "PhoneNumber": "+39 06 616 801",
+      "WebsiteUrl": "https://www.antichecarampane.com",
+      "GreenStar": 2,
+      "FacilitiesAndServices": "Animali ammessi, WiFi gratuito, Area bambini",
+      "Description": "Esperienza gourmet in un ambiente moderno.",
+      "Delivery": true,
+      "BookingOnline": true,
+      "recensioni": [
+        {
+          "idRec": 0,
+          "author": "admin",
+          "rating": 3.7,
+          "comment": "Ottima esperienza, tornerò sicuramente!",
+          "date": "2025-03-29",
+          "risposta": null
+        }
+      ],
+      "NumRec": 1,
+      "MediaRec": 3.7,
+      "Email": "antiche_ca@example.com"
+    },
+    {
+      "Id": 6,
+      "IdRistoratore": 6,
+      "Name": "Ristorante Cracco",
+      "Address": "Galleria Vittorio Emanuele II, 20121 Milano MI",
+      "Location": "Milano, Italia",
+      "Price": "€",
+      "Cuisine": "Italiana",
+      "Longitude": 9.1900266,
+      "Latitude": 45.4656869,
+      "PhoneNumber": "+39 011 786 236",
+      "WebsiteUrl": "https://www.ristorantecracco.com",
+      "GreenStar": 0,
+      "FacilitiesAndServices": "Servizio bar, Terrazza panoramica, Accesso disabili",
+      "Description": "Ristorante di design con menu creativo.",
+      "Delivery": true,
+      "BookingOnline": false,
+      "recensioni": [
+        {
+          "idRec": 0,
+          "author": "piermaria534",
+          "rating": 4.4,
+          "comment": "Ottima esperienza, tornerò sicuramente!",
+          "date": "2024-05-20",
+          "risposta": null
+        },
+        {
+          "idRec": 1,
+          "author": "serafina907",
+          "rating": 0.8,
+          "comment": "Prezzi troppo alti per la qualità offerta.",
+          "date": "2025-04-25",
+          "risposta": null
+        },
+        {
+          "idRec": 2,
+          "author": "federigo146",
+          "rating": 4.3,
+          "comment": "Personale gentile e cibo eccellente.",
+          "date": "2024-09-06",
+          "risposta": null
+        },
+        {
+          "idRec": 3,
+          "author": "claudia936",
+          "rating": 4.3,
+          "comment": "Ambiente accogliente, piatti buoni.",
+          "date": "2025-02-09",
+          "risposta": null
+        },
+        {
+          "idRec": 4,
+          "author": "claudia936",
+          "rating": 4.1,
+          "comment": "Ambiente accogliente, piatti buoni.",
+          "date": "2025-05-11",
+          "risposta": null
+        }
+      ],
+      "NumRec": 5,
+      "MediaRec": 3.6,
+      "Email": "ristorante@example.com"
+    },
+    {
+      "Id": 25,
+      "IdRistoratore": 7,
+      "Name": "Il Latini",
+      "Address": "Via dei Palchetti, 6/r, 50123 Firenze FI",
+      "Location": "Firenze, Italia",
+      "Price": "€",
+      "Cuisine": "Mediterranea",
+      "Longitude": 11.2493033,
+      "Latitude": 43.7716039,
+      "PhoneNumber": "+39 02 694 978",
+      "WebsiteUrl": "https://www.illatini.it",
+      "GreenStar": 3,
+      "FacilitiesAndServices": "Terrazza panoramica, Accesso disabili, WiFi gratuito",
+      "Description": "Locale accogliente con ottima cucina tradizionale.",
+      "Delivery": false,
+      "BookingOnline": true,
+      "recensioni": [
+        {
+          "idRec": 0,
+          "author": "serafina907",
+          "rating": 3.6,
+          "comment": "Ottima esperienza, tornerò sicuramente!",
+          "date": "2024-02-22",
+          "risposta": null
+        },
+        {
+          "idRec": 1,
+          "author": "sdasdasdasd",
+          "rating": 2.8,
+          "comment": "Ottima esperienza, tornerò sicuramente!",
+          "date": "2024-12-16",
+          "risposta": null
+        },
+        {
+          "idRec": 2,
+          "author": "laurab",
+          "rating": 3.3,
+          "comment": "Ambiente accogliente, piatti buoni.",
+          "date": "2024-12-08",
+          "risposta": null
+        },
+        {
+          "idRec": 3,
+          "author": "ritardo",
+          "rating": 4.4,
+          "comment": "Personale gentile e cibo eccellente.",
+          "date": "2024-09-29",
+          "risposta": null
+        }
+      ],
+      "NumRec": 4,
+      "MediaRec": 3.5,
+      "Email": "il_latini@example.com"
+    },
+    {
+      "Id": 24,
+      "IdRistoratore": 12,
+      "Name": "Trattoria 4 Leoni",
+      "Address": "Via dei Vellutini, 50125, Firenze FI",
+      "Location": "Firenze, Italia",
+      "Price": "€€",
+      "Cuisine": "Italiana",
+      "Longitude": 11.2498183,
+      "Latitude": 43.767317,
+      "PhoneNumber": "+39 011 149 530",
+      "WebsiteUrl": "https://www.trattoria4leoni.it",
+      "GreenStar": 3,
+      "FacilitiesAndServices": "Area bambini, Aria condizionata, WiFi gratuito",
+      "Description": "Esperienza gourmet in un ambiente moderno.",
+      "Delivery": false,
+      "BookingOnline": false,
+      "recensioni": [
+        {
+          "idRec": 0,
+          "author": "donatella927",
+          "rating": 3.3,
+          "comment": "Ottima esperienza, tornerò sicuramente!",
+          "date": "2024-05-03",
+          "risposta": null
+        },
+        {
+          "idRec": 1,
+          "author": "pippo",
+          "rating": 4.7,
+          "comment": "Ottima esperienza, tornerò sicuramente!",
+          "date": "2024-01-08",
+          "risposta": null
+        },
+        {
+          "idRec": 2,
+          "author": "donatella927",
+          "rating": 4.9,
+          "comment": "Ambiente accogliente, piatti buoni.",
+          "date": "2024-06-10",
+          "risposta": null
+        },
+        {
+          "idRec": 3,
+          "author": "ccracco",
+          "rating": 0.6,
+          "comment": "Ambiente accogliente, piatti buoni.",
+          "date": "2024-08-07",
+          "risposta": null
+        }
+      ],
+      "NumRec": 4,
+      "MediaRec": 3.4,
+      "Email": "trattoria_@example.com"
+    },
+    {
+      "Id": 23,
+      "IdRistoratore": 18,
+      "Name": "Enoteca Pinchiorri",
+      "Address": "Via Ghibellina, 87, 50122 Firenze FI",
+      "Location": "Firenze, Italia",
+      "Price": "€€",
+      "Cuisine": "Italiana",
+      "Longitude": 11.2623225,
+      "Latitude": 43.7700306,
+      "PhoneNumber": "+39 02 542 253",
+      "WebsiteUrl": "https://www.enotecapinchiorri.net",
+      "GreenStar": 1,
+      "FacilitiesAndServices": "Accesso disabili, Parcheggio, Aria condizionata",
+      "Description": "Ristorante di design con menu creativo.",
+      "Delivery": false,
+      "BookingOnline": false,
+      "recensioni": [
+        {
+          "idRec": 0,
+          "author": "giada531",
+          "rating": 3.4,
+          "comment": "Ambiente accogliente, piatti buoni.",
+          "date": "2025-05-23",
+          "risposta": null
+        }
+      ],
+      "NumRec": 1,
+      "MediaRec": 3.4,
+      "Email": "enoteca_pi@example.com"
+    },
+    {
+      "Id": 9,
+      "IdRistoratore": 11,
+      "Name": "Langosteria",
+      "Address": "Via Savona, 10, 20144 Milano MI",
+      "Location": "Milano, Italia",
+      "Price": "€€",
+      "Cuisine": "Italiana",
+      "Longitude": 9.1685852,
+      "Latitude": 45.4556132,
+      "PhoneNumber": "+39 041 259 261",
+      "WebsiteUrl": "https://www.langosteria.com",
+      "GreenStar": 1,
+      "FacilitiesAndServices": "Aria condizionata, WiFi gratuito, Terrazza panoramica",
+      "Description": "Specialità locali in un contesto elegante.",
+      "Delivery": true,
+      "BookingOnline": false,
+      "recensioni": [
+        {
+          "idRec": 0,
+          "author": "ansaldo234",
+          "rating": 4.5,
+          "comment": "Cibo deludente e servizio lento.",
+          "date": "2024-01-04",
+          "risposta": null
+        },
+        {
+          "idRec": 1,
+          "author": "amedeo140",
+          "rating": 0.4,
+          "comment": "Ottima esperienza, tornerò sicuramente!",
+          "date": "2024-08-23",
+          "risposta": null
+        },
+        {
+          "idRec": 2,
+          "author": "gilberto363",
+          "rating": 4.5,
+          "comment": "Ottima esperienza, tornerò sicuramente!",
+          "date": "2024-09-15",
+          "risposta": null
+        },
+        {
+          "idRec": 3,
+          "author": "mattia176",
+          "rating": 3.9,
+          "comment": "Ambiente accogliente, piatti buoni.",
+          "date": "2024-05-12",
+          "risposta": null
+        }
+      ],
+      "NumRec": 4,
+      "MediaRec": 3.3,
+      "Email": "langosteri@example.com"
+    },
+    {
+      "Id": 22,
+      "IdRistoratore": 2,
+      "Name": "La Giostra",
+      "Address": "Borgo Pinti, 10r, 50121 Firenze FI",
+      "Location": "Firenze, Italia",
+      "Price": "€",
+      "Cuisine": "Mediterranea",
+      "Longitude": 11.26197,
+      "Latitude": 43.7719724,
+      "PhoneNumber": "+39 081 309 670",
+      "WebsiteUrl": "https://www.lagiostra.it",
+      "GreenStar": 1,
+      "FacilitiesAndServices": "Servizio bar, Area bambini, Terrazza panoramica",
+      "Description": "Locale accogliente con ottima cucina tradizionale.",
+      "Delivery": true,
+      "BookingOnline": false,
+      "recensioni": [
+        {
+          "idRec": 0,
+          "author": "hbeck",
+          "rating": 4.6,
+          "comment": "Personale gentile e cibo eccellente.",
+          "date": "2025-01-23",
+          "risposta": null
+        },
+        {
+          "idRec": 1,
+          "author": "giada531",
+          "rating": 5.0,
+          "comment": "Ambiente accogliente, piatti buoni.",
+          "date": "2024-11-26",
+          "risposta": null
+        },
+        {
+          "idRec": 2,
+          "author": "federigo146",
+          "rating": 0.9,
+          "comment": "Ambiente accogliente, piatti buoni.",
+          "date": "2024-01-16",
+          "risposta": null
+        },
+        {
+          "idRec": 3,
+          "author": "vewrvew",
+          "rating": 0.9,
+          "comment": "Prezzi troppo alti per la qualità offerta.",
+          "date": "2024-12-21",
+          "risposta": null
+        },
+        {
+          "idRec": 4,
+          "author": "ac",
+          "rating": 4.2,
+          "comment": "Ambiente accogliente, piatti buoni.",
+          "date": "2024-06-10",
+          "risposta": null
+        }
+      ],
+      "NumRec": 5,
+      "MediaRec": 3.1,
+      "Email": "la_giostra@example.com"
+    },
+    {
+      "Id": 10,
+      "IdRistoratore": 22,
+      "Name": "Paper Moon",
+      "Address": "Via Bagutta, 1, 20121 Milano MI",
+      "Location": "Milano, Italia",
+      "Price": "€",
+      "Cuisine": "Sushi",
+      "Longitude": 9.1968262,
+      "Latitude": 45.467415,
+      "PhoneNumber": "+39 081 538 605",
+      "WebsiteUrl": "https://www.papermoon.it",
+      "GreenStar": 2,
+      "FacilitiesAndServices": "Aria condizionata, Terrazza panoramica, Accesso disabili",
+      "Description": "Specialità locali in un contesto elegante.",
+      "Delivery": false,
+      "BookingOnline": false,
+      "recensioni": [
+        {
+          "idRec": 0,
+          "author": "ciucchi",
+          "rating": 4.8,
+          "comment": "Ottima esperienza, tornerò sicuramente!",
+          "date": "2025-01-30",
+          "risposta": null
+        },
+        {
+          "idRec": 1,
+          "author": "piermaria534",
+          "rating": 2.3,
+          "comment": "Personale gentile e cibo eccellente.",
+          "date": "2024-05-23",
+          "risposta": null
+        },
+        {
+          "idRec": 2,
+          "author": "donatella927",
+          "rating": 3.0,
+          "comment": "Ottima esperienza, tornerò sicuramente!",
+          "date": "2024-05-24",
+          "risposta": null
+        },
+        {
+          "idRec": 3,
+          "author": "elisa563",
+          "rating": 2.5,
+          "comment": "Ambiente accogliente, piatti buoni.",
+          "date": "2024-12-25",
+          "risposta": null
+        },
+        {
+          "idRec": 4,
+          "author": "serafina907",
+          "rating": 2.1,
+          "comment": "Prezzi troppo alti per la qualità offerta.",
+          "date": "2024-10-17",
+          "risposta": null
+        }
+      ],
+      "NumRec": 5,
+      "MediaRec": 2.9,
+      "Email": "paper_moon@example.com"
+    }
+  ]
+}

@@ -138,14 +138,15 @@ public class newRestaurantController extends dashBoardRistController {
             b = true;
         }
 
-        double[] coord = new double[2];
-        coord = coordinate(address);// latitudine in pos 0 e long in pos 1
+        double[] coordin = new double[2];
+        coordin = coordinate(address);// latitudine in pos 0 e long in pos 1
         int stelle = Integer.parseInt(stars); // metto come intero il campo stelle
 
-        Ristorante nuovo = new Ristorante(Id, idRistoratore, name, address, location, price, cousine,coord[0], coord[1],
+        Ristorante nuovo = new Ristorante(Id, idRistoratore, name, address, location, price, cousine,coordin[0], coordin[1],
                 tel, Url, stelle, service,description,d, b, mail);
 
         aggiungiRistorante(nuovo,"ristoranti.json");
+        top10Ristoranti("ristoranti.json","top10rist.json");
 
         handleInput();
     }
@@ -159,48 +160,8 @@ public class newRestaurantController extends dashBoardRistController {
         alert.showAndWait();
         //else mando un errore specifico su un tipo di input inserito dall'utente
     }
-    public static void aggiungiRistorante(Ristorante nuovo, String fileJson) {
-        try {
-            ObjectMapper mapper = new ObjectMapper();
-            mapper.enable(SerializationFeature.INDENT_OUTPUT);
 
-            File file = new File(fileJson);
-            JsonNode root;
 
-            // Se il file esiste e non è vuoto, lo leggiamo
-            if (file.exists() && file.length() > 0) {
-                root = mapper.readTree(file);
-            } else {
-                root = mapper.createObjectNode();  // nuovo root se il file è vuoto
-            }
-
-            List<Ristorante> listaRistoranti = new ArrayList<>();
-
-            if (root.has("ristoranti") && root.get("ristoranti").isArray()) {
-                JsonNode ristorantiNode = root.get("ristoranti");
-
-                listaRistoranti = mapper.readValue(
-                        ristorantiNode.traverse(),
-                        new TypeReference<List<Ristorante>>() {}
-                );
-            }
-
-            // Aggiunta del nuovo ristorante
-            listaRistoranti.add(nuovo);
-            System.out.println("Ristorante '" + nuovo.getName() + "' aggiunto con successo.");
-
-            // Nuovo root JSON con lista aggiornata
-            ObjectNode nuovoRoot = mapper.createObjectNode();
-            nuovoRoot.set("ristoranti", mapper.valueToTree(listaRistoranti));
-
-            // Scrittura nel file
-            mapper.writeValue(file, nuovoRoot);
-
-        } catch (Exception e) {
-            System.err.println("Errore durante l'aggiunta del ristorante:");
-            e.printStackTrace();
-        }
-    }
     public static int generaId(String fileJson) {
 
         int count = 0;
