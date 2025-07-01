@@ -52,16 +52,16 @@ public class ProfilePageRistController extends dashBoardRistController {
     public void initialize() {
         welcomeLabel.setText("PROFILO DI " + user + "");
         System.out.println("Utente: "+user+ "Id: "+id+"Ruolo: "+ruolo);
-        printDettaglioUtente();
+        printDettaglioUtente("fileUtenti.json", "popUpProf.fxml");
     }
 
-    private void printDettaglioUtente() {
+    public void printDettaglioUtente(String fileJson,String filePopUpFXML) {
         try{
 
             grid.getChildren().clear(); //evita duplicati quando aggiorni il file con le modifiche
             grid.getColumnConstraints().clear(); //reset dei vincoli
 
-            Utente utente = riepilogoUtente("fileUtenti.json");
+            Utente utente = riepilogoUtente(fileJson);
 
             System.out.println(utente.getEmail());
 
@@ -73,7 +73,7 @@ public class ProfilePageRistController extends dashBoardRistController {
             modifyname.getStyleClass().add("accent-button");
             modifyname.setOnAction(e -> {
                 SessionManager.idScelta = 1;
-                openPopupProf("Cambia nome");
+                openPopupProf("Cambia nome",filePopUpFXML);
             });
 
             Label cognomeLabel = new Label("Cognome: ");
@@ -84,7 +84,7 @@ public class ProfilePageRistController extends dashBoardRistController {
             modifycognome.getStyleClass().add("accent-button");
             modifycognome.setOnAction(e -> {
                 SessionManager.idScelta = 2;
-                openPopupProf("Cambia cognome");
+                openPopupProf("Cambia cognome",filePopUpFXML);
             });
 
             Label emailLabel = new Label("Email: ");
@@ -95,7 +95,7 @@ public class ProfilePageRistController extends dashBoardRistController {
             modifyemail.getStyleClass().add("accent-button");
             modifyemail.setOnAction(e -> {
                 SessionManager.idScelta = 3;
-                openPopupProf("Cambia email");
+                openPopupProf("Cambia email",filePopUpFXML);
             });
 
             Label usernameLabel = new Label("Username: ");
@@ -106,7 +106,7 @@ public class ProfilePageRistController extends dashBoardRistController {
             modifyusername.getStyleClass().add("accent-button");
             modifyusername.setOnAction(e -> {
                 SessionManager.idScelta = 4;
-                openPopupProf("Cambia username");
+                openPopupProf("Cambia username",filePopUpFXML);
             });
 
             Label passwordLabel = new Label("Password: ");
@@ -117,7 +117,7 @@ public class ProfilePageRistController extends dashBoardRistController {
             modifypassword.getStyleClass().add("accent-button");
             modifypassword.setOnAction(e -> {
                 SessionManager.idScelta = 5;
-                openPopupProf("Cambia password");
+                openPopupProf("Cambia password",filePopUpFXML);
             });
 
             Label indirizzoLabel = new Label("Indirizzo: ");
@@ -128,7 +128,7 @@ public class ProfilePageRistController extends dashBoardRistController {
             modifindirizzo.getStyleClass().add("accent-button");
             modifindirizzo.setOnAction(e -> {
                 SessionManager.idScelta = 6;
-                openPopupProf("Cambia indirizzo");
+                openPopupProf("Cambia indirizzo",filePopUpFXML);
             });
 
             Label dataLabel = new Label("Data di nascita: ");
@@ -139,7 +139,7 @@ public class ProfilePageRistController extends dashBoardRistController {
             modifodata.getStyleClass().add("accent-button");
             modifodata.setOnAction(e -> {
                 SessionManager.idScelta = 7;
-                openPopupProf("Cambia data di nascita");
+                openPopupProf("Cambia data di nascita",filePopUpFXML);
             });
 
             Label TelefonoLabel = new Label("Telefono: ");
@@ -150,7 +150,7 @@ public class ProfilePageRistController extends dashBoardRistController {
             modiftelefono.getStyleClass().add("accent-button");
             modiftelefono.setOnAction(e -> {
                 SessionManager.idScelta = 8;
-                openPopupProf("Cambia telefono");
+                openPopupProf("Cambia telefono",filePopUpFXML);
             });
 
             Label RuoloLabel = new Label("Ruolo: ");
@@ -216,9 +216,9 @@ public class ProfilePageRistController extends dashBoardRistController {
         }
     }
 
-    public void openPopupProf(String title) { //aggiungere variabile stringa nei parametri passati per percorso file .fxml
+    public void openPopupProf(String title,String filePopUpFXML) { //aggiungere variabile stringa nei parametri passati per percorso file .fxml
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("popUpProf.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(filePopUpFXML));
             Parent root = loader.load();
             Stage popupStage = new Stage();
 
