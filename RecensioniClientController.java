@@ -3,6 +3,7 @@ package com.example.the_knife.Cliente;
 import com.example.the_knife.Ristoratore.Recensione;
 import com.example.the_knife.Ristoratore.Ristorante;
 import com.example.the_knife.Utente.SessionManager;
+import com.example.the_knife.Utente.Utente;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
@@ -102,6 +103,32 @@ public class RecensioniClientController extends dashBoardClientController{
             }
         }
         return risultato;
+    }
+
+    public void addPrefe(String fileJson) throws IOException {
+        ObjectMapper mapper = new ObjectMapper();// Crea un'istanza di ObjectMapper
+        mapper.registerModule(new com.fasterxml.jackson.datatype.jsr310.JavaTimeModule());
+        File file = new File(fileJson);
+
+        JsonNode root = mapper.readTree(file);
+        JsonNode utentiNode = root.get("Utenti");
+
+        List<Utente> utenti = Arrays.asList(mapper.treeToValue(utentiNode, Utente[].class));
+        List<Utente> listaModificabile = new ArrayList<>(utenti);
+
+        for(Utente u : listaModificabile){
+            if(u.getUsername().equals(SessionManager.getInstance().getUsername())){
+                u.getPreferiti().add(idRist);
+            }
+        }
+
+        ObjectNode nuovoRoot = mapper.createObjectNode();
+        nuovoRoot.set("ristoranti", mapper.valueToTree(listaModificabile));
+
+        // Sovrascrive il file
+        mapper.writerWithDefaultPrettyPrinter().writeValue(new File(fileJson), nuovoRoot);
+
+
     }
 
 }
