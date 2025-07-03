@@ -29,6 +29,7 @@ import java.util.List;
 
 import static com.example.the_knife.InputValidator.handleInput;
 
+
 public class PopUpProfController {
 
 
@@ -58,12 +59,11 @@ public class PopUpProfController {
                 date1.setManaged(false);//tolgo lo spazio occupato dalla casella della data
                 txt2.setVisible(false);//nascondo la casella della conferma password
                 txt2.setManaged(false);//tolgo lo spazio occupato dalla casella conferma password
-                okButton.setText("Conferma");
                 okButton.setOnAction(e -> {
                     try {
                         String newNome = txt1.getText();
                         InputValidator.validaNomeUte(newNome);
-                        modificaUte("nome", newNome, "fileUtenti.json");
+                        InputValidator.modificaUte(username,"nome", newNome, "fileUtenti.json");
                         handleClose(e);//chiudi finestra popUp
                     } catch (IOException ex) {
                         throw new RuntimeException(ex);
@@ -77,12 +77,11 @@ public class PopUpProfController {
                 date1.setManaged(false);//tolgo lo spazio occupato dalla casella della data
                 txt2.setVisible(false);//nascondo la casella della conferma password
                 txt2.setManaged(false);//tolgo lo spazio occupato dalla casella conferma password
-                okButton.setText("Conferma");
                 okButton.setOnAction(e -> {
                     try {
                         String newCognome = txt1.getText();
                         InputValidator.validaCogno(newCognome);
-                        modificaUte("cognome", newCognome, "fileUtenti.json");
+                        InputValidator.modificaUte(username,"cognome", newCognome, "fileUtenti.json");
                         handleClose(e);//chiudi finestra popUp
                     } catch (IOException ex) {
                         throw new RuntimeException(ex);
@@ -96,12 +95,11 @@ public class PopUpProfController {
                 date1.setManaged(false);//tolgo lo spazio occupato dalla casella della data
                 txt2.setVisible(false);//nascondo la casella della conferma password
                 txt2.setManaged(false);//tolgo lo spazio occupato dalla casella conferma password
-                okButton.setText("Conferma");
                 okButton.setOnAction(e -> {
                     try {
                         String newEmail = txt1.getText();
                         InputValidator.validaEmail(newEmail);
-                        modificaUte("email", newEmail, "fileUtenti.json");
+                        InputValidator.modificaUte(username,"email", newEmail, "fileUtenti.json");
                         handleClose(e);//chiudi finestra popUp
                     } catch (IOException ex) {
                         throw new RuntimeException(ex);
@@ -115,12 +113,11 @@ public class PopUpProfController {
                 date1.setManaged(false);//tolgo lo spazio occupato dalla casella della data
                 txt2.setVisible(false);//nascondo la casella della conferma password
                 txt2.setManaged(false);//tolgo lo spazio occupato dalla casella conferma password
-                okButton.setText("Conferma");
                 okButton.setOnAction(e -> {
                     try {
                         String newUser = txt1.getText();
                         InputValidator.validaUsername(newUser);
-                        modificaUte("username", newUser, "fileUtenti.json");
+                        InputValidator.modificaUte(username,"username", newUser, "fileUtenti.json");
                         handleClose(e);//chiudi finestra popUp
                     } catch (IOException ex) {
                         throw new RuntimeException(ex);
@@ -134,18 +131,17 @@ public class PopUpProfController {
                 txt2.setPromptText("Ins nuova password");
                 date1.setVisible(false);//nascondo la casella della data
                 date1.setManaged(false);//tolgo lo spazio occupato dalla casella della data
-                okButton.setText("Conferma");
                 okButton.setOnAction(e -> {
                     try {
                         String oldPass = txt1.getText();
-                        boolean ris = verificaPassword(oldPass);
+                        boolean ris = InputValidator.verificaPassword(username,oldPass);
                         if (ris == false) {
                             handleInput("Errore","Vecchia password errata");
                             throw new VecchiaPasswordException("Vecchia password errata");
                         }
                         String newPass = txt2.getText();
                         InputValidator.validaPassword(newPass);
-                        modificaUte("password", newPass, "fileUtenti.json");
+                        InputValidator.modificaUte(username,"password", newPass, "fileUtenti.json");
                         handleClose(e);//chiudi finestra popUp
                     } catch (IOException ex) {
                         throw new RuntimeException(ex);
@@ -159,12 +155,11 @@ public class PopUpProfController {
                 date1.setManaged(false);//tolgo lo spazio occupato dalla casella della data
                 txt2.setVisible(false);//nascondo la casella della conferma password
                 txt2.setManaged(false);//tolgo lo spazio occupato dalla casella conferma password
-                okButton.setText("Conferma");
                 okButton.setOnAction(e -> {
                     try {
                         String newAdd = txt1.getText();
                         InputValidator.validaIndirizzo(newAdd);
-                        modificaUte("indirizzo", newAdd, "fileUtenti.json");
+                        InputValidator.modificaUte(username,"indirizzo", newAdd, "fileUtenti.json");
                         handleClose(e);//chiudi finestra popUp
                     } catch (IOException ex) {
                         throw new RuntimeException(ex);
@@ -178,11 +173,10 @@ public class PopUpProfController {
                 txt1.setManaged(false);//tolgo lo spazio occupato dalla casella di testo
                 txt2.setVisible(false);//nascondo la casella della conferma password
                 txt2.setManaged(false);//tolgo lo spazio occupato dalla casella conferma password
-                okButton.setText("Conferma");
                 okButton.setOnAction(e -> {
                     try {
                         LocalDate newDate = date1.getValue();
-                        modificaUteData("data", newDate, "fileUtenti.json");
+                        InputValidator.modificaUteData(username,"data", newDate, "fileUtenti.json");
                         handleClose(e);//chiudi finestra popUp
                     } catch (IOException ex) {
                         throw new RuntimeException(ex);
@@ -196,12 +190,11 @@ public class PopUpProfController {
                 date1.setManaged(false);//tolgo lo spazio occupato dalla casella della data
                 txt2.setVisible(false);//nascondo la casella della conferma password
                 txt2.setManaged(false);//tolgo lo spazio occupato dalla casella conferma password
-                okButton.setText("Conferma");
                 okButton.setOnAction(e -> {
                     try {
                         String newTel = txt1.getText();
                         InputValidator.validaTelefono(newTel);
-                        modificaUte("telefono", newTel, "fileUtenti.json");
+                        InputValidator.modificaUte(username,"telefono", newTel, "fileUtenti.json");
                         handleClose(e);//chiudi finestra popUp
                     } catch (IOException ex) {
                         throw new RuntimeException(ex);
@@ -241,83 +234,5 @@ public class PopUpProfController {
         //Al massimo posso aggiornare la pagina rifacendo di nuovo goTo per leggere il dato nuovo
     }
 
-    public void modificaUte(String campo, String newCampo, String fileJson) throws IOException {
-        ObjectMapper mapper = new ObjectMapper();
-        mapper.registerModule(new JavaTimeModule());
-        JsonNode root = mapper.readTree(new File(fileJson));
-        JsonNode utenteNode = root.get("Utenti");
 
-        List<Utente> utenti = Arrays.asList(mapper.treeToValue(utenteNode, Utente[].class));
-        // Converte in lista modificabile
-        List<Utente> listaModificabile = new ArrayList<>(utenti);
-
-        for (Utente u : listaModificabile) {
-            if (u.getUsername().equals(username)) {
-                if (campo.equals("nome")) {
-                    u.setNome(newCampo);
-                } else if (campo.equals("indirizzo")) {
-                    u.setIndirizzo(newCampo);
-                } else if (campo.equals("cognome")) {
-                    u.setCognome(newCampo);
-                } else if (campo.equals("telefono")) {
-                    u.setTelefono(newCampo);
-                } else if (campo.equals("email")) {
-                    u.setEmail(newCampo);
-                } else if (campo.equals("password")) {
-                    newCampo = loginController.generaHash(newCampo);
-                    u.setPassword(newCampo);
-                } else if (campo.equals("username")) {
-                    u.setUsername(newCampo);
-                }
-            }
-        }
-        // Ricrea l'oggetto JSON aggiornato
-        ObjectNode nuovoRoot = mapper.createObjectNode();
-        nuovoRoot.set("Utenti", mapper.valueToTree(listaModificabile));
-        // Sovrascrive il file
-        mapper.writerWithDefaultPrettyPrinter().writeValue(new File(fileJson), nuovoRoot);
-    }
-
-    public void modificaUteData(String campo, LocalDate newCampo, String fileJson) throws IOException {
-        ObjectMapper mapper = new ObjectMapper();
-        mapper.registerModule(new JavaTimeModule());
-        JsonNode root = mapper.readTree(new File(fileJson));
-        JsonNode utenteNode = root.get("Utenti");
-
-        List<Utente> utenti = Arrays.asList(mapper.treeToValue(utenteNode, Utente[].class));
-        // Converte in lista modificabile
-        List<Utente> listaModificabile = new ArrayList<>(utenti);
-
-        for (Utente u : listaModificabile) {
-            if (u.getUsername().equals(username)) {
-                if (campo.equals("data")) {
-                    u.setDataDiNascita(newCampo);
-                }
-            }
-        }
-        // Ricrea l'oggetto JSON aggiornato
-        ObjectNode nuovoRoot = mapper.createObjectNode();
-        nuovoRoot.set("Utenti", mapper.valueToTree(listaModificabile));
-        // Sovrascrive il file
-        mapper.writerWithDefaultPrettyPrinter().writeValue(new File(fileJson), nuovoRoot);
-    }
-
-    public boolean verificaPassword(String password) throws IOException {
-        ObjectMapper mapper = new ObjectMapper(); // Crea un oggetto ObjectMapper di Jackson per la deserializzazione JSON
-        mapper.registerModule(new JavaTimeModule()); // Registra un modulo per la gestione corretta di LocalDate e altri tipi Java Time
-        ListaUtenti lista = mapper.readValue(new File("fileUtenti.json"), ListaUtenti.class); // Deserializza il file JSON in un oggetto ListaUtenti
-
-        for (Utente u : lista.Utenti) {
-            // Se l'username corrisponde
-            if (u.getUsername().equals(username)) {
-                // Verifica sicura della password usando BCrypt
-                // (confronta la password inserita con l'hash salvato nel file)
-                if (BCrypt.checkpw(password, u.getPassword())) {
-                    System.out.println("Password vecchia corretta ");
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
 }

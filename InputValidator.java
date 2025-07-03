@@ -1,7 +1,21 @@
 package com.example.the_knife;
 
 import com.example.the_knife.Exceptions.*;
+import com.example.the_knife.Utente.ListaUtenti;
+import com.example.the_knife.Utente.Utente;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import javafx.scene.control.Alert;
+import org.mindrot.jbcrypt.BCrypt;
+
+import java.io.File;
+import java.io.IOException;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class InputValidator {
     protected void handleInput() {
@@ -197,5 +211,85 @@ public class InputValidator {
             handleInput("Errore", "Limite massimo di caratteri raggiunto,\n num max di caratteri per il cognome è 50.");
             throw new NumMaxCaratteriException("Limite massimo di caratteri raggiunto, num max di caratteri per il cognome è 50.");
         }
+    }
+
+    public static void modificaUte(String username,String campo, String newCampo, String fileJson) throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.registerModule(new JavaTimeModule());
+        JsonNode root = mapper.readTree(new File(fileJson));
+        JsonNode utenteNode = root.get("Utenti");
+
+        List<Utente> utenti = Arrays.asList(mapper.treeToValue(utenteNode, Utente[].class));
+        // Converte in lista modificabile
+        List<Utente> listaModificabile = new ArrayList<>(utenti);
+
+        for (Utente u : listaModificabile) {
+            if (u.getUsername().equals(username)) {
+                if (campo.equals("nome")) {
+                    u.setNome(newCampo);
+                } else if (campo.equals("indirizzo")) {
+                    u.setIndirizzo(newCampo);
+                } else if (campo.equals("cognome")) {
+                    u.setCognome(newCampo);
+                } else if (campo.equals("telefono")) {
+                    u.setTelefono(newCampo);
+                } else if (campo.equals("email")) {
+                    u.setEmail(newCampo);
+                } else if (campo.equals("password")) {
+                    newCampo = loginController.generaHash(newCampo);
+                    u.setPassword(newCampo);
+                } else if (campo.equals("username")) {
+                    u.setUsername(newCampo);
+                }
+            }
+        }
+        // Ricrea l'oggetto JSON aggiornato
+        ObjectNode nuovoRoot = mapper.createObjectNode();
+        nuovoRoot.set("Utenti", mapper.valueToTree(listaModificabile));
+        // Sovrascrive il file
+        mapper.writerWithDefaultPrettyPrinter().writeValue(new File(fileJson), nuovoRoot);
+    }
+
+    public static void modificaUteData(String username, String campo, LocalDate newCampo, String fileJson) throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.registerModule(new JavaTimeModule());
+        JsonNode root = mapper.readTree(new File(fileJson));
+        JsonNode utenteNode = root.get("Utenti");
+
+        List<Utente> utenti = Arrays.asList(mapper.treeToValue(utenteNode, Utente[].class));
+        // Converte in lista modificabile
+        List<Utente> listaModificabile = new ArrayList<>(utenti);
+
+        for (Utente u : listaModificabile) {
+            if (u.getUsername().equals(username)) {
+                if (campo.equals("data")) {
+                    u.setDataDiNascita(newCampo);
+                }
+            }
+        }
+        // Ricrea l'oggetto JSON aggiornato
+        ObjectNode nuovoRoot = mapper.createObjectNode();
+        nuovoRoot.set("Utenti", mapper.valueToTree(listaModificabile));
+        // Sovrascrive il file
+        mapper.writerWithDefaultPrettyPrinter().writeValue(new File(fileJson), nuovoRoot);
+    }
+
+    public static boolean verificaPassword(String username, String password) throws IOException {
+        ObjectMapper mapper = new ObjectMapper(); // Crea un oggetto ObjectMapper di Jackson per la deserializzazione JSON
+        mapper.registerModule(new JavaTimeModule()); // Registra un modulo per la gestione corretta di LocalDate e altri tipi Java Time
+        ListaUtenti lista = mapper.readValue(new File("fileUtenti.json"), ListaUtenti.class); // Deserializza il file JSON in un oggetto ListaUtenti
+
+        for (Utente u : lista.Utenti) {
+            // Se l'username corrisponde
+            if (u.getUsername().equals(username)) {
+                // Verifica sicura della password usando BCrypt
+                // (confronta la password inserita con l'hash salvato nel file)
+                if (BCrypt.checkpw(password, u.getPassword())) {
+                    System.out.println("Password vecchia corretta ");
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 }
