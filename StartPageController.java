@@ -1,11 +1,13 @@
 package com.example.the_knife;
 import com.example.the_knife.Ristoratore.Ristorante;
 import com.example.the_knife.Utente.SessionManager;
+import com.example.the_knife.Utente.Utente;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,6 +16,8 @@ import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.Node;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
@@ -23,6 +27,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
+
+import static com.example.the_knife.Utente.SessionManager.idRist;
 
 public class StartPageController {
 
@@ -39,6 +46,16 @@ public class StartPageController {
 
     @FXML
     private void initialize() {
+
+        //ICONA LENTE INGRANDIMENTO
+        searchButton.getStyleClass().add("accent-button");
+        Image lenteIngrandimento = new Image(getClass().getResource("/com/example/the_knife/icone/lenteIngrandimento.png").toExternalForm());
+        ImageView iconView = new ImageView();//creo l'immagine visibile in nel bottone quando poi gli assegnerò le due immagini
+        iconView.setFitWidth(24);
+        iconView.setFitHeight(24);//setto il ridimensionamento
+        searchButton.setGraphic(iconView);
+        iconView.setImage(lenteIngrandimento);
+
         SessionManager.pagina = 0;
         cuisineBox.setItems(FXCollections.observableArrayList(
                 "Mediterranea", "Italiana", "Giapponese",
@@ -76,7 +93,7 @@ public class StartPageController {
         try {
             SessionManager.counter = 0;
             System.out.println("listaRistLabel è null? " + (listaRistLabel == null));
-            List<Ristorante> mieiRistoranti = getRistorantiTop("top10rist.json");
+            List<Ristorante> mieiRistoranti = getRistorantiTop();
             listaRistLabel.setItems(FXCollections.observableArrayList(mieiRistoranti));
 
             listaRistLabel.setCellFactory(param -> new ListCell<>() {
@@ -105,8 +122,17 @@ public class StartPageController {
                         Label ratingLabel = new Label(""+ristorante.getMediaRec());
                         ratingLabel.getStyleClass().add("textNormal");
 
-                        Button dettaglioButton = new Button("Dettaglio");
+
+                        //ICONA DETTAGGLIO
+                        Button dettaglioButton = new Button();
                         dettaglioButton.getStyleClass().add("accent-button");
+                        Image icona = new Image(getClass().getResource("/com/example/the_knife/icone/dettaglio.png").toExternalForm());
+                        ImageView iconView3 = new ImageView();//creo l'immagine visibile in nel bottone quando poi gli assegnerò le due immagini
+                        iconView3.setFitWidth(24);
+                        iconView3.setFitHeight(24);//setto il ridimensionamento
+                        dettaglioButton.setGraphic(iconView3);
+                        iconView3.setImage(icona);
+
                         dettaglioButton.setOnAction(e -> {
                             try {
                                 Integer idRist =  ristorante.getId();
@@ -117,8 +143,16 @@ public class StartPageController {
                                 throw new RuntimeException(ex);
                             }
                         });
-                        Button recensioneButton = new Button("Recensioni");
+                        //ICONA RECENSIONE
+                        Button recensioneButton = new Button();
                         recensioneButton.getStyleClass().add("accent-button");
+                        Image icona2 = new Image(getClass().getResource("/com/example/the_knife/icone/recensioni.png").toExternalForm());
+                        ImageView iconView4 = new ImageView();//creo l'immagine visibile in nel bottone quando poi gli assegnerò le due immagini
+                        iconView4.setFitWidth(24);
+                        iconView4.setFitHeight(24);//setto il ridimensionamento
+                        recensioneButton.setGraphic(iconView4);
+                        iconView4.setImage(icona2);
+
                         recensioneButton.setOnAction(e -> {
                             try {
                                 Integer idRist = (Integer) ristorante.getId();
@@ -137,20 +171,112 @@ public class StartPageController {
                         grid.add(dettaglioButton, 3, 0);
                         grid.add(recensioneButton, 4, 0);
 
+                        //BOTTONE PREFETITI
+                        //CARICO LE IMMAGINI DI ICONA PER IL BOTTONE DEI PREFERITI
+                        Button prefButton = new Button();
+                        prefButton.getStyleClass().add("cuore-button");
+                        Image cuoreVuoto = new Image(getClass().getResource("/com/example/the_knife/icone/cuoreVuoto.png").toExternalForm());
+                        Image cuorePieno = new Image(getClass().getResource("/com/example/the_knife/icone/cuorePieno.png").toExternalForm());
+
+                        ImageView iconView2 = new ImageView();//creo l'immagine visibile in nel bottone quando poi gli assegnerò le due immagini
+                        iconView2.setFitWidth(24);
+                        iconView2.setFitHeight(24);//setto il ridimensionamento
+                        prefButton.setGraphic(iconView2);
+
+                        if (SessionManager.pagina == 2) {
+                            boolean isPref = false;
+                            try {
+                                ObjectMapper mapper = new ObjectMapper();
+                                mapper.registerModule(new com.fasterxml.jackson.datatype.jsr310.JavaTimeModule());
+                                File file = new File("fileUtenti.json");
+                                JsonNode root = mapper.readTree(file);
+                                JsonNode utentiNode = root.get("Utenti");
+                                List<com.example.the_knife.Utente.Utente> utenti = Arrays.asList(
+                                        mapper.treeToValue(utentiNode, com.example.the_knife.Utente.Utente[].class)
+                                );
+                                for (com.example.the_knife.Utente.Utente u : utenti) {
+                                    if (u.getUsername().equals(SessionManager.getInstance().getUsername())) {
+                                        if (u.getPreferiti() != null && u.getPreferiti().contains(ristorante.getId())) {
+                                            isPref = true;
+                                        }
+                                        break;
+                                    }
+                                }
+                            } catch (Exception ex) {
+                                ex.printStackTrace();
+                            }
+
+                            if(isPref) iconView2.setImage(cuorePieno); //imposto inizialmente il bottone cuore pieno o vuoto in base a com'è prima della modifiche
+                            else iconView2.setImage(cuoreVuoto);
+
+                            prefButton.setOnAction(e -> {
+                                try {
+                                    SessionManager.idRist = ristorante.getId();
+
+                                    // Rileggi lo stato aggiornato dei preferiti ogni volta
+                                    ObjectMapper mapper = new ObjectMapper();
+                                    mapper.registerModule(new com.fasterxml.jackson.datatype.jsr310.JavaTimeModule());
+                                    File file = new File("fileUtenti.json");
+                                    JsonNode root = mapper.readTree(file);
+                                    JsonNode utentiNode = root.get("Utenti");
+                                    List<Utente> utenti = Arrays.asList(mapper.treeToValue(utentiNode, Utente[].class));
+
+                                    boolean currentlyInFavorites = false;
+
+                                    for (Utente u : utenti) {
+                                        if (u.getUsername().equals(SessionManager.getInstance().getUsername())) {
+                                            currentlyInFavorites = u.getPreferiti() != null && u.getPreferiti().contains(SessionManager.idRist);
+                                            break;
+                                        }
+                                    }
+
+                                    if (currentlyInFavorites) {
+                                        removePrefe("fileUtenti.json");
+                                        iconView2.setImage(cuoreVuoto);
+                                    } else {
+                                        addPrefe("fileUtenti.json");
+                                        iconView2.setImage(cuorePieno);
+                                    }
+
+                                } catch (IOException ex) {
+                                    ex.printStackTrace();
+                                }
+                            });
+
+                            ColumnConstraints col1 = new ColumnConstraints();
+                            col1.setPercentWidth(35);
+                            ColumnConstraints col2 = new ColumnConstraints();
+                            col2.setPercentWidth(35);
+                            ColumnConstraints col3 = new ColumnConstraints();
+                            col3.setPercentWidth(20);
+                            ColumnConstraints col4 = new ColumnConstraints();
+                            col4.setPercentWidth(25);
+                            ColumnConstraints col5 = new ColumnConstraints();
+                            col5.setPercentWidth(25);
+                            grid.add(prefButton, 5, 0);
+                            ColumnConstraints col6 = new ColumnConstraints();
+                            col6.setPercentWidth(25);
+                            grid.getColumnConstraints().addAll(col1, col2, col3, col4, col5,col6);
+                            grid.getStyleClass().add("grid-list");
+                            setGraphic(grid);
+                        }
+
                         // Espansione colonne
-                        ColumnConstraints col1 = new ColumnConstraints();
-                        col1.setPercentWidth(65);
-                        ColumnConstraints col2 = new ColumnConstraints();
-                        col2.setPercentWidth(50);
-                        ColumnConstraints col3 = new ColumnConstraints();
-                        col3.setPercentWidth(65);
-                        ColumnConstraints col4 = new ColumnConstraints();
-                        col4.setPercentWidth(40);
-                        ColumnConstraints col5 = new ColumnConstraints();
-                        col5.setPercentWidth(40);
-                        grid.getColumnConstraints().addAll(col1, col2, col3, col4, col5);
-                        grid.getStyleClass().add("grid-list");
-                        setGraphic(grid);
+                        if(SessionManager.pagina == 1 || SessionManager.pagina == 0) {
+                            ColumnConstraints col1 = new ColumnConstraints();
+                            col1.setPercentWidth(35);
+                            ColumnConstraints col2 = new ColumnConstraints();
+                            col2.setPercentWidth(35);
+                            ColumnConstraints col3 = new ColumnConstraints();
+                            col3.setPercentWidth(25);
+                            ColumnConstraints col4 = new ColumnConstraints();
+                            col4.setPercentWidth(35);
+                            ColumnConstraints col5 = new ColumnConstraints();
+                            col5.setPercentWidth(35);
+                            grid.getColumnConstraints().addAll(col1, col2, col3, col4, col5);
+                            grid.getStyleClass().add("grid-list");
+                            setGraphic(grid);
+                        }
                     }
                 }
             });
@@ -202,20 +328,39 @@ public class StartPageController {
                         Label ratingLabel = new Label(""+ristorante.getMediaRec());
                         ratingLabel.getStyleClass().add("textNormal");
 
-                        Button dettaglioButton = new Button("Dettaglio");
+                        //ICONA DETTAGGLIO
+                        Button dettaglioButton = new Button();
                         dettaglioButton.getStyleClass().add("accent-button");
+                        Image icona = new Image(getClass().getResource("/com/example/the_knife/icone/dettaglio.png").toExternalForm());
+                        ImageView iconView3 = new ImageView();//creo l'immagine visibile in nel bottone quando poi gli assegnerò le due immagini
+                        iconView3.setFitWidth(24);
+                        iconView3.setFitHeight(24);//setto il ridimensionamento
+                        dettaglioButton.setGraphic(iconView3);
+                        iconView3.setImage(icona);
                         dettaglioButton.setOnAction(e -> {
                             try {
                                 Integer idRist =  ristorante.getId();
                                 SessionManager.idRist = idRist;
+                                SessionManager.counter = 1;
+                                SessionManager.counter1 = 1;
+                                SessionManager.counter2 = 1;
                                 System.out.println("Id ristorante: " + idRist);
                                 goTo(e, pagDettagli);
                             } catch (IOException ex) {
                                 throw new RuntimeException(ex);
                             }
                         });
-                        Button recensioneButton = new Button("Recensioni");
+
+                        //ICONA RECENSIONE
+                        Button recensioneButton = new Button();
                         recensioneButton.getStyleClass().add("accent-button");
+                        Image icona2 = new Image(getClass().getResource("/com/example/the_knife/icone/recensioni.png").toExternalForm());
+                        ImageView iconView4 = new ImageView();//creo l'immagine visibile in nel bottone quando poi gli assegnerò le due immagini
+                        iconView4.setFitWidth(24);
+                        iconView4.setFitHeight(24);//setto il ridimensionamento
+                        recensioneButton.setGraphic(iconView4);
+                        iconView4.setImage(icona2);
+
                         recensioneButton.setOnAction(e -> {
                             try {
                                 Integer idRist = (Integer) ristorante.getId();
@@ -234,20 +379,112 @@ public class StartPageController {
                         grid.add(dettaglioButton, 3, 0);
                         grid.add(recensioneButton, 4, 0);
 
+                        //BOTTONE PREFETITI
+                        //CARICO LE IMMAGINI DI ICONA PER IL BOTTONE DEI PREFERITI
+                        Button prefButton = new Button();
+                        prefButton.getStyleClass().add("cuore-button");
+                        Image cuoreVuoto = new Image(getClass().getResource("/com/example/the_knife/icone/cuoreVuoto.png").toExternalForm());
+                        Image cuorePieno = new Image(getClass().getResource("/com/example/the_knife/icone/cuorePieno.png").toExternalForm());
+
+                        ImageView iconView2 = new ImageView();//creo l'immagine visibile in nel bottone quando poi gli assegnerò le due immagini
+                        iconView2.setFitWidth(24);
+                        iconView2.setFitHeight(24);//setto il ridimensionamento
+                        prefButton.setGraphic(iconView2);
+
+                        if (SessionManager.pagina == 2) {
+                            boolean isPref = false;
+                            try {
+                                ObjectMapper mapper = new ObjectMapper();
+                                mapper.registerModule(new com.fasterxml.jackson.datatype.jsr310.JavaTimeModule());
+                                File file = new File("fileUtenti.json");
+                                JsonNode root = mapper.readTree(file);
+                                JsonNode utentiNode = root.get("Utenti");
+                                List<com.example.the_knife.Utente.Utente> utenti = Arrays.asList(
+                                        mapper.treeToValue(utentiNode, com.example.the_knife.Utente.Utente[].class)
+                                );
+                                for (com.example.the_knife.Utente.Utente u : utenti) {
+                                    if (u.getUsername().equals(SessionManager.getInstance().getUsername())) {
+                                        if (u.getPreferiti() != null && u.getPreferiti().contains(ristorante.getId())) {
+                                            isPref = true;
+                                        }
+                                        break;
+                                    }
+                                }
+                            } catch (Exception ex) {
+                                ex.printStackTrace();
+                            }
+
+                            if(isPref) iconView2.setImage(cuorePieno); //imposto inizialmente il bottone cuore pieno o vuoto in base a com'è prima della modifiche
+                            else iconView2.setImage(cuoreVuoto);
+
+                            prefButton.setOnAction(e -> {
+                                try {
+                                    SessionManager.idRist = ristorante.getId();
+
+                                    // Rileggi lo stato aggiornato dei preferiti ogni volta
+                                    ObjectMapper mapper = new ObjectMapper();
+                                    mapper.registerModule(new com.fasterxml.jackson.datatype.jsr310.JavaTimeModule());
+                                    File file = new File("fileUtenti.json");
+                                    JsonNode root = mapper.readTree(file);
+                                    JsonNode utentiNode = root.get("Utenti");
+                                    List<Utente> utenti = Arrays.asList(mapper.treeToValue(utentiNode, Utente[].class));
+
+                                    boolean currentlyInFavorites = false;
+
+                                    for (Utente u : utenti) {
+                                        if (u.getUsername().equals(SessionManager.getInstance().getUsername())) {
+                                            currentlyInFavorites = u.getPreferiti() != null && u.getPreferiti().contains(SessionManager.idRist);
+                                            break;
+                                        }
+                                    }
+
+                                    if (currentlyInFavorites) {
+                                        removePrefe("fileUtenti.json");
+                                        iconView2.setImage(cuoreVuoto);
+                                    } else {
+                                        addPrefe("fileUtenti.json");
+                                        iconView2.setImage(cuorePieno);
+                                    }
+
+                                } catch (IOException ex) {
+                                    ex.printStackTrace();
+                                }
+                            });
+
+                            ColumnConstraints col1 = new ColumnConstraints();
+                            col1.setPercentWidth(35);
+                            ColumnConstraints col2 = new ColumnConstraints();
+                            col2.setPercentWidth(35);
+                            ColumnConstraints col3 = new ColumnConstraints();
+                            col3.setPercentWidth(20);
+                            ColumnConstraints col4 = new ColumnConstraints();
+                            col4.setPercentWidth(25);
+                            ColumnConstraints col5 = new ColumnConstraints();
+                            col5.setPercentWidth(25);
+                            grid.add(prefButton, 5, 0);
+                            ColumnConstraints col6 = new ColumnConstraints();
+                            col6.setPercentWidth(25);
+                            grid.getColumnConstraints().addAll(col1, col2, col3, col4, col5,col6);
+                            grid.getStyleClass().add("grid-list");
+                            setGraphic(grid);
+                        }
+
                         // Espansione colonne
-                        ColumnConstraints col1 = new ColumnConstraints();
-                        col1.setPercentWidth(65);
-                        ColumnConstraints col2 = new ColumnConstraints();
-                        col2.setPercentWidth(50);
-                        ColumnConstraints col3 = new ColumnConstraints();
-                        col3.setPercentWidth(65);
-                        ColumnConstraints col4 = new ColumnConstraints();
-                        col4.setPercentWidth(40);
-                        ColumnConstraints col5 = new ColumnConstraints();
-                        col5.setPercentWidth(40);
-                        grid.getColumnConstraints().addAll(col1, col2, col3, col4, col5);
-                        grid.getStyleClass().add("grid-list");
-                        setGraphic(grid);
+                        if(SessionManager.pagina == 1 || SessionManager.pagina == 0) {
+                            ColumnConstraints col1 = new ColumnConstraints();
+                            col1.setPercentWidth(35);
+                            ColumnConstraints col2 = new ColumnConstraints();
+                            col2.setPercentWidth(35);
+                            ColumnConstraints col3 = new ColumnConstraints();
+                            col3.setPercentWidth(25);
+                            ColumnConstraints col4 = new ColumnConstraints();
+                            col4.setPercentWidth(35);
+                            ColumnConstraints col5 = new ColumnConstraints();
+                            col5.setPercentWidth(35);
+                            grid.getColumnConstraints().addAll(col1, col2, col3, col4, col5);
+                            grid.getStyleClass().add("grid-list");
+                            setGraphic(grid);
+                        }
                     }
                 }
             });
@@ -267,9 +504,97 @@ public class StartPageController {
         }
     }
 
+    public void addPrefe(String fileJson) throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.registerModule(new JavaTimeModule());
+
+        // Lettura dal classpath (non da fileJson!)
+        InputStream input = getClass().getResourceAsStream("/com/example/the_knife/data/fileUtenti.json");
+        if (input == null) {
+            System.out.println("Impossibile trovare il file nel classpath.");
+            return;
+        }
+
+        JsonNode root = mapper.readTree(input);
+        JsonNode utentiNode = root.get("Utenti");
+
+        List<Utente> utenti = Arrays.asList(mapper.treeToValue(utentiNode, Utente[].class));
+        List<Utente> listaModificabile = new ArrayList<>(utenti);
+
+        for (Utente u : listaModificabile) {
+            if (u.getUsername().equals(SessionManager.getInstance().getUsername())) {
+                if (u.getPreferiti() == null) {
+                    u.setPreferiti(new ArrayList<>());
+                }
+                if (!u.getPreferiti().contains(SessionManager.idRist)) {
+                    u.getPreferiti().add(SessionManager.idRist);
+                }
+                break;  // utente trovato: esco dal ciclo
+            }
+        }
+
+        ObjectNode nuovoRoot = mapper.createObjectNode();
+        nuovoRoot.set("Utenti", mapper.valueToTree(listaModificabile));
+        // Scrivi sul file passato come parametro (NON sul classpath, che è in sola lettura)
+        mapper.writerWithDefaultPrettyPrinter().writeValue(new File(fileJson), nuovoRoot);
+    }
+
+
+    public void removePrefe(String fileJson) throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.registerModule(new JavaTimeModule());
+
+        // Lettura dal classpath (non da fileJson!)
+        InputStream input = getClass().getResourceAsStream("/com/example/the_knife/data/fileUtenti.json");
+        if (input == null) {
+            System.out.println("Impossibile trovare il file nel classpath.");
+            return;
+        }
+
+        JsonNode root = mapper.readTree(input);
+        JsonNode utentiNode = root.get("Utenti");
+
+        List<Utente> utenti = Arrays.asList(mapper.treeToValue(utentiNode, Utente[].class));
+        List<Utente> listaModificabile = new ArrayList<>(utenti);
+
+        boolean removed = false;
+
+        for (Utente u : listaModificabile) {
+            if (u.getUsername().equals(SessionManager.getInstance().getUsername())) {
+                List<Integer> preferiti = u.getPreferiti();
+
+                if (preferiti != null && preferiti.contains(SessionManager.idRist)) {
+                    removed = preferiti.remove(Integer.valueOf(SessionManager.idRist));
+                    System.out.println("Ristorante " + SessionManager.idRist + " rimosso dai preferiti.");
+                } else {
+                    System.out.println("Ristorante " + SessionManager.idRist + " NON era nei preferiti.");
+                }
+            }
+        }
+
+        // Scrivi SOLO SE qualcosa è stato rimosso
+        if (removed) {
+            ObjectNode nuovoRoot = mapper.createObjectNode();
+            nuovoRoot.set("Utenti", mapper.valueToTree(listaModificabile));
+            // Scrivi sul file passato come parametro (NON sul classpath, che è in sola lettura)
+            mapper.writerWithDefaultPrettyPrinter().writeValue(new File(fileJson), nuovoRoot);
+            System.out.println("File JSON aggiornato correttamente.");
+        } else {
+            System.out.println("Nessuna modifica effettuata nel file.");
+        }
+    }
+
+
+
     public List<Ristorante> getRistoranti(String fileRisto, int id) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
-        JsonNode root = mapper.readTree(new File(fileRisto));
+        mapper.registerModule(new JavaTimeModule());
+        InputStream input = getClass().getResourceAsStream("/com/example/the_knife/data/ristoranti.json");
+        if (input == null) {
+            System.err.println("File non trovato nella cartella resources: ristoranti.json");
+            return Collections.emptyList();
+        }
+        JsonNode root = mapper.readTree(input);
         JsonNode ristorantiNode = root.get("ristoranti");
 
         List<Ristorante> ristoranti = Arrays.asList(mapper.treeToValue(ristorantiNode, Ristorante[].class));
@@ -283,15 +608,24 @@ public class StartPageController {
         return mieiRisto;
     }
 
-    public List<Ristorante> getRistorantiTop(String fileRisto) throws IOException {
+    public List<Ristorante> getRistorantiTop() throws IOException {
         ObjectMapper mapper = new ObjectMapper();
-        JsonNode root = mapper.readTree(new File(fileRisto));
+        mapper.registerModule(new JavaTimeModule());
+        InputStream input = getClass().getResourceAsStream("/com/example/the_knife/data/top10rist.json");
+        if (input == null) {
+            System.err.println("File non trovato nella cartella resources: top10rist.json");
+            return Collections.emptyList();
+        }
+
+        JsonNode root = mapper.readTree(input);
         JsonNode ristorantiNode = root.get("ristoranti");
 
-        List<Ristorante> ristoranti = Arrays.asList(mapper.treeToValue(ristorantiNode, Ristorante[].class));
-        List<Ristorante> mieiRisto = new ArrayList<>();
-        mieiRisto.addAll(ristoranti);
-        return mieiRisto;
+        if (ristorantiNode == null || !ristorantiNode.isArray()) {
+            return Collections.emptyList();
+        }
+
+        Ristorante[] array = mapper.treeToValue(ristorantiNode, Ristorante[].class);
+        return new ArrayList<>(Arrays.asList(array));
     }
 
 
@@ -299,7 +633,6 @@ public class StartPageController {
     @FXML
     private void goToLogin(ActionEvent event) throws IOException {
         try{
-            SessionManager.counter = 0;
             FXMLLoader loader = new FXMLLoader(getClass().getResource("loginPage.fxml"));
             Scene loginScene = new Scene(loader.load(),900,800);
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -353,27 +686,39 @@ public class StartPageController {
         printListRist("dettaglioRistoranteSearch.fxml","recensioneRistoranteSearch.fxml");
     }
 
-    public void top10Ristoranti(String fileJson,String filetop10) throws IOException {
+    public void top10Ristoranti(String fileJson, String filetop10) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
-        JsonNode root = mapper.readTree(new File(fileJson));
-        JsonNode tuttiRistNode = root.get("ristoranti");
-        List<Ristorante> tuttiRist = Arrays.asList(mapper.treeToValue(tuttiRistNode, Ristorante[].class));
+        mapper.registerModule(new JavaTimeModule());
 
-        JsonNode top10RistNode = root.get("ristoranti");
-        List<Ristorante> top10Rist = Arrays.asList(mapper.treeToValue(top10RistNode, Ristorante[].class));
-
-        List<Ristorante> listaModificabileTop10 = new ArrayList<>(top10Rist);
-
-        ordinaRist(tuttiRist);
-
-        for(int i=0 ; i<10; i++){
-            aggiungiRistorante(tuttiRist.get(i),filetop10);
+        // Lettura dal classpath (non da fileJson!)
+        InputStream input = getClass().getResourceAsStream("/com/example/the_knife/data/fristoranti.json");
+        if (input == null) {
+            System.out.println("Impossibile trovare il file nel classpath.");
+            return;
         }
 
+        JsonNode root = mapper.readTree(input);
+        JsonNode tuttiRistNode = root.get("ristoranti");
+
+        List<Ristorante> tuttiRist = Arrays.asList(mapper.treeToValue(tuttiRistNode, Ristorante[].class));
+
+        // Ordina la lista (supponiamo ordinaRist faccia questo)
+        ordinaRist(tuttiRist);
+
+        // Prendi i primi 10
+        List<Ristorante> top10 = new ArrayList<>();
+
+        for (int i = 0; i < 10 && i < tuttiRist.size(); i++) {
+            top10.add(tuttiRist.get(i));
+        }
+
+        // Scrivi i top 10 nel file destinazione
         ObjectNode nuovoRoot = mapper.createObjectNode();
-        nuovoRoot.set("ristoranti", mapper.valueToTree(listaModificabileTop10));
+        nuovoRoot.set("ristoranti", mapper.valueToTree(top10));
         mapper.writerWithDefaultPrettyPrinter().writeValue(new File(filetop10), nuovoRoot);
+
     }
+
 
     public void ordinaRist(List<Ristorante> risultati) {
         quickSort(risultati, 0, risultati.size() - 1);
@@ -408,17 +753,16 @@ public class StartPageController {
     public static void aggiungiRistorante(Ristorante nuovo, String fileJson) {
         try {
             ObjectMapper mapper = new ObjectMapper();
-            mapper.enable(SerializationFeature.INDENT_OUTPUT);
+            mapper.registerModule(new JavaTimeModule());
 
-            File file = new File(fileJson);
-            JsonNode root;
-
-            // Se il file esiste e non è vuoto, lo leggiamo
-            if (file.exists() && file.length() > 0) {
-                root = mapper.readTree(file);
-            } else {
-                root = mapper.createObjectNode();  // nuovo root se il file è vuoto
+            // Lettura dal classpath (non da fileJson!)
+            InputStream input = StartPageController.class.getResourceAsStream("/com/example/the_knife/data/fristoranti.json");
+            if (input == null) {
+                System.out.println("Impossibile trovare il file nel classpath.");
+                return;
             }
+
+            JsonNode root = mapper.readTree(input);
 
             List<Ristorante> listaRistoranti = new ArrayList<>();
 
@@ -440,7 +784,7 @@ public class StartPageController {
             nuovoRoot.set("ristoranti", mapper.valueToTree(listaRistoranti));
 
             // Scrittura nel file
-            mapper.writeValue(file, nuovoRoot);
+            mapper.writerWithDefaultPrettyPrinter().writeValue(new File(fileJson), nuovoRoot);
 
         } catch (Exception e) {
             System.err.println("Errore durante l'aggiunta del ristorante:");
@@ -485,7 +829,13 @@ public class StartPageController {
                                             boolean delivery, boolean servizioOnline) throws IOException {
 
         ObjectMapper mapper = new ObjectMapper();
-        JsonNode root = mapper.readTree(new File(fileJson));
+        mapper.registerModule(new JavaTimeModule());
+        InputStream input = getClass().getResourceAsStream("/com/example/the_knife/data/ristoranti.json");
+        if (input == null) {
+            System.err.println("File non trovato nella cartella resources: ristoranti.json");
+            return Collections.emptyList();
+        }
+        JsonNode root = mapper.readTree(input);
         JsonNode ristorantiNode = root.get("ristoranti");
         List<Ristorante> ristoranti = Arrays.asList(mapper.treeToValue(ristorantiNode, Ristorante[].class));
         List<Ristorante> risultati = new ArrayList<>();
