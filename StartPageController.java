@@ -7,7 +7,6 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -27,7 +26,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import static com.example.the_knife.Utente.SessionManager.idRist;
 
@@ -93,7 +91,7 @@ public class StartPageController {
         try {
             SessionManager.counter = 0;
             System.out.println("listaRistLabel è null? " + (listaRistLabel == null));
-            List<Ristorante> mieiRistoranti = getRistorantiTop();
+            List<Ristorante> mieiRistoranti = getRistorantiTop("top10rist.json");
             listaRistLabel.setItems(FXCollections.observableArrayList(mieiRistoranti));
 
             listaRistLabel.setCellFactory(param -> new ListCell<>() {
@@ -506,16 +504,10 @@ public class StartPageController {
 
     public void addPrefe(String fileJson) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
-        mapper.registerModule(new JavaTimeModule());
+        mapper.registerModule(new com.fasterxml.jackson.datatype.jsr310.JavaTimeModule());
+        File file = new File(fileJson);
 
-        // Lettura dal classpath (non da fileJson!)
-        InputStream input = getClass().getResourceAsStream("/com/example/the_knife/data/fileUtenti.json");
-        if (input == null) {
-            System.out.println("Impossibile trovare il file nel classpath.");
-            return;
-        }
-
-        JsonNode root = mapper.readTree(input);
+        JsonNode root = mapper.readTree(file);
         JsonNode utentiNode = root.get("Utenti");
 
         List<Utente> utenti = Arrays.asList(mapper.treeToValue(utentiNode, Utente[].class));
@@ -535,23 +527,19 @@ public class StartPageController {
 
         ObjectNode nuovoRoot = mapper.createObjectNode();
         nuovoRoot.set("Utenti", mapper.valueToTree(listaModificabile));
-        // Scrivi sul file passato come parametro (NON sul classpath, che è in sola lettura)
-        mapper.writerWithDefaultPrettyPrinter().writeValue(new File(fileJson), nuovoRoot);
+
+
+        mapper.writerWithDefaultPrettyPrinter().writeValue(file, nuovoRoot);
+
     }
 
 
     public void removePrefe(String fileJson) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
-        mapper.registerModule(new JavaTimeModule());
+        mapper.registerModule(new com.fasterxml.jackson.datatype.jsr310.JavaTimeModule());
+        File file = new File(fileJson);
 
-        // Lettura dal classpath (non da fileJson!)
-        InputStream input = getClass().getResourceAsStream("/com/example/the_knife/data/fileUtenti.json");
-        if (input == null) {
-            System.out.println("Impossibile trovare il file nel classpath.");
-            return;
-        }
-
-        JsonNode root = mapper.readTree(input);
+        JsonNode root = mapper.readTree(file);
         JsonNode utentiNode = root.get("Utenti");
 
         List<Utente> utenti = Arrays.asList(mapper.treeToValue(utentiNode, Utente[].class));
@@ -572,12 +560,10 @@ public class StartPageController {
             }
         }
 
-        // Scrivi SOLO SE qualcosa è stato rimosso
         if (removed) {
             ObjectNode nuovoRoot = mapper.createObjectNode();
             nuovoRoot.set("Utenti", mapper.valueToTree(listaModificabile));
-            // Scrivi sul file passato come parametro (NON sul classpath, che è in sola lettura)
-            mapper.writerWithDefaultPrettyPrinter().writeValue(new File(fileJson), nuovoRoot);
+            mapper.writerWithDefaultPrettyPrinter().writeValue(file, nuovoRoot);
             System.out.println("File JSON aggiornato correttamente.");
         } else {
             System.out.println("Nessuna modifica effettuata nel file.");
@@ -588,13 +574,7 @@ public class StartPageController {
 
     public List<Ristorante> getRistoranti(String fileRisto, int id) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
-        mapper.registerModule(new JavaTimeModule());
-        InputStream input = getClass().getResourceAsStream("/com/example/the_knife/data/ristoranti.json");
-        if (input == null) {
-            System.err.println("File non trovato nella cartella resources: ristoranti.json");
-            return Collections.emptyList();
-        }
-        JsonNode root = mapper.readTree(input);
+        JsonNode root = mapper.readTree(new File(fileRisto));
         JsonNode ristorantiNode = root.get("ristoranti");
 
         List<Ristorante> ristoranti = Arrays.asList(mapper.treeToValue(ristorantiNode, Ristorante[].class));
@@ -608,24 +588,15 @@ public class StartPageController {
         return mieiRisto;
     }
 
-    public List<Ristorante> getRistorantiTop() throws IOException {
+    public List<Ristorante> getRistorantiTop(String fileRisto) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
-        mapper.registerModule(new JavaTimeModule());
-        InputStream input = getClass().getResourceAsStream("/com/example/the_knife/data/top10rist.json");
-        if (input == null) {
-            System.err.println("File non trovato nella cartella resources: top10rist.json");
-            return Collections.emptyList();
-        }
-
-        JsonNode root = mapper.readTree(input);
+        JsonNode root = mapper.readTree(new File(fileRisto));
         JsonNode ristorantiNode = root.get("ristoranti");
 
-        if (ristorantiNode == null || !ristorantiNode.isArray()) {
-            return Collections.emptyList();
-        }
-
-        Ristorante[] array = mapper.treeToValue(ristorantiNode, Ristorante[].class);
-        return new ArrayList<>(Arrays.asList(array));
+        List<Ristorante> ristoranti = Arrays.asList(mapper.treeToValue(ristorantiNode, Ristorante[].class));
+        List<Ristorante> mieiRisto = new ArrayList<>();
+        mieiRisto.addAll(ristoranti);
+        return mieiRisto;
     }
 
 
@@ -686,39 +657,27 @@ public class StartPageController {
         printListRist("dettaglioRistoranteSearch.fxml","recensioneRistoranteSearch.fxml");
     }
 
-    public void top10Ristoranti(String fileJson, String filetop10) throws IOException {
+    public void top10Ristoranti(String fileJson,String filetop10) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
-        mapper.registerModule(new JavaTimeModule());
-
-        // Lettura dal classpath (non da fileJson!)
-        InputStream input = getClass().getResourceAsStream("/com/example/the_knife/data/fristoranti.json");
-        if (input == null) {
-            System.out.println("Impossibile trovare il file nel classpath.");
-            return;
-        }
-
-        JsonNode root = mapper.readTree(input);
+        JsonNode root = mapper.readTree(new File(fileJson));
         JsonNode tuttiRistNode = root.get("ristoranti");
-
         List<Ristorante> tuttiRist = Arrays.asList(mapper.treeToValue(tuttiRistNode, Ristorante[].class));
 
-        // Ordina la lista (supponiamo ordinaRist faccia questo)
+        JsonNode top10RistNode = root.get("ristoranti");
+        List<Ristorante> top10Rist = Arrays.asList(mapper.treeToValue(top10RistNode, Ristorante[].class));
+
+        List<Ristorante> listaModificabileTop10 = new ArrayList<>(top10Rist);
+
         ordinaRist(tuttiRist);
 
-        // Prendi i primi 10
-        List<Ristorante> top10 = new ArrayList<>();
-
-        for (int i = 0; i < 10 && i < tuttiRist.size(); i++) {
-            top10.add(tuttiRist.get(i));
+        for(int i=0 ; i<10; i++){
+            aggiungiRistorante(tuttiRist.get(i),filetop10);
         }
 
-        // Scrivi i top 10 nel file destinazione
         ObjectNode nuovoRoot = mapper.createObjectNode();
-        nuovoRoot.set("ristoranti", mapper.valueToTree(top10));
+        nuovoRoot.set("ristoranti", mapper.valueToTree(listaModificabileTop10));
         mapper.writerWithDefaultPrettyPrinter().writeValue(new File(filetop10), nuovoRoot);
-
     }
-
 
     public void ordinaRist(List<Ristorante> risultati) {
         quickSort(risultati, 0, risultati.size() - 1);
@@ -753,16 +712,17 @@ public class StartPageController {
     public static void aggiungiRistorante(Ristorante nuovo, String fileJson) {
         try {
             ObjectMapper mapper = new ObjectMapper();
-            mapper.registerModule(new JavaTimeModule());
+            mapper.enable(SerializationFeature.INDENT_OUTPUT);
 
-            // Lettura dal classpath (non da fileJson!)
-            InputStream input = StartPageController.class.getResourceAsStream("/com/example/the_knife/data/fristoranti.json");
-            if (input == null) {
-                System.out.println("Impossibile trovare il file nel classpath.");
-                return;
+            File file = new File(fileJson);
+            JsonNode root;
+
+            // Se il file esiste e non è vuoto, lo leggiamo
+            if (file.exists() && file.length() > 0) {
+                root = mapper.readTree(file);
+            } else {
+                root = mapper.createObjectNode();  // nuovo root se il file è vuoto
             }
-
-            JsonNode root = mapper.readTree(input);
 
             List<Ristorante> listaRistoranti = new ArrayList<>();
 
@@ -784,7 +744,7 @@ public class StartPageController {
             nuovoRoot.set("ristoranti", mapper.valueToTree(listaRistoranti));
 
             // Scrittura nel file
-            mapper.writerWithDefaultPrettyPrinter().writeValue(new File(fileJson), nuovoRoot);
+            mapper.writeValue(file, nuovoRoot);
 
         } catch (Exception e) {
             System.err.println("Errore durante l'aggiunta del ristorante:");
@@ -829,13 +789,7 @@ public class StartPageController {
                                             boolean delivery, boolean servizioOnline) throws IOException {
 
         ObjectMapper mapper = new ObjectMapper();
-        mapper.registerModule(new JavaTimeModule());
-        InputStream input = getClass().getResourceAsStream("/com/example/the_knife/data/ristoranti.json");
-        if (input == null) {
-            System.err.println("File non trovato nella cartella resources: ristoranti.json");
-            return Collections.emptyList();
-        }
-        JsonNode root = mapper.readTree(input);
+        JsonNode root = mapper.readTree(new File(fileJson));
         JsonNode ristorantiNode = root.get("ristoranti");
         List<Ristorante> ristoranti = Arrays.asList(mapper.treeToValue(ristorantiNode, Ristorante[].class));
         List<Ristorante> risultati = new ArrayList<>();

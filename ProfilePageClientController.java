@@ -66,10 +66,7 @@ public class ProfilePageClientController extends ProfilePageRistController {
     protected void goBack(ActionEvent event) throws IOException {
         super.goTo(event, "dashBoardClient.fxml");
     }
-    @FXML
-    protected void onRecensioniClick(ActionEvent event) throws IOException {
-        super.goTo(event,"recensioniClient.fxml");
-    }
+
     @FXML
     protected void onRistorantiClick(ActionEvent event) throws IOException {
         super.goTo(event,"ristorantiClient.fxml");

@@ -8,6 +8,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 
@@ -34,7 +36,7 @@ public class DettaglioRistController extends RistorantiRistController {
 
     @FXML
     public void initialize() throws IOException {
-        welcomeLabel.setText("DETTAGLI DEL RISTORANTE " + user);
+        welcomeLabel.setText("dettagli rist " + user);
         System.out.println("Utente: " + user + " Id: " + id + " Ruolo: " + ruolo);
         System.out.println("Id ristorante dettagliato: " + idRist);
         printDettagliRist();
@@ -51,8 +53,14 @@ public class DettaglioRistController extends RistorantiRistController {
             nomeLabel.getStyleClass().add("textNormal");
             Label nome = new Label(rist.getName());
             nome.getStyleClass().add("textNormal");
-            Button modifyname = new Button("Modifica");
+            Button modifyname = new Button();
             modifyname.getStyleClass().add("accent-button");
+            Image modifica = new Image(getClass().getResource("/com/example/the_knife/icone/modifica.png").toExternalForm());
+            ImageView iconView = new ImageView();//creo l'immagine visibile in nel bottone quando poi gli assegnerò le due immagini
+            iconView.setFitWidth(24);
+            iconView.setFitHeight(24);//setto il ridimensionamento
+            modifyname.setGraphic(iconView);
+            iconView.setImage(modifica);
             modifyname.setOnAction(e -> {
                 SessionManager.idScelta = 1;
                 super.openPopup("Cambia nome");
@@ -62,8 +70,13 @@ public class DettaglioRistController extends RistorantiRistController {
             indirizzoLabel.getStyleClass().add("textNormal");
             Label indirizzo = new Label(rist.getAddress());
             indirizzo.getStyleClass().add("textNormal");
-            Button modifyadress = new Button("Modifica");
+            Button modifyadress = new Button();
             modifyadress.getStyleClass().add("accent-button");
+            ImageView iconView2 = new ImageView();//creo l'immagine visibile in nel bottone quando poi gli assegnerò le due immagini
+            iconView2.setFitWidth(24);
+            iconView2.setFitHeight(24);//setto il ridimensionamento
+            modifyadress.setGraphic(iconView2);
+            iconView2.setImage(modifica);
             modifyadress.setOnAction(e -> {
                 SessionManager.idScelta = 2;
                 super.openPopup("Cambia indirizzo");
@@ -73,8 +86,13 @@ public class DettaglioRistController extends RistorantiRistController {
             cittaLabel.getStyleClass().add("textNormal");
             Label citta = new Label(rist.getLocation());
             citta.getStyleClass().add("textNormal");
-            Button modifyCity = new Button("Modifica");
+            Button modifyCity = new Button();
             modifyCity.getStyleClass().add("accent-button");
+            ImageView iconView3 = new ImageView();//creo l'immagine visibile in nel bottone quando poi gli assegnerò le due immagini
+            iconView3.setFitWidth(24);
+            iconView3.setFitHeight(24);//setto il ridimensionamento
+            modifyCity.setGraphic(iconView3);
+            iconView3.setImage(modifica);
             modifyCity.setOnAction(e -> {
                 SessionManager.idScelta = 3;
                 super.openPopup("Cambia città");
@@ -84,8 +102,13 @@ public class DettaglioRistController extends RistorantiRistController {
             cucinaLabel.getStyleClass().add("textNormal");
             Label cucina = new Label(rist.getCuisine());
             cucina.getStyleClass().add("textNormal");
-            Button modifyCusine = new Button("Modifica");
+            Button modifyCusine = new Button();
             modifyCusine.getStyleClass().add("accent-button");
+            ImageView iconView4 = new ImageView();//creo l'immagine visibile in nel bottone quando poi gli assegnerò le due immagini
+            iconView4.setFitWidth(24);
+            iconView4.setFitHeight(24);//setto il ridimensionamento
+            modifyCusine.setGraphic(iconView4);
+            iconView4.setImage(modifica);
             modifyCusine.setOnAction(e -> {
                 SessionManager.idScelta = 4;
                 super.openPopup("Cambia tipo cucina");
@@ -95,8 +118,13 @@ public class DettaglioRistController extends RistorantiRistController {
             telefonoLabel.getStyleClass().add("textNormal");
             Label telefono = new Label(rist.getPhoneNumber());
             telefono.getStyleClass().add("textNormal");
-            Button modifyPhone = new Button("Modifica");
+            Button modifyPhone = new Button();
             modifyPhone.getStyleClass().add("accent-button");
+            ImageView iconView5 = new ImageView();//creo l'immagine visibile in nel bottone quando poi gli assegnerò le due immagini
+            iconView5.setFitWidth(24);
+            iconView5.setFitHeight(24);//setto il ridimensionamento
+            modifyPhone.setGraphic(iconView5);
+            iconView5.setImage(modifica);
             modifyPhone.setOnAction(e -> {
                 SessionManager.idScelta = 5;
                 super.openPopup("Cambia numero di telefono");
@@ -106,8 +134,13 @@ public class DettaglioRistController extends RistorantiRistController {
             emailLabel.getStyleClass().add("textNormal");
             Label email = new Label(rist.getEmail());
             email.getStyleClass().add("textNormal");
-            Button modifyEmail = new Button("Modifica");
+            Button modifyEmail = new Button();
             modifyEmail.getStyleClass().add("accent-button");
+            ImageView iconView6 = new ImageView();//creo l'immagine visibile in nel bottone quando poi gli assegnerò le due immagini
+            iconView6.setFitWidth(24);
+            iconView6.setFitHeight(24);//setto il ridimensionamento
+            modifyEmail.setGraphic(iconView6);
+            iconView6.setImage(modifica);
             modifyEmail.setOnAction(e -> {
                 SessionManager.idScelta = 6;
                 super.openPopup("Cambia email");
@@ -117,8 +150,13 @@ public class DettaglioRistController extends RistorantiRistController {
             urlLabel.getStyleClass().add("textNormal");
             Label url = new Label(rist.getWebsiteUrl());
             url.getStyleClass().add("textNormal");
-            Button modifyUrl = new Button("Modifica");
+            Button modifyUrl = new Button();
             modifyUrl.getStyleClass().add("accent-button");
+            ImageView iconView7 = new ImageView();//creo l'immagine visibile in nel bottone quando poi gli assegnerò le due immagini
+            iconView7.setFitWidth(24);
+            iconView7.setFitHeight(24);//setto il ridimensionamento
+            modifyUrl.setGraphic(iconView7);
+            iconView7.setImage(modifica);
             modifyUrl.setOnAction(e -> {
                 SessionManager.idScelta = 7;
                 super.openPopup("Cambia Url");
@@ -128,8 +166,13 @@ public class DettaglioRistController extends RistorantiRistController {
             descrizioneLabel.getStyleClass().add("textNormal");
             Label descrizione = new Label(rist.getDescription());
             descrizione.getStyleClass().add("textNormal");
-            Button modifyDescription = new Button("Modifica");
+            Button modifyDescription = new Button();
             modifyDescription.getStyleClass().add("accent-button");
+            ImageView iconView8 = new ImageView();//creo l'immagine visibile in nel bottone quando poi gli assegnerò le due immagini
+            iconView8.setFitWidth(24);
+            iconView8.setFitHeight(24);//setto il ridimensionamento
+            modifyDescription.setGraphic(iconView8);
+            iconView8.setImage(modifica);
             modifyDescription.setOnAction(e -> {
                 SessionManager.idScelta = 8;
                 super.openPopup("Cambia descrizione");
@@ -139,8 +182,13 @@ public class DettaglioRistController extends RistorantiRistController {
             prezzoLabel.getStyleClass().add("textNormal");
             Label prezzo = new Label(rist.getPrice());
             prezzo.getStyleClass().add("textNormal");
-            Button modifyPrice = new Button("Modifica");
+            Button modifyPrice = new Button();
             modifyPrice.getStyleClass().add("accent-button");
+            ImageView iconView9 = new ImageView();//creo l'immagine visibile in nel bottone quando poi gli assegnerò le due immagini
+            iconView9.setFitWidth(24);
+            iconView9.setFitHeight(24);//setto il ridimensionamento
+            modifyPrice.setGraphic(iconView9);
+            iconView9.setImage(modifica);
             modifyPrice.setOnAction(e -> {
                 SessionManager.idScelta = 9;
                 super.openPopup("Cambia prezzo");
@@ -150,8 +198,13 @@ public class DettaglioRistController extends RistorantiRistController {
             numStelleLabel.getStyleClass().add("textNormal");
             Label stelle = new Label("" + rist.getGreenStar());
             stelle.getStyleClass().add("textNormal");
-            Button modifyStars = new Button("Modifica");
+            Button modifyStars = new Button();
             modifyStars.getStyleClass().add("accent-button");
+            ImageView iconView10 = new ImageView();//creo l'immagine visibile in nel bottone quando poi gli assegnerò le due immagini
+            iconView10.setFitWidth(24);
+            iconView10.setFitHeight(24);//setto il ridimensionamento
+            modifyStars.setGraphic(iconView10);
+            iconView10.setImage(modifica);
             modifyStars.setOnAction(e -> {
                 SessionManager.idScelta = 10;
                 super.openPopup("Cambia numero di stelle");
@@ -161,8 +214,13 @@ public class DettaglioRistController extends RistorantiRistController {
             ServiziLabel.getStyleClass().add("textNormal");
             Label servizi = new Label(rist.getFacilitiesAndServices());
             servizi.getStyleClass().add("textNormal");
-            Button modifyServices = new Button("Modifica");
+            Button modifyServices = new Button();
             modifyServices.getStyleClass().add("accent-button");
+            ImageView iconView11 = new ImageView();//creo l'immagine visibile in nel bottone quando poi gli assegnerò le due immagini
+            iconView11.setFitWidth(24);
+            iconView11.setFitHeight(24);//setto il ridimensionamento
+            modifyServices.setGraphic(iconView11);
+            iconView11.setImage(modifica);
             modifyServices.setOnAction(e -> {
                 SessionManager.idScelta = 11;
                 super.openPopup("Cambia servizi");
@@ -333,11 +391,6 @@ public class DettaglioRistController extends RistorantiRistController {
     protected void goBack(ActionEvent event) throws IOException {
         SessionManager.idRist = null;
         super.goTo(event, "ristorantiRist.fxml");
-    }
-
-    public void handleLogOut(ActionEvent event) {
-        SessionManager.idRist = null;
-        super.handleLogOut(event);
     }
 
     @Override

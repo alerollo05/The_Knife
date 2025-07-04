@@ -31,7 +31,7 @@
                 <!-- BARRA DI RICERCA -->
                 <HBox spacing="10" alignment="CENTER" styleClass="search-box" prefWidth="900" maxWidth="1000">
                     <TextField fx:id="cityField"
-                               promptText="Città/Nome del ristorante"
+                               promptText="Città/Nome ristorante"
                                style="-fx-background-color: #3c3c3c"
                                prefHeight="60"
                                prefWidth="210"
@@ -67,7 +67,6 @@
 
                     <Button fx:id="searchButton"
                             defaultButton="true"
-                            text="Cerca"
                             onAction="#onSearchClicked"
                             prefHeight="60"
                             prefWidth="80"

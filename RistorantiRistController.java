@@ -14,6 +14,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
@@ -44,14 +46,13 @@ public class RistorantiRistController extends dashBoardRistController {
     public void initialize() throws IOException {
         welcomeLabel.setText("I TUOI RISTORANTI " + user);
         System.out.println("Utente: " + user + " Id: " + id + " Ruolo: " + ruolo);
-
         printListRist();
-
     }
 
     public void printListRist(){
         try {
             List<Ristorante> mieiRistoranti = this.getRistoranti("ristoranti.json", id);
+
             listaRistLabel.setItems(FXCollections.observableArrayList(mieiRistoranti));
 
             listaRistLabel.setCellFactory(param -> new ListCell<>() {
@@ -70,16 +71,25 @@ public class RistorantiRistController extends dashBoardRistController {
                         grid.setPadding(new Insets(5));
 
                         Label nomeLabel = new Label(ristorante.getName());
-                        nomeLabel.getStyleClass().add("textNormal");
+                        nomeLabel.getStyleClass().add("textNormal3");
 
                         Label indirizzoLabel = new Label(ristorante.getLocation());
-                        indirizzoLabel.getStyleClass().add("textNormal");
+                        indirizzoLabel.getStyleClass().add("textNormal3");
 
                         Label cucinaLabel = new Label(ristorante.getCuisine());
-                        cucinaLabel.getStyleClass().add("textNormal");
+                        cucinaLabel.getStyleClass().add("textNormal3");
 
-                        Button dettaglioButton = new Button("Dettaglio");
+                        Label ratingLabel = new Label(""+ristorante.getMediaRec());
+                        ratingLabel.getStyleClass().add("textNormal3");
+
+                        Button dettaglioButton = new Button();
                         dettaglioButton.getStyleClass().add("accent-button");
+                        Image icona = new Image(getClass().getResource("/com/example/the_knife/icone/dettaglio.png").toExternalForm());
+                        ImageView iconView = new ImageView();//creo l'immagine visibile in nel bottone quando poi gli assegnerò le due immagini
+                        iconView.setFitWidth(24);
+                        iconView.setFitHeight(24);//setto il ridimensionamento
+                        dettaglioButton.setGraphic(iconView);
+                        iconView.setImage(icona);
                         dettaglioButton.setOnAction(e -> {
                             try {
                                 Integer idRist =  ristorante.getId();
@@ -90,8 +100,14 @@ public class RistorantiRistController extends dashBoardRistController {
                                 throw new RuntimeException(ex);
                             }
                         });
-                        Button recensioneButton = new Button("Recensioni");
+                        Button recensioneButton = new Button();
                         recensioneButton.getStyleClass().add("accent-button");
+                        Image icona2 = new Image(getClass().getResource("/com/example/the_knife/icone/recensioni.png").toExternalForm());
+                        ImageView iconView2 = new ImageView();//creo l'immagine visibile in nel bottone quando poi gli assegnerò le due immagini
+                        iconView2.setFitWidth(24);
+                        iconView2.setFitHeight(24);//setto il ridimensionamento
+                        recensioneButton.setGraphic(iconView2);
+                        iconView2.setImage(icona2);
                         recensioneButton.setOnAction(e -> {
                             try {
                                 Integer idRist = (Integer) ristorante.getId();
@@ -107,21 +123,24 @@ public class RistorantiRistController extends dashBoardRistController {
                         grid.add(nomeLabel, 0, 0);
                         grid.add(indirizzoLabel, 1, 0);
                         grid.add(cucinaLabel, 2, 0);
-                        grid.add(dettaglioButton, 3, 0);
-                        grid.add(recensioneButton, 4, 0);
+                        grid.add(ratingLabel, 3, 0);
+                        grid.add(dettaglioButton, 4, 0);
+                        grid.add(recensioneButton, 5, 0);
 
                         // Espansione colonne
                         ColumnConstraints col1 = new ColumnConstraints();
-                        col1.setPercentWidth(65);
+                        col1.setPercentWidth(17);
                         ColumnConstraints col2 = new ColumnConstraints();
-                        col2.setPercentWidth(50);
+                        col2.setPercentWidth(17);
                         ColumnConstraints col3 = new ColumnConstraints();
-                        col3.setPercentWidth(65);
+                        col3.setPercentWidth(17);
                         ColumnConstraints col4 = new ColumnConstraints();
-                        col4.setPercentWidth(40);
+                        col3.setPercentWidth(17);
                         ColumnConstraints col5 = new ColumnConstraints();
-                        col5.setPercentWidth(40);
-                        grid.getColumnConstraints().addAll(col1, col2, col3, col4, col5);
+                        col4.setPercentWidth(17);
+                        ColumnConstraints col6 = new ColumnConstraints();
+                        col5.setPercentWidth(17);
+                        grid.getColumnConstraints().addAll(col1, col2, col3, col4, col5, col6);
                         grid.getStyleClass().add("grid-list");
                         setGraphic(grid);
                     }
@@ -168,21 +187,7 @@ public class RistorantiRistController extends dashBoardRistController {
         super.onProfileClick(event);
     }
 
-    public List<Ristorante> getRistoranti(String fileRisto, int id) throws IOException {
-        ObjectMapper mapper = new ObjectMapper();
-        JsonNode root = mapper.readTree(new File(fileRisto));
-        JsonNode ristorantiNode = root.get("ristoranti");
 
-        List<Ristorante> ristoranti = Arrays.asList(mapper.treeToValue(ristorantiNode, Ristorante[].class));
-        List<Ristorante> mieiRisto = new ArrayList<>();
-
-        for (Ristorante r : ristoranti) {
-            if (r.getIdRistoratore() == id) {
-                mieiRisto.add(r);
-            }
-        }
-        return mieiRisto;
-    }
 
     public Ristorante getRistoranteById(String fileRisto, int id) throws IOException {
         ObjectMapper mapper = new ObjectMapper();

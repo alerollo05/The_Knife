@@ -16,7 +16,6 @@
         <top>
             <HBox alignment="TOP_RIGHT" spacing="10">
                 <Button onAction="#onRistorantiClick" text="RISTORANTI PREFERITI" styleClass="menu-button"/>
-                <Button onAction="#onRecensioniClick" text="MIE RECENSIONI" styleClass="menu-button"/>
                 <Button text="INDIETRO" onAction="#goBack" styleClass="menu-button"/>
                 <Button text="ESCI" onAction="#handleLogOut" styleClass="menu-button"/>
                 <Button text="CHIUDI" onAction="#closeProgram" styleClass="menu-button"/>

@@ -5,6 +5,8 @@
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
 <StackPane styleClass="root" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.the_knife.Ristoratore.newRestaurantController">
     <BorderPane styleClass="root">
 
@@ -89,7 +91,15 @@
                         </GridPane>
 
                         <!-- SUBMIT BUTTON -->
-                        <Button text="Aggiungi" defaultButton="true" onAction="#handleAddRist" styleClass="accent-button"/>
+                        <Button  defaultButton="true" onAction="#handleAddRist" styleClass="accent-button">
+                            <graphic>
+                                <ImageView fitWidth="24" fitHeight="24">
+                                    <image>
+                                        <Image url="@/com/example/the_knife/icone/aggiungiRistorante.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Button>
 
                     </VBox>
                 </ScrollPane>

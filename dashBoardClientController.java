@@ -1,15 +1,28 @@
 package com.example.the_knife.Cliente;
 
 import com.example.the_knife.Utente.SessionManager;
+import com.example.the_knife.Utente.Utente;
 import com.example.the_knife.loginController;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
+import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import static com.example.the_knife.Utente.SessionManager.idRist;
 
 public class dashBoardClientController extends loginController {
 
@@ -25,6 +38,7 @@ public class dashBoardClientController extends loginController {
     @FXML private ComboBox<String> priceBox;
     @FXML private ComboBox<String> deliveryBox;
     @FXML private ComboBox<String> bookingBox;
+    @FXML private Button searchButton;
 
     public void handleLogOut(ActionEvent event) {
         SessionManager.getInstance().logout();//cancello i dati dalla sessione
@@ -45,6 +59,15 @@ public class dashBoardClientController extends loginController {
     @FXML
     public void initialize() {
         System.out.println("Utente: "+user+ "Id: "+id+"Ruolo: "+ruolo);
+
+        //ICONA LENTE INGRANDIMENTO
+        searchButton.getStyleClass().add("accent-button");
+        Image lenteIngrandimento = new Image(getClass().getResource("/com/example/the_knife/icone/lenteIngrandimento.png").toExternalForm());
+        ImageView iconView = new ImageView();//creo l'immagine visibile in nel bottone quando poi gli assegnerò le due immagini
+        iconView.setFitWidth(24);
+        iconView.setFitHeight(24);//setto il ridimensionamento
+        searchButton.setGraphic(iconView);
+        iconView.setImage(lenteIngrandimento);
 
         SessionManager.pagina = 2;
         cuisineBox.setItems(FXCollections.observableArrayList(
@@ -79,6 +102,7 @@ public class dashBoardClientController extends loginController {
         }
     }
 
+
     @FXML
     private void onSearchClicked() {
         SessionManager.counter2 = 0; // reset per applicare nuovi filtri
@@ -90,11 +114,7 @@ public class dashBoardClientController extends loginController {
         SessionManager.counter2 = 0;
         goTo(event,"profilePageClient.fxml");
     }
-    @FXML
-    protected void onRecensioniClick(ActionEvent event) throws IOException {
-        SessionManager.counter2 = 0;
-        goTo(event,"recensioniClient.fxml");
-    }
+
     @FXML
     protected void onRistorantiClick(ActionEvent event) throws IOException {
         SessionManager.counter2 = 0;

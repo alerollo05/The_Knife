@@ -217,17 +217,12 @@ public class DettaglioRistoranteSearchController extends RistorantiRistControlle
 
     @FXML
     protected void goBack(ActionEvent event) throws IOException {
-        idRist = null;
-
-        //In base alla pagina aggiorno il counter in mmodo da avere il riferimento
         if(SessionManager.pagina == 0) {
-            SessionManager.counter = 1;
+            if(SessionManager.counter != 1) SessionManager.counter = 0;
             super.goTo(event, "startPage.fxml");
         }else if(SessionManager.pagina == 1) {
-            SessionManager.counter1 = 1;
             super.goTo(event, "Ristoratore/dashBoardRist.fxml");
         }else{
-            SessionManager.counter2 = 1;
             super.goTo(event, "Cliente/dashBoardClient.fxml");
         }
     }

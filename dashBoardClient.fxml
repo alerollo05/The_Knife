@@ -17,7 +17,6 @@
                     <Insets top="20" right="15" bottom="20" left="15"/>
                 </padding>
                 <Button onAction="#onRistorantiClick" text="RISTORANTI PREFERITI" styleClass="menu-button"/>
-                <Button onAction="#onRecensioniClick" text="MIE RECENSIONI" styleClass="menu-button"/>
                 <Button onAction="#onProfileClick" text="PROFILO" styleClass="menu-button"/>
                 <Button onAction="#handleLogOut" text="ESCI" styleClass="menu-button"/>
                 <Button text="CHIUDI" onAction="#closeProgram" styleClass="menu-button"/>
@@ -70,7 +69,6 @@
 
                     <Button fx:id="searchButton"
                             defaultButton="true"
-                            text="Cerca"
                             onAction="#onSearchClicked"
                             prefHeight="60"
                             prefWidth="80"

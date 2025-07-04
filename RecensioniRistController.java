@@ -12,6 +12,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -92,8 +94,14 @@ public class RecensioniRistController extends RistorantiRistController {
                     Label risposta = new Label(recensione.getRisposta());
                     risposta.getStyleClass().add("textNormal");
 
-                    Button modRec = new Button("Modifica");
+                    Button modRec = new Button();
                     modRec.getStyleClass().add("accent-button");
+                    Image modifica = new Image(getClass().getResource("/com/example/the_knife/icone/modifica.png").toExternalForm());
+                    ImageView iconView = new ImageView();//creo l'immagine visibile in nel bottone quando poi gli assegnerò le due immagini
+                    iconView.setFitWidth(24);
+                    iconView.setFitHeight(24);//setto il ridimensionamento
+                    modRec.setGraphic(iconView);
+                    iconView.setImage(modifica);
                     modRec.setOnAction(e -> {
                         SessionManager.idRecensione = recensione.getId();
                             openPopupRec("Risposta");

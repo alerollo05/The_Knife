@@ -14,6 +14,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
@@ -69,8 +71,15 @@ public class ProfilePageRistController extends dashBoardRistController {
             nomeLabel.getStyleClass().add("textNormal");
             Label nome = new Label(utente.getNome());
             nome.getStyleClass().add("textNormal");
-            Button modifyname = new Button("Modifica");
+            Button modifyname = new Button();
             modifyname.getStyleClass().add("accent-button");
+            //ICONA MODIFICA
+            Image modifica = new Image(getClass().getResource("/com/example/the_knife/icone/modifica.png").toExternalForm());
+            ImageView iconView = new ImageView();//creo l'immagine visibile in nel bottone quando poi gli assegnerò le due immagini
+            iconView.setFitWidth(24);
+            iconView.setFitHeight(24);//setto il ridimensionamento
+            modifyname.setGraphic(iconView);
+            iconView.setImage(modifica);
             modifyname.setOnAction(e -> {
                 SessionManager.idScelta = 1;
                 openPopupProf("Cambia nome",filePopUpFXML);
@@ -80,8 +89,15 @@ public class ProfilePageRistController extends dashBoardRistController {
             cognomeLabel.getStyleClass().add("textNormal");
             Label cognome = new Label(utente.getCognome());
             cognome.getStyleClass().add("textNormal");
-            Button modifycognome = new Button("Modifica");
+            Button modifycognome = new Button();
             modifycognome.getStyleClass().add("accent-button");
+            //ICONA MODIFICA
+            Image modifica2 = new Image(getClass().getResource("/com/example/the_knife/icone/modifica.png").toExternalForm());
+            ImageView iconView2 = new ImageView();//creo l'immagine visibile in nel bottone quando poi gli assegnerò le due immagini
+            iconView2.setFitWidth(24);
+            iconView2.setFitHeight(24);//setto il ridimensionamento
+            modifycognome.setGraphic(iconView2);
+            iconView2.setImage(modifica2);
             modifycognome.setOnAction(e -> {
                 SessionManager.idScelta = 2;
                 openPopupProf("Cambia cognome",filePopUpFXML);
@@ -91,8 +107,15 @@ public class ProfilePageRistController extends dashBoardRistController {
             emailLabel.getStyleClass().add("textNormal");
             Label email = new Label(utente.getEmail());
             email.getStyleClass().add("textNormal");
-            Button modifyemail = new Button("Modifica");
+            Button modifyemail = new Button();
             modifyemail.getStyleClass().add("accent-button");
+            //ICONA MODIFICA
+            Image modifica3 = new Image(getClass().getResource("/com/example/the_knife/icone/modifica.png").toExternalForm());
+            ImageView iconView3 = new ImageView();//creo l'immagine visibile in nel bottone quando poi gli assegnerò le due immagini
+            iconView3.setFitWidth(24);
+            iconView3.setFitHeight(24);//setto il ridimensionamento
+            modifyemail.setGraphic(iconView3);
+            iconView3.setImage(modifica3);
             modifyemail.setOnAction(e -> {
                 SessionManager.idScelta = 3;
                 openPopupProf("Cambia email",filePopUpFXML);
@@ -102,8 +125,15 @@ public class ProfilePageRistController extends dashBoardRistController {
             usernameLabel.getStyleClass().add("textNormal");
             Label username = new Label(utente.getUsername());
             username.getStyleClass().add("textNormal");
-            Button modifyusername = new Button("Modifica");
+            Button modifyusername = new Button();
             modifyusername.getStyleClass().add("accent-button");
+            //ICONA MODIFICA
+            Image modifica4 = new Image(getClass().getResource("/com/example/the_knife/icone/modifica.png").toExternalForm());
+            ImageView iconView4 = new ImageView();//creo l'immagine visibile in nel bottone quando poi gli assegnerò le due immagini
+            iconView4.setFitWidth(24);
+            iconView4.setFitHeight(24);//setto il ridimensionamento
+            modifyusername.setGraphic(iconView4);
+            iconView4.setImage(modifica4);
             modifyusername.setOnAction(e -> {
                 SessionManager.idScelta = 4;
                 openPopupProf("Cambia username",filePopUpFXML);
@@ -113,8 +143,15 @@ public class ProfilePageRistController extends dashBoardRistController {
             passwordLabel.getStyleClass().add("textNormal");
             Label password = new Label("Password nascosta...");
             password.getStyleClass().add("textNormal");
-            Button modifypassword = new Button("Modifica");
+            Button modifypassword = new Button();
             modifypassword.getStyleClass().add("accent-button");
+            //ICONA MODIFICA
+            Image modifica5 = new Image(getClass().getResource("/com/example/the_knife/icone/modifica.png").toExternalForm());
+            ImageView iconView5 = new ImageView();//creo l'immagine visibile in nel bottone quando poi gli assegnerò le due immagini
+            iconView5.setFitWidth(24);
+            iconView5.setFitHeight(24);//setto il ridimensionamento
+            modifypassword.setGraphic(iconView5);
+            iconView5.setImage(modifica5);
             modifypassword.setOnAction(e -> {
                 SessionManager.idScelta = 5;
                 openPopupProf("Cambia password",filePopUpFXML);
@@ -124,8 +161,15 @@ public class ProfilePageRistController extends dashBoardRistController {
             indirizzoLabel.getStyleClass().add("textNormal");
             Label indirizzo = new Label(utente.getIndirizzo());
             indirizzo.getStyleClass().add("textNormal");
-            Button modifindirizzo = new Button("Modifica");
+            Button modifindirizzo = new Button();
             modifindirizzo.getStyleClass().add("accent-button");
+            //ICONA MODIFICA
+            Image modifica6 = new Image(getClass().getResource("/com/example/the_knife/icone/modifica.png").toExternalForm());
+            ImageView iconView6 = new ImageView();//creo l'immagine visibile in nel bottone quando poi gli assegnerò le due immagini
+            iconView6.setFitWidth(24);
+            iconView6.setFitHeight(24);//setto il ridimensionamento
+            modifindirizzo.setGraphic(iconView6);
+            iconView6.setImage(modifica6);
             modifindirizzo.setOnAction(e -> {
                 SessionManager.idScelta = 6;
                 openPopupProf("Cambia indirizzo",filePopUpFXML);
@@ -135,8 +179,15 @@ public class ProfilePageRistController extends dashBoardRistController {
             dataLabel.getStyleClass().add("textNormal");
             Label data = new Label(""+utente.getDataDiNascita());
             data.getStyleClass().add("textNormal");
-            Button modifodata = new Button("Modifica");
+            Button modifodata = new Button();
             modifodata.getStyleClass().add("accent-button");
+            //ICONA MODIFICA
+            Image modifica7 = new Image(getClass().getResource("/com/example/the_knife/icone/modifica.png").toExternalForm());
+            ImageView iconView7 = new ImageView();//creo l'immagine visibile in nel bottone quando poi gli assegnerò le due immagini
+            iconView7.setFitWidth(24);
+            iconView7.setFitHeight(24);//setto il ridimensionamento
+            modifodata.setGraphic(iconView7);
+            iconView7.setImage(modifica7);
             modifodata.setOnAction(e -> {
                 SessionManager.idScelta = 7;
                 openPopupProf("Cambia data di nascita",filePopUpFXML);
@@ -146,8 +197,15 @@ public class ProfilePageRistController extends dashBoardRistController {
             TelefonoLabel.getStyleClass().add("textNormal");
             Label Telefono = new Label(utente.getTelefono());
             Telefono.getStyleClass().add("textNormal");
-            Button modiftelefono = new Button("Modifica");
+            Button modiftelefono = new Button();
             modiftelefono.getStyleClass().add("accent-button");
+            //ICONA MODIFICA
+            Image modifica8 = new Image(getClass().getResource("/com/example/the_knife/icone/modifica.png").toExternalForm());
+            ImageView iconView8 = new ImageView();//creo l'immagine visibile in nel bottone quando poi gli assegnerò le due immagini
+            iconView8.setFitWidth(24);
+            iconView8.setFitHeight(24);//setto il ridimensionamento
+            modiftelefono.setGraphic(iconView8);
+            iconView8.setImage(modifica8);
             modiftelefono.setOnAction(e -> {
                 SessionManager.idScelta = 8;
                 openPopupProf("Cambia telefono",filePopUpFXML);

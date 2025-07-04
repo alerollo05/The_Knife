@@ -57,7 +57,6 @@ public class PopUpRistController extends DettaglioRistController {
                 case 1:
                     label1.setText("Cambia nome:");
                     txt1.setPromptText("Inserisci il nuovo nome");
-                    okButton.setText("Conferma");
                     okButton.setOnAction(e -> {
                         try {
                             String newNome = txt1.getText();
@@ -72,7 +71,6 @@ public class PopUpRistController extends DettaglioRistController {
                 case 2:
                     label1.setText("Cambia indirizzo:");
                     txt1.setPromptText("Inserisci il nuovo indirizzo");
-                    okButton.setText("Conferma");
                     okButton.setOnAction(e -> {
                         try{
                             String newAdress = txt1.getText();
@@ -87,7 +85,6 @@ public class PopUpRistController extends DettaglioRistController {
                 case 3:
                     label1.setText("Cambia Città:");
                     txt1.setPromptText("Inserisci la nuova città");
-                    okButton.setText("Conferma");
                     okButton.setOnAction(e -> {
                         try{
                             String newCity = txt1.getText();
@@ -102,7 +99,6 @@ public class PopUpRistController extends DettaglioRistController {
                 case 4:
                     label1.setText("Cambia Cucina:");
                     txt1.setPromptText("Inserisci il nuovo tipo di cucina");
-                    okButton.setText("Conferma");
                     okButton.setOnAction(e -> {
                         try{
                             String newCuisine = txt1.getText();
@@ -117,7 +113,6 @@ public class PopUpRistController extends DettaglioRistController {
                 case 5:
                     label1.setText("Cambia Telefono:");
                     txt1.setPromptText("+39 0123456789");
-                    okButton.setText("Conferma");
                     okButton.setOnAction(e -> {
                         try{
                             String newTel = txt1.getText();
@@ -132,7 +127,6 @@ public class PopUpRistController extends DettaglioRistController {
                 case 6:
                     label1.setText("Cambia Email:");
                     txt1.setPromptText("Inserisci la nuova mail");
-                    okButton.setText("Conferma");
                     okButton.setOnAction(e -> {
                         try{
                             String newMail = txt1.getText();
@@ -147,7 +141,6 @@ public class PopUpRistController extends DettaglioRistController {
                 case 7:
                     label1.setText("Cambia URL:");
                     txt1.setPromptText("Inserisci il nuovo URL");
-                    okButton.setText("Conferma");
                     okButton.setOnAction(e -> {
                         try{
                             String newUrl = txt1.getText();
@@ -162,7 +155,6 @@ public class PopUpRistController extends DettaglioRistController {
                 case 8:
                     label1.setText("Cambia Descrizione:");
                     txt1.setPromptText("Inserisci la nuova descrizione");
-                    okButton.setText("Conferma");
                     okButton.setOnAction(e -> {
                         try{
                             String newDesc = txt1.getText();
@@ -177,7 +169,6 @@ public class PopUpRistController extends DettaglioRistController {
                 case 9:
                     label1.setText("Cambia Prezzo:");
                     txt1.setPromptText("Inserisci il nuovo prezzo medio");
-                    okButton.setText("Conferma");
                     okButton.setOnAction(e -> {
                         try{
                             String newPrice = txt1.getText();
@@ -192,7 +183,6 @@ public class PopUpRistController extends DettaglioRistController {
                 case 10:
                     label1.setText("Cambia Stelle:");
                     txt1.setPromptText("Inserisci il numero di stelle");
-                    okButton.setText("Conferma");
                     okButton.setOnAction(e -> {
                         try{
                             String newStelle = txt1.getText();
@@ -207,7 +197,6 @@ public class PopUpRistController extends DettaglioRistController {
                 case 11:
                     label1.setText("Cambia Servizi:");
                     txt1.setPromptText("Cambia i tuoi servizi");
-                    okButton.setText("Conferma");
                     okButton.setOnAction(e -> {
                         try{
                             String newServ = txt1.getText();

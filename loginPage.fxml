@@ -3,52 +3,104 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
-
 <?import java.net.URL?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
 <StackPane fx:id="rootPane" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.the_knife.loginController">
     <stylesheets>
         <URL value="@style.css" />
     </stylesheets>
-    <padding>
-        <Insets top="70" right="15" bottom="60" left="15"/>
-    </padding>
-    <VBox spacing="5" alignment="CENTER">
-        <HBox alignment="CENTER">
-            <padding>
-                <Insets top="20" right="15" bottom="20" left="15"/>
-            </padding>
-            <Label text="BENTORNATO" styleClass="title" alignment="CENTER"/>
-            <Region HBox.hgrow="ALWAYS"/> <!-- riempie gli spazi vuoti tra un oggetto e l'altro -->
-            <Button text="INDIETRO" onAction="#goToStartPage" alignment="CENTER_RIGHT" styleClass="menu-button"/>
-            <Button text="CHIUDI" onAction="#closeProgram" alignment="CENTER_RIGHT" styleClass="menu-button"/>
-        </HBox>
-        <!-- LOGIN -->
-        <VBox spacing="10" styleClass="form-box">
-            <Label text="Accedi" styleClass="title2"/>
-            <TextField fx:id="usernameField" promptText="Username" styleClass="rounded-textfield" maxWidth="500"/>
-            <PasswordField fx:id="passwordField" promptText="Password" styleClass="rounded-textfield" maxWidth="500"/>
-            <Button text="Accedi" onAction="#handleLogin" styleClass="accent-button"/>
-        </VBox>
-        <VBox spacing="10" styleClass="form-box">
-            <!-- REGISTER -->
-            <Label text="Registrati" styleClass="title2"/>
-            <TextField fx:id="userRegister" promptText="Inserisci l'username" styleClass="rounded-textfield" maxWidth="500"/>
-            <PasswordField fx:id="passRegister" promptText="Inserisci la password"  styleClass="rounded-textfield" maxWidth="500"/>
-            <TextField fx:id="nomeField" promptText="Inserisci il tuo nome" styleClass="rounded-textfield" maxWidth="500"/>
-            <TextField fx:id="cognomeField" promptText="Inserisci il tuo cognome" styleClass="rounded-textfield" maxWidth="500"/>
-            <DatePicker fx:id="dataNascita" promptText="dd/mm/aaaa" styleClass="date-picker" maxWidth="500"/>
-            <TextField fx:id="indirizzo" promptText="Inserisci il tuo indirizzo" styleClass="rounded-textfield" maxWidth="500"/>
-            <TextField fx:id="numTel" promptText="+39 0123456789" styleClass="rounded-textfield" maxWidth="500"/>
 
-            <HBox>
-                <fx:define>
-                    <ToggleGroup fx:id="ruoloToggleGroup"/>
-                </fx:define>
-                <RadioButton text="Ristoratore" toggleGroup="$ruoloToggleGroup" fx:id="rist" styleClass="rounded-textfield" selected="true" />
-                <RadioButton text="Cliente" toggleGroup="$ruoloToggleGroup" fx:id="cliente" styleClass="rounded-textfield"/>
-            </HBox>
+    <VBox spacing="10">
+        <padding>
+            <Insets top="20" right="15" bottom="20" left="15"/>
+        </padding>
+                <!-- HEADER -->
+                <HBox alignment="TOP_CENTER">
+                    <Label text="BENTORNATO" styleClass="title" alignment="CENTER"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Button text="INDIETRO" onAction="#goToStartPage" alignment="CENTER_RIGHT" styleClass="menu-button"/>
+                    <Button text="CHIUDI" onAction="#closeProgram" alignment="CENTER_RIGHT" styleClass="menu-button"/>
+                </HBox>
 
-            <Button text="Registrati" defaultButton="true" onAction="#handleRegister" styleClass="accent-button"/>
-        </VBox>
+                <!-- SCROLLABLE FORM -->
+                <ScrollPane fitToWidth="true" fitToHeight="true">
+                    <VBox spacing="10" alignment="CENTER">
+                        <!-- LOGIN -->
+                        <VBox spacing="10" styleClass="form-box">
+                            <Label text="Accedi" styleClass="title2"/>
+                            <GridPane hgap="30" vgap="10">
+                                <Label text="Username:" styleClass="textNormal" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                                <TextField fx:id="usernameField" promptText="Username" styleClass="rounded-textfield" maxWidth="500" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                                <Label text="Password:" styleClass="textNormal" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                                <PasswordField fx:id="passwordField" promptText="Password" styleClass="rounded-textfield" maxWidth="500" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                                <TextField fx:id="passwordFieldVisible" promptText="Password" styleClass="rounded-textfield" maxWidth="500" visible="false" managed="false" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                                <CheckBox fx:id="showLoginPasswordCheckBox" styleClass="custom-checkbox" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+                            </GridPane>
+                            <Button onAction="#handleLogin" styleClass="accent-button">
+                                <graphic>
+                                    <ImageView fitWidth="24" fitHeight="24">
+                                        <image>
+                                            <Image url="@/com/example/the_knife/icone/accedi.png" />
+                                        </image>
+                                    </ImageView>
+                                </graphic>
+                            </Button>
+                        </VBox>
+
+                        <!-- REGISTER -->
+                        <VBox spacing="10" styleClass="form-box">
+                            <Label text="Registrati" styleClass="title2"/>
+                            <GridPane hgap="30" vgap="10">
+                                <Label text="Username:" styleClass="textNormal" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                                <TextField fx:id="userRegister" promptText="Inserisci l'username" styleClass="rounded-textfield" maxWidth="500" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                                <Label text="Password:" styleClass="textNormal" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                                <PasswordField fx:id="passRegister" promptText="Inserisci la password" styleClass="rounded-textfield" maxWidth="500" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                                <TextField fx:id="passRegisterVisible" promptText="Inserisci la password" styleClass="rounded-textfield" maxWidth="500" visible="false" managed="false" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                                <CheckBox fx:id="showPasswordCheckBox" styleClass="custom-checkbox" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                                <Label text="Nome:" styleClass="textNormal" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                                <TextField fx:id="nomeField" promptText="Inserisci il tuo nome" styleClass="rounded-textfield" maxWidth="500" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+                                <Label text="Cognome:" styleClass="textNormal" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                                <TextField fx:id="cognomeField" promptText="Inserisci il tuo cognome" styleClass="rounded-textfield" maxWidth="500" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+                                <Label text="Data di nascita:" styleClass="textNormal" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+                                <DatePicker fx:id="dataNascita" promptText="dd/mm/aaaa" styleClass="date-picker" maxWidth="500" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+
+                                <Label text="Indirizzo:" styleClass="textNormal" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
+                                <TextField fx:id="indirizzo" promptText="Inserisci il tuo indirizzo" styleClass="rounded-textfield" maxWidth="500" GridPane.rowIndex="6" GridPane.columnIndex="1"/>
+
+                                <Label text="Telefono:" styleClass="textNormal" GridPane.rowIndex="7" GridPane.columnIndex="0"/>
+                                <TextField fx:id="numTel" promptText="+39 0123456789" styleClass="rounded-textfield" maxWidth="500" GridPane.rowIndex="7" GridPane.columnIndex="1"/>
+
+                                <Label text="Email:" styleClass="textNormal" GridPane.rowIndex="8" GridPane.columnIndex="0"/>
+                                <TextField fx:id="emailField" promptText="Inserisci la tua mail" styleClass="rounded-textfield" maxWidth="500" GridPane.rowIndex="8" GridPane.columnIndex="1"/>
+
+                                <Label text="Ruolo:" styleClass="textNormal" GridPane.rowIndex="9" GridPane.columnIndex="0"/>
+                                <HBox spacing="10" GridPane.rowIndex="9" GridPane.columnIndex="1">
+                                    <fx:define>
+                                        <ToggleGroup fx:id="ruoloToggleGroup"/>
+                                    </fx:define>
+                                    <RadioButton text="Ristoratore" toggleGroup="$ruoloToggleGroup" fx:id="rist" selected="true" />
+                                    <RadioButton text="Cliente" toggleGroup="$ruoloToggleGroup" fx:id="cliente" />
+                                </HBox>
+                            </GridPane>
+
+                            <Button onAction="#handleRegister" styleClass="accent-button">
+                                <graphic>
+                                    <ImageView fitWidth="24" fitHeight="24">
+                                        <image>
+                                            <Image url="@/com/example/the_knife/icone/registrati.png" />
+                                        </image>
+                                    </ImageView>
+                                </graphic>
+                            </Button>
+
+                        </VBox>
+                    </VBox>
+                </ScrollPane>
     </VBox>
 </StackPane>

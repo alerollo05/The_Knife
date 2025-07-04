@@ -138,16 +138,14 @@ public class newRestaurantController extends dashBoardRistController {
             b = true;
         }
 
-        double[] coordin = new double[2];
-        coordin = coordinate(address);// latitudine in pos 0 e long in pos 1
+        double[] coord = new double[2];
+        coord = coordinate(address);// latitudine in pos 0 e long in pos 1
         int stelle = Integer.parseInt(stars); // metto come intero il campo stelle
 
-        Ristorante nuovo = new Ristorante(Id, idRistoratore, name, address, location, price, cousine,coordin[0], coordin[1],
+        Ristorante nuovo = new Ristorante(Id, idRistoratore, name, address, location, price, cousine,coord[0], coord[1],
                 tel, Url, stelle, service,description,d, b, mail);
 
         aggiungiRistorante(nuovo,"ristoranti.json");
-        top10Ristoranti("ristoranti.json","top10rist.json");
-
         handleInput();
     }
 
@@ -160,7 +158,6 @@ public class newRestaurantController extends dashBoardRistController {
         alert.showAndWait();
         //else mando un errore specifico su un tipo di input inserito dall'utente
     }
-
 
     public static int generaId(String fileJson) {
 

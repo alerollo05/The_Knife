@@ -69,7 +69,6 @@
 
                     <Button fx:id="searchButton"
                             defaultButton="true"
-                            text="Cerca"
                             onAction="#onSearchClicked"
                             prefHeight="60"
                             prefWidth="80"

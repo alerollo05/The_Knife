@@ -12,6 +12,8 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import org.mindrot.jbcrypt.BCrypt;
 
 import java.io.File;
@@ -56,19 +58,53 @@ public class loginController extends StartPageController {
 
     public void initialize() throws IOException{
         // Password registrazione a scomparsa
+        SessionManager.counter = 0;
+        SessionManager.counter1 = 0;
+        SessionManager.counter2 = 0;
+
         passRegisterVisible.textProperty().bindBidirectional(passRegister.textProperty());
+        //BOTTONE PREFETITI
+        //CARICO LE IMMAGINI DI ICONA PER IL BOTTONE DEI PREFERITI
+
+        Image occhioAperto = new Image(getClass().getResource("/com/example/the_knife/icone/occhioAperto.png").toExternalForm());
+        Image occhioChiuso = new Image(getClass().getResource("/com/example/the_knife/icone/occhioChiuso.png").toExternalForm());
+
+        ImageView iconView = new ImageView();//creo l'immagine visibile in nel bottone quando poi gli assegnerò le due immagini
+        iconView.setFitWidth(24);
+        iconView.setFitHeight(24);//setto il ridimensionamento
+        iconView.setImage(occhioChiuso); // Stato iniziale
+        showPasswordCheckBox.setGraphic(iconView);
         showPasswordCheckBox.selectedProperty().addListener((obs, oldVal, selected) -> {
             passRegister.setVisible(!selected);
             passRegister.setManaged(!selected);
+            if (!selected) {
+                 iconView.setImage(occhioChiuso); //imposto inizialmente il bottone cuore pieno o vuoto in base a com'è prima della modifiche
+                showPasswordCheckBox.setGraphic(iconView);
+            } else {
+                iconView.setImage(occhioAperto); //imposto inizialmente il bottone cuore pieno o vuoto in base a com'è prima della modifiche
+                showPasswordCheckBox.setGraphic(iconView);
+            }
             passRegisterVisible.setVisible(selected);
             passRegisterVisible.setManaged(selected);
         });
 
         // Password Login a scomparsa
+        ImageView iconView2 = new ImageView();//creo l'immagine visibile in nel bottone quando poi gli assegnerò le due immagini
+        iconView2.setFitWidth(24);
+        iconView2.setFitHeight(24);//setto il ridimensionamento
+        iconView2.setImage(occhioChiuso); // Stato iniziale
+        showLoginPasswordCheckBox.setGraphic(iconView2);
         passwordFieldVisible.textProperty().bindBidirectional(passwordField.textProperty());
         showLoginPasswordCheckBox.selectedProperty().addListener((obs, oldVal, selected) -> {
             passwordField.setVisible(!selected);
             passwordField.setManaged(!selected);
+            if (!selected) {
+                iconView2.setImage(occhioChiuso); //imposto inizialmente il bottone cuore pieno o vuoto in base a com'è prima della modifiche
+                showLoginPasswordCheckBox.setGraphic(iconView2);
+            } else {
+                iconView2.setImage(occhioAperto); //imposto inizialmente il bottone cuore pieno o vuoto in base a com'è prima della modifiche
+                showLoginPasswordCheckBox.setGraphic(iconView2);
+            }
             passwordFieldVisible.setVisible(selected);
             passwordFieldVisible.setManaged(selected);
         });
@@ -87,11 +123,11 @@ public class loginController extends StartPageController {
 
         //CREO LA SESSIONE
 
-        if(utente != null && utente.Ruolo.equals("Cliente")){
-            SessionManager.getInstance().login(user, utente.Id, "cliente");
+        if(utente != null && utente.getRuolo().equals("Cliente")){
+            SessionManager.getInstance().login(user, utente.getId(), "cliente");
             goTo(event,"Cliente/dashBoardClient.fxml");//vado alla pagina del cliente
-        }else if(utente != null && utente.Ruolo.equals("Ristoratore")){
-            SessionManager.getInstance().login(user, utente.Id, "ristoratore");
+        }else if(utente != null && utente.getRuolo().equals("Ristoratore")){
+            SessionManager.getInstance().login(user, utente.getId(), "ristoratore");
             goTo(event,"Ristoratore/dashBoardRist.fxml");//vado alla pagina del ristoratore
         }
 
@@ -105,8 +141,6 @@ public class loginController extends StartPageController {
 
         //METODI CHE CHIAMO
         handleRadio();
-
-
         //DEFINIZIONE handleRegister
         String newUser = userRegister.getText();
         newUser = newUser.trim();//tolgo gli spazi esterni alla stinga inserita in input dall'utente
@@ -130,6 +164,8 @@ public class loginController extends StartPageController {
         LocalDate DataNascita = dataNascita.getValue();
         RadioButton ruolo = (RadioButton) this.ruoloToggleGroup.getSelectedToggle();
         String role = ruolo.getText();
+        String newEmail = emailField.getText();
+        InputValidator.validaEmail(newEmail);
 
 
 
@@ -137,7 +173,7 @@ public class loginController extends StartPageController {
         newPass = generaHash(passRegister.getText());
 
         try {
-            Utente nuovo = new Utente(name,cognome,indirizzo,newUser,newPass,DataNascita,numerotel,role,generaId(role,"fileUtenti.json"));
+            Utente nuovo = new Utente(name,cognome,indirizzo,newUser,newEmail,newPass,DataNascita,numerotel,role,generaId(role,"fileUtenti.json"),null);
             aggiungiUtente(nuovo, "fileUtenti.json");
 
         } catch (Exception e) {
@@ -184,7 +220,7 @@ public class loginController extends StartPageController {
 
             count = 0;
             for (Utente u : listaModificabile) {
-                if (u.Ruolo.equalsIgnoreCase("Ristoratore")) {
+                if (u.getRuolo().equalsIgnoreCase("Ristoratore")) {
                     count++;
                 }
             }
@@ -228,7 +264,7 @@ public class loginController extends StartPageController {
             ListaUtenti lista = mapper.readValue(new File(fileJson), ListaUtenti.class);
 
             for(Utente u : lista.Utenti){
-                if(u.Username.equalsIgnoreCase(nuovo.Username)){
+                if(u.getUsername().equalsIgnoreCase(nuovo.getUsername())){
                     handleInput("Errore", "Utente già registrato");
                     throw new UtenteException("Utente già registrato");
                 }
@@ -248,7 +284,7 @@ public class loginController extends StartPageController {
 
             listaModificabile.add(nuovo); // Aggiunge il nuovo utente alla lista
 
-            System.out.println("Utente '" + nuovo.Nome + "' registrato con successo.");
+            System.out.println("Utente '" + nuovo.getNome() + "' registrato con successo.");
 
             ObjectNode nuovoRoot = mapper.createObjectNode();// Crea un nuovo oggetto JSON vuoto (root)
 
@@ -271,15 +307,15 @@ public class loginController extends StartPageController {
 
         for (Utente u : lista.Utenti) {
             // Se l'username corrisponde
-            if (u.Username.equals(username)) {
+            if (u.getUsername().equals(username)) {
                 // Verifica sicura della password usando BCrypt
                 // (confronta la password inserita con l'hash salvato nel file)
-                if (BCrypt.checkpw(passwordInserita, u.Password)) {
-                    System.out.println("Login riuscito per utente: " + u.Username);
+                if (BCrypt.checkpw(passwordInserita, u.getPassword())) {
+                    System.out.println("Login riuscito per utente: " + u.getUsername());
                     return u; // Restituisce l'utente loggato
                 } else {
-                    handleInput("Errore", "Password errata per utente: " + u.Username);
-                    System.err.println("Password errata per utente: " + u.Username);
+                    handleInput("Errore", "Password errata per utente: " + u.getUsername());
+                    System.err.println("Password errata per utente: " + u.getUsername());
                     return null;
                 }
             }

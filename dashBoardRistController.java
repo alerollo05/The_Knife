@@ -6,6 +6,8 @@ import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 import java.io.IOException;
 
@@ -22,13 +24,13 @@ public class dashBoardRistController extends loginController {
     @FXML private ComboBox<String> priceBox;
     @FXML private ComboBox<String> deliveryBox;
     @FXML private ComboBox<String> bookingBox;
-
-
+    @FXML private Button searchButton;
 
     public void handleLogOut(ActionEvent event) {
         SessionManager.getInstance().logout();//cancello i dati dalla sessione
         SessionManager.counter1 = 0;
         SessionManager.counter = 0;
+        SessionManager.counter2 = 0;
         try {
             super.goTo(event, "/com/example/the_knife/loginPage.fxml");//metto il path relativo intero per uscire e tornare alla login che si trova in una cartella meno profonda di quella dei ristoratori
         }catch(IOException e){
@@ -43,6 +45,18 @@ public class dashBoardRistController extends loginController {
     @FXML
     public void initialize() throws IOException {
         System.out.println("Utente: "+user+ "Id: "+id+"Ruolo: "+ruolo);
+
+
+        //ICONA LENTE INGRANDIMENTO
+        searchButton.getStyleClass().add("accent-button");
+        Image lenteIngrandimento = new Image(getClass().getResource("/com/example/the_knife/icone/lenteIngrandimento.png").toExternalForm());
+        ImageView iconView = new ImageView();//creo l'immagine visibile in nel bottone quando poi gli assegnerò le due immagini
+        iconView.setFitWidth(24);
+        iconView.setFitHeight(24);//setto il ridimensionamento
+        searchButton.setGraphic(iconView);
+        iconView.setImage(lenteIngrandimento);
+
+
         SessionManager.pagina = 1;
         cuisineBox.setItems(FXCollections.observableArrayList(
                 "Mediterranea", "Italiana", "Giapponese",

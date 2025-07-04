@@ -29,6 +29,7 @@
                 <GridPane fx:id="grid" prefHeight="600" prefWidth="300" maxWidth="800" />
             </VBox>
         </center>
+
         <stylesheets>
             <URL value="@../style.css"/>
         </stylesheets>

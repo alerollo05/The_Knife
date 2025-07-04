@@ -8,6 +8,8 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.TextField?>
 <StackPane styleClass="root" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.the_knife.RecensioneRistoranteSearchController">
     <BorderPane styleClass="root">
         <padding>
@@ -28,6 +30,13 @@
         <center>
             <VBox spacing="10">
                 <Label fx:id="welcomeLabel" styleClass="welcome-title"/>
+                <GridPane fx:id = "NewBoxRec" styleClass="grid-list">
+                        <Label text="Aggiungi una recensione" styleClass="title2" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                        <Label text="Commento: " styleClass="textNormal" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                        <TextField fx:id="CommentoFiled" promptText="Inserisci l'username" styleClass="rounded-textfield" maxWidth="500" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                    <Label text="Votazione: " styleClass="textNormal" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                    <TextField fx:id="RatingField" promptText="Inserisci l'username" styleClass="rounded-textfield" maxWidth="500" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+                </GridPane>
                 <ListView fx:id="listaRecLabel" prefHeight="600" prefWidth="300" />
             </VBox>
         </center>

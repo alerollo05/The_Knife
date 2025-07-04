@@ -3,6 +3,8 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import java.net.URL?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
 <VBox styleClass="root" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.the_knife.Ristoratore.PopUpProfController">
     <VBox styleClass="form-boxPop" spacing="20" alignment="CENTER" prefWidth="400" prefHeight="250">
         <stylesheets>
@@ -19,8 +21,24 @@
 
         <!-- RIGA: Bottoni -->
         <HBox spacing="40" alignment="CENTER">
-            <Button fx:id="noButton" text="Annulla" styleClass="accent-button" onAction="#handleCloseAnnulla"/>
-            <Button fx:id="okButton" text="Conferma" styleClass="accent-button"/>
+            <Button fx:id="noButton" styleClass="accent-button" onAction="#handleCloseAnnulla">
+                <graphic>
+                    <ImageView fitWidth="24" fitHeight="24">
+                        <image>
+                            <Image url="@/com/example/the_knife/icone/annulla.png" />
+                        </image>
+                    </ImageView>
+                </graphic>
+            </Button>
+            <Button fx:id="okButton" styleClass="accent-button">
+                <graphic>
+                    <ImageView fitWidth="24" fitHeight="24">
+                        <image>
+                            <Image url="@/com/example/the_knife/icone/conferma.png" />
+                        </image>
+                    </ImageView>
+                </graphic>
+            </Button>
         </HBox>
     </VBox>
 </VBox>
