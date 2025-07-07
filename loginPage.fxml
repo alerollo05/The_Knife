@@ -7,7 +7,7 @@
 
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
-<StackPane fx:id="rootPane" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.the_knife.loginController">
+<StackPane fx:id="rootPane" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.the_knife.LoginController">
     <stylesheets>
         <URL value="@style.css" />
     </stylesheets>
@@ -38,7 +38,7 @@
                                 <TextField fx:id="passwordFieldVisible" promptText="Password" styleClass="rounded-textfield" maxWidth="500" visible="false" managed="false" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
                                 <CheckBox fx:id="showLoginPasswordCheckBox" styleClass="custom-checkbox" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
                             </GridPane>
-                            <Button onAction="#handleLogin" styleClass="accent-button">
+                            <Button onAction="#handleLogin" defaultButton="true" styleClass="accent-button">
                                 <graphic>
                                     <ImageView fitWidth="24" fitHeight="24">
                                         <image>

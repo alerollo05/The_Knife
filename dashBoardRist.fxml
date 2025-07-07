@@ -8,7 +8,7 @@
 <?import javafx.collections.FXCollections?>
 <?import java.lang.Integer?>
 <?import javafx.scene.image.ImageView?>
-<StackPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.the_knife.Ristoratore.dashBoardRistController" >
+<StackPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.the_knife.Ristoratore.DashBoardRistController" >
     <BorderPane xmlns:fx="http://javafx.com/fxml" styleClass="root">
 
         <top>
@@ -17,6 +17,7 @@
                     <Insets top="20" right="15" bottom="20" left="15"/>
                 </padding>
                 <Button onAction="#onRistorantiClick" text="MIEI RISTORANTI" styleClass="menu-button"/>
+                <Button onAction="#onPreferitiClick" text="MIEI PREFERITI" styleClass="menu-button"/>
                 <Button onAction="#onProfileClick" text="PROFILO" styleClass="menu-button"/>
                 <Button onAction="#handleLogOut" text="ESCI" styleClass="menu-button"/>
                 <Button text="CHIUDI" onAction="#closeProgram" styleClass="menu-button"/>

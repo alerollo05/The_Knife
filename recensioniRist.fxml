@@ -25,7 +25,7 @@
             </HBox>
         </top>
         <center>
-            <VBox spacing="10">
+            <VBox spacing="20">
                 <Label fx:id="welcomeLabel" styleClass="welcome-title"/>
                 <ListView fx:id="listaRecLabel" prefHeight="600" prefWidth="300" />
             </VBox>

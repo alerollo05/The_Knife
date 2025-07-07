@@ -7,7 +7,7 @@
 
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
-<StackPane styleClass="root" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.the_knife.Ristoratore.newRestaurantController">
+<StackPane styleClass="root" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.the_knife.Ristoratore.NewRestaurantController">
     <BorderPane styleClass="root">
 
         <!-- TOP BAR -->
@@ -24,7 +24,7 @@
 
         <!-- CENTER CONTENT -->
         <center>
-            <VBox spacing="2" alignment="CENTER">
+            <VBox spacing="20" alignment="CENTER">
                 <ScrollPane fitToWidth="true">
                     <VBox spacing="20" styleClass="form-box">
 

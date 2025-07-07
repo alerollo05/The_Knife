@@ -1,10 +1,10 @@
 package com.example.the_knife.Ristoratore;
 
-
 import com.example.the_knife.Utente.SessionManager;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -20,70 +20,96 @@ import java.util.List;
 
 import static com.example.the_knife.Utente.SessionManager.idRist;
 
-public class PopUpRecController extends RecensioniRistController{
+/**
+ * Controller del popup che consente al ristoratore di rispondere a una recensione.
+ */
+public class PopUpRecController extends RecensioniRistController {
 
+    /** Etichetta che mostra il titolo o la richiesta. */
     @FXML
     private Label label1;
 
+    /** Bottone per confermare l'inserimento della risposta. */
     @FXML
     private Button okButton;
 
+    /** Bottone per annullare e chiudere la finestra. */
     @FXML
     private Button noButton;
 
+    /** Campo di testo dove il ristoratore scrive la risposta alla recensione. */
     @FXML
     private TextField txt1;
 
-
-    public void initialize(){
-
-            label1.setText("Risposta:");
-            txt1.setPromptText("Inserisci la risposta:");
+    /**
+     * Metodo chiamato all'inizializzazione del controller.
+     * Imposta il testo e il comportamento del bottone di conferma.
+     */
+    public void initialize() {
+        label1.setText("Risposta:");
+        txt1.setPromptText("Inserisci la risposta:");
         okButton.setOnAction(e -> {
-            try{
+            try {
                 String risposta = txt1.getText();
-                rispondiAllaRecensione(risposta,SessionManager.idRecensione,"ristoranti.json");
-                handleClose(e);//chiudi finestra popUp
-            }catch (IOException ex){
+                rispondiAllaRecensione(risposta, SessionManager.idRecensione, "ristoranti.json");
+                handleClose(e); // chiudi finestra popUp
+            } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }
         });
     }
 
-
+    /**
+     * Chiude la finestra del popup e aggiorna la schermata principale.
+     *
+     * @param event L'evento che ha causato la chiusura.
+     * @throws IOException Se avviene un errore di I/O.
+     */
     public void handleClose(ActionEvent event) throws IOException {
-        // Chiude la finestra corrente
         SessionManager.idScelta = 0;
 
         if (mainController != null) {
-            mainController.initialize(); //aggiorna la lista ristoranti nel padre
+            mainController.initialize(); // aggiorna la lista nel padre
         }
         Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
         stage.close();
-        //Al massimo posso aggiornare la pagina rifacendo di nuovo goTo per leggere il dato nuovo
     }
 
-    //SERVE PER AGGIORNARE LA PAGINA DI STAMPA DOPO MODIFICA DEL POP UP
+    /** Controller della schermata principale per aggiornare i dati al ritorno. */
     private RecensioniRistController mainController;
+
+    /**
+     * Imposta il controller principale per comunicazione tra finestre.
+     *
+     * @param controller Controller della schermata padre da aggiornare.
+     */
     public void setMainController(RecensioniRistController controller) {
         this.mainController = controller;
     }
 
+    /**
+     * Chiude il popup senza effettuare modifiche.
+     *
+     * @param event L'evento di annullamento.
+     * @throws IOException Se avviene un errore durante la chiusura.
+     */
     public void handleCloseAnnulla(ActionEvent event) throws IOException {
-        // Chiude la finestra corrente
         SessionManager.idScelta = 0;
         Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
-        //super.goTo(event, "dettaglioRist.fxml");
         stage.close();
-        //Al massimo posso aggiornare la pagina rifacendo di nuovo goTo per leggere il dato nuovo
     }
 
-
-
-
+    /**
+     * Risponde a una recensione presente nel file JSON dei ristoranti.
+     *
+     * @param risposta Testo della risposta del ristoratore.
+     * @param IdRec    ID della recensione a cui rispondere.
+     * @param fileJson Percorso del file JSON contenente i dati.
+     */
     public static void rispondiAllaRecensione(String risposta, int IdRec, String fileJson) {
         try {
             ObjectMapper mapper = new ObjectMapper();
+            mapper.registerModule(new JavaTimeModule());
             JsonNode root = mapper.readTree(new File(fileJson));
             JsonNode ristorantiNode = root.get("ristoranti");
 
@@ -98,7 +124,7 @@ public class PopUpRecController extends RecensioniRistController{
                     trovatoRistorante = true;
                     if (r.recensioni != null) {
                         for (Recensione rec : r.recensioni) {
-                            if (rec.idRec == IdRec ) {
+                            if (rec.idRec == IdRec) {
                                 rec.risposta = risposta;
                                 trovatoRecensione = true;
                                 break;
@@ -110,21 +136,18 @@ public class PopUpRecController extends RecensioniRistController{
             }
 
             if (!trovatoRistorante) {
-                System.out.println("Ristorante  non trovato.");
+                System.out.println("Ristorante non trovato.");
             } else if (!trovatoRecensione) {
-                System.out.println("Recensione di  non trovata.");
+                System.out.println("Recensione non trovata.");
             }
 
-            // Ricrea l'oggetto JSON aggiornato
             ObjectNode nuovoRoot = mapper.createObjectNode();
             nuovoRoot.set("ristoranti", mapper.valueToTree(listaModificabile));
 
-            // Sovrascrive il file
             mapper.writerWithDefaultPrettyPrinter().writeValue(new File(fileJson), nuovoRoot);
 
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-
 }

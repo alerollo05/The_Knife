@@ -1,70 +1,97 @@
 package com.example.the_knife.Ristoratore;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.List;
 
+/**
+ * Classe che rappresenta un Ristorante con tutte le sue caratteristiche e recensioni associate.
+ */
 public class Ristorante {
+
+    /** Identificativo univoco del ristorante */
     @JsonProperty("Id")
     public int id;
 
+    /** ID dell'utente ristoratore proprietario */
     @JsonProperty("IdRistoratore")
     public int idRistoratore;
 
+    /** Nome del ristorante */
     @JsonProperty("Name")
     public String name;
 
+    /** Indirizzo del ristorante */
     @JsonProperty("Address")
     public String address;
 
+    /** Città o località del ristorante */
     @JsonProperty("Location")
     public String location;
 
+    /** Fascia di prezzo del ristorante */
     @JsonProperty("Price")
     public String price;
 
+    /** Tipo di cucina offerta dal ristorante */
     @JsonProperty("Cuisine")
     public String cuisine;
 
+    /** Longitudine della posizione geografica */
     @JsonProperty("Longitude")
     public double longitude;
 
+    /** Latitudine della posizione geografica */
     @JsonProperty("Latitude")
     public double latitude;
 
+    /** Numero di telefono del ristorante */
     @JsonProperty("PhoneNumber")
     public String phoneNumber;
 
+    /** Sito web del ristorante */
     @JsonProperty("WebsiteUrl")
     public String websiteUrl;
 
+    /** Numero di stelle verdi (es. per sostenibilità) */
     @JsonProperty("GreenStar")
     public int greenStar;
 
+    /** Descrizione dei servizi e delle strutture disponibili */
     @JsonProperty("FacilitiesAndServices")
     public String facilitiesAndServices;
 
+    /** Descrizione del ristorante */
     @JsonProperty("Description")
     public String description;
 
+    /** Flag che indica se il ristorante effettua consegne a domicilio */
     @JsonProperty("Delivery")
     public boolean delivery;
 
+    /** Flag che indica se è possibile prenotare online */
     @JsonProperty("BookingOnline")
     public boolean bookingOnline;
 
+    /** Lista delle recensioni associate al ristorante */
     @JsonProperty("recensioni")
     public List<Recensione> recensioni;
 
+    /** Numero totale di recensioni */
     @JsonProperty("NumRec")
     public int numRec;
 
+    /** Media del punteggio delle recensioni */
     @JsonProperty("MediaRec")
     public double mediaRec;
 
+    /** Email di contatto del ristorante */
     @JsonProperty("Email")
     public String email;
 
-
+    /**
+     * Costruttore completo per creare un nuovo oggetto Ristorante.
+     */
     public Ristorante(int Id, int IdRistoratore, String Nome, String Address, String Location, String Price,
                       String Cousine, double lati, double longi, String tel, String url, int stars, String service,
                       String Description, boolean Delivery, boolean Booking, String Email ) {
@@ -90,9 +117,13 @@ public class Ristorante {
         mediaRec = 0;
     }
 
+    /**
+     * Costruttore vuoto necessario per la deserializzazione JSON.
+     */
     public Ristorante(){}
 
-    //getter e setter
+    // Getter e Setter
+
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
 

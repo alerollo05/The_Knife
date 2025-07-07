@@ -17,6 +17,7 @@
                     <Insets top="20" right="15" bottom="20" left="15"/>
                 </padding>
                 <Button onAction="#onRistorantiClick" text="MIEI RISTORANTI" styleClass="menu-button"/>
+                <Button onAction="#onPreferitiClick" text="MIEI PREFERITI" styleClass="menu-button"/>
                 <Button text="INDIETRO" onAction="#goBack" styleClass="menu-button"/>
                 <Button text="ESCI" onAction="#handleLogOut" styleClass="menu-button"/>
                 <Button text="CHIUDI" onAction="#closeProgram" styleClass="menu-button"/>
@@ -24,7 +25,7 @@
         </top>
 
         <center>
-            <VBox spacing="10">
+            <VBox spacing="20">
                 <Label fx:id="welcomeLabel" styleClass="welcome-title"/>
                 <GridPane fx:id="grid" prefHeight="600" prefWidth="300" maxWidth="800" />
             </VBox>

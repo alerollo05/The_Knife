@@ -1,6 +1,6 @@
-package com.example.the_knife.Cliente;
+package com.example.the_knife.Ristoratore;
 
-import com.example.the_knife.Ristoratore.Ristorante;
+import com.example.the_knife.Cliente.DashBoardClientController;
 import com.example.the_knife.Utente.SessionManager;
 import com.example.the_knife.Utente.Utente;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -25,44 +25,48 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Controller per la visualizzazione dei ristoranti preferiti del cliente.
- * Estende {@link DashBoardClientController} per ereditare funzioni comuni alla dashboard.
+ * Controller per la gestione della visualizzazione dei ristoranti preferiti
+ * da parte di un ristoratore. Estende {@link DashBoardClientController} per
+ * condividere funzionalità comuni tra clienti e ristoratori.
  */
-public class RistorantiPrefClientController extends DashBoardClientController {
+public class PreferitiRistController extends DashBoardClientController {
 
+    /** Etichetta di benvenuto che mostra il titolo della vista. */
     @FXML
     private Label welcomeLabel;
 
+    /** Lista visuale dei ristoranti preferiti. */
     @FXML
     private ListView<Ristorante> listaRistLabel;
 
+    /** Istanza della sessione utente. */
     SessionManager session = SessionManager.getInstance();
+
+    /** Nome utente corrente. */
     private final String user = session.getUsername();
+
+    /** ID utente corrente. */
     private final int id = session.getUserId();
+
+    /** Ruolo dell'utente corrente. */
     private final String ruolo = session.getRuolo();
 
-    /**
-     * Inizializza la schermata con il titolo e carica la lista dei ristoranti preferiti dell'utente.
-     */
+    /** Inizializza la vista caricando i ristoranti preferiti. */
     @FXML
     public void initialize() {
         SessionManager.menu = 1;
         welcomeLabel.setText("I TUOI RISTORANTI PREFERITI");
-        System.out.println("Utente: " + user + " Id: " + id + " Ruolo: " + ruolo);
+        System.out.println("Utente: "+user+ " Id: "+id+" Ruolo: "+ruolo);
         printListPrefUte();
     }
 
     /**
-     * Carica e mostra la lista dei ristoranti preferiti dell'utente corrente.
-     * Ogni elemento ha pulsanti per:
-     * <ul>
-     *     <li>Visualizzare i dettagli</li>
-     *     <li>Leggere le recensioni</li>
-     *     <li>Aggiungere o rimuovere dai preferiti</li>
-     * </ul>
+     * Popola la {@code ListView} con i ristoranti preferiti dell'utente.
+     * Gestisce la personalizzazione grafica delle celle.
      */
     public void printListPrefUte() {
         try {
+            System.out.println("eseguo");
             List<Ristorante> risultati = prefeUte("fileUtenti.json", "ristoranti.json");
 
             listaRistLabel.setItems(FXCollections.observableArrayList(risultati));
@@ -72,7 +76,6 @@ public class RistorantiPrefClientController extends DashBoardClientController {
                 protected void updateItem(Ristorante ristorante, boolean empty) {
                     super.updateItem(ristorante, empty);
                     param.getStyleClass().add("list-rist3");
-
                     if (empty || ristorante == null) {
                         setText(null);
                         setGraphic(null);
@@ -83,18 +86,23 @@ public class RistorantiPrefClientController extends DashBoardClientController {
                         grid.setPadding(new Insets(5));
 
                         Label nomeLabel = new Label(ristorante.getName());
-                        Label cucinaLabel = new Label(ristorante.getCuisine());
-                        Label ratingLabel = new Label("" + ristorante.getMediaRec());
                         nomeLabel.getStyleClass().add("textNormal");
+
+                        Label cucinaLabel = new Label(ristorante.getCuisine());
                         cucinaLabel.getStyleClass().add("textNormal");
+
+                        Label ratingLabel = new Label("" + ristorante.getMediaRec());
                         ratingLabel.getStyleClass().add("textNormal");
 
+                        // Bottone per andare al dettaglio
                         Button dettaglioButton = new Button();
                         dettaglioButton.getStyleClass().add("accent-button");
-                        ImageView iconView3 = new ImageView(new Image(getClass().getResource("/com/example/the_knife/icone/dettaglio.png").toExternalForm()));
+                        Image icona = new Image(getClass().getResource("/com/example/the_knife/icone/dettaglio.png").toExternalForm());
+                        ImageView iconView3 = new ImageView();
                         iconView3.setFitWidth(24);
                         iconView3.setFitHeight(24);
                         dettaglioButton.setGraphic(iconView3);
+                        iconView3.setImage(icona);
                         dettaglioButton.setOnAction(e -> {
                             try {
                                 SessionManager.idRist = ristorante.getId();
@@ -107,12 +115,15 @@ public class RistorantiPrefClientController extends DashBoardClientController {
                             }
                         });
 
+                        // Bottone per le recensioni
                         Button recensioneButton = new Button();
                         recensioneButton.getStyleClass().add("accent-button");
-                        ImageView iconView4 = new ImageView(new Image(getClass().getResource("/com/example/the_knife/icone/recensioni.png").toExternalForm()));
+                        Image icona2 = new Image(getClass().getResource("/com/example/the_knife/icone/recensioni.png").toExternalForm());
+                        ImageView iconView4 = new ImageView();
                         iconView4.setFitWidth(24);
                         iconView4.setFitHeight(24);
                         recensioneButton.setGraphic(iconView4);
+                        iconView4.setImage(icona2);
                         recensioneButton.setOnAction(e -> {
                             try {
                                 SessionManager.idRist = ristorante.getId();
@@ -122,6 +133,7 @@ public class RistorantiPrefClientController extends DashBoardClientController {
                             }
                         });
 
+                        // Bottone preferiti
                         Button prefButton = new Button();
                         prefButton.getStyleClass().add("cuore-button");
                         Image cuoreVuoto = new Image(getClass().getResource("/com/example/the_knife/icone/cuoreVuoto.png").toExternalForm());
@@ -135,12 +147,15 @@ public class RistorantiPrefClientController extends DashBoardClientController {
                         try {
                             ObjectMapper mapper = new ObjectMapper();
                             mapper.registerModule(new com.fasterxml.jackson.datatype.jsr310.JavaTimeModule());
-                            JsonNode root = mapper.readTree(new File("fileUtenti.json"));
-                            List<Utente> utenti = Arrays.asList(mapper.treeToValue(root.get("Utenti"), Utente[].class));
+                            File file = new File("fileUtenti.json");
+                            JsonNode root = mapper.readTree(file);
+                            JsonNode utentiNode = root.get("Utenti");
+                            List<Utente> utenti = Arrays.asList(mapper.treeToValue(utentiNode, Utente[].class));
                             for (Utente u : utenti) {
-                                if (u.getUsername().equals(SessionManager.getInstance().getUsername()) &&
-                                        u.getPreferiti() != null && u.getPreferiti().contains(ristorante.getId())) {
-                                    isPref = true;
+                                if (u.getUsername().equals(SessionManager.getInstance().getUsername())) {
+                                    if (u.getPreferiti() != null && u.getPreferiti().contains(ristorante.getId())) {
+                                        isPref = true;
+                                    }
                                     break;
                                 }
                             }
@@ -153,15 +168,20 @@ public class RistorantiPrefClientController extends DashBoardClientController {
                         prefButton.setOnAction(e -> {
                             try {
                                 SessionManager.idRist = ristorante.getId();
-
                                 ObjectMapper mapper = new ObjectMapper();
                                 mapper.registerModule(new com.fasterxml.jackson.datatype.jsr310.JavaTimeModule());
-                                JsonNode root = mapper.readTree(new File("fileUtenti.json"));
-                                List<Utente> utenti = Arrays.asList(mapper.treeToValue(root.get("Utenti"), Utente[].class));
+                                File file = new File("fileUtenti.json");
+                                JsonNode root = mapper.readTree(file);
+                                JsonNode utentiNode = root.get("Utenti");
+                                List<Utente> utenti = Arrays.asList(mapper.treeToValue(utentiNode, Utente[].class));
 
-                                boolean currentlyInFavorites = utenti.stream()
-                                        .filter(u -> u.getUsername().equals(SessionManager.getInstance().getUsername()))
-                                        .anyMatch(u -> u.getPreferiti() != null && u.getPreferiti().contains(SessionManager.idRist));
+                                boolean currentlyInFavorites = false;
+                                for (Utente u : utenti) {
+                                    if (u.getUsername().equals(SessionManager.getInstance().getUsername())) {
+                                        currentlyInFavorites = u.getPreferiti() != null && u.getPreferiti().contains(SessionManager.idRist);
+                                        break;
+                                    }
+                                }
 
                                 if (currentlyInFavorites) {
                                     removePrefe("fileUtenti.json");
@@ -183,42 +203,55 @@ public class RistorantiPrefClientController extends DashBoardClientController {
                         grid.add(recensioneButton, 4, 0);
                         grid.add(prefButton, 5, 0);
 
-                        grid.getColumnConstraints().addAll(
-                                new ColumnConstraints(), new ColumnConstraints(),
-                                new ColumnConstraints(), new ColumnConstraints(),
-                                new ColumnConstraints(), new ColumnConstraints()
-                        );
+                        ColumnConstraints col1 = new ColumnConstraints();
+                        col1.setPercentWidth(35);
+                        ColumnConstraints col2 = new ColumnConstraints();
+                        col2.setPercentWidth(35);
+                        ColumnConstraints col3 = new ColumnConstraints();
+                        col3.setPercentWidth(20);
+                        ColumnConstraints col4 = new ColumnConstraints();
+                        col4.setPercentWidth(25);
+                        ColumnConstraints col5 = new ColumnConstraints();
+                        col5.setPercentWidth(25);
+                        ColumnConstraints col6 = new ColumnConstraints();
+                        col6.setPercentWidth(25);
+                        grid.getColumnConstraints().addAll(col1, col2, col3, col4, col5, col6);
                         grid.getStyleClass().add("grid-list");
                         setGraphic(grid);
                     }
                 }
             });
-        } catch (IOException | RuntimeException e) {
+        } catch (IOException e) {
+            System.err.println("Errore nella lettura del file ristoranti.json");
+            e.printStackTrace();
+        } catch (Exception e) {
             System.err.println("Errore nella lettura del file ristoranti.json");
             e.printStackTrace();
         }
     }
 
     /**
-     * Recupera la lista dei ristoranti preferiti di un utente da due file JSON.
+     * Estrae i ristoranti preferiti dell'utente corrente leggendo da file JSON.
      *
-     * @param fileUte  percorso al file contenente i dati degli utenti
-     * @param fileRist percorso al file contenente i dati dei ristoranti
-     * @return lista dei ristoranti preferiti dell'utente
-     * @throws IOException se i file non possono essere letti
+     * @param fileUte Percorso del file utenti.
+     * @param fileRist Percorso del file ristoranti.
+     * @return Lista dei ristoranti preferiti.
+     * @throws IOException In caso di errore durante la lettura dei file.
      */
     public List<Ristorante> prefeUte(String fileUte, String fileRist) throws IOException {
         List<Ristorante> risultati = new ArrayList<>();
 
         ObjectMapper mapper = new ObjectMapper();
         mapper.registerModule(new com.fasterxml.jackson.datatype.jsr310.JavaTimeModule());
+        File file1 = new File(fileUte);
+        File file2 = new File(fileRist);
 
-        List<Ristorante> ristoranti = Arrays.asList(
-                mapper.treeToValue(mapper.readTree(new File(fileRist)).get("ristoranti"), Ristorante[].class)
-        );
-        List<Utente> utenti = Arrays.asList(
-                mapper.treeToValue(mapper.readTree(new File(fileUte)).get("Utenti"), Utente[].class)
-        );
+        JsonNode rootRist = mapper.readTree(file2);
+        JsonNode ristorantiNode = rootRist.get("ristoranti");
+        List<Ristorante> ristoranti = Arrays.asList(mapper.treeToValue(ristorantiNode, Ristorante[].class));
+        JsonNode rootUte = mapper.readTree(file1);
+        JsonNode utentiNode = rootUte.get("Utenti");
+        List<Utente> utenti = Arrays.asList(mapper.treeToValue(utentiNode, Utente[].class));
 
         for (Utente u : utenti) {
             if (u.getUsername().equals(SessionManager.getInstance().getUsername())) {
@@ -231,60 +264,31 @@ public class RistorantiPrefClientController extends DashBoardClientController {
                 }
             }
         }
-
         return risultati;
     }
 
-    /**
-     * Naviga alla schermata generale dei ristoranti.
-     *
-     * @param event evento di navigazione
-     * @throws IOException se la pagina non può essere caricata
-     */
     @FXML
     protected void onRistorantiClick(ActionEvent event) throws IOException {
-        onRistorantiClick(event);
+        super.goTo(event, "ristorantiRist.fxml");
     }
 
-    /**
-     * Esegue il logout dell’utente corrente.
-     *
-     * @param event evento di logout
-     */
     @FXML
     public void handleLogOut(ActionEvent event) {
         super.handleLogOut(event);
     }
 
-    /**
-     * Chiude l’applicazione in modo sicuro.
-     *
-     * @param event evento di chiusura
-     */
     @Override
     public void closeProgram(ActionEvent event) {
         super.closeProgram(event);
     }
 
-    /**
-     * Torna alla schermata precedente del client.
-     *
-     * @param event evento di ritorno
-     * @throws IOException se la pagina non può essere caricata
-     */
     @FXML
     protected void goBack(ActionEvent event) throws IOException {
-        super.goBack(event);
+        super.goTo(event, "dashBoardRist.fxml");
     }
 
-    /**
-     * Naviga alla pagina profilo del cliente.
-     *
-     * @param event evento di navigazione
-     * @throws IOException se la pagina non può essere caricata
-     */
     @FXML
     protected void onProfileClick(ActionEvent event) throws IOException {
-        super.onProfileClick(event);
+        super.goTo(event, "profilePageRist.fxml");
     }
 }

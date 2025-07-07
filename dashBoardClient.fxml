@@ -8,7 +8,7 @@
 <?import javafx.collections.FXCollections?>
 <?import java.lang.Integer?>
 <?import javafx.scene.image.ImageView?>
-<StackPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.the_knife.Cliente.dashBoardClientController" >
+<StackPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.the_knife.Cliente.DashBoardClientController" >
     <BorderPane xmlns:fx="http://javafx.com/fxml" styleClass="root">
 
         <top>

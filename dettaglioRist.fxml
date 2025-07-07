@@ -8,26 +8,29 @@
 <?import java.net.URL?>
 <StackPane styleClass="root" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.the_knife.Ristoratore.DettaglioRistController">
     <BorderPane styleClass="root">
-        <padding>
-            <Insets top="20" right="15" bottom="20" left="15"/>
-        </padding>
+
         <stylesheets>
             <URL value="@../style.css"/>
         </stylesheets>
         <top>
-            <HBox alignment="TOP_RIGHT" spacing="10">
-                <padding>
-                    <Insets top="20" right="15" bottom="20" left="15"/>
-                </padding>
-                <Label fx:id="welcomeLabel" alignment="TOP_LEFT" styleClass="welcome-title"/>
-                <Button text="INDIETRO" onAction="#goBack" styleClass="menu-button"/>
-                <Button text="CHIUDI" onAction="#closeProgram" styleClass="menu-button"/>
-            </HBox>
+            <VBox>
+                <HBox alignment="TOP_RIGHT" spacing="10">
+                    <padding>
+                        <Insets top="20" right="15" bottom="20" left="15"/>
+                    </padding>
+                    <Button text="INDIETRO" onAction="#goBack" styleClass="menu-button"/>
+                    <Button text="CHIUDI" onAction="#closeProgram" styleClass="menu-button"/>
+                </HBox>
+
+            </VBox>
         </top>
         <center>
-            <ScrollPane fitToWidth="true">
-                    <GridPane fx:id="grid" />
-            </ScrollPane>
+            <VBox spacing="20">
+                <Label fx:id="welcomeLabel" styleClass="welcome-title"/>
+                <ScrollPane fitToWidth="true">
+                        <GridPane fx:id="grid" />
+                </ScrollPane>
+            </VBox>
         </center>
     </BorderPane>
 </StackPane>

@@ -7,6 +7,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -22,29 +23,60 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import java.io.*;
 import java.net.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 import static com.example.the_knife.Utente.SessionManager.idRist;
 
+
+/**
+ * Controller principale per la schermata iniziale dell'applicazione The_Knife.
+ *
+ * Gestisce la logica di inizializzazione della UI, applicazione dei filtri
+ * di ricerca per i ristoranti, visualizzazione dei risultati, gestione dei preferiti
+ * e navigazione tra pagine di dettaglio e recensioni.
+ */
 public class StartPageController {
 
 
+    /** ListView che mostra i ristoranti trovati o consigliati all'utente. */
     @FXML
     private ListView<Ristorante> listaRistLabel;
 
-    @FXML private TextField cityField;
-    @FXML private ComboBox<String> cuisineBox;
-    @FXML private ComboBox<String> priceBox;
-    @FXML private ComboBox<String> deliveryBox;
-    @FXML private ComboBox<String> bookingBox;
-    @FXML private Button searchButton;
+    /** Campo di testo per inserire la città in cui cercare ristoranti. */
+    @FXML
+    private TextField cityField;
+
+    /** ComboBox per selezionare il tipo di cucina desiderato. */
+    @FXML
+    private ComboBox<String> cuisineBox;
+
+    /** ComboBox per selezionare la fascia di prezzo desiderata. */
+    @FXML
+    private ComboBox<String> priceBox;
+
+    /** ComboBox per selezionare se si desidera la consegna a domicilio. */
+    @FXML
+    private ComboBox<String> deliveryBox;
+
+    /** ComboBox per selezionare se si desidera prenotare online. */
+    @FXML
+    private ComboBox<String> bookingBox;
+
+    /** Pulsante per avviare la ricerca in base ai filtri selezionati. */
+    @FXML
+    private Button searchButton;
+
+
+    /**
+     * Metodo di inizializzazione della UI, viene chiamato automaticamente da JavaFX.
+     * Carica i ristoranti top 10, configura le icone e i filtri, e ripristina eventuali selezioni precedenti.
+     *
+     * @throws IOException se avviene un errore nella lettura dei file JSON.
+     */
 
     @FXML
-    private void initialize() {
-
+    private void initialize() throws IOException {
+        top10Ristoranti("ristoranti.json","top10rist.json");
         //ICONA LENTE INGRANDIMENTO
         searchButton.getStyleClass().add("accent-button");
         Image lenteIngrandimento = new Image(getClass().getResource("/com/example/the_knife/icone/lenteIngrandimento.png").toExternalForm());
@@ -87,6 +119,13 @@ public class StartPageController {
         }
     }
 
+
+    /**
+     * Mostra nella lista i ristoranti top 10 ordinati per recensione.
+     *
+     * @param pagDettagli path del file FXML per la pagina di dettaglio ristorante.
+     * @param pagRecensioni path del file FXML per la pagina di recensioni ristorante.
+     */
     public void printListRistTop10(String pagDettagli,String pagRecensioni){
         try {
             SessionManager.counter = 0;
@@ -181,7 +220,7 @@ public class StartPageController {
                         iconView2.setFitHeight(24);//setto il ridimensionamento
                         prefButton.setGraphic(iconView2);
 
-                        if (SessionManager.pagina == 2) {
+                        if (SessionManager.pagina == 2 || SessionManager.pagina == 1) {
                             boolean isPref = false;
                             try {
                                 ObjectMapper mapper = new ObjectMapper();
@@ -260,7 +299,7 @@ public class StartPageController {
                         }
 
                         // Espansione colonne
-                        if(SessionManager.pagina == 1 || SessionManager.pagina == 0) {
+                        if(SessionManager.pagina == 0) {
                             ColumnConstraints col1 = new ColumnConstraints();
                             col1.setPercentWidth(35);
                             ColumnConstraints col2 = new ColumnConstraints();
@@ -294,6 +333,12 @@ public class StartPageController {
         }
     }
 
+    /**
+     * Stampa nella lista i ristoranti trovati con i filtri impostati.
+     *
+     * @param pagDettagli path del file FXML per la pagina di dettaglio ristorante.
+     * @param pagRecensioni path del file FXML per la pagina di recensioni ristorante.
+     */
     public void printListRist(String pagDettagli,String pagRecensioni){
         try {
             System.out.println("listaRistLabel è null? " + (listaRistLabel == null));
@@ -389,11 +434,11 @@ public class StartPageController {
                         iconView2.setFitHeight(24);//setto il ridimensionamento
                         prefButton.setGraphic(iconView2);
 
-                        if (SessionManager.pagina == 2) {
+                        if (SessionManager.pagina == 2 || SessionManager.pagina == 1) {
                             boolean isPref = false;
                             try {
                                 ObjectMapper mapper = new ObjectMapper();
-                                mapper.registerModule(new com.fasterxml.jackson.datatype.jsr310.JavaTimeModule());
+                                mapper.registerModule(new JavaTimeModule());
                                 File file = new File("fileUtenti.json");
                                 JsonNode root = mapper.readTree(file);
                                 JsonNode utentiNode = root.get("Utenti");
@@ -421,7 +466,7 @@ public class StartPageController {
 
                                     // Rileggi lo stato aggiornato dei preferiti ogni volta
                                     ObjectMapper mapper = new ObjectMapper();
-                                    mapper.registerModule(new com.fasterxml.jackson.datatype.jsr310.JavaTimeModule());
+                                    mapper.registerModule(new JavaTimeModule());
                                     File file = new File("fileUtenti.json");
                                     JsonNode root = mapper.readTree(file);
                                     JsonNode utentiNode = root.get("Utenti");
@@ -468,7 +513,7 @@ public class StartPageController {
                         }
 
                         // Espansione colonne
-                        if(SessionManager.pagina == 1 || SessionManager.pagina == 0) {
+                        if(SessionManager.pagina == 0) {
                             ColumnConstraints col1 = new ColumnConstraints();
                             col1.setPercentWidth(35);
                             ColumnConstraints col2 = new ColumnConstraints();
@@ -502,9 +547,16 @@ public class StartPageController {
         }
     }
 
+
+    /**
+     * Aggiunge il ristorante corrente ai preferiti dell'utente.
+     *
+     * @param fileJson percorso del file JSON che contiene i dati utente.
+     * @throws IOException in caso di errore durante la lettura/scrittura del file.
+     */
     public void addPrefe(String fileJson) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
-        mapper.registerModule(new com.fasterxml.jackson.datatype.jsr310.JavaTimeModule());
+        mapper.registerModule(new JavaTimeModule());
         File file = new File(fileJson);
 
         JsonNode root = mapper.readTree(file);
@@ -534,9 +586,15 @@ public class StartPageController {
     }
 
 
+    /**
+     * Rimuove il ristorante corrente dai preferiti dell'utente.
+     *
+     * @param fileJson percorso del file JSON che contiene i dati utente.
+     * @throws IOException in caso di errore durante la lettura/scrittura del file.
+     */
     public void removePrefe(String fileJson) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
-        mapper.registerModule(new com.fasterxml.jackson.datatype.jsr310.JavaTimeModule());
+        mapper.registerModule(new JavaTimeModule());
         File file = new File(fileJson);
 
         JsonNode root = mapper.readTree(file);
@@ -572,8 +630,17 @@ public class StartPageController {
 
 
 
+    /**
+     * Recupera tutti i ristoranti gestiti da un determinato ristoratore.
+     *
+     * @param fileRisto percorso del file JSON dei ristoranti.
+     * @param id ID del ristoratore.
+     * @return lista dei ristoranti gestiti dal ristoratore specificato.
+     * @throws IOException se il file non può essere letto.
+     */
     public List<Ristorante> getRistoranti(String fileRisto, int id) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
+        mapper.registerModule(new JavaTimeModule());
         JsonNode root = mapper.readTree(new File(fileRisto));
         JsonNode ristorantiNode = root.get("ristoranti");
 
@@ -588,8 +655,16 @@ public class StartPageController {
         return mieiRisto;
     }
 
+    /**
+     * Restituisce la lista dei top ristoranti (es. i primi 10) da un file JSON.
+     *
+     * @param fileRisto percorso del file contenente i ristoranti.
+     * @return lista dei ristoranti top.
+     * @throws IOException in caso di errore nella lettura del file.
+     */
     public List<Ristorante> getRistorantiTop(String fileRisto) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
+        mapper.registerModule(new JavaTimeModule());
         JsonNode root = mapper.readTree(new File(fileRisto));
         JsonNode ristorantiNode = root.get("ristoranti");
 
@@ -600,7 +675,12 @@ public class StartPageController {
     }
 
 
-
+    /**
+     * Passa alla schermata di login.
+     *
+     * @param event evento che ha generato l'azione.
+     * @throws IOException se il file FXML non è stato caricato correttamente.
+     */
     @FXML
     private void goToLogin(ActionEvent event) throws IOException {
         try{
@@ -623,6 +703,14 @@ public class StartPageController {
             e.printStackTrace();
         }
     }
+
+    /**
+     * Passa a una schermata indicata dal percorso FXML.
+     *
+     * @param event evento generato dal bottone.
+     * @param location path del file FXML da caricare.
+     * @throws IOException se il caricamento fallisce.
+     */
     @FXML
     public void goTo(ActionEvent event, String location) throws IOException{
         try {
@@ -646,10 +734,20 @@ public class StartPageController {
         }
     }
 
+
+    /**
+     * Chiude il programma.
+     *
+     * @param event evento generato dalla pressione del bottone \"Chiudi\".
+     */
     @FXML
     public void closeProgram(ActionEvent event) {
         System.exit(0);
     }
+
+    /**
+     * Esegue la ricerca e aggiorna la lista in base ai filtri selezionati.
+     */
 
     @FXML
     private void onSearchClicked() {
@@ -657,32 +755,48 @@ public class StartPageController {
         printListRist("dettaglioRistoranteSearch.fxml","recensioneRistoranteSearch.fxml");
     }
 
-    public void top10Ristoranti(String fileJson,String filetop10) throws IOException {
+
+    /**
+     * Calcola i top 10 ristoranti da un file e li salva in un nuovo file JSON.
+     *
+     * @param fileJson file di origine contenente tutti i ristoranti.
+     * @param filetop10 file di destinazione per i top 10.
+     * @throws IOException se qualcosa va storto durante la scrittura.
+     */
+    public void top10Ristoranti(String fileJson, String filetop10) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
-        JsonNode root = mapper.readTree(new File(fileJson));
-        JsonNode tuttiRistNode = root.get("ristoranti");
+        mapper.registerModule(new JavaTimeModule());
+
+        // Leggi tutti i ristoranti
+        JsonNode rootR = mapper.readTree(new File(fileJson));
+        JsonNode tuttiRistNode = rootR.get("ristoranti");
         List<Ristorante> tuttiRist = Arrays.asList(mapper.treeToValue(tuttiRistNode, Ristorante[].class));
 
-        JsonNode top10RistNode = root.get("ristoranti");
-        List<Ristorante> top10Rist = Arrays.asList(mapper.treeToValue(top10RistNode, Ristorante[].class));
+        // Ordina tutti i ristoranti (presumo per rating medio)
+        ordinaRist(tuttiRist); // Assicurati che funzioni!
 
-        List<Ristorante> listaModificabileTop10 = new ArrayList<>(top10Rist);
+        // Prendi i primi 10
+        List<Ristorante> top10 = tuttiRist.stream().limit(10).toList();
 
-        ordinaRist(tuttiRist);
-
-        for(int i=0 ; i<10; i++){
-            aggiungiRistorante(tuttiRist.get(i),filetop10);
-        }
-
+        // Scrivi nel nuovo file
         ObjectNode nuovoRoot = mapper.createObjectNode();
-        nuovoRoot.set("ristoranti", mapper.valueToTree(listaModificabileTop10));
+        nuovoRoot.set("ristoranti", mapper.valueToTree(top10));
         mapper.writerWithDefaultPrettyPrinter().writeValue(new File(filetop10), nuovoRoot);
     }
 
+    /**
+     * Ordina una lista di ristoranti in base alla media recensioni e numero recensioni.
+     *
+     * @param risultati lista dei ristoranti da ordinare.
+     */
     public void ordinaRist(List<Ristorante> risultati) {
         quickSort(risultati, 0, risultati.size() - 1);
     }
 
+
+    /**
+     * Implementa l’algoritmo di ordinamento QuickSort.
+     */
     private void quickSort(List<Ristorante> lista, int low, int high) {
         if (low < high) {
             int pivotIndex = partition(lista, low, high);
@@ -691,6 +805,10 @@ public class StartPageController {
         }
     }
 
+
+    /**
+     * Implementa l’algoritmo di ordinamento QuickSort.
+     */
     private int partition(List<Ristorante> lista, int low, int high) {
         Ristorante pivot = lista.get(high); // Usiamo l'intero oggetto per confrontare entrambi i campi
         int i = low - 1;
@@ -709,9 +827,16 @@ public class StartPageController {
         return i + 1;
     }
 
+    /**
+     * Aggiunge un nuovo ristorante al file JSON esistente.
+     *
+     * @param nuovo oggetto Ristorante da aggiungere.
+     * @param fileJson file di destinazione JSON.
+     */
     public static void aggiungiRistorante(Ristorante nuovo, String fileJson) {
         try {
             ObjectMapper mapper = new ObjectMapper();
+            mapper.registerModule(new JavaTimeModule());
             mapper.enable(SerializationFeature.INDENT_OUTPUT);
 
             File file = new File(fileJson);
@@ -752,7 +877,35 @@ public class StartPageController {
         }
     }
 
+    public static void removeRistorante(String fileRisto) throws IOException {
+        ObjectMapper mapper = new ObjectMapper();    mapper.registerModule(new JavaTimeModule());
+        JsonNode root = mapper.readTree(new File(fileRisto));
+        JsonNode ristorantiNode = root.get("ristoranti");
+        if (ristorantiNode == null || !ristorantiNode.isArray()) {
+            System.out.println("Il campo 'ristoranti' non è presente o non è un array.");
+            return;    }
+        List<Ristorante> ristoranti = Arrays.asList(mapper.treeToValue(ristorantiNode, Ristorante[].class));
+        List<Ristorante> listaModificabile = new ArrayList<>(ristoranti);
+        boolean removed = false;    Iterator<Ristorante> iterator = listaModificabile.iterator();
+        while (iterator.hasNext()) {
+            Ristorante r = iterator.next();
+            if (r.getId() == idRist) {
+                iterator.remove();
+                removed = true;        }
+        }
+        if (removed) {        ObjectNode nuovoRoot = mapper.createObjectNode();
+            nuovoRoot.set("ristoranti", mapper.valueToTree(listaModificabile));
+            mapper.writerWithDefaultPrettyPrinter().writeValue(new File(fileRisto), nuovoRoot);
+            System.out.println("File JSON aggiornato correttamente.");    } else {
+            System.out.println("Nessuna modifica effettuata nel file.");    }
+    }
 
+    /**
+     * Esegue una ricerca dei ristoranti in base ai filtri attivi.
+     *
+     * @return lista dei ristoranti corrispondenti.
+     * @throws IOException se si verifica un errore nella lettura del file.
+     */
     @FXML
     public List<Ristorante> cercaRist() throws IOException {
         String city = cityField.getText().trim();
@@ -785,10 +938,24 @@ public class StartPageController {
             }
             return listaRist;
         }
+
+    /**
+     * Cerca i ristoranti che corrispondono ai parametri passati.
+     *
+     * @param fileJson file contenente i ristoranti.
+     * @param luogoOrName città o nome del ristorante.
+     * @param tipoCucina tipo di cucina.
+     * @param fasciaPrezzo fascia di prezzo.
+     * @param delivery true se si desidera consegna a domicilio.
+     * @param servizioOnline true se si desidera prenotazione online.
+     * @return lista dei ristoranti filtrati.
+     * @throws IOException in caso di errore nella lettura.
+     */
     public List<Ristorante> cercaRistoranti(String fileJson, String luogoOrName, String tipoCucina, String fasciaPrezzo,
                                             boolean delivery, boolean servizioOnline) throws IOException {
 
         ObjectMapper mapper = new ObjectMapper();
+        mapper.registerModule(new JavaTimeModule());
         JsonNode root = mapper.readTree(new File(fileJson));
         JsonNode ristorantiNode = root.get("ristoranti");
         List<Ristorante> ristoranti = Arrays.asList(mapper.treeToValue(ristorantiNode, Ristorante[].class));
@@ -824,6 +991,15 @@ public class StartPageController {
         return risultati;
     }
 
+    /**
+     * Calcola la distanza in chilometri tra due coordinate geografiche.
+     *
+     * @param lat1 latitudine punto A.
+     * @param lon1 longitudine punto A.
+     * @param lat2 latitudine punto B.
+     * @param lon2 longitudine punto B.
+     * @return distanza in km.
+     */
     public double calcolaDistanzaKm(double lat1, double lon1, double lat2, double lon2) {
         final int R = 6371; // Raggio della terra in km
         double dLat = Math.toRadians(lat2 - lat1);
@@ -834,6 +1010,13 @@ public class StartPageController {
         double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
         return R * c;
     }
+
+    /**
+     * Ottiene le coordinate (latitudine e longitudine) di un indirizzo testuale usando il servizio OpenStreetMap.
+     *
+     * @param indirizzo nome o descrizione del luogo.
+     * @return array contenente latitudine e longitudine.
+     */
     public static double[] coordinate(String indirizzo) {
         double[] coord = new double[2];
         try {
@@ -854,6 +1037,7 @@ public class StartPageController {
             in.close();
 
             ObjectMapper objectMapper = new ObjectMapper();
+            objectMapper.registerModule(new JavaTimeModule());
             JsonNode results = objectMapper.readTree(response.toString());
 
             if (results.isArray() && results.size() > 0) {

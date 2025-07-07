@@ -16,6 +16,7 @@
                     <Insets top="20" right="15" bottom="20" left="15"/>
                 </padding>
                 <Button onAction="#onAddRistClick" text="AGGIUNGI RISTORANTE" styleClass="menu-button"/>
+                <Button onAction="#onPreferitiClick" text="MIEI PREFERITI" styleClass="menu-button"/>
                 <Button onAction="#onProfileClick" text="PROFILO" styleClass="menu-button"/>
                 <Button text="INDIETRO" onAction="#goBack" styleClass="menu-button"/>
                 <Button text="ESCI" onAction="#handleLogOut" styleClass="menu-button"/>
@@ -25,7 +26,6 @@
 
         <center>
             <VBox alignment="TOP_CENTER" spacing="20" styleClass="form-box">
-                <Label text="THE KNIFE" styleClass="welcome-subtitle"/>
                 <Label fx:id="welcomeLabel" styleClass="welcome-title"/>
                 <ListView fx:id="listaRistLabel" prefHeight="600" prefWidth="300" />
             </VBox>
