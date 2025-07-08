@@ -7,7 +7,9 @@
 
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
-<StackPane styleClass="root" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.the_knife.Ristoratore.NewRestaurantController">
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+<StackPane styleClass="root" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.the_knife.Ristoratore.newRestaurantController">
     <BorderPane styleClass="root">
 
         <!-- TOP BAR -->
@@ -53,7 +55,29 @@
                             <TextField fx:id="mailRist" promptText="E-mail del ristorante" styleClass="rounded-textfield" maxWidth="500" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
 
                             <Label text="Tipo di cucina:" styleClass="textNormal" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
-                            <TextField fx:id="cousineRist" promptText="Tipo di cucina" styleClass="rounded-textfield" maxWidth="500" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+                            <ComboBox fx:id="cousineRist"
+                                      promptText="Tipo di cucina"
+                                      style="-fx-font-size: 5px"
+                                      prefHeight="20"
+                                      prefWidth="600"
+                                      GridPane.rowIndex="5" GridPane.columnIndex="1"
+                                      styleClass="rounded-textfield2">
+                                <items>
+                                    <FXCollections fx:factory="observableArrayList">
+                                        <String fx:value="Italiana" />
+                                        <String fx:value="Giapponese" />
+                                        <String fx:value="Francese" />
+                                        <String fx:value="Cinese" />
+                                        <String fx:value="Indiana" />
+                                        <String fx:value="Messicana" />
+                                        <String fx:value="Pizzeria" />
+                                        <String fx:value="Di carne" />
+                                        <String fx:value="Di pesce" />
+                                        <String fx:value="Trattoria" />
+                                        <String fx:value="Mediterranea" />
+                                    </FXCollections>
+                                </items>
+                            </ComboBox>
 
                             <Label text="Telefono:" styleClass="textNormal" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
                             <TextField fx:id="telRist" promptText="+39 0123456789" styleClass="rounded-textfield" maxWidth="500" GridPane.rowIndex="6" GridPane.columnIndex="1"/>

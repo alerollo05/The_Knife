@@ -8,6 +8,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -57,6 +58,7 @@ public class StartPageController {
      */
     @FXML
     private void initialize() throws IOException {
+        System.out.println("prova eseguibile");
         top10Ristoranti("ristoranti.json","top10rist.json");
         //ICONA LENTE INGRANDIMENTO
         searchButton.getStyleClass().add("accent-button");
@@ -92,11 +94,11 @@ public class StartPageController {
             priceBox.setValue(SessionManager.prezzoStatico);
             deliveryBox.setValue(SessionManager.deliveryStatico ? "Delivery" : "No delivery");
             bookingBox.setValue(SessionManager.bookingStatico ? "Booking" : "No booking online");
-            printListRist("dettaglioRistoranteSearch.fxml","recensioneRistoranteSearch.fxml"); // mostra la lista con i filtri precedenti
+            printListRist("/com/example/the_knife/dettaglioRistoranteSearch.fxml","/com/example/the_knife/recensioneRistoranteSearch.fxml"); // mostra la lista con i filtri precedenti
         } else {
             deliveryBox.getSelectionModel().selectFirst();
             bookingBox.getSelectionModel().selectFirst();
-            printListRistTop10("dettaglioRistoranteSearch.fxml","recensioneRistoranteSearch.fxml"); // mostra top 10 iniziale
+            printListRistTop10("/com/example/the_knife/dettaglioRistoranteSearch.fxml","/com/example/the_knife/recensioneRistoranteSearch.fxml"); // mostra top 10 iniziale
         }
     }
 
@@ -111,7 +113,10 @@ public class StartPageController {
         try {
             SessionManager.counter = 0;
             System.out.println("listaRistLabel è null? " + (listaRistLabel == null));
+            File fileTop10 = new File("top10rist.json");
+            System.out.println("Esiste top10rist.json? " + fileTop10.exists());
             List<Ristorante> mieiRistoranti = getRistorantiTop("top10rist.json");
+            System.out.println("listaRistLabel è null? " + (listaRistLabel == null));
             listaRistLabel.setItems(FXCollections.observableArrayList(mieiRistoranti));
 
             listaRistLabel.setCellFactory(param -> new ListCell<>() {
@@ -688,8 +693,8 @@ public class StartPageController {
     @FXML
     private void goToLogin(ActionEvent event) throws IOException {
         try{
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("loginPage.fxml"));
-            Scene loginScene = new Scene(loader.load(),900,800);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/the_knife/loginPage.fxml"));
+            Scene loginScene = new Scene(loader.load(),950,750);
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(loginScene);
             stage.setTitle("The_Knife");
@@ -703,8 +708,10 @@ public class StartPageController {
             System.err.println("Il path al file FXML è nullo o errato:");
             e.printStackTrace();
         } catch (Exception e) {
-            System.err.println("Errore imprevisto:");
+            System.err.println("Errore nell'avvio dell'app:");
             e.printStackTrace();
+            Platform.exit(); //chiude JavaFX pulitamente
+            System.exit(1);  //forza l'uscita con codice errore
         }
     }
     /**
@@ -722,7 +729,7 @@ public class StartPageController {
     public void goTo(ActionEvent event, String location) throws IOException{
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(location));
-            Scene loginScene = new Scene(loader.load(), 900, 800);
+            Scene loginScene = new Scene(loader.load(), 950, 750);
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(loginScene);
             stage.setTitle("The_Knife");
@@ -736,8 +743,10 @@ public class StartPageController {
             System.err.println("Il path al file FXML è nullo o errato:");
             e.printStackTrace();
         } catch (Exception e) {
-            System.err.println("Errore imprevisto:");
+            System.err.println("Errore nell'avvio dell'app:");
             e.printStackTrace();
+            Platform.exit(); //chiude JavaFX pulitamente
+            System.exit(1);  //forza l'uscita con codice errore
         }
     }
 
@@ -832,15 +841,14 @@ public class StartPageController {
     }
     /**
      * Partiziona la lista di ristoranti per l'algoritmo QuickSort secondo un criterio di ordinamento decrescente.
-     * <p>
-     * Il criterio di confronto è il seguente:
+     *
+     * <p>Il criterio di confronto è il seguente:
      * <ul>
      *   <li>Priorità più alta alla {@code media recensioni} ({@code getMediaRec()})</li>
      *   <li>In caso di parità, viene usato il numero di recensioni ({@code getNumRec()}) come discriminante secondario</li>
      * </ul>
      * Entrambi i confronti sono in ordine decrescente. Alla fine del metodo, tutti gli elementi con priorità maggiore
      * o uguale al pivot si troveranno prima del pivot nella lista.
-     * </p>
      *
      * @param lista la lista di ristoranti da partizionare
      * @param low   indice iniziale del sottoarray
@@ -1060,7 +1068,7 @@ public class StartPageController {
             // Filtro per distanza (se coordinate valide)
             if (coordinateLuogo != null && coordinateLuogo[0] != 0 && coordinateLuogo[1] != 0) {
                 double distanzaKm = calcolaDistanzaKm(coordinateLuogo[0], coordinateLuogo[1], r.getLatitude(), r.getLongitude());
-                if (distanzaKm <= 100) {
+                if (distanzaKm <= 40) {
                     risultati.add(r);
                 }
             } else {

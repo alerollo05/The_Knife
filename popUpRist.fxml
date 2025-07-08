@@ -15,6 +15,7 @@
             <HBox spacing="20" alignment="CENTER_LEFT" >
                 <Label fx:id="label1" styleClass="textPopUp"/>
                 <TextField fx:id="txt1" styleClass="rounded-textfield2"/>
+                <ComboBox fx:id="comboCucina" styleClass="rounded-textfield3" prefHeight="40" prefWidth="180" visible="false" managed="false"/>
             </HBox>
 
             <!-- RIGA: Bottoni -->

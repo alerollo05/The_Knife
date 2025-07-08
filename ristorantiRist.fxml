@@ -27,7 +27,7 @@
         <center>
             <VBox alignment="TOP_CENTER" spacing="20" styleClass="form-box">
                 <Label fx:id="welcomeLabel" styleClass="welcome-title"/>
-                <ListView fx:id="listaRistLabel" prefHeight="600" prefWidth="300" />
+                <ListView fx:id="listaRistLabel"  prefHeight="600" prefWidth="300" />
             </VBox>
         </center>
 

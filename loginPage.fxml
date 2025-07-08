@@ -71,7 +71,7 @@
                                 <DatePicker fx:id="dataNascita" promptText="dd/mm/aaaa" styleClass="date-picker" maxWidth="500" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
 
                                 <Label text="Indirizzo:" styleClass="textNormal" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
-                                <TextField fx:id="indirizzo" promptText="Inserisci il tuo indirizzo" styleClass="rounded-textfield" maxWidth="500" GridPane.rowIndex="6" GridPane.columnIndex="1"/>
+                                <TextField fx:id="indirizzo2" promptText="Inserisci il tuo indirizzo" styleClass="rounded-textfield" maxWidth="500" GridPane.rowIndex="6" GridPane.columnIndex="1"/>
 
                                 <Label text="Telefono:" styleClass="textNormal" GridPane.rowIndex="7" GridPane.columnIndex="0"/>
                                 <TextField fx:id="numTel" promptText="+39 0123456789" styleClass="rounded-textfield" maxWidth="500" GridPane.rowIndex="7" GridPane.columnIndex="1"/>

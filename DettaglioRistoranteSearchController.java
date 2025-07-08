@@ -47,7 +47,7 @@ public class DettaglioRistoranteSearchController extends RistorantiRistControlle
      * Metodo di inizializzazione automatico di JavaFX chiamato dopo il caricamento dell'FXML.
      * Imposta l'intestazione e chiama {@link #printDettagliRist()} per visualizzare i dati del ristorante.
      *
-     * @throws IOException se si verifica un errore durante la lettura del file JSON dei ristoranti
+     * @throws IOException se si verifica un errore durante la lettra del file JSON dei ristoranti
      */
     @FXML
     public void initialize() throws IOException {

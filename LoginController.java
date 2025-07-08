@@ -14,6 +14,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.util.Callback;
 import org.mindrot.jbcrypt.BCrypt;
 
 import java.io.File;
@@ -60,7 +61,7 @@ public class LoginController extends StartPageController {
     private DatePicker dataNascita;
     /** Campo per l'indirizzo */
     @FXML
-    private TextField indirizzo;
+    private TextField indirizzo2;
     /** Campo per l'email */
     @FXML
     private TextField emailField;
@@ -91,6 +92,27 @@ public class LoginController extends StartPageController {
         SessionManager.counter = 0;
         SessionManager.counter1 = 0;
         SessionManager.counter2 = 0;
+
+        //SETTAGGIO DEL DATEPICKER
+        LocalDate today = LocalDate.now();
+        LocalDate maxDate = today.minusYears(18);        // minore di 18 => blocca
+        LocalDate minDate = today.minusYears(110);       // es. limite anziani
+
+        Callback<DatePicker, DateCell> dayCellFactory = dp -> new DateCell() {
+            @Override
+            public void updateItem(LocalDate date, boolean empty) {
+                super.updateItem(date, empty);
+
+                // Blocca se la data non è nel range accettabile
+                if (empty || date.isAfter(maxDate) || date.isBefore(minDate)) {
+                    setDisable(true);
+                    setStyle("-fx-background-color: #333;");
+                }
+            }
+        };
+
+        dataNascita.setDayCellFactory(dayCellFactory);
+
 
         passRegisterVisible.textProperty().bindBidirectional(passRegister.textProperty());
         //BOTTONE PREFETITI
@@ -152,8 +174,8 @@ public class LoginController extends StartPageController {
 
         //DEFINIZIONE handleLogin
         String user = usernameField.getText();
+        user = user.trim();
         String pass = passwordField.getText();
-
         Utente utente = new Utente();
         utente= login(user,pass);//faccio la login con i dati inseriti
 
@@ -203,7 +225,7 @@ public class LoginController extends StartPageController {
         numerotel = numerotel.trim();
         numerotel = numerotel.replaceAll("[\\s-]","");
         InputValidator.validaTelefono(numerotel);
-        String indirizzo = this.indirizzo.getText();
+        String indirizzo = this.indirizzo2.getText();
         indirizzo = indirizzo.trim();
         InputValidator.validaIndirizzo(indirizzo);
         LocalDate DataNascita = dataNascita.getValue();
@@ -230,6 +252,14 @@ public class LoginController extends StartPageController {
         System.out.println("Riepilogo:");
         System.out.println("Username: "+newUser +"\nPassword: "+newPass+"\nNome: "+name+"\nCognome:" +cognome+"\nNumero di telefono: "+numerotel+"\nData di nascita: "+DataNascita+"\nIndirizzo: "+indirizzo);
 
+        userRegister.clear();
+        passRegister.clear();
+        nomeField.clear();
+        cognomeField.clear();
+        numTel.clear();
+        indirizzo2.clear();
+        emailField.clear();
+        dataNascita.setValue(null);
 
     }
 
@@ -275,8 +305,6 @@ public class LoginController extends StartPageController {
                     count++;
                 }
             }
-
-
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -172,8 +172,9 @@ public class PopUpProfController {
                 });
                 break;
             case 7:
-                label1.setText("Cambia data di nascita:");
+                label1.setText("Cambia data:");
                 date1.setPromptText("dd/mm/aaaa");
+                date1.getStyleClass().add("date-picker2");
                 txt1.setVisible(false);//nascondo la casella di testo
                 txt1.setManaged(false);//tolgo lo spazio occupato dalla casella di testo
                 txt2.setVisible(false);//nascondo la casella della conferma password

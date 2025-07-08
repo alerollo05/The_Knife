@@ -67,7 +67,7 @@ public class RistorantiRistController extends DashBoardRistController {
         printListRist();
     }
     /**
-     * Carica e visualizza i ristoranti associati all'utente loggato all'interno della ListView.
+     * Carica e visualizza i ristoranti associati all'utente logggato all'interno della ListView.
      * Ogni ristorante è rappresentato da un componente grafico che mostra nome, indirizzo,
      * tipo di cucina, media recensioni e pulsanti per i dettagli, recensioni e cancellazione.
      */

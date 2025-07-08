@@ -25,7 +25,7 @@ import java.util.List;
  *
  * <p>Questa classe estende {@link RistorantiRistController} e consente
  * all'utente di visualizzare le informazioni di un ristorante (nome, indirizzo,
- * città, tipo di cucina, telefono, email, URL, descrizione, prezzo, stelle, servizi)
+ * città, tipo di cucina, telefono, email, URL, descrizzione, prezzo, stelle, servizi)
  * e di modificarle attraverso dei pulsanti interattivi o toggle (radio button)
  * per opzioni boolean come delivery e booking online.</p>
  *

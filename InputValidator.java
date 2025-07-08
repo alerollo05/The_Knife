@@ -41,7 +41,7 @@ public class InputValidator {
     protected static void handleInput() {
         //if(controllo che tutti gli input siano andati bene allora mando questo messaggio)
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Registrazione");
+        alert.setTitle("ERRORE");
         alert.setHeaderText("Ti sei registrato correttamente");
         alert.setContentText("I tuoi dati sono stati salvati...");
         alert.showAndWait();
@@ -56,7 +56,7 @@ public class InputValidator {
     public static void handleInput(String message1, String message2) {
         //if(controllo che tutti gli input siano andati bene allora mando questo messaggio)
         Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Registrazione");
+        alert.setTitle("ERRORE");
         alert.setHeaderText(message1);
         alert.setContentText(message2);
         alert.showAndWait();
@@ -304,14 +304,18 @@ public class InputValidator {
      * @throws InputMancanteException Il campo nome è obbligatorio
      * @throws NumMaxCaratteriException Limite massimo di caratteri raggiunto, num max di caratteri per il nome è 50.
      */
-    public static void validaNomeUte(String nomeUte){
+    public static void validaNomeUte(String nomeUte) {
         if (nomeUte == null || nomeUte.isEmpty()) {
             handleInput("Errore", "Il campo nome è obbligatorio.");
             throw new InputMancanteException("Il campo nome è obbligatorio.");
         }
-        if(nomeUte.length()>50){
-            handleInput("Errore", "Limite massimo di caratteri raggiunto,\n num max di caratteri per il nome è 50.");
+        if (nomeUte.length() > 50) {
+            handleInput("Errore", "Limite massimo di caratteri raggiunto,\nnum max di caratteri per il nome è 50.");
             throw new NumMaxCaratteriException("Limite massimo di caratteri raggiunto, num max di caratteri per il nome è 50.");
+        }
+        if (!nomeUte.matches("^[a-zA-ZÀ-ÿ'\s]+$")) {
+            handleInput("Errore", "Il nome può contenere solo lettere, spazi o apostrofi.");
+            throw new IllegalArgumentException("Il nome può contenere solo lettere, spazi o apostrofi.");
         }
     }
     /**
@@ -321,14 +325,18 @@ public class InputValidator {
      * @throws InputMancanteException Il campo cognome è obbligatorio
      * @throws NumMaxCaratteriException Limite massimo di caratteri raggiunto, num max di caratteri per il cognome è 50
      */
-    public static void validaCogno(String cognome){
+    public static void validaCogno(String cognome) {
         if (cognome == null || cognome.isEmpty()) {
             handleInput("Errore", "Il campo cognome è obbligatorio.");
             throw new InputMancanteException("Il campo cognome è obbligatorio.");
         }
-        if(cognome.length()>50){
-            handleInput("Errore", "Limite massimo di caratteri raggiunto,\n num max di caratteri per il cognome è 50.");
+        if (cognome.length() > 50) {
+            handleInput("Errore", "Limite massimo di caratteri raggiunto,\nnum max di caratteri per il cognome è 50.");
             throw new NumMaxCaratteriException("Limite massimo di caratteri raggiunto, num max di caratteri per il cognome è 50.");
+        }
+        if (!cognome.matches("^[a-zA-ZÀ-ÿ'\s]+$")) {
+            handleInput("Errore", "Il cognome può contenere solo lettere, spazi o apostrofi.");
+            throw new IllegalArgumentException("Il cognome può contenere solo lettere, spazi o apostrofi.");
         }
     }
     /**
@@ -461,18 +469,8 @@ public class InputValidator {
         ObjectMapper mapper = new ObjectMapper();
         mapper.registerModule(new JavaTimeModule());
 
-        File fileUtenti = new File("data/fileUtenti.json");
+        File fileUtenti = new File("fileUtenti.json");
 
-        // Se il file non esiste, copialo dal classpath
-        if (!fileUtenti.exists()) {
-            InputStream input = InputValidator.class.getResourceAsStream("/com/example/the_knife/data/fileUtenti.json");
-            if (input == null) {
-                System.err.println("File iniziale non trovato nel classpath.");
-                return false;
-            }
-            fileUtenti.getParentFile().mkdirs();
-            Files.copy(input, fileUtenti.toPath(), StandardCopyOption.REPLACE_EXISTING);
-        }
 
         // Deserializza il file JSON in ListaUtenti
         ListaUtenti lista = mapper.readValue(fileUtenti, ListaUtenti.class);

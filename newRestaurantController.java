@@ -207,6 +207,17 @@ public class newRestaurantController extends DashBoardRistController {
                 tel, Url, stelle, service,description,d, b, mail);
 
         aggiungiRistorante(nuovo,"ristoranti.json");
+        //CLEAR DEL PROMPT TEXT
+        nameRist.clear();
+        addressRist.clear();
+        locationRist.clear();
+        priceRist.clear();
+        telRist.clear();
+        UrlRist.clear();
+        serviceRist.clear();
+        descriptionRist.clear();
+        starsRist.clear();
+        mailRist.clear();
         handleInput();
     }
     /**
