@@ -1,6 +1,6 @@
 package com.example.the_knife.Cliente;
 
-import com.example.the_knife.Ristoratore.PopUpProfController;
+
 import com.example.the_knife.Ristoratore.ProfilePageRistController;
 import com.example.the_knife.Utente.ListaUtenti;
 import com.example.the_knife.Utente.SessionManager;
@@ -11,154 +11,115 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 
+
 import java.io.File;
 import java.io.IOException;
 
 /**
- * Controller per la pagina profilo del cliente.
- * Estende {@link ProfilePageRistController} per riutilizzare funzionalità comuni,
- * ma adatta la visualizzazione e il comportamento per l’utente con ruolo "cliente".
+ * Controller della pagina profilo utente per la sezione Cliente dell'applicazione.
+ * <p>
+ * Estende {@link ProfilePageRistController} per riutilizzare funzionalità comuni
+ * tra utenti ristoratori e clienti, adattando comportamenti specifici per il cliente.
+ * </p>
+ *
+ * <p>
+ * Gestisce la visualizzazione dei dati personali dell'utente cliente e permette la navigazione
+ * verso le altre sezioni dell'applicazione come ristoranti o dashboard.
+ * </p>
  */
 public class ProfilePageClientController extends ProfilePageRistController {
 
+    /** Etichetta di benvenuto che mostra il nome utente */
     @FXML
     private Label welcomeLabel;
 
+    /** Layout principale della pagina contenente i dettagli dell'utente */
     @FXML
     private GridPane grid;
 
-    /**
-     * Riferimento al controller principale del profilo ristoratore, utilizzabile
-     * se serve comunicazione tra controlli. Non utilizzato direttamente in questa classe.
-     */
+    /** Riferimento al controller principale, utilizzabile per comunicazione tra schermate */
     private ProfilePageRistController mainController;
 
-    /**
-     * Gestione della sessione utente.
-     */
+    /** Istanza della sessione utente corrente */
     SessionManager session = SessionManager.getInstance();
 
-    /**
-     * Nome dell’utente attualmente loggato.
-     */
+    /** Username dell'utente attualmente autenticato */
     private String user = session.getUsername();
 
-    /**
-     * ID dell’utente attualmente loggato.
-     */
+    /** ID dell'utente attualmente autenticato */
     private int id = session.getUserId();
 
-    /**
-     * Ruolo dell’utente attualmente loggato.
-     */
+    /** Ruolo dell'utente attualmente autenticato */
     private String ruolo = session.getRuolo();
 
     /**
-     * Esegue il logout dell’utente, ereditato da {@link ProfilePageRistController}.
+     * Metodo chiamato al clic sul pulsante di logout.
+     * <p>Effettua il logout dell'utente e ritorna alla schermata di login.</p>
      *
-     * @param event evento associato al click sul pulsante di logout
+     * @param event evento generato dal clic
      */
     public void handleLogOut(ActionEvent event) {
         super.handleLogOut(event);
     }
-
     /**
-     * Chiude in modo sicuro l’applicazione, ereditato da {@link ProfilePageRistController}.
+     * Chiude il programma. Override dal controller padre.
      *
-     * @param event evento di chiusura
+     * @param event evento generato dal clic
      */
     @Override
     public void closeProgram(ActionEvent event) {
         super.closeProgram(event);
     }
-
     /**
-     * Inizializza la schermata del profilo cliente:
-     * <ul>
-     *     <li>Visualizza un messaggio di benvenuto</li>
-     *     <li>Stampa nel terminale i dati utente</li>
-     *     <li>Mostra i dettagli utente </li>
-     * </ul>
+     * Metodo di inizializzazione della schermata.
+     * <p>Mostra il nome utente loggato e stampa i dettagli utente leggendo dal file JSON.</p>
      */
     @FXML
     public void initialize() {
         welcomeLabel.setText("IL TUO PROFILO " + user.toUpperCase());
-        System.out.println("Utente: " + user + " Id: " + id + " Ruolo: " + ruolo);
-        printDettaglioUtente("fileUtenti.json", "/com/example/the_knife/Ristoratore/popUpProf.fxml");
+        System.out.println("Utente: "+user+ "Id: "+id+"Ruolo: "+ruolo);
+        printDettaglioUtente("fileUtenti.json","/com/example/the_knife/Ristoratore/popUpProf.fxml");
     }
-
     /**
-     * Imposta il controller principale di tipo {@link ProfilePageRistController}.
+     * Imposta il controller principale per supportare chiamate incrociate tra schermate.
      *
-     * @param controller il controller da associare
+     * @param controller il controller principale da associare
      */
     public void setMainController(ProfilePageRistController controller) {
         this.mainController = controller;
     }
 
     /**
-     * Naviga nuovamente alla pagina del profilo.
-     * In questo caso chiama il metodo del controller padre.
+     * Gestisce il clic sull'icona del profilo utente.
+     * <p>Rimane nella stessa pagina (profilo cliente).</p>
      *
-     * @param event evento associato al click
-     * @throws IOException se la pagina non può essere caricata
+     * @param event evento generato dal clic
+     * @throws IOException in caso di errore nella navigazione
      */
     @FXML
     protected void onProfileClick(ActionEvent event) throws IOException {
         super.onProfileClick(event);
     }
-
     /**
-     * Torna alla dashboard del cliente.
+     * Gestisce il ritorno alla dashboard cliente.
      *
-     * @param event evento associato alla richiesta di ritorno
-     * @throws IOException se la pagina non può essere caricata
+     * @param event evento generato dal clic
+     * @throws IOException in caso di errore nella navigazione
      */
     @FXML
     protected void goBack(ActionEvent event) throws IOException {
         super.goTo(event, "dashBoardClient.fxml");
     }
-
     /**
-     * Naviga alla lista dei ristoranti visibile al cliente.
+     * Gestisce il clic sulla sezione ristoranti per il cliente.
      *
-     * @param event evento associato alla richiesta di navigazione
-     * @throws IOException se la pagina non può essere caricata
+     * @param event evento generato dal clic
+     * @throws IOException in caso di errore nella navigazione
      */
+
     @FXML
     protected void onRistorantiClick(ActionEvent event) throws IOException {
-        super.goTo(event, "ristorantiClient.fxml");
+        super.goTo(event,"ristorantiClient.fxml");
     }
 
-    /**
-     * Carica l’oggetto {@link Utente} corrente dal file JSON specificato.
-     * La ricerca è basata sullo username della sessione.
-     *
-     * @param fileJson il percorso del file JSON da leggere
-     * @return l'utente corrispondente, oppure {@code null} se non trovato o in caso di errore
-     */
-    private Utente getUtente(String fileJson) {
-        try {
-            ObjectMapper mapper = new ObjectMapper();
-            mapper.registerModule(new com.fasterxml.jackson.datatype.jsr310.JavaTimeModule());
-            File file = new File(fileJson);
-
-            if (!file.exists()) {
-                System.out.println("File non trovato: " + file.getAbsolutePath());
-                return null;
-            }
-
-            ListaUtenti lista = mapper.readValue(new File(fileJson), ListaUtenti.class);
-
-            for (Utente u : lista.Utenti) {
-                if (u.getUsername().equalsIgnoreCase(user)) {
-                    return u;
-                }
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
 }

@@ -25,38 +25,74 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
+/**
+ * Controller per la pagina profilo del ristoratore.
+ * <p>
+ * Questa classe gestisce la visualizzazione e la modifica delle informazioni personali
+ * dell'utente ristoratore come nome, cognome, email, username, password, indirizzo, data di nascita e telefono.
+ * Permette inoltre di aprire popup per modificare tali dati e aggiorna dinamicamente la UI.
+ * </p>
+ * <p>
+ * Estende {@link DashBoardRistController} e utilizza {@link SessionManager} per accedere ai dati utente.
+ * </p>
+ */
+public class ProfilePageRistController extends DashBoardRistController {
 
-public class ProfilePageRistController extends dashBoardRistController {
-
+    /** Etichetta che mostra il messaggio di benvenuto con il nome utente */
     @FXML
     private Label welcomeLabel;
 
+    /** Griglia principale che contiene i dati del profilo dell’utente */
     @FXML
     private GridPane grid;
 
+    /** Riferimento al controller principale per gestire aggiornamenti da popup */
     private ProfilePageRistController mainController;
 
+    /** Istanza della sessione per accedere ai dati dell’utente loggato */
     SessionManager session = SessionManager.getInstance();
-    private String user = session.getUsername();
-    private int id = session.getUserId();
-    private String ruolo = session.getRuolo();
 
+    /** Username dell’utente attualmente loggato */
+    private String user = session.getUsername();
+
+    /** ID dell’utente attualmente loggato */
+    private int id = session.getUserId();
+
+    /** Ruolo dell’utente attualmente loggato (es. "ristoratore") */
+    private String ruolo = session.getRuolo();
+    /**
+     * Metodo chiamato al logout dell’utente. Chiude la sessione.
+     *
+     * @param event evento associato al logout
+     */
     public void handleLogOut(ActionEvent event) {
         super.handleLogOut(event);
     }
-
+    /**
+     * Chiude il programma quando richiesto.
+     *
+     * @param event evento associato alla chiusura dell'applicazione
+     */
     @Override
     public void closeProgram(ActionEvent event) {
         super.closeProgram(event);
     }
-
+    /**
+     * Metodo chiamato all'inizializzazione del controller.
+     * Inizializza l’interfaccia utente con i dati del profilo dell’utente loggato.
+     */
     @FXML
     public void initialize() {
-        welcomeLabel.setText("PROFILO DI " + user + "");
+        welcomeLabel.setText("IL TUO PROFILO " + user.toUpperCase());
         System.out.println("Utente: "+user+ "Id: "+id+"Ruolo: "+ruolo);
         printDettaglioUtente("fileUtenti.json", "popUpProf.fxml");
     }
-
+    /**
+     * Visualizza i dettagli dell'utente nella griglia e imposta i pulsanti per la modifica.
+     *
+     * @param fileJson      percorso al file JSON contenente gli utenti
+     * @param filePopUpFXML percorso al file FXML del popup di modifica
+     */
     public void printDettaglioUtente(String fileJson,String filePopUpFXML) {
         try{
 
@@ -273,7 +309,12 @@ public class ProfilePageRistController extends dashBoardRistController {
             e.printStackTrace();
         }
     }
-
+    /**
+     * Apre una finestra di popup per modificare un campo del profilo.
+     *
+     * @param title          titolo della finestra popup
+     * @param filePopUpFXML  file FXML della finestra popup
+     */
     public void openPopupProf(String title,String filePopUpFXML) { //aggiungere variabile stringa nei parametri passati per percorso file .fxml
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(filePopUpFXML));
@@ -296,11 +337,22 @@ public class ProfilePageRistController extends dashBoardRistController {
             e.printStackTrace();
         }
     }
+    /**
+     * Imposta il controller principale, utile per aggiornare la UI dopo modifiche nei popup.
+     *
+     * @param controller riferimento al controller della pagina profilo
+     */
     public void setMainController(ProfilePageRistController controller) {
         this.mainController = controller;
     }
 
-
+    /**
+     * Carica l’oggetto {@link Utente} dal file JSON corrispondente all’utente loggato.
+     *
+     * @param fileUte percorso al file JSON
+     * @return {@link Utente} trovato oppure null se non esiste
+     * @throws IOException in caso di errore di lettura del file
+     */
     public Utente riepilogoUtente(String fileUte) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         mapper.registerModule(new JavaTimeModule()); // <-- fondamentale!
@@ -318,17 +370,32 @@ public class ProfilePageRistController extends dashBoardRistController {
         return null;
     }
 
-
+    /**
+     * Metodo associato al pulsante per aggiungere un nuovo ristorante.
+     *
+     * @param event evento di click
+     * @throws IOException in caso di errore nel caricamento della schermata
+     */
     @FXML
     public void onAddRistClick(ActionEvent event) throws IOException {
         super.onAddRistClick(event);
     }
-
+    /**
+     * Metodo associato al pulsante che porta alla lista dei ristoranti del ristoratore.
+     *
+     * @param event evento di click
+     * @throws IOException in caso di errore nel caricamento della schermata
+     */
     @FXML
     protected void onRistorantiClick(ActionEvent event) throws IOException {
         super.onRistorantiClick(event);
     }
-
+    /**
+     * Metodo associato al pulsante "indietro", che riporta alla schermata precedente.
+     *
+     * @param event evento di click
+     * @throws IOException in caso di errore nel caricamento della schermata
+     */
     @FXML
     protected void goBack(ActionEvent event) throws IOException {
         super.goBack(event);

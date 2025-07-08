@@ -1,26 +1,19 @@
 package com.example.the_knife.Exceptions;
-
 /**
- * Eccezione runtime lanciata quando un utente supera il numero massimo
- * consentito di recensioni per un determinato ristorante.
- * <p>
- * Può essere utilizzata per prevenire spam, abusi o comportamenti ripetitivi
- * non ammessi nel sistema di recensioni.
- * </p>
+ * Eccezione personalizzata che segnala il superamento del numero massimo consentito di recensioni
+ * da parte di un utente per un determinato ristorante.
  *
- * Esempio d'uso:
- * <pre>
- * if (utente.haGiaRecensito(ristorante)) {
- *     throw new MaxNumRecensioniException("Hai già raggiunto il numero massimo di recensioni per questo ristorante.");
- * }
- * </pre>
+ * <p>Questa eccezione può essere lanciata nel caso in cui si voglia impedire che un utente
+ * possa scrivere più recensioni di quante siano permesse per uno stesso ristorante,
+ * violando una regola di business dell'applicazione.</p>
+ *
+ * <p>Estende {@link RuntimeException}, quindi è un'eccezione non controllata.</p>
  */
 public class MaxNumRecensioniException extends RuntimeException {
-
     /**
-     * Costruisce una nuova eccezione {@code MaxNumRecensioniException} con un messaggio descrittivo.
+     * Costruisce una nuova eccezione {@code MaxNumRecensioniException} con il messaggio specificato.
      *
-     * @param message messaggio che descrive il motivo dell'eccezione
+     * @param message Messaggio descrittivo dell'errore.
      */
     public MaxNumRecensioniException(String message) {
         super(message);

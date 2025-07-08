@@ -1,27 +1,18 @@
 package com.example.the_knife.Exceptions;
-
 /**
- * Eccezione runtime lanciata quando l'input dell'utente supera
- * il numero massimo di caratteri consentito in un campo.
- * <p>
- * Utile per convalidare lunghezze di descrizioni, recensioni,
- * titoli o altri campi testuali prima del salvataggio.
- * </p>
+ * Eccezione personalizzata che segnala il superamento del numero massimo di caratteri consentiti
+ * in un campo di input (come nome, descrizione, indirizzo, ecc.).
  *
- * Esempio d'uso:
- * <pre>
- * if (commento.length() > MAX_CARATTERI) {
- *     throw new NumMaxCaratteriException("Il testo supera il limite massimo di caratteri.");
- * }
- * </pre>
+ * <p>Questa eccezione viene sollevata quando l'utente inserisce un testo che supera
+ * il limite prestabilito di caratteri in un determinato campo.</p>
+ *
+ * <p>Estende {@link RuntimeException}, pertanto è un'eccezione non verificata.</p>
  */
 public class NumMaxCaratteriException extends RuntimeException {
-
     /**
-     * Costruisce una nuova eccezione {@code NumMaxCaratteriException}
-     * con il messaggio di errore specificato.
+     * Costruisce una nuova eccezione {@code NumMaxCaratteriException} con il messaggio specificato.
      *
-     * @param message messaggio descrittivo dell'errore
+     * @param message messaggio che descrive l'errore di superamento del limite di caratteri.
      */
     public NumMaxCaratteriException(String message) {
         super(message);

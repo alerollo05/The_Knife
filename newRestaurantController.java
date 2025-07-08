@@ -1,93 +1,155 @@
 
 package com.example.the_knife.Ristoratore;
 
-import com.example.the_knife.Exceptions.*;
 import com.example.the_knife.InputValidator;
 import com.example.the_knife.Utente.SessionManager;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
-import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
 import java.io.*;
 import java.net.*;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
-public class newRestaurantController extends dashBoardRistController {
+/**
+ * Controller della schermata per l'aggiunta di un nuovo ristorante da parte di un ristoratore.
+ * <p>
+ * Consente all'utente autenticato (ruolo ristoratore) di inserire tutte le informazioni
+ * relative a un nuovo ristorante, con validazione dei dati e salvataggio su file JSON.
+ * </p>
+ * <p>
+ * L'indirizzo viene convertito in coordinate geografiche (latitudine e longitudine) tramite
+ * una richiesta HTTP all'API di OpenStreetMap (Nominatim).
+ * </p>
+ */
+public class newRestaurantController extends DashBoardRistController {
 
     //creo le variabili che mi servono per immagazzinare i dati che l'utente immette in input
+    /** Etichetta di benvenuto nella schermata. */
     @FXML
     private Label welcomeLabel;
+
+    /** Campo per il nome del ristorante. */
     @FXML
     private TextField nameRist;
+
+    /** Campo per l'indirizzo del ristorante. */
     @FXML
     private TextField addressRist;
+
+    /** Campo per la località. */
     @FXML
     private TextField locationRist;
+
+    /** Campo per il prezzo medio. */
     @FXML
     private TextField priceRist;
+
+    /** Campo per l'email di contatto. */
     @FXML
     private TextField mailRist;
+
+    /** Campo per il tipo di cucina. */
     @FXML
-    private TextField cousineRist;
+    private ComboBox<String> cousineRist;
+
+    /** Campo per il numero di telefono. */
     @FXML
     private TextField telRist;
+
+    /** Campo per l'URL del sito del ristorante. */
     @FXML
     private TextField UrlRist;
+
+    /** Campo per i servizi offerti. */
     @FXML
     private TextField serviceRist;
+
+    /** Campo per la descrizione. */
     @FXML
     private TextField descriptionRist;
+
+    /** Campo per le stelle (valutazione). */
     @FXML
     private TextField starsRist;
+
+    /** ToggleGroup per indicare se è disponibile la consegna a domicilio. */
     @FXML
     private ToggleGroup DeliveryToggleGroup;
+
+    /** ToggleGroup per indicare se è possibile prenotare. */
     @FXML
     private ToggleGroup BookingToggleGroup;
 
 
     //Prendo i dati dalla sessione
+    /** Istanza singleton della sessione utente. */
     SessionManager session = SessionManager.getInstance();
+
+    /** Username attuale dell’utente loggato. */
     private final String user = session.getUsername();
+
+    /** ID univoco dell’utente loggato. */
     private final int id = session.getUserId();
+
+    /** Ruolo dell’utente loggato (ristoratore, cliente, admin...). */
     private final String ruolo = session.getRuolo();
 
+    /**
+     * Esegue il logout dell’utente corrente.
+     */
     public void handleLogOut(ActionEvent event) {
         super.handleLogOut(event);
     }
-
+    /**
+     * Chiude il programma in modo sicuro.
+     */
     @Override
     public void closeProgram(ActionEvent event) {
         super.closeProgram(event);
     }
-
+    /**
+     * Metodo inizializzatore chiamato automaticamente al caricamento della GUI.
+     */
     @FXML
     public void initialize() {
-        welcomeLabel.setText("AGGIUNGI UN RISTORANTE " + user + "");
+        welcomeLabel.setText("AGGIUNGI UN RISTORANTE");
         System.out.println("Utente: "+user+ " Id: "+id+" Ruolo: "+ruolo);
     }
-
+    /**
+     * Torna alla schermata precedente dei ristoranti.
+     */
     @FXML
     protected void goBack(ActionEvent event) throws IOException {
         super.goTo(event, "ristorantiRist.fxml");
     }
-
+    /**
+     * Naviga alla pagina profilo del ristoratore.
+     */
     @FXML
     protected void onProfileClick(ActionEvent event) throws IOException {
         super.onProfileClick(event);
     }
+    /**
+     * Naviga alla lista dei ristoranti gestiti dal ristoratore.
+     */
     @FXML
     protected void onRistorantiClick(ActionEvent event) throws IOException {
         super.onRistorantiClick(event);
     }
+    /**
+     * Metodo chiamato al click del pulsante "Aggiungi Ristorante".
+     * <p>
+     * Recupera i dati dal form, li valida, genera un ID,
+     * ottiene le coordinate geografiche, crea l’oggetto {@link Ristorante}
+     * e lo salva nel file JSON.
+     * </p>
+     */
     @FXML
     protected void handleAddRist(ActionEvent event) throws IOException {
         int Id = generaId("ristoranti.json");
@@ -102,8 +164,7 @@ public class newRestaurantController extends dashBoardRistController {
         String price = priceRist.getText();
         price = price.trim();
         InputValidator.validaPrezzo(price);
-        String cousine = cousineRist.getText();
-        cousine = cousine.trim();
+        String cousine = cousineRist.getValue();
         InputValidator.validaCucina(cousine);
         String tel = telRist.getText();
         tel.trim();
@@ -138,7 +199,7 @@ public class newRestaurantController extends dashBoardRistController {
             b = true;
         }
 
-        double[] coord = new double[2];
+        double[] coord;
         coord = coordinate(address);// latitudine in pos 0 e long in pos 1
         int stelle = Integer.parseInt(stars); // metto come intero il campo stelle
 
@@ -148,7 +209,9 @@ public class newRestaurantController extends dashBoardRistController {
         aggiungiRistorante(nuovo,"ristoranti.json");
         handleInput();
     }
-
+    /**
+     * Mostra un popup di conferma dopo l’inserimento corretto del nuovo ristorante.
+     */
     protected void handleInput() {
         //if(controllo che tutti gli input siano andati bene allora mando questo messaggio)
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -158,82 +221,32 @@ public class newRestaurantController extends dashBoardRistController {
         alert.showAndWait();
         //else mando un errore specifico su un tipo di input inserito dall'utente
     }
-
+    /**
+     * Genera un nuovo ID per un ristorante basato sul numero attuale di ristoranti presenti nel file.
+     *
+     * @param fileJson Percorso del file JSON.
+     * @return Il nuovo ID univoco.
+     */
     public static int generaId(String fileJson) {
 
         int count = 0;
 
         try {
             ObjectMapper mapper = new ObjectMapper();
-            // Legge l'albero JSON
+            mapper.registerModule(new JavaTimeModule());
             JsonNode root = mapper.readTree(new File(fileJson));
             JsonNode ristorantiNode = root.get("ristoranti");
-
             List<Ristorante> ristoranti = Arrays.asList(mapper.treeToValue(ristorantiNode, Ristorante[].class));// Deserializza in List<Ristorante>
-            List<Ristorante> listaModificabile = new ArrayList<>(ristoranti);// Converte in lista modificabile
 
-            for (Ristorante r : listaModificabile) {
-                if (r.id!=0) {
-                    count++;
-                }
-            }
+            count=ristoranti.size() +1;
 
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return count+1;
+        return count;
     }
 
-    public static double[] coordinate(String indirizzo) {
-        double[] coord = new double[2];
-        try {
-            String encodedAddress = URLEncoder.encode(indirizzo, "UTF-8");
-            String urlStr = "https://nominatim.openstreetmap.org/search?q=" + encodedAddress + "&format=json";
 
-            URL url = new URL(urlStr);
-            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-            conn.setRequestProperty("User-Agent", "JavaGeocoder/1.0"); // Nominatim richiede user-agent
-            conn.setRequestMethod("GET");
-
-            BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-            StringBuilder response = new StringBuilder();
-            String line;
-            while ((line = in.readLine()) != null) {
-                response.append(line);
-            }
-            in.close();
-
-            ObjectMapper objectMapper = new ObjectMapper();
-            JsonNode results = objectMapper.readTree(response.toString());
-
-            if (results.isArray() && results.size() > 0) {
-                JsonNode firstResult = results.get(0);
-                double lat = firstResult.get("lat").asDouble();
-                double lon = firstResult.get("lon").asDouble();
-                coord[0] = lat;
-                coord[1] = lon;
-            } else {
-                System.out.println("Nessun risultato trovato.");
-            }
-
-        } catch (UnsupportedEncodingException ex) {
-            throw new RuntimeException(ex);
-        } catch (ProtocolException ex) {
-            throw new RuntimeException(ex);
-        } catch (MalformedURLException ex) {
-            throw new RuntimeException(ex);
-        } catch (JsonMappingException ex) {
-            throw new RuntimeException(ex);
-        } catch (JsonProcessingException ex) {
-            throw new RuntimeException(ex);
-        } catch (IOException ex) {
-            throw new RuntimeException(ex);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return coord;
-    }
 
 
 }

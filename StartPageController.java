@@ -26,54 +26,35 @@ import java.net.*;
 import java.util.*;
 
 import static com.example.the_knife.Utente.SessionManager.idRist;
-
-
 /**
- * Controller principale per la schermata iniziale dell'applicazione The_Knife.
- *
- * Gestisce la logica di inizializzazione della UI, applicazione dei filtri
- * di ricerca per i ristoranti, visualizzazione dei risultati, gestione dei preferiti
- * e navigazione tra pagine di dettaglio e recensioni.
+ * Controller della schermata iniziale dell'applicazione.
+ * Si occupa dell'inizializzazione dell'interfaccia, della gestione dei filtri e della ricerca dei ristoranti.
  */
 public class StartPageController {
-
-
-    /** ListView che mostra i ristoranti trovati o consigliati all'utente. */
+    /**
+     * ListView per visualizzare i ristoranti disponibili.
+     */
     @FXML
     private ListView<Ristorante> listaRistLabel;
-
-    /** Campo di testo per inserire la città in cui cercare ristoranti. */
-    @FXML
-    private TextField cityField;
-
-    /** ComboBox per selezionare il tipo di cucina desiderato. */
-    @FXML
-    private ComboBox<String> cuisineBox;
-
-    /** ComboBox per selezionare la fascia di prezzo desiderata. */
-    @FXML
-    private ComboBox<String> priceBox;
-
-    /** ComboBox per selezionare se si desidera la consegna a domicilio. */
-    @FXML
-    private ComboBox<String> deliveryBox;
-
-    /** ComboBox per selezionare se si desidera prenotare online. */
-    @FXML
-    private ComboBox<String> bookingBox;
-
-    /** Pulsante per avviare la ricerca in base ai filtri selezionati. */
-    @FXML
-    private Button searchButton;
-
+    /** Campo per inserire la città desiderata. */
+    @FXML private TextField cityField;
+    /** ComboBox per selezionare il tipo di cucina. */
+    @FXML private ComboBox<String> cuisineBox;
+    /** ComboBox per selezionare la fascia di prezzo. */
+    @FXML private ComboBox<String> priceBox;
+    /** ComboBox per selezionare l'opzione delivery. */
+    @FXML private ComboBox<String> deliveryBox;
+    /** ComboBox per selezionare l'opzione di prenotazione. */
+    @FXML private ComboBox<String> bookingBox;
+    /** Bottone per avviare la ricerca. */
+    @FXML private Button searchButton;
 
     /**
-     * Metodo di inizializzazione della UI, viene chiamato automaticamente da JavaFX.
-     * Carica i ristoranti top 10, configura le icone e i filtri, e ripristina eventuali selezioni precedenti.
+     * Metodo chiamato automaticamente all'avvio della schermata.
+     * Inizializza i filtri, carica le immagini dei pulsanti e popola i dati iniziali.
      *
-     * @throws IOException se avviene un errore nella lettura dei file JSON.
+     * @throws IOException se avviene un errore nel caricamento dei file JSON.
      */
-
     @FXML
     private void initialize() throws IOException {
         top10Ristoranti("ristoranti.json","top10rist.json");
@@ -119,12 +100,12 @@ public class StartPageController {
         }
     }
 
-
     /**
-     * Mostra nella lista i ristoranti top 10 ordinati per recensione.
+     * Visualizza nella ListView i 10 ristoranti migliori letti da un file JSON,
+     * con pulsanti per accedere ai dettagli e recensioni e un'opzione per gestire i preferiti.
      *
-     * @param pagDettagli path del file FXML per la pagina di dettaglio ristorante.
-     * @param pagRecensioni path del file FXML per la pagina di recensioni ristorante.
+     * @param pagDettagli percorso alla pagina dettagli del ristorante
+     * @param pagRecensioni percorso alla pagina recensioni del ristorante
      */
     public void printListRistTop10(String pagDettagli,String pagRecensioni){
         try {
@@ -332,12 +313,16 @@ public class StartPageController {
             e.printStackTrace();
         }
     }
-
     /**
-     * Stampa nella lista i ristoranti trovati con i filtri impostati.
+     * Popola la {@link ListView} con i ristoranti trovati in base ai filtri applicati.
+     * <p>
+     * Ogni ristorante è visualizzato con nome, tipo di cucina, valutazione media,
+     * e tre pulsanti: per accedere ai dettagli, visualizzare le recensioni e gestire i preferiti.
+     * L'aspetto visivo è dinamico in base allo stato del ristorante e alla pagina corrente.
+     * </p>
      *
-     * @param pagDettagli path del file FXML per la pagina di dettaglio ristorante.
-     * @param pagRecensioni path del file FXML per la pagina di recensioni ristorante.
+     * @param pagDettagli    percorso alla pagina FXML dei dettagli del ristorante
+     * @param pagRecensioni  percorso alla pagina FXML delle recensioni del ristorante
      */
     public void printListRist(String pagDettagli,String pagRecensioni){
         try {
@@ -546,13 +531,17 @@ public class StartPageController {
             e.printStackTrace();
         }
     }
-
-
     /**
-     * Aggiunge il ristorante corrente ai preferiti dell'utente.
+     * Aggiunge il ristorante attualmente selezionato ai preferiti dell'utente loggato.
+     * <p>
+     * Il metodo legge il file JSON specificato, individua l'utente attuale,
+     * e aggiunge l'ID del ristorante (contenuto in {@link SessionManager#idRist})
+     * alla lista dei preferiti, se non già presente. Il file viene poi sovrascritto
+     * con i dati aggiornati.
+     * </p>
      *
-     * @param fileJson percorso del file JSON che contiene i dati utente.
-     * @throws IOException in caso di errore durante la lettura/scrittura del file.
+     * @param fileJson percorso del file JSON contenente l'elenco utenti
+     * @throws IOException se si verificano errori nella lettura o scrittura del file
      */
     public void addPrefe(String fileJson) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
@@ -585,12 +574,17 @@ public class StartPageController {
 
     }
 
-
     /**
-     * Rimuove il ristorante corrente dai preferiti dell'utente.
+     * Rimuove il ristorante attualmente selezionato dai preferiti dell'utente loggato.
+     * <p>
+     * Il metodo legge il file JSON specificato, individua l'utente attuale tramite
+     * {@link SessionManager#getInstance()}, e rimuove l'ID del ristorante selezionato
+     * (contenuto in {@link SessionManager#idRist}) dalla lista dei preferiti, se presente.
+     * Se la rimozione ha successo, il file viene aggiornato con i dati modificati.
+     * </p>
      *
-     * @param fileJson percorso del file JSON che contiene i dati utente.
-     * @throws IOException in caso di errore durante la lettura/scrittura del file.
+     * @param fileJson percorso del file JSON contenente gli utenti con i preferiti
+     * @throws IOException se si verificano errori durante la lettura o scrittura del file
      */
     public void removePrefe(String fileJson) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
@@ -628,15 +622,17 @@ public class StartPageController {
         }
     }
 
-
-
     /**
-     * Recupera tutti i ristoranti gestiti da un determinato ristoratore.
+     * Restituisce la lista dei ristoranti associati a un determinato ristoratore.
+     * <p>
+     * Il metodo legge un file JSON contenente un array di ristoranti, filtra quelli
+     * il cui {@code idRistoratore} corrisponde all'ID fornito, e li restituisce come lista.
+     * </p>
      *
-     * @param fileRisto percorso del file JSON dei ristoranti.
-     * @param id ID del ristoratore.
-     * @return lista dei ristoranti gestiti dal ristoratore specificato.
-     * @throws IOException se il file non può essere letto.
+     * @param fileRisto percorso del file JSON contenente l'elenco dei ristoranti
+     * @param id        identificativo del ristoratore di cui si vogliono i ristoranti
+     * @return una lista di ristoranti gestiti dal ristoratore specificato
+     * @throws IOException se si verifica un errore nella lettura del file
      */
     public List<Ristorante> getRistoranti(String fileRisto, int id) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
@@ -656,11 +652,16 @@ public class StartPageController {
     }
 
     /**
-     * Restituisce la lista dei top ristoranti (es. i primi 10) da un file JSON.
+     * Restituisce la lista dei ristoranti contenuti in un file JSON.
+     * <p>
+     * Il metodo legge il file specificato, estrae il nodo {@code "ristoranti"},
+     * lo deserializza in oggetti {@link Ristorante}, e restituisce la lista completa.
+     * Questo metodo è tipicamente usato per recuperare i ristoranti migliori o filtrati precedentemente.
+     * </p>
      *
-     * @param fileRisto percorso del file contenente i ristoranti.
-     * @return lista dei ristoranti top.
-     * @throws IOException in caso di errore nella lettura del file.
+     * @param fileRisto percorso del file JSON contenente l'elenco dei ristoranti
+     * @return una lista di oggetti {@link Ristorante} letti dal file
+     * @throws IOException se si verifica un errore nella lettura del file o nel parsing del JSON
      */
     public List<Ristorante> getRistorantiTop(String fileRisto) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
@@ -673,13 +674,16 @@ public class StartPageController {
         mieiRisto.addAll(ristoranti);
         return mieiRisto;
     }
-
-
     /**
-     * Passa alla schermata di login.
+     * Gestisce la transizione alla schermata di login dell'applicazione.
+     * <p>
+     * Questo metodo viene chiamato da un'azione dell'interfaccia utente (es. click su un bottone)
+     * e carica il file FXML della login, impostando la scena corrente su quella nuova.
+     * Imposta inoltre dimensioni fisse e disattiva la modalità massimizzata per la finestra.
+     * </p>
      *
-     * @param event evento che ha generato l'azione.
-     * @throws IOException se il file FXML non è stato caricato correttamente.
+     * @param event l'evento generato dal componente che ha attivato l'azione
+     * @throws IOException se si verifica un errore nel caricamento del file FXML
      */
     @FXML
     private void goToLogin(ActionEvent event) throws IOException {
@@ -703,13 +707,16 @@ public class StartPageController {
             e.printStackTrace();
         }
     }
-
     /**
-     * Passa a una schermata indicata dal percorso FXML.
+     * Cambia la scena attuale dell'applicazione caricando il file FXML specificato.
+     * <p>
+     * Questo metodo è generico e consente la navigazione verso qualsiasi pagina FXML,
+     * impostando la nuova scena con dimensioni fisse e disabilitando il ridimensionamento della finestra.
+     * </p>
      *
-     * @param event evento generato dal bottone.
-     * @param location path del file FXML da caricare.
-     * @throws IOException se il caricamento fallisce.
+     * @param event    l'evento che ha originato la richiesta di cambio scena (es. click su un bottone)
+     * @param location il percorso relativo del file FXML da caricare (es. {@code "/path/to/page.fxml"})
+     * @throws IOException se il file FXML non può essere caricato correttamente
      */
     @FXML
     public void goTo(ActionEvent event, String location) throws IOException{
@@ -734,34 +741,40 @@ public class StartPageController {
         }
     }
 
-
     /**
-     * Chiude il programma.
+     * Chiude l'applicazione in modo immediato.
+     * <p>
+     * Questo metodo viene tipicamente invocato da un'azione dell'interfaccia utente,
+     * come la pressione di un pulsante "Esci" o "Chiudi". Termina l'intera JVM con codice di uscita 0.
+     * </p>
      *
-     * @param event evento generato dalla pressione del bottone \"Chiudi\".
+     * @param event l'evento associato al componente UI che ha attivato la chiusura
      */
     @FXML
     public void closeProgram(ActionEvent event) {
         System.exit(0);
     }
-
     /**
-     * Esegue la ricerca e aggiorna la lista in base ai filtri selezionati.
+     * Gestisce il click sul pulsante di ricerca.
+     * <p>
+     * Quando l'utente avvia una ricerca, questo metodo azzera il contatore dei risultati
+     * memorizzato in {@link SessionManager#counter}, quindi richiama il metodo
+     * {@code printListRist} per visualizzare i ristoranti filtrati sulla base dei criteri selezionati.
+     * Utilizza pagine FXML specifiche per la visualizzazione dei dettagli e delle recensioni dei risultati della ricerca.
+     * </p>
      */
-
     @FXML
     private void onSearchClicked() {
         SessionManager.counter = 0; // reset per applicare nuovi filtri
         printListRist("dettaglioRistoranteSearch.fxml","recensioneRistoranteSearch.fxml");
     }
 
-
     /**
-     * Calcola i top 10 ristoranti da un file e li salva in un nuovo file JSON.
+     * Mostra i 10 ristoranti più votati da un file JSON sorgente e li salva in un altro file.
      *
-     * @param fileJson file di origine contenente tutti i ristoranti.
-     * @param filetop10 file di destinazione per i top 10.
-     * @throws IOException se qualcosa va storto durante la scrittura.
+     * @param fileJson il file JSON contenente i ristoranti totali
+     * @param filetop10 il file dove salvare i top 10 ristoranti
+     * @throws IOException se avviene un errore di lettura o scrittura
      */
     public void top10Ristoranti(String fileJson, String filetop10) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
@@ -772,7 +785,7 @@ public class StartPageController {
         JsonNode tuttiRistNode = rootR.get("ristoranti");
         List<Ristorante> tuttiRist = Arrays.asList(mapper.treeToValue(tuttiRistNode, Ristorante[].class));
 
-        // Ordina tutti i ristoranti (presumo per rating medio)
+        // Ordina tutti i ristoranti
         ordinaRist(tuttiRist); // Assicurati che funzioni!
 
         // Prendi i primi 10
@@ -785,17 +798,30 @@ public class StartPageController {
     }
 
     /**
-     * Ordina una lista di ristoranti in base alla media recensioni e numero recensioni.
+     * Ordina la lista di ristoranti in base a un criterio definito dal metodo {@code quickSort}.
+     * <p>
+     * Il criterio di ordinamento dipende dall'implementazione di {@code quickSort},
+     * che può basarsi su valutazione, nome, prezzo o altri attributi.
+     * L'ordinamento avviene in-place sulla lista passata come parametro.
+     * </p>
      *
-     * @param risultati lista dei ristoranti da ordinare.
+     * @param risultati la lista di ristoranti da ordinare
      */
     public void ordinaRist(List<Ristorante> risultati) {
         quickSort(risultati, 0, risultati.size() - 1);
     }
 
-
     /**
-     * Implementa l’algoritmo di ordinamento QuickSort.
+     * Ordina ricorsivamente una lista di ristoranti utilizzando l'algoritmo QuickSort.
+     * <p>
+     * L'ordinamento viene effettuato in-place tra gli indici {@code low} e {@code high}.
+     * Il criterio di confronto utilizzato è definito nel metodo {@code partition}, tipicamente basato
+     * su una proprietà del ristorante come la valutazione media.
+     * </p>
+     *
+     * @param lista la lista di ristoranti da ordinare
+     * @param low   indice iniziale del sottoarray da ordinare
+     * @param high  indice finale del sottoarray da ordinare
      */
     private void quickSort(List<Ristorante> lista, int low, int high) {
         if (low < high) {
@@ -804,10 +830,22 @@ public class StartPageController {
             quickSort(lista, pivotIndex + 1, high);
         }
     }
-
-
     /**
-     * Implementa l’algoritmo di ordinamento QuickSort.
+     * Partiziona la lista di ristoranti per l'algoritmo QuickSort secondo un criterio di ordinamento decrescente.
+     * <p>
+     * Il criterio di confronto è il seguente:
+     * <ul>
+     *   <li>Priorità più alta alla {@code media recensioni} ({@code getMediaRec()})</li>
+     *   <li>In caso di parità, viene usato il numero di recensioni ({@code getNumRec()}) come discriminante secondario</li>
+     * </ul>
+     * Entrambi i confronti sono in ordine decrescente. Alla fine del metodo, tutti gli elementi con priorità maggiore
+     * o uguale al pivot si troveranno prima del pivot nella lista.
+     * </p>
+     *
+     * @param lista la lista di ristoranti da partizionare
+     * @param low   indice iniziale del sottoarray
+     * @param high  indice finale del sottoarray (che rappresenta il pivot)
+     * @return la posizione finale del pivot dopo la partizione
      */
     private int partition(List<Ristorante> lista, int low, int high) {
         Ristorante pivot = lista.get(high); // Usiamo l'intero oggetto per confrontare entrambi i campi
@@ -826,12 +864,17 @@ public class StartPageController {
         Collections.swap(lista, i + 1, high);
         return i + 1;
     }
-
     /**
-     * Aggiunge un nuovo ristorante al file JSON esistente.
+     * Aggiunge un nuovo ristorante alla lista memorizzata in un file JSON.
+     * <p>
+     * Il metodo gestisce sia il caso in cui il file esista ed abbia già dati,
+     * sia quello in cui il file sia vuoto o non esista ancora. Il nuovo ristorante
+     * viene aggiunto all'array JSON sotto il campo {@code "ristoranti"} e il file viene
+     * sovrascritto con la versione aggiornata.
+     * </p>
      *
-     * @param nuovo oggetto Ristorante da aggiungere.
-     * @param fileJson file di destinazione JSON.
+     * @param nuovo    il ristorante da aggiungere alla lista
+     * @param fileJson il percorso del file JSON contenente la lista di ristoranti
      */
     public static void aggiungiRistorante(Ristorante nuovo, String fileJson) {
         try {
@@ -876,14 +919,26 @@ public class StartPageController {
             e.printStackTrace();
         }
     }
-
+    /**
+     * Rimuove dal file JSON il ristorante il cui ID corrisponde a {@link SessionManager#idRist}.
+     * <p>
+     * Il metodo legge un file JSON che contiene un array di ristoranti nel campo {@code "ristoranti"},
+     * cerca il ristorante con l'ID corrispondente all'ID memorizzato in {@link SessionManager#idRist},
+     * lo rimuove se presente, e riscrive il file con la lista aggiornata.
+     * Se il campo {@code "ristoranti"} è mancante o non è un array, il metodo non effettua alcuna operazione.
+     * </p>
+     *
+     * @param fileRisto il percorso del file JSON contenente la lista dei ristoranti
+     * @throws IOException se si verifica un errore durante la lettura o scrittura del file
+     */
     public static void removeRistorante(String fileRisto) throws IOException {
         ObjectMapper mapper = new ObjectMapper();    mapper.registerModule(new JavaTimeModule());
         JsonNode root = mapper.readTree(new File(fileRisto));
         JsonNode ristorantiNode = root.get("ristoranti");
         if (ristorantiNode == null || !ristorantiNode.isArray()) {
             System.out.println("Il campo 'ristoranti' non è presente o non è un array.");
-            return;    }
+            return;
+        }
         List<Ristorante> ristoranti = Arrays.asList(mapper.treeToValue(ristorantiNode, Ristorante[].class));
         List<Ristorante> listaModificabile = new ArrayList<>(ristoranti);
         boolean removed = false;    Iterator<Ristorante> iterator = listaModificabile.iterator();
@@ -891,20 +946,31 @@ public class StartPageController {
             Ristorante r = iterator.next();
             if (r.getId() == idRist) {
                 iterator.remove();
-                removed = true;        }
+                removed = true;
+            }
         }
-        if (removed) {        ObjectNode nuovoRoot = mapper.createObjectNode();
+        if (removed) {
+            ObjectNode nuovoRoot = mapper.createObjectNode();
             nuovoRoot.set("ristoranti", mapper.valueToTree(listaModificabile));
             mapper.writerWithDefaultPrettyPrinter().writeValue(new File(fileRisto), nuovoRoot);
-            System.out.println("File JSON aggiornato correttamente.");    } else {
-            System.out.println("Nessuna modifica effettuata nel file.");    }
+            System.out.println("File JSON aggiornato correttamente.");
+        } else {
+            System.out.println("Nessuna modifica effettuata nel file.");
+        }
     }
 
     /**
-     * Esegue una ricerca dei ristoranti in base ai filtri attivi.
+     * Esegue la ricerca dei ristoranti in base ai filtri selezionati dall'utente nell'interfaccia grafica.
+     * <p>
+     * I filtri includono: città, tipo di cucina, fascia di prezzo, disponibilità del servizio di delivery
+     * e possibilità di prenotazione online. Se è la prima ricerca effettuata nella sessione
+     * ({@code SessionManager.counter == 0}), i filtri correnti vengono salvati in variabili statiche
+     * per essere riutilizzati in ricerche successive. I risultati vengono ordinati secondo un criterio
+     * definito nel metodo {@code ordinaRist} (tipicamente per valutazione).
+     * </p>
      *
-     * @return lista dei ristoranti corrispondenti.
-     * @throws IOException se si verifica un errore nella lettura del file.
+     * @return una lista di ristoranti che soddisfano i criteri di ricerca selezionati
+     * @throws IOException se si verifica un errore nella lettura del file JSON dei ristoranti
      */
     @FXML
     public List<Ristorante> cercaRist() throws IOException {
@@ -937,22 +1003,37 @@ public class StartPageController {
                 System.out.println(r.getMediaRec());
             }
             return listaRist;
-        }
+    }
 
     /**
-     * Cerca i ristoranti che corrispondono ai parametri passati.
+     * Filtra e restituisce una lista di ristoranti che soddisfano i criteri di ricerca specificati.
      *
-     * @param fileJson file contenente i ristoranti.
-     * @param luogoOrName città o nome del ristorante.
-     * @param tipoCucina tipo di cucina.
-     * @param fasciaPrezzo fascia di prezzo.
-     * @param delivery true se si desidera consegna a domicilio.
-     * @param servizioOnline true se si desidera prenotazione online.
-     * @return lista dei ristoranti filtrati.
-     * @throws IOException in caso di errore nella lettura.
+     * <p>Il metodo legge i ristoranti da un file JSON e applica una serie di filtri:</p>
+     * <ul>
+     *     <li>Ricerca esatta per nome del ristorante (prioritaria)</li>
+     *     <li>Tipo di cucina</li>
+     *     <li>Fascia di prezzo</li>
+     *     <li>Disponibilità del servizio di delivery</li>
+     *     <li>Disponibilità del servizio di prenotazione online</li>
+     *     <li>Prossimità geografica entro 100 km, se è stato fornito un luogo valido</li>
+     * </ul>
+     *
+     * <p>
+     * Se il campo {@code luogoOrName} corrisponde esattamente al nome di un ristorante,
+     * il metodo restituisce immediatamente solo quel risultato.
+     * </p>
+     *
+     * @param fileJson       percorso al file JSON contenente la lista dei ristoranti
+     * @param luogoOrName    nome del ristorante da cercare o città per la geolocalizzazione
+     * @param tipoCucina     tipo di cucina richiesto (es. "Italiana", "Cinese"), {@code null} per ignorare
+     * @param fasciaPrezzo   fascia di prezzo (es. "€", "€€€"), {@code null} per ignorare
+     * @param delivery       {@code true} se si desiderano solo ristoranti con servizio delivery
+     * @param servizioOnline {@code true} se si desiderano solo ristoranti prenotabili online
+     * @return una lista di ristoranti che soddisfano i criteri specificati
+     * @throws IOException se si verifica un errore nella lettura del file JSON
      */
-    public List<Ristorante> cercaRistoranti(String fileJson, String luogoOrName, String tipoCucina, String fasciaPrezzo,
-                                            boolean delivery, boolean servizioOnline) throws IOException {
+    public List<Ristorante> cercaRistoranti(String fileJson, String luogoOrName, String tipoCucina,
+                                            String fasciaPrezzo, boolean delivery, boolean servizioOnline) throws IOException {
 
         ObjectMapper mapper = new ObjectMapper();
         mapper.registerModule(new JavaTimeModule());
@@ -961,44 +1042,51 @@ public class StartPageController {
         List<Ristorante> ristoranti = Arrays.asList(mapper.treeToValue(ristorantiNode, Ristorante[].class));
         List<Ristorante> risultati = new ArrayList<>();
 
-        double[] coordinateLuogo = null;
-        if (luogoOrName != null && !luogoOrName.isBlank()) {
-            coordinateLuogo = coordinate(luogoOrName);  // CHIAMATA UNA SOLA VOLTA!
-        }
+        boolean haLuogo = luogoOrName != null && !luogoOrName.isBlank();
+        double[] coordinateLuogo = haLuogo ? coordinate(luogoOrName) : null;
 
         for (Ristorante r : ristoranti) {
-            System.out.println(delivery + " " + servizioOnline);
-            if (luogoOrName != null && luogoOrName.equalsIgnoreCase(r.getName())) {
-                risultati.clear();
-                risultati.add(r);
-                return risultati;
+            // Match per nome esatto → priorità massima, restituisco solo quello
+            if (haLuogo && luogoOrName.equalsIgnoreCase(r.getName())) {
+                return List.of(r);
             }
+
+            // Filtri base
             if (tipoCucina != null && !r.getCuisine().equalsIgnoreCase(tipoCucina)) continue;
             if (fasciaPrezzo != null && !r.getPrice().equalsIgnoreCase(fasciaPrezzo)) continue;
-            if (delivery != r.isDelivery()) continue;
-            if (servizioOnline != r.isBookingOnline()) continue;
+            if (r.isDelivery() != delivery) continue;
+            if (r.isBookingOnline() != servizioOnline) continue;
 
+            // Filtro per distanza (se coordinate valide)
             if (coordinateLuogo != null && coordinateLuogo[0] != 0 && coordinateLuogo[1] != 0) {
                 double distanzaKm = calcolaDistanzaKm(coordinateLuogo[0], coordinateLuogo[1], r.getLatitude(), r.getLongitude());
                 if (distanzaKm <= 100) {
                     risultati.add(r);
                 }
             } else {
-                risultati.add(r); // fallback se coordinate non trovate
+                risultati.add(r); // fallback se coordinate non disponibili
             }
         }
 
         return risultati;
     }
 
+
+
     /**
-     * Calcola la distanza in chilometri tra due coordinate geografiche.
+     * Calcola la distanza in chilometri tra due punti geografici sulla superficie terrestre
+     * usando la formula dell'Haversine.
+     * <p>
+     * I punti sono definiti tramite latitudine e longitudine in gradi decimali.
+     * Il risultato rappresenta la distanza approssimata tra i due punti seguendo
+     * la superficie terrestre (geodetica).
+     * </p>
      *
-     * @param lat1 latitudine punto A.
-     * @param lon1 longitudine punto A.
-     * @param lat2 latitudine punto B.
-     * @param lon2 longitudine punto B.
-     * @return distanza in km.
+     * @param lat1 latitudine del primo punto (in gradi)
+     * @param lon1 longitudine del primo punto (in gradi)
+     * @param lat2 latitudine del secondo punto (in gradi)
+     * @param lon2 longitudine del secondo punto (in gradi)
+     * @return la distanza approssimativa in chilometri tra i due punti
      */
     public double calcolaDistanzaKm(double lat1, double lon1, double lat2, double lon2) {
         final int R = 6371; // Raggio della terra in km
@@ -1010,12 +1098,18 @@ public class StartPageController {
         double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
         return R * c;
     }
-
     /**
-     * Ottiene le coordinate (latitudine e longitudine) di un indirizzo testuale usando il servizio OpenStreetMap.
+     * Ottiene le coordinate geografiche (latitudine e longitudine) di un indirizzo testuale
+     * utilizzando il servizio di geocodifica di OpenStreetMap (Nominatim).
+     * <p>
+     * L'indirizzo viene codificato e passato a un endpoint HTTP. Se la risposta JSON contiene
+     * risultati validi, il metodo restituisce un array contenente la latitudine e la longitudine
+     * del risultato più rilevante (priorità: città, paese, villaggio).
+     * In caso di errore o risultato assente, l'array restituito conterrà valori pari a 0.
+     * </p>
      *
-     * @param indirizzo nome o descrizione del luogo.
-     * @return array contenente latitudine e longitudine.
+     * @param indirizzo l'indirizzo o nome della città da convertire in coordinate geografiche
+     * @return un array di double dove {@code [0]} è la latitudine e {@code [1]} è la longitudine
      */
     public static double[] coordinate(String indirizzo) {
         double[] coord = new double[2];

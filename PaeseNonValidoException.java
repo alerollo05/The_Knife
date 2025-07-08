@@ -1,27 +1,23 @@
 package com.example.the_knife.Exceptions;
-
 /**
- * Eccezione runtime lanciata quando il nome di un paese (città, località o regione)
- * inserito dall'utente non è valido o non è accettato dal sistema.
- * <p>
- * Questa eccezione è utile durante la validazione di input geografici,
- * ad esempio nella ricerca di ristoranti o nella registrazione di un locale.
- * </p>
+ * Eccezione personalizzata che segnala l'inserimento di un paese non valido
+ * durante la registrazione o modifica del profilo utente o ristorante.
  *
- * Esempio d'uso:
- * <pre>
- * if (!listaPaesiValidi.contains(inputPaese)) {
- *     throw new PaeseNonValidoException("Il paese inserito non è valido.");
- * }
- * </pre>
+ * <p>Questa eccezione viene sollevata quando il nome del paese non rispetta
+ * i criteri di validazione, ad esempio:</p>
+ * <ul>
+ *   <li>Paese nullo o vuoto</li>
+ *   <li>Contiene caratteri non ammessi</li>
+ *   <li>Non è tra quelli supportati dall'applicazione</li>
+ * </ul>
+ *
+ * <p>Estende {@link RuntimeException}, pertanto non è obbligatorio gestirla esplicitamente con `try-catch`.</p>
  */
 public class PaeseNonValidoException extends RuntimeException {
-
     /**
-     * Costruisce una nuova eccezione {@code PaeseNonValidoException}
-     * con il messaggio di errore specificato.
+     * Costruisce una nuova eccezione {@code PaeseNonValidoException} con il messaggio specificato.
      *
-     * @param message descrizione dell'errore
+     * @param message messaggio descrittivo dell'errore relativo al paese non valido.
      */
     public PaeseNonValidoException(String message) {
         super(message);

@@ -1,27 +1,20 @@
 package com.example.the_knife.Exceptions;
-
 /**
- * Eccezione runtime lanciata quando l'utente tenta di impostare
- * una nuova password uguale a quella attualmente in uso.
- * <p>
- * Utile per rafforzare le politiche di sicurezza, forzando l'utente
- * a scegliere una password diversa durante il cambio credenziali.
- * </p>
+ * Eccezione personalizzata che viene lanciata quando la vecchia password fornita
+ * da un utente non corrisponde a quella attualmente registrata nel sistema.
  *
- * Esempio d'uso:
- * <pre>
- * if (nuovaPassword.equals(vecchiaPassword)) {
- *     throw new VecchiaPasswordException("La nuova password non può essere uguale a quella precedente.");
- * }
- * </pre>
+ * <p>Questa eccezione viene solitamente utilizzata durante il processo di cambio
+ * password, per evitare che l'utente imposti una nuova password senza aver
+ * confermato correttamente quella attuale.</p>
+ *
+ * <p>Estende {@link RuntimeException} per permettere la propagazione non controllata
+ * nei flussi in cui non si vuole forzare la gestione con blocchi try-catch.</p>
  */
 public class VecchiaPasswordException extends RuntimeException {
-
     /**
-     * Costruisce una nuova eccezione {@code VecchiaPasswordException}
-     * con il messaggio di errore specificato.
+     * Costruisce una nuova eccezione con un messaggio personalizzato.
      *
-     * @param message messaggio descrittivo dell'errore
+     * @param message Il messaggio di errore che descrive la causa dell'eccezione.
      */
     public VecchiaPasswordException(String message) {
         super(message);

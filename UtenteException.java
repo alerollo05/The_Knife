@@ -1,27 +1,21 @@
 package com.example.the_knife.Exceptions;
-
 /**
- * Eccezione generica lanciata per errori relativi agli utenti.
- * <p>
- * Può essere estesa o utilizzata come base per rappresentare problemi comuni
- * legati alla gestione degli utenti, come errori di autenticazione,
- * registrazione, profilo non trovato, dati incoerenti, ecc.
- * </p>
+ * Eccezione personalizzata generica utilizzata per segnalare errori legati alle
+ * operazioni sugli utenti nel sistema.
  *
- * Esempio d'uso:
- * <pre>
- * if (utente == null) {
- *     throw new UtenteException("Utente non trovato.");
- * }
- * </pre>
+ * <p>Questa eccezione può essere lanciata, ad esempio, quando si verifica un errore
+ * durante la registrazione, il login, la modifica del profilo o altre operazioni
+ * che coinvolgono un oggetto utente.</p>
+ *
+ * <p>Estende {@link RuntimeException} per consentire la propagazione automatica senza
+ * obbligo di gestione con blocchi {@code try-catch}, utile nei contesti dove si preferisce
+ * una gestione centralizzata degli errori.</p>
  */
 public class UtenteException extends RuntimeException {
-
     /**
-     * Costruisce una nuova eccezione {@code UtenteException}
-     * con il messaggio di errore specificato.
+     * Costruisce una nuova eccezione {@code UtenteException} con un messaggio personalizzato.
      *
-     * @param message messaggio descrittivo dell'errore
+     * @param message Il messaggio di errore che descrive la causa dell'eccezione.
      */
     public UtenteException(String message) {
         super(message);

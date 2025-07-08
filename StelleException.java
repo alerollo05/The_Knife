@@ -1,28 +1,20 @@
 package com.example.the_knife.Exceptions;
-
 /**
- * Eccezione runtime lanciata quando il numero di stelle fornito per una recensione
- * non rientra nell'intervallo accettato dal sistema.
- * <p>
- * Solitamente il numero di stelle deve essere compreso tra 1 e 5.
- * Questa eccezione consente di bloccare valori non validi in fase di input.
- * </p>
+ * Eccezione personalizzata lanciata quando il numero di stelle di un ristorante
+ * inserito o modificato non è valido.
  *
- * Esempio d'uso:
- * <pre>
+ * <p>Questa eccezione può essere utilizzata per segnalare condizioni in cui il valore
+ * delle stelle supera i limiti consentiti (es. da 0 a 3), è negativo, non numerico
+ * o non coerente con la logica dell'applicazione.</p>
  *
- *  Lancia l'eccezione se le stelle non sono comprese tra 1 e 5.
- *  {@code if (stelle < 1 || stelle > 5)}
- *
- * </pre>
+ * <p>Estende {@link RuntimeException}, pertanto può essere lanciata senza
+ * necessità di dichiarazione o gestione obbligatoria con blocchi {@code try-catch}.</p>
  */
 public class StelleException extends RuntimeException {
-
     /**
-     * Costruisce una nuova eccezione {@code StelleException}
-     * con il messaggio di errore specificato.
+     * Costruisce una nuova eccezione {@code StelleException} con il messaggio specificato.
      *
-     * @param message descrizione dell'errore da mostrare
+     * @param message Messaggio descrittivo dell'errore relativo al numero di stelle.
      */
     public StelleException(String message) {
         super(message);

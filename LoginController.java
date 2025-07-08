@@ -1,3 +1,4 @@
+
 package com.example.the_knife;
 
 import com.example.the_knife.Exceptions.*;
@@ -22,262 +23,347 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+
 /**
- * Controller per la gestione del login e della registrazione dell'utente.
- * Gestisce la visibilità delle password, la validazione dei campi e
- * la comunicazione con il file JSON degli utenti.
+ * Controller per la gestione del login e della registrazione degli utenti.
+ * <p>
+ * Estende {@link StartPageController} e gestisce tutte le operazioni relative all'autenticazione:
+ * <ul>
+ *     <li>Login sicuro con password hashata tramite BCrypt</li>
+ *     <li>Registrazione di nuovi utenti</li>
+ *     <li>Validazione input</li>
+ *     <li>Interfaccia con il file JSON degli utenti</li>
+ * </ul>
  */
 public class LoginController extends StartPageController {
-
-    // FXML - Campi legati alla GUI
-    @FXML private TextField usernameField;
-    @FXML private TextField userRegister;
-    @FXML private TextField nomeField;
-    @FXML private TextField cognomeField;
-    @FXML private ToggleGroup ruoloToggleGroup;
-    @FXML private TextField numTel;
-    @FXML private DatePicker dataNascita;
-    @FXML private TextField indirizzo;
-    @FXML private TextField emailField;
-    @FXML private RadioButton ruolo;
+    //creo le variabili che mi servono per immagazzinare i dati che l'utente immette in input
+    /** Campo per l'username durante il login */
+    @FXML
+    private TextField usernameField;
+    /** Campo per l'username durante la registrazione */
+    @FXML
+    private TextField userRegister;
+    /** Campo per il nome */
+    @FXML
+    private TextField nomeField;
+    /** Campo per il cognome */
+    @FXML
+    private TextField cognomeField;
+    /** Gruppo di toggle per la scelta del ruolo (Cliente o Ristoratore) */
+    @FXML
+    private ToggleGroup ruoloToggleGroup;
+    /** Campo per il numero di telefono */
+    @FXML
+    private TextField numTel;
+    /** DatePicker per la data di nascita */
+    @FXML
+    private DatePicker dataNascita;
+    /** Campo per l'indirizzo */
+    @FXML
+    private TextField indirizzo;
+    /** Campo per l'email */
+    @FXML
+    private TextField emailField;
+    /** RadioButton per selezionare il ruolo */
+    @FXML
+    private RadioButton ruolo;
+    /** Campo password registrazione (nascosta) */
     @FXML private PasswordField passRegister;
+    /** Campo password registrazione (visibile) */
     @FXML private TextField passRegisterVisible;
+    /** Checkbox per mostrare/nascondere password registrazione */
     @FXML private CheckBox showPasswordCheckBox;
+    /** Campo password login (nascosta) */
     @FXML private PasswordField passwordField;
+    /** Campo password login (visibile) */
     @FXML private TextField passwordFieldVisible;
+    /** Checkbox per mostrare/nascondere password login */
     @FXML private CheckBox showLoginPasswordCheckBox;
 
     /**
-     * Inizializza lo stato della schermata: reset contatori, imposta toggle visibilità password, carica icone.
+     * Inizializza il controller configurando il comportamento dei checkbox per mostrare/nascondere
+     * le password, associazioni tra campi visibili e invisibili e reset dei contatori di sessione.
      *
-     * @throws IOException se le icone non vengono caricate correttamente.
+     * @throws IOException se si verifica un errore di I/O durante la lettura di risorse
      */
-    public void initialize() throws IOException {
+    public void initialize() throws IOException{
+        // Password registrazione a scomparsa
         SessionManager.counter = 0;
         SessionManager.counter1 = 0;
         SessionManager.counter2 = 0;
 
         passRegisterVisible.textProperty().bindBidirectional(passRegister.textProperty());
+        //BOTTONE PREFETITI
+        //CARICO LE IMMAGINI DI ICONA PER IL BOTTONE DEI PREFERITI
 
         Image occhioAperto = new Image(getClass().getResource("/com/example/the_knife/icone/occhioAperto.png").toExternalForm());
         Image occhioChiuso = new Image(getClass().getResource("/com/example/the_knife/icone/occhioChiuso.png").toExternalForm());
 
-        ImageView iconView = new ImageView();
+        ImageView iconView = new ImageView();//creo l'immagine visibile in nel bottone quando poi gli assegnerò le due immagini
         iconView.setFitWidth(24);
-        iconView.setFitHeight(24);
-        iconView.setImage(occhioChiuso);
+        iconView.setFitHeight(24);//setto il ridimensionamento
+        iconView.setImage(occhioChiuso); // Stato iniziale
         showPasswordCheckBox.setGraphic(iconView);
         showPasswordCheckBox.selectedProperty().addListener((obs, oldVal, selected) -> {
             passRegister.setVisible(!selected);
             passRegister.setManaged(!selected);
-            iconView.setImage(selected ? occhioAperto : occhioChiuso);
-            showPasswordCheckBox.setGraphic(iconView);
+            if (!selected) {
+                 iconView.setImage(occhioChiuso); //imposto inizialmente il bottone cuore pieno o vuoto in base a com'è prima della modifiche
+                showPasswordCheckBox.setGraphic(iconView);
+            } else {
+                iconView.setImage(occhioAperto); //imposto inizialmente il bottone cuore pieno o vuoto in base a com'è prima della modifiche
+                showPasswordCheckBox.setGraphic(iconView);
+            }
             passRegisterVisible.setVisible(selected);
             passRegisterVisible.setManaged(selected);
         });
 
-        ImageView iconView2 = new ImageView();
+        // Password Login a scomparsa
+        ImageView iconView2 = new ImageView();//creo l'immagine visibile in nel bottone quando poi gli assegnerò le due immagini
         iconView2.setFitWidth(24);
-        iconView2.setFitHeight(24);
-        iconView2.setImage(occhioChiuso);
+        iconView2.setFitHeight(24);//setto il ridimensionamento
+        iconView2.setImage(occhioChiuso); // Stato iniziale
         showLoginPasswordCheckBox.setGraphic(iconView2);
         passwordFieldVisible.textProperty().bindBidirectional(passwordField.textProperty());
         showLoginPasswordCheckBox.selectedProperty().addListener((obs, oldVal, selected) -> {
             passwordField.setVisible(!selected);
             passwordField.setManaged(!selected);
-            iconView2.setImage(selected ? occhioAperto : occhioChiuso);
-            showLoginPasswordCheckBox.setGraphic(iconView2);
+            if (!selected) {
+                iconView2.setImage(occhioChiuso); //imposto inizialmente il bottone cuore pieno o vuoto in base a com'è prima della modifiche
+                showLoginPasswordCheckBox.setGraphic(iconView2);
+            } else {
+                iconView2.setImage(occhioAperto); //imposto inizialmente il bottone cuore pieno o vuoto in base a com'è prima della modifiche
+                showLoginPasswordCheckBox.setGraphic(iconView2);
+            }
             passwordFieldVisible.setVisible(selected);
             passwordFieldVisible.setManaged(selected);
         });
     }
-
     /**
-     * Gestisce il login controllando username e password con hash BCrypt.
+     * Gestisce il processo di login.
+     * Valida le credenziali, autentica l'utente, crea una sessione e reindirizza alla dashboard.
      *
-     * @param event Evento generato dal pulsante di login.
-     * @throws Exception in caso di errori di accesso al file JSON.
+     * @param event evento che ha attivato il login
+     * @throws Exception se si verifica un errore durante il processo di autenticazione
      */
     @FXML
     private void handleLogin(ActionEvent event) throws Exception {
+        //METODI CHE CHIAMO
+
+        //DEFINIZIONE handleLogin
         String user = usernameField.getText();
         String pass = passwordField.getText();
 
-        Utente utente = login(user, pass);
+        Utente utente = new Utente();
+        utente= login(user,pass);//faccio la login con i dati inseriti
 
-        if (utente != null && utente.getRuolo().equals("Cliente")) {
+        //CREO LA SESSIONE
+
+        if(utente != null && utente.getRuolo().equals("Cliente")){
             SessionManager.getInstance().login(user, utente.getId(), "cliente");
-            goTo(event, "Cliente/dashBoardClient.fxml");
-        } else if (utente != null && utente.getRuolo().equals("Ristoratore")) {
+            goTo(event,"Cliente/dashBoardClient.fxml");//vado alla pagina del cliente
+        }else if(utente != null && utente.getRuolo().equals("Ristoratore")){
             SessionManager.getInstance().login(user, utente.getId(), "ristoratore");
-            goTo(event, "Ristoratore/dashBoardRist.fxml");
+            goTo(event,"Ristoratore/dashBoardRist.fxml");//vado alla pagina del ristoratore
         }
-    }
 
+    }
     /**
-     * Chiude il programma.
+     * Chiude l'applicazione.
      *
-     * @param event Evento associato alla chiusura del programma.
+     * @param event evento generato dal clic su un bottone di uscita
      */
     @FXML
     public void closeProgram(ActionEvent event) {
         System.exit(0);
     }
-
     /**
-     * Gestisce la registrazione utente dopo validazione dei campi e salvataggio nel file.
+     * Gestisce il processo di registrazione utente, valida i dati e aggiorna il file JSON degli utenti.
+     * Crea un nuovo utente e lo salva se i dati sono validi.
      */
     @FXML
     public void handleRegister() {
+
+        //METODI CHE CHIAMO
         handleRadio();
-
-        String newUser = userRegister.getText().trim();
+        //DEFINIZIONE handleRegister
+        String newUser = userRegister.getText();
+        newUser = newUser.trim();//tolgo gli spazi esterni alla stinga inserita in input dall'utente
         InputValidator.validaUsername(newUser);
-
-        String newPass = passRegister.getText().trim();
+        String newPass = passRegister.getText();
+        newPass = newPass.trim();
         InputValidator.validaPassword(newPass);
-
-        String name = nomeField.getText().trim();
+        String name = nomeField.getText();
+        name = name.trim();
         InputValidator.validaNomeUte(newUser);
-
-        String cognome = cognomeField.getText().trim();
+        String cognome = cognomeField.getText();
+        cognome = cognome.trim();
         InputValidator.validaCogno(cognome);
-
-        String numerotel = numTel.getText().trim().replaceAll("[\\s-]", "");
+        String numerotel = numTel.getText();
+        numerotel = numerotel.trim();
+        numerotel = numerotel.replaceAll("[\\s-]","");
         InputValidator.validaTelefono(numerotel);
-
-        String indirizzo = this.indirizzo.getText().trim();
+        String indirizzo = this.indirizzo.getText();
+        indirizzo = indirizzo.trim();
         InputValidator.validaIndirizzo(indirizzo);
-
         LocalDate DataNascita = dataNascita.getValue();
-
         RadioButton ruolo = (RadioButton) this.ruoloToggleGroup.getSelectedToggle();
         String role = ruolo.getText();
-
         String newEmail = emailField.getText();
         InputValidator.validaEmail(newEmail);
 
+
+
+        // Codifica della password
         newPass = generaHash(passRegister.getText());
 
         try {
-            Utente nuovo = new Utente(name, cognome, indirizzo, newUser, newEmail, newPass, DataNascita, numerotel, role, generaId(role, "fileUtenti.json"), null);
+            Utente nuovo = new Utente(name,cognome,indirizzo,newUser,newEmail,newPass,DataNascita,numerotel,role,generaId(role,"fileUtenti.json"),null);
             aggiungiUtente(nuovo, "fileUtenti.json");
+
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        System.out.println("Ruolo: " + ruolo.getText());
+        System.out.println(ruolo.getText());
+        System.out.println("Registration successful");
+        System.out.println("Riepilogo:");
+        System.out.println("Username: "+newUser +"\nPassword: "+newPass+"\nNome: "+name+"\nCognome:" +cognome+"\nNumero di telefono: "+numerotel+"\nData di nascita: "+DataNascita+"\nIndirizzo: "+indirizzo);
+
+
     }
 
     /**
-     * Genera un ID per l’utente in base al ruolo.
+     * Genera un ID univoco per un nuovo utente, basandosi sul numero di ristoratori esistenti.
      *
-     * @param ruolo Ruolo dell’utente (Cliente o Ristoratore).
-     * @param fileJson Percorso del file JSON.
-     * @return ID generato.
+     * @param ruolo il ruolo dell'utente (Cliente o Ristoratore)
+     * @param fileJson il percorso del file JSON degli utenti
+     * @return il nuovo ID generato
      */
     public static int generaId(String ruolo, String fileJson) {
-        if (ruolo.equalsIgnoreCase("Cliente")) return 0;
+
+        if(ruolo.equalsIgnoreCase("Cliente")){
+            return 0;
+        }
 
         int count = 0;
+
         try {
-            ObjectMapper mapper = new ObjectMapper();
-            mapper.registerModule(new JavaTimeModule());
-            File file = new File(fileJson);
+            ObjectMapper mapper = new ObjectMapper();// Crea un'istanza di ObjectMapper
+            mapper.registerModule(new com.fasterxml.jackson.datatype.jsr310.JavaTimeModule());
+            File file = new File(fileJson);// Crea un oggetto File per rappresentare il file JSON passato come parametro
 
-            if (!file.exists()) return 0;
-
-            JsonNode root = mapper.readTree(file);
-            List<Utente> listaModificabile = new ArrayList<>();
-
-            JsonNode utentiNode = root.get("Utenti");
-
-            if (utentiNode != null && utentiNode.isArray()) {
-                Utente[] utentiArray = mapper.treeToValue(utentiNode, Utente[].class);
-                listaModificabile = new ArrayList<>(Arrays.asList(utentiArray));
+            if (!file.exists()) {
+                System.out.println("File non trovato: " + file.getAbsolutePath());
+                return 0;
             }
 
+            JsonNode root = mapper.readTree(file);// Legge l'intero contenuto del file come un albero JSON
+
+            List<Utente> listaModificabile = new ArrayList<>();// Prepara una lista modificabile di Utente (vuota per ora)
+
+            JsonNode utentiNode = root.get("Utenti"); // Recupera il nodo "Utenti" dall'albero JSON
+
+            if (utentiNode != null && utentiNode.isArray()) {
+                Utente[] utentiArray = mapper.treeToValue(utentiNode, Utente[].class); // Converte l'array JSON in un array Java di oggetti Utente
+                listaModificabile = new ArrayList<>(Arrays.asList(utentiArray)); // Converte l'array in una lista modificabile
+            }
+
+            count = 0;
             for (Utente u : listaModificabile) {
                 if (u.getRuolo().equalsIgnoreCase("Ristoratore")) {
                     count++;
                 }
             }
 
+
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return count+1;
 
-        return count + 1;
     }
-
     /**
-     * Mostra in console il ruolo selezionato nel form di registrazione.
+     * Gestisce la selezione del ruolo tramite radio button.
+     * Stampa il ruolo selezionato sulla console.
      */
     @FXML
     private void handleRadio() {
-        RadioButton selected = (RadioButton) ruoloToggleGroup.getSelectedToggle();
+        RadioButton selected = (RadioButton) ruoloToggleGroup.getSelectedToggle(); //casto il ruolo dal toggle group che ho definito nel file fxml
         if (selected != null) {
             System.out.println("Ruolo selezionato: " + selected.getText());
         }
     }
-
     /**
      * Torna alla schermata iniziale.
      *
-     * @param event Evento che genera il ritorno alla start page.
-     * @throws IOException se il file FXML non viene trovato.
+     * @param event evento associato all'azione dell'utente
+     * @throws IOException se il file FXML non è trovato o non leggibile
      */
     @FXML
     public void goToStartPage(ActionEvent event) throws IOException {
-        goTo(event, "startPage.fxml");
+        goTo(event,"startPage.fxml");
     }
-
     /**
-     * Cifra una password in hash BCrypt.
+     * Converte una password normale in una password hashata tramite algoritmo BCrypt.
      *
-     * @param passwordNormal Password in chiaro.
-     * @return Password cifrata con BCrypt.
+     * @param passwordNormal la password in chiaro da cifrare
+     * @return la password cifrata in formato hash
      */
+    // Metodo per convertire password in pawword cifrata
     public static String generaHash(String passwordNormal) {
         return BCrypt.hashpw(passwordNormal, BCrypt.gensalt());
     }
-
     /**
-     * Aggiunge un nuovo utente al file JSON.
+     * Aggiunge un nuovo utente alla lista nel file JSON.
+     * Valida se l'utente è già registrato e, in caso contrario, aggiorna il file con i nuovi dati.
      *
-     * @param nuovo Nuovo utente da aggiungere.
-     * @param fileJson Percorso del file JSON.
+     * @param nuovo l'oggetto Utente da salvare
+     * @param fileJson il file JSON da aggiornare
      */
-    public void aggiungiUtente(Utente nuovo, String fileJson) {
+    // Metodo per aggiungere un nuovo utente al file degli Utenti
+    public  void aggiungiUtente(Utente nuovo, String fileJson) {
         try {
-            ObjectMapper mapper = new ObjectMapper();
-            mapper.registerModule(new JavaTimeModule());
-            File file = new File(fileJson);
 
-            if (!file.exists()) return;
+            ObjectMapper mapper = new ObjectMapper();// Crea un'istanza di ObjectMapper
+            mapper.registerModule(new com.fasterxml.jackson.datatype.jsr310.JavaTimeModule());
+            File file = new File(fileJson);// Crea un oggetto File per rappresentare il file JSON passato come parametro
 
-            ListaUtenti lista = mapper.readValue(file, ListaUtenti.class);
+            if (!file.exists()) {
+                System.out.println("File non trovato: " + file.getAbsolutePath());
+                return;
+            }
 
-            for (Utente u : lista.Utenti) {
-                if (u.getUsername().equalsIgnoreCase(nuovo.getUsername())) {
+            ListaUtenti lista = mapper.readValue(new File(fileJson), ListaUtenti.class);
+
+            for(Utente u : lista.Utenti){
+                if(u.getUsername().equalsIgnoreCase(nuovo.getUsername())){
                     handleInput("Errore", "Utente già registrato");
                     throw new UtenteException("Utente già registrato");
                 }
             }
 
-            JsonNode root = mapper.readTree(file);
-            List<Utente> listaModificabile = new ArrayList<>();
+            JsonNode root = mapper.readTree(file);// Legge l'intero contenuto del file come un albero JSON
 
-            JsonNode utentiNode = root.get("Utenti");
+            List<Utente> listaModificabile = new ArrayList<>();// Prepara una lista modificabile di Utente (vuota per ora)
+
+            JsonNode utentiNode = root.get("Utenti"); // Recupera il nodo "Utenti" dall'albero JSON
+
+            // Se il nodo esiste e contiene un array
             if (utentiNode != null && utentiNode.isArray()) {
-                Utente[] utentiArray = mapper.treeToValue(utentiNode, Utente[].class);
-                listaModificabile = new ArrayList<>(Arrays.asList(utentiArray));
+                Utente[] utentiArray = mapper.treeToValue(utentiNode, Utente[].class); // Converte l'array JSON in un array Java di oggetti Utente
+                listaModificabile = new ArrayList<>(Arrays.asList(utentiArray)); // Converte l'array in una lista modificabile
             }
 
-            listaModificabile.add(nuovo);
-            ObjectNode nuovoRoot = mapper.createObjectNode();
-            nuovoRoot.set("Utenti", mapper.valueToTree(listaModificabile));
-            mapper.writerWithDefaultPrettyPrinter().writeValue(file, nuovoRoot);
+            listaModificabile.add(nuovo); // Aggiunge il nuovo utente alla lista
+
+            System.out.println("Utente '" + nuovo.getNome() + "' registrato con successo.");
+
+            ObjectNode nuovoRoot = mapper.createObjectNode();// Crea un nuovo oggetto JSON vuoto (root)
+
+            nuovoRoot.set("Utenti", mapper.valueToTree(listaModificabile));// Imposta il nodo "Utenti" con la lista aggiornata di utenti convertita in JSON
+
+            mapper.writerWithDefaultPrettyPrinter().writeValue(file, nuovoRoot);// Scrive l'albero JSON aggiornato nel file, sovrascrivendolo con formattazione leggibile
 
             handleInput();
 
@@ -285,57 +371,65 @@ public class LoginController extends StartPageController {
             e.printStackTrace();
         }
     }
-
     /**
-     * Esegue il login dell'utente verificando l'hash della password.
+     * Esegue il login sicuro confrontando le credenziali inserite con quelle memorizzate (BCrypt).
      *
-     * @param username Username inserito.
-     * @param passwordInserita Password in chiaro.
-     * @return Utente autenticato, altrimenti null.
-     * @throws Exception in caso di errore di lettura del file JSON.
+     * @param username l'username inserito
+     * @param passwordInserita la password in chiaro inserita
+     * @return l'oggetto {@link Utente} autenticato, o {@code null} se le credenziali sono errate
+     * @throws Exception se si verifica un errore durante il processo
      */
-    public Utente login(String username, String passwordInserita) throws Exception {
-        ObjectMapper mapper = new ObjectMapper();
-        mapper.registerModule(new JavaTimeModule());
-        ListaUtenti lista = mapper.readValue(new File("fileUtenti.json"), ListaUtenti.class);
+    // Metodo per login sicuro con BCrypt
+    public  Utente login(String username, String passwordInserita) throws Exception {
+        ObjectMapper mapper = new ObjectMapper(); // Crea un oggetto ObjectMapper di Jackson per la deserializzazione JSON
+        mapper.registerModule(new JavaTimeModule()); // Registra un modulo per la gestione corretta di LocalDate e altri tipi Java Time
+        ListaUtenti lista = mapper.readValue(new File("fileUtenti.json"), ListaUtenti.class); // Deserializza il file JSON in un oggetto ListaUtenti
 
         for (Utente u : lista.Utenti) {
+            // Se l'username corrisponde
             if (u.getUsername().equals(username)) {
+                // Verifica sicura della password usando BCrypt
+                // (confronta la password inserita con l'hash salvato nel file)
                 if (BCrypt.checkpw(passwordInserita, u.getPassword())) {
                     System.out.println("Login riuscito per utente: " + u.getUsername());
-                    return u;
+                    return u; // Restituisce l'utente loggato
                 } else {
                     handleInput("Errore", "Password errata per utente: " + u.getUsername());
+                    System.err.println("Password errata per utente: " + u.getUsername());
                     return null;
                 }
             }
         }
         handleInput("Errore", "Username non trovato");
+        System.err.println("Username non trovato");
         return null;
     }
-
     /**
-     * Mostra un messaggio di successo generico (informativo).
+     * Mostra un messaggio informativo in seguito a una registrazione completata con successo.
      */
     protected void handleInput() {
+        //if(controllo che tutti gli input siano andati bene allora mando questo messaggio)
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Registrazione");
         alert.setHeaderText("Ti sei registrato correttamente");
         alert.setContentText("I tuoi dati sono stati salvati...");
         alert.showAndWait();
+        //else mando un errore specifico su un tipo di input inserito dall'utente
     }
-
     /**
      * Mostra un messaggio di errore personalizzato.
      *
-     * @param message1 Titolo dell'errore.
-     * @param message2 Descrizione dell'errore.
+     * @param message1 titolo dell'errore
+     * @param message2 contenuto dettagliato dell'errore
      */
-    protected void handleInput(String message1, String message2) {
+    protected void handleInput(String message1,String message2) {
+        //if(controllo che tutti gli input siano andati bene allora mando questo messaggio)
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Registrazione");
         alert.setHeaderText(message1);
         alert.setContentText(message2);
         alert.showAndWait();
+        //else mando un errore specifico su un tipo di input inserito dall'utente
     }
+
 }

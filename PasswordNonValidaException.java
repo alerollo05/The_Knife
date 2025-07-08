@@ -1,27 +1,23 @@
 package com.example.the_knife.Exceptions;
-
 /**
- * Eccezione runtime lanciata quando la password fornita non rispetta
- * i criteri di validazione richiesti dal sistema.
- * <p>
- * I criteri possono includere lunghezza minima, presenza di numeri,
- * lettere maiuscole, caratteri speciali, ecc.
- * </p>
+ * Eccezione personalizzata lanciata quando la password inserita
+ * non rispetta i criteri di validazione definiti dall'applicazione.
  *
- * Esempio d'uso:
- * <pre>
- * if (!password.matches(PASSWORD_REGEX)) {
- *     throw new PasswordNonValidaException("La password non è valida.");
- * }
- * </pre>
+ * <p>Questa eccezione viene utilizzata per segnalare errori come:</p>
+ * <ul>
+ *   <li>Password troppo corta o troppo lunga</li>
+ *   <li>Assenza di caratteri speciali, lettere maiuscole/minuscole o numeri</li>
+ *   <li>Formato non conforme ai requisiti di sicurezza</li>
+ * </ul>
+ *
+ * <p>Estende {@link RuntimeException}, quindi è un'eccezione non controllata
+ * che può essere lanciata senza obbligo di dichiarazione nel metodo chiamante.</p>
  */
 public class PasswordNonValidaException extends RuntimeException {
-
     /**
-     * Costruisce una nuova eccezione {@code PasswordNonValidaException}
-     * con il messaggio specificato.
+     * Costruisce una nuova eccezione {@code PasswordNonValidaException} con un messaggio specifico.
      *
-     * @param message descrizione dettagliata dell'errore
+     * @param message Messaggio descrittivo dell'errore di validazione della password.
      */
     public PasswordNonValidaException(String message) {
         super(message);
